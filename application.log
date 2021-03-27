@@ -1,0 +1,60 @@
+<<<<<<< HEAD
+20:02 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:02 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:02 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Application just started 19 
+20:05 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:05 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:05 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Application just started 19 
+20:06 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:06 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Application just started 19 
+20:07 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:07 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Application just started 19 
+20:07 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:07 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Application just started 19 
+20:08 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 65 
+20:08 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 65 
+20:08 14/Mar/2021 ERROR :com.cg.onlineshopping.exception.AlreadyExistsException[<init>] Product with same name exists. 29 
+20:08 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 56 
+20:08 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[updateProduct] Existing product updated in the Database 74 
+20:08 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 82 
+20:08 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+20:09 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[deleteProduct] Controller Triggered 91 
+20:10 14/Mar/2021 INFO :com.cg.onlineshopping.controller.LoginRestController[addUser] New User added into the Database 48 
+20:10 14/Mar/2021 INFO :com.cg.onlineshopping.controller.LoginRestController[addUser] New User added into the Database 48 
+20:11 14/Mar/2021 INFO :com.cg.onlineshopping.controller.LoginRestController[validateUser] Validating user 69 
+20:12 14/Mar/2021 INFO :com.cg.onlineshopping.controller.LoginRestController[signOut] User signed out successfully 80 
+20:13 14/Mar/2021 INFO :com.cg.onlineshopping.controller.CustomerRestController[createCustomer] New customer added into the Database 58 
+20:13 14/Mar/2021 INFO :com.cg.onlineshopping.controller.CustomerRestController[showCustomerById] Controller Triggered 91 
+20:13 14/Mar/2021 INFO :com.cg.onlineshopping.controller.CustomerRestController[updateCustomer] Existing customer updated in the Database 70 
+20:13 14/Mar/2021 INFO :com.cg.onlineshopping.controller.CustomerRestController[deleteCustomer] Controller Triggered 80 
+20:13 14/Mar/2021 INFO :com.cg.onlineshopping.controller.AddressRestController[createAddress] New address added into the Database 58 
+20:14 14/Mar/2021 INFO :com.cg.onlineshopping.controller.AddressRestController[showAddressById] Controller Triggered 90 
+20:14 14/Mar/2021 INFO :com.cg.onlineshopping.controller.AddressRestController[showAddressById] Controller Triggered 90 
+20:14 14/Mar/2021 INFO :com.cg.onlineshopping.controller.AddressRestController[deleteAddress] Controller Triggered 78 
+20:19 14/Mar/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[addOrder] New order added into the Database 56 
+20:20 14/Mar/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewOrder] Order displayed by ID 84 
+20:20 14/Mar/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrder] All the orders in the database are displayed 92 
+20:20 14/Mar/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrdersByAddressId] View All Orders based On Address ID 109 
+20:21 14/Mar/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrdersCustomer] View All Orders based On Customer ID 117 
+20:21 14/Mar/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[removeOrder] Existing Order deleted in the Database 75 
+20:23 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:23 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Application just started 19 
+20:34 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:34 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:34 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Application just started 19 
+20:43 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 63 
+=======
+18:45 14/Mar/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[addOrder] New order added into the Database 56 
+18:54 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 63 
+18:54 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 55 
+19:01 14/Mar/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[addOrder] New order added into the Database 56 
+19:02 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 63 
+19:03 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 55 
+19:04 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[updateProduct] Existing product updated in the Database 71 
+19:04 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 78 
+19:04 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 94 
+20:29 14/Mar/2021 INFO :com.cg.onlineshopping.controller.CartRestController[addProductToCart] Added All Products to Cart Database 48 
+20:32 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Before starting the application 17 
+20:32 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Application just started 19 
+>>>>>>> 01ed539f4d90fbe53ed1732f5ef026d4f0f399cd
+21:06 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 55 

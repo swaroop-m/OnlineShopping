@@ -1,0 +1,16 @@
+com/cg/onlineshopping/test/CartServiceTest.java
+ com.cg.onlineshopping.test.CartServiceTest
+com/cg/onlineshopping/test/UserTest.java
+ com.cg.onlineshopping.test.UserTest
+com/cg/os/test/ProductTest.java
+ com.cg.os.test.ProductTest
+com/cg/onlineshopping/test/CustomerTest.java
+ com.cg.onlineshopping.test.CustomerTest
+com/cg/onlineshopping/test/OrderModuleTest.java
+ com.cg.onlineshopping.test.OrderModuleTest
+com/cg/onlineshopping/test/ProductServiceTest.java
+ com.cg.onlineshopping.test.ProductServiceTest
+com/cg/onlineshopping/OnlineShoppingApplicationTests.java
+ com.cg.onlineshopping.OnlineShoppingApplicationTests
+com/cg/onlineshopping/test/AddressTest.java
+ com.cg.onlineshopping.test.AddressTest

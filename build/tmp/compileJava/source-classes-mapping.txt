@@ -1,0 +1,92 @@
+com/cg/onlineshopping/config/SwaggerConfig.java
+ com.cg.onlineshopping.config.SwaggerConfig
+com/cg/onlineshopping/service/ILoginServiceImpl.java
+ com.cg.onlineshopping.service.ILoginServiceImpl
+com/cg/onlineshopping/entities/Order.java
+ com.cg.onlineshopping.entities.Order
+com/cg/onlineshopping/service/IProductService.java
+ com.cg.onlineshopping.service.IProductService
+com/cg/onlineshopping/repository/ILoginRepository.java
+ com.cg.onlineshopping.repository.ILoginRepository
+com/cg/onlineshopping/repository/ICustomerRepository.java
+ com.cg.onlineshopping.repository.ICustomerRepository
+com/cg/onlineshopping/service/ICartService.java
+ com.cg.onlineshopping.service.ICartService
+com/cg/onlineshopping/repository/ICartRepository.java
+ com.cg.onlineshopping.repository.ICartRepository
+com/cg/onlineshopping/service/ILoginService.java
+ com.cg.onlineshopping.service.ILoginService
+com/cg/onlineshopping/entities/Customer.java
+ com.cg.onlineshopping.entities.Customer
+com/cg/onlineshopping/exception/ValidationException.java
+ com.cg.onlineshopping.exception.ValidationException
+com/cg/onlineshopping/entities/Cart.java
+ com.cg.onlineshopping.entities.Cart
+com/cg/onlineshopping/exception/NotAUserException.java
+ com.cg.onlineshopping.exception.NotAUserException
+com/cg/onlineshopping/controller/CartRestController.java
+ com.cg.onlineshopping.controller.CartRestController
+com/cg/onlineshopping/controller/LoginRestController.java
+ com.cg.onlineshopping.controller.LoginRestController
+com/cg/onlineshopping/entities/User.java
+ com.cg.onlineshopping.entities.User
+com/cg/onlineshopping/exception/NotFoundException.java
+ com.cg.onlineshopping.exception.NotFoundException
+com/cg/onlineshopping/exception/ExceptionResponse.java
+ com.cg.onlineshopping.exception.ExceptionResponse
+com/cg/onlineshopping/exception/ProductIdNotInCartException.java
+ com.cg.onlineshopping.exception.ProductIdNotInCartException
+com/cg/onlineshopping/service/ICustomerServiceImplementation.java
+ com.cg.onlineshopping.service.ICustomerServiceImplementation
+com/cg/onlineshopping/exception/NoProductFoundInCartException.java
+ com.cg.onlineshopping.exception.NoProductFoundInCartException
+com/cg/onlineshopping/service/ICartServiceImplementation.java
+ com.cg.onlineshopping.service.ICartServiceImplementation
+com/cg/onlineshopping/OnlineShoppingApplication.java
+ com.cg.onlineshopping.OnlineShoppingApplication
+com/cg/onlineshopping/entities/Product.java
+ com.cg.onlineshopping.entities.Product
+com/cg/onlineshopping/controller/OrderRestController.java
+ com.cg.onlineshopping.controller.OrderRestController
+com/cg/onlineshopping/controller/AddressRestController.java
+ com.cg.onlineshopping.controller.AddressRestController
+com/cg/onlineshopping/exception/CartIsAlreadyEmptyException.java
+ com.cg.onlineshopping.exception.CartIsAlreadyEmptyException
+com/cg/onlineshopping/exception/DeletionException.java
+ com.cg.onlineshopping.exception.DeletionException
+com/cg/onlineshopping/service/ICustomerService.java
+ com.cg.onlineshopping.service.ICustomerService
+com/cg/onlineshopping/service/IOrderService.java
+ com.cg.onlineshopping.service.IOrderService
+com/cg/onlineshopping/service/IAddressService.java
+ com.cg.onlineshopping.service.IAddressService
+com/cg/onlineshopping/service/ProductServiceImpl.java
+ com.cg.onlineshopping.service.ProductServiceImpl
+com/cg/onlineshopping/exception/ProductNotFoundException.java
+ com.cg.onlineshopping.exception.ProductNotFoundException
+com/cg/onlineshopping/service/IAddressServiceImplementation.java
+ com.cg.onlineshopping.service.IAddressServiceImplementation
+com/cg/onlineshopping/exception/AlreadyExistsException.java
+ com.cg.onlineshopping.exception.AlreadyExistsException
+com/cg/onlineshopping/service/IOrderServiceImplementation.java
+ com.cg.onlineshopping.service.IOrderServiceImplementation
+com/cg/onlineshopping/repository/IAddressRepository.java
+ com.cg.onlineshopping.repository.IAddressRepository
+com/cg/onlineshopping/repository/IOrderRepository.java
+ com.cg.onlineshopping.repository.IOrderRepository
+com/cg/onlineshopping/repository/ICategoryRepository.java
+ com.cg.onlineshopping.repository.ICategoryRepository
+com/cg/onlineshopping/controller/CustomerRestController.java
+ com.cg.onlineshopping.controller.CustomerRestController
+com/cg/onlineshopping/exception/CartNotFoundException.java
+ com.cg.onlineshopping.exception.CartNotFoundException
+com/cg/onlineshopping/exception/CustomizedResponseEntityExceptionHandler.java
+ com.cg.onlineshopping.exception.CustomizedResponseEntityExceptionHandler
+com/cg/onlineshopping/entities/Category.java
+ com.cg.onlineshopping.entities.Category
+com/cg/onlineshopping/repository/IProductRepository.java
+ com.cg.onlineshopping.repository.IProductRepository
+com/cg/onlineshopping/entities/Address.java
+ com.cg.onlineshopping.entities.Address
+com/cg/onlineshopping/controller/ProductRestController.java
+ com.cg.onlineshopping.controller.ProductRestController
