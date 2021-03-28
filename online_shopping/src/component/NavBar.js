@@ -1,15 +1,19 @@
 import React from 'react'
 import {Navbar, Nav , NavDropdown} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 class NavBar extends React.Component
 {
     render() {
         return ( 
             <Navbar bg="dark" variant="dark">
+                <Link to={"/"} className="navbar-brand">
                 <Navbar.Brand href="#"><img src="https://img.icons8.com/dusk/64/000000/shop.png" width="25" height="28" alt="Brand_Logo"/>Shopping</Navbar.Brand>
+                </Link>
                 <Nav className="mr-auto">
-                    <Nav.Link href="#">Home</Nav.Link>
-                    <Nav.Link href="#">Products</Nav.Link>
+                    <Link to={"/"} className="nav-link">Home</Link>
+                    <Link to={"addproduct"} className="nav-link">Add Products</Link>
+                    <Link to={"listproducts"} className="nav-link">Product List</Link>
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#">Category0</NavDropdown.Item>
                         <NavDropdown.Item href="#">Category1</NavDropdown.Item>
