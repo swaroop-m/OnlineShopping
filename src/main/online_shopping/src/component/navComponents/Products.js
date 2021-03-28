@@ -6,7 +6,6 @@ class Products extends Component {
             <div>
                 <h1 className="text-white">Products</h1>
                 <h1 className="text-white">View All Products</h1>
-
             </div>
         );
     }

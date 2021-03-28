@@ -10,8 +10,6 @@ class Orders extends Component {
                <h1 className="text-white">Customer</h1>
                <h1 className="text-white">Address</h1>
                <h1 className="text-white">Product list</h1>
-                
-
             </div>
         );
     }

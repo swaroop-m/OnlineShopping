@@ -5,7 +5,6 @@ class ContactUs extends Component {
         return (
             <div>
                 <h1 className="text-white">Contact us</h1>
-
             </div>
         );
     }
