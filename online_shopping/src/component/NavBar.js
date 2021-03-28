@@ -17,8 +17,8 @@ class NavBar extends React.Component
                     <NavDropdown.Item className="NavDropdown bg-dark text-white"><Link to={"addproduct"} className="nav-link">Add Product</Link></NavDropdown.Item>
                     <NavDropdown.Item className="NavDropdown bg-dark text-white"><Link to={"listproducts"} className="nav-link bg-dark text-white">Product List</Link></NavDropdown.Item>
                     </NavDropdown>  
-                    <Link to={"addproduct"} className="nav-link">Add Products</Link>
-                    <Link to={"listproducts"} className="nav-link">Product List</Link>
+                    {/* <Link to={"addproduct"} className="nav-link">Add Products</Link>
+                    <Link to={"listproducts"} className="nav-link">Product List</Link> */}
                     <Nav.Link href="#">Contact Us</Nav.Link>
                 </Nav>
                 <Nav className="justify-content-end" activeKey="/home">
