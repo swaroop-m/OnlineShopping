@@ -33,7 +33,7 @@ class NavBar extends React.Component
                             <NavDropdown.Item> <button className="btn btn-danger" align="center">SignOut</button></NavDropdown.Item>
                         </NavDropdown> */}
 
-                        <Link to={"#"} className="nav-link">Log in</Link> 
+                        <Link to={"Login"} className="nav-link">Log in</Link> 
                         <Link to={"Cart"} className="nav-link">Cart<AiOutlineShoppingCart size="1.5em"/></Link>     
                     </Nav>
                 </Navbar>
