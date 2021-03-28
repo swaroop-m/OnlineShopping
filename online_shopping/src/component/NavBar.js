@@ -1,6 +1,7 @@
 import React from 'react'
-import {Navbar, Nav , NavDropdown} from 'react-bootstrap'
+import {Navbar, Nav , NavDropdown, NavLink} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import {AiOutlineShoppingCart } from 'react-icons/ai'
 
 class NavBar extends React.Component
 {
@@ -12,27 +13,18 @@ class NavBar extends React.Component
                 </Link>
                 <Nav className="mr-auto">
                     <Link to={"/"} className="nav-link">Home</Link>
-                    <NavDropdown title="Product" id="basic-nav-dropdown"></NavDropdown>
+                    <NavDropdown title="Product" id="basic-nav-dropdown" className="bg-dark text-white"> 
+                    <NavDropdown.Item className="NavDropdown bg-dark text-white"><Link to={"addproduct"} className="nav-link">Add Product</Link></NavDropdown.Item>
+                    <NavDropdown.Item className="NavDropdown bg-dark text-white"><Link to={"listproducts"} className="nav-link bg-dark text-white">Product List</Link></NavDropdown.Item>
+                    </NavDropdown>  
                     <Link to={"addproduct"} className="nav-link">Add Products</Link>
                     <Link to={"listproducts"} className="nav-link">Product List</Link>
-                    <NavDropdown title="Categories" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#">Category0</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Category1</NavDropdown.Item>
-                        <NavDropdown.Item href="#">Category2</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#">Category3</NavDropdown.Item>
-                    </NavDropdown>
                     <Nav.Link href="#">Contact Us</Nav.Link>
                 </Nav>
                 <Nav className="justify-content-end" activeKey="/home">
                 
-                <NavDropdown title="Details" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#">User</NavDropdown.Item>
-                        <NavDropdown.Item href="#">About us</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#">Sign Out</NavDropdown.Item>
-                    </NavDropdown>
-                    <Nav.Link href="#"><img src="https://img.icons8.com/fluent/48/000000/favorite-cart.png" width="30" height="30"/></Nav.Link>     
+                <Link to={"#"} className="nav-link">Log in</Link> 
+                    <Link to={"Cart"} className="nav-link">Cart<AiOutlineShoppingCart size="1.5em"/></Link>    
                 </Nav>
             </Navbar>
         )
