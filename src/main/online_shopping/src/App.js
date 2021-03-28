@@ -2,12 +2,17 @@ import React from 'react'
 import './App.css'
 import NavBar from './component/NavBar'
 import { Container, Row, Col } from 'react-bootstrap'
-import Welcome from './component/Welcome'
 import Footer from './component/Footer'
-import CreateProduct from './component/product/CreateProduct'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Product from './component/product/Product'
 import ProductList from './component/product/ProductList'
+import Home from './component/navComponents/Home'
+import Cart from './component/navComponents/Cart'
+import ContactUs from './component/navComponents/ContactUs'
+import Orders from './component/navComponents/Orders'
+import User from './component/navComponents/User'
+import Address from './component/navComponents/Address'
+// import AboutUs from './component/navComponents/AboutUs'
 
 function App() {
 
@@ -15,13 +20,37 @@ function App() {
     marginTop: "20px"
   }
 
-  // const heading = "Welcome to Book Store";
-  // const quote = "Good friends, good books, and a sleepy conscience: this is the ideal life.";
-  // const footer = "Mark Twain";
-
   return (
     <Router>
-      {/* <Router>
+      <NavBar/>
+      <Container>
+        <Row>
+          <Col lg={12} style={marginTop}>
+          <Switch>
+              {/* <Route path="/AboutUs" exact component={AboutUs}/> */}
+              <Route path="/Home" exact component={Home}/>
+              <Route path="/addproduct" exact component={Product}/>
+              <Route path="/listproducts" exact component={ProductList}/>
+              <Route  path="/ContactUs" exact component={ContactUs}/>
+              <Route path="/orders" exact component={Orders}/>
+              <Route path="/User" exact component={User}/>
+              <Route path="/Address" exact component={Address}/>
+              <Route  path="/Cart" exact component={Cart}/>
+            </Switch>
+            {/* <CreateProduct />
+            <ProductList /> */}
+          </Col>
+        </Row>
+      </Container>
+      <Footer/>
+    </Router>
+  );
+}
+
+export default App
+
+
+{/* <Router>
         <NavBar />
         <Container>
           <Row>
@@ -43,23 +72,3 @@ function App() {
         </Container>
         <Footer />
       </Router> */}
-
-
-      <NavBar/>
-      <Container>
-        <Row>
-          <Col lg={12} style={marginTop}>
-            <Route path="/" exact component={Welcome}/>
-            <Route path="/addproduct" exact component={Product}/>
-            <Route path="/listproducts" exact component={ProductList}/>
-            {/* <CreateProduct />
-            <ProductList /> */}
-          </Col>
-        </Row>
-      </Container>
-      <Footer/>
-    </Router>
-  );
-}
-
-export default App
