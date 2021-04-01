@@ -29,7 +29,7 @@ class Product extends Component {
     render() {
         return (
             <div>
-                <Card className="border border-dark bg-dark text-white">
+                <Card className="border bg-light">
                 <Card.Header>
                         <FontAwesomeIcon icon={this.state.id ? faEdit : faPlusSquare} /> {this.state.id ? "Update Product" : "Add New Product"}
                     </Card.Header>
@@ -42,8 +42,8 @@ class Product extends Component {
                                         <Form.Control required
                                             type="test" name="productPhotoURL"
                                             // value={coverPhotoURL} onChange={this.bookChange}
-                                            className={"bg-dark text-white"}
-                                            placeholder="Enter Book Cover Photo URL" />
+                                            // className={"bg-dark text-white"}
+                                            placeholder="Enter Product Cover Photo URL" />
                                         {/* <InputGroup.Append>
                                     {this.state.coverPhotoURL !== '' && <Image src={this.state.coverPhotoURL} roundedRight width="40" height="38"/>}
                                 </InputGroup.Append> */}
@@ -57,7 +57,7 @@ class Product extends Component {
                                         type="test" name="productName"
                                         value={this.state.productName}
                                         onChange={this.productChange}
-                                        className={"bg-dark text-white"}
+                                        // className={"bg-dark text-white"}
                                         placeholder="Enter Product Name" />
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formGridDimension">
@@ -66,7 +66,7 @@ class Product extends Component {
                                         type="test" name="dimension"
                                         value={this.state.dimension}
                                         onChange={this.productChange}
-                                        className={"bg-dark text-white"}
+                                        // className={"bg-dark text-white"}
                                         placeholder="Enter Product Dimension" />
                                 </Form.Group>
                             </Form.Row>
@@ -77,7 +77,7 @@ class Product extends Component {
                                         type="test" name="specification"
                                         value={this.state.specification}
                                         onChange={this.productChange}
-                                        className={"bg-dark text-white"}
+                                        // className={"bg-dark text-white"}
                                         placeholder="Enter Product specification" />
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formGridManufacturer">
@@ -86,7 +86,7 @@ class Product extends Component {
                                         type="test" name="manufacturer"
                                         value={this.state.manufacturer}
                                         onChange={this.productChange}
-                                        className={"bg-dark text-white"}
+                                        // className={"bg-dark text-white"}
                                         placeholder="Enter Product manufacturer" />
                                 </Form.Group>
                             </Form.Row>
@@ -97,7 +97,7 @@ class Product extends Component {
                                         type="test" name="quantity"
                                         value={this.state.quantity}
                                         onChange={this.productChange}
-                                        className={"bg-dark text-white"}
+                                        // className={"bg-dark text-white"}
                                         placeholder="Enter Product quantity" />
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formGridPrice">
@@ -106,7 +106,7 @@ class Product extends Component {
                                         type="test" name="price"
                                         value={this.state.price}
                                         onChange={this.productChange}
-                                        className={"bg-dark text-white"}
+                                        // className={"bg-dark text-white"}
                                         placeholder="Enter Product price" />
                                 </Form.Group>
                             </Form.Row>
@@ -119,7 +119,7 @@ class Product extends Component {
                             <FontAwesomeIcon icon={faUndo} /> Reset
                             </Button>{' '}
                         <Button size="sm" variant="info" type="button" /*onClick={this.bookList.bind()}*/>
-                            <FontAwesomeIcon icon={faList} /> Book List
+                            <FontAwesomeIcon icon={faList} /> Product List
                             </Button>
                         </Card.Footer>
                     </Form>
