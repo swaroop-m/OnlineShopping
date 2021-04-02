@@ -31,7 +31,8 @@ class ProductList extends Component {
                     </Card.Header> */}
                     <Card.Body>
                         <h3><FontAwesomeIcon icon={faList} /> List of Products</h3>
-                        <Table bordered hover striped variant="light">
+                        <br />
+                        <Table bordered hover striped className="table-responsive" variant="light">
                             <thead className="bg-primary text-white text-center">
                                 <tr>
                                     <th>Image</th>
@@ -52,8 +53,8 @@ class ProductList extends Component {
                                         </tr> :
                                         this.state.products.map((product) => (
                                             <tr key={product.productId}>
-                                                <td className="text-center">
-                                                    <Image src={product.pictureUrl} roundedCircle width="75" height="100" /> {/*{product.productName}*/}
+                                                <td className="text-center align-middle">
+                                                    <Image src={product.pictureUrl} className="img-fluid rounded" width="60" height="65" /> {/*{product.productName}*/}
                                                 </td>
                                                 <td className="align-middle">{product.productName}</td>
                                                 <td className="align-middle">{product.dimension}</td>
@@ -65,7 +66,7 @@ class ProductList extends Component {
                                                     <ButtonGroup>
                                                         {/* <Link to={"edit/" + product.id} className="btn btn-sm btn-outline-primary"> */}
                                                         <Button size="md" variant="outline-primary rounded-0">
-                                                        <FontAwesomeIcon icon={faEdit} />
+                                                            <FontAwesomeIcon icon={faEdit} />
                                                         </Button>
                                                         {/* </Link> */}{' '} &nbsp;&nbsp;&nbsp;
                                                 <Button size="md" variant="outline-danger rounded-0" /*onClick={this.deleteBook.bind(this, product.id)}*/>

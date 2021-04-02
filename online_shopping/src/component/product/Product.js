@@ -33,10 +33,15 @@ class Product extends Component {
         axios.post("http://localhost:9000/api/saveproduct",product)
         .then(response => {
             if(response.data != null){
-            this.setState(this.initialState);
-            alert("Product saved successfully");
+                this.setState({"show":true});
+                setTimeout(() => this.setState({"show":false}), 3000);
+            }
+            else{
+                this.setState({"show":false});
             }
         });
+        this.setState(this.initialState);
+        //this.resetProduct();
     }
 
     resetProduct = () => {
