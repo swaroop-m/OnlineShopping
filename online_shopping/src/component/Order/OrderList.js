@@ -57,10 +57,9 @@ class OrderList extends Component {
                                                 <td>{order.productList}</td>
                                                 <td>
                                                     <ButtonGroup>
-                                                        {/* <Link to={"edit/" + product.id} className="btn btn-sm btn-outline-primary"> */}
                                                         <FontAwesomeIcon icon={faEdit} />
-                                                        {/* </Link> */}{' '} &nbsp;&nbsp;&nbsp;
-                                                <Button size="sm" variant="outline-danger" /*onClick={this.deleteBook.bind(this, product.id)}*/>
+                                                        {' '} &nbsp;&nbsp;&nbsp;
+                                                <Button size="sm" variant="outline-danger">
                                                             <FontAwesomeIcon icon={faTrash} />
                                                         </Button>
                                                     </ButtonGroup>
