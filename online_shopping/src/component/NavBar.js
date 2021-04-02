@@ -2,6 +2,7 @@ import React from 'react'
 import {Navbar, Nav , NavDropdown, NavLink} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import {AiOutlineShoppingCart } from 'react-icons/ai'
+import {RiCustomerService2Fill} from 'react-icons/ri'
 
 class NavBar extends React.Component
 {
@@ -20,12 +21,13 @@ class NavBar extends React.Component
                     </NavDropdown>  
                     {/* <Link to={"addproduct"} className="nav-link">Add Products</Link>
                     <Link to={"listproducts"} className="nav-link">Product List</Link> */}
-                     <Link to={"ContactUs"} className="nav-link">&emsp;Contact Us</Link>
+                     <Link to={"AboutUs"} className="nav-link">AboutUs</Link>
                 </Nav>
                 <Nav className="justify-content-end" activeKey="/home">
                 
                 <Link to={"#"} className="nav-link">Log in</Link> 
                     <Link to={"Cart"} className="nav-link">Cart<AiOutlineShoppingCart size="1.5em"/></Link>    
+                    <Link to={"ContactUs"} className="nav-link"><RiCustomerService2Fill/></Link>
                 </Nav>
             </Navbar>
         )
