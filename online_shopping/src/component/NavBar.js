@@ -14,7 +14,7 @@ class NavBar extends React.Component
                 <Nav className="mr-auto">
                     <Link to={"/"} className="nav-link">Home &emsp;</Link>
                     {/* bg-dark text-white */}
-                    <NavDropdown title="Product" id="basic-nav-dropdown" /*className="bg-dark text-white"*/> 
+                    <NavDropdown title="Product" id="basic-nav-dropdown" /*className="text-white"*/> 
                     <NavDropdown.Item className="NavDropdown"><Link to={"addproduct"} className="nav-link">Add Product</Link></NavDropdown.Item>
                     <NavDropdown.Item className="NavDropdown"><Link to={"listproducts"} className="nav-link">Product List</Link></NavDropdown.Item>
                     </NavDropdown>  
