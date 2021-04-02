@@ -30,7 +30,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Orders")
 @ApiModel(description = "Details about the Order")
 public class Order implements Serializable {
 
@@ -54,22 +53,20 @@ public class Order implements Serializable {
 	public Customer customer;
 
     //Establishing a one to many relationship with the product table
-//	@OneToMany(cascade = CascadeType.ALL)
-//	@JoinColumn(name="productId") //Product ID is the foreign key
-//	private List<Product> productlist;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Product> productlist;
 
     //Establishing a one to one relationship with the Address table to store the delivery address
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="addressId") //Address ID is the foreign key
-	private Address address;
+	private DeliveryAddress deliveryAddress;
 
-	public Order(LocalDate orderDate, String orderStatus, Customer customer,Address address) {
+	public Order(LocalDate orderDate, String orderStatus, Customer customer,List<Product> productlist,DeliveryAddress deliveryAddress) {
 		super();
 		this.orderDate=orderDate;
 		this.orderStatus=orderStatus;
 		this.customer=customer;
-		//this.productlist=productlist;
-		this.address=address;
+		this.productlist=productlist;
+		this.deliveryAddress=deliveryAddress;
 
 	}
 }
