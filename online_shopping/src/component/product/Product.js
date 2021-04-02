@@ -2,46 +2,79 @@ import React, { Component } from 'react';
 import { Card, Form, Button, Col, InputGroup, Image } from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSave, faPlusSquare, faUndo, faList, faEdit} from '@fortawesome/free-solid-svg-icons';
-// import {faSave} from '@fontawesome/free-solid-svg-icons'
+import axios from 'axios';
+import AddProductSuccessToast from "./AddProductSuccessToast";
 
 class Product extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {productName: '', dimension: '', specification: '', manufacturer: '', quantity: 0, price: 0.0 };
-        
+        this.state = this.initialState;
+        this.state.show = false;
         this.productChange = this.productChange.bind(this);
         this.submitProduct = this.submitProduct.bind(this);
     }
-    // initialState = {productName: '', dimension: '', specification: '', manufacturer: '', quantity: 0, price: 0.0 };
+    initialState = {pictureUrl: '', productName: '', dimension: '', specification: '', manufacturer: '', quantity: 0, price: 0.0 };
 
-    submitProduct(event) {
-        alert(this.state.title);
+    submitProduct = event =>  {
+        // alert(this.state.productName);
         event.preventDefault();
+
+        const product = {
+            pictureUrl: this.state.pictureUrl, 
+            productName: this.state.productName,
+            dimension: this.state.dimension, 
+            specification: this.state.specification, 
+            manufacturer: this.state.manufacturer, 
+            quantity: this.state.quantity, 
+            price: this.state.price 
+        }
+
+        axios.post("http://localhost:9000/api/saveproduct",product)
+        .then(response => {
+            if(response.data != null){
+                this.setState({"show":true});
+                setTimeout(() => this.setState({"show":false}), 3000);
+            }
+            else{
+                this.setState({"show":false});
+            }
+        });
+        this.setState(this.initialState);
+        //this.resetProduct();
     }
 
-    productChange(event)  {
+    resetProduct = () => {
+        this.setState(()=>this.initialState);
+    }
+
+    productChange = event =>  {
         this.setState({
             [event.target.name]:event.target.value
         });
     }
 
     render() {
+        const {pictureUrl, productName, dimension, specification, manufacturer, quantity, price} = this.state;
         return (
             <div>
+                <div style={{"display":this.state.show ? "block" : "none"}}>
+                <AddProductSuccessToast show = {this.state.show} message = {this.state.method === "put" ? "Book Updated Successfully." : "Book Saved Successfully."} type = {"success"}/>
+                </div>
                 <Card className="border bg-light">
                 <Card.Header>
                         <FontAwesomeIcon icon={this.state.id ? faEdit : faPlusSquare} /> {this.state.id ? "Update Product" : "Add New Product"}
                     </Card.Header>
-                    <Form onSubmit={this.submitProduct} id="productFormId" >
+                    <Form onReset={this.resetProduct} onSubmit={this.submitProduct} id="productFormId" >
                         <Card.Body>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formGridCoverPhotoURL">
                                     <Form.Label>Product Photo URL</Form.Label>
                                     <InputGroup>
                                         <Form.Control required
-                                            type="test" name="productPhotoURL"
-                                            // value={coverPhotoURL} onChange={this.bookChange}
+                                            type="test" name="pictureUrl"
+                                            value={pictureUrl} 
+                                            onChange={this.productChange}
                                             // className={"bg-dark text-white"}
                                             placeholder="Enter Product Cover Photo URL" />
                                         {/* <InputGroup.Append>
@@ -55,7 +88,7 @@ class Product extends Component {
                                     <Form.Label>Product Name</Form.Label>
                                     <Form.Control required
                                         type="test" name="productName"
-                                        value={this.state.productName}
+                                        value={productName}
                                         onChange={this.productChange}
                                         // className={"bg-dark text-white"}
                                         placeholder="Enter Product Name" />
@@ -64,7 +97,7 @@ class Product extends Component {
                                     <Form.Label>Dimension</Form.Label>
                                     <Form.Control
                                         type="test" name="dimension"
-                                        value={this.state.dimension}
+                                        value={dimension}
                                         onChange={this.productChange}
                                         // className={"bg-dark text-white"}
                                         placeholder="Enter Product Dimension" />
@@ -75,7 +108,7 @@ class Product extends Component {
                                     <Form.Label>Specification</Form.Label>
                                     <Form.Control
                                         type="test" name="specification"
-                                        value={this.state.specification}
+                                        value={specification}
                                         onChange={this.productChange}
                                         // className={"bg-dark text-white"}
                                         placeholder="Enter Product specification" />
@@ -84,7 +117,7 @@ class Product extends Component {
                                     <Form.Label>Manufacturer</Form.Label>
                                     <Form.Control
                                         type="test" name="manufacturer"
-                                        value={this.state.manufacturer}
+                                        value={manufacturer}
                                         onChange={this.productChange}
                                         // className={"bg-dark text-white"}
                                         placeholder="Enter Product manufacturer" />
@@ -95,7 +128,7 @@ class Product extends Component {
                                     <Form.Label>Quantity</Form.Label>
                                     <Form.Control required
                                         type="test" name="quantity"
-                                        value={this.state.quantity}
+                                        value={quantity}
                                         onChange={this.productChange}
                                         // className={"bg-dark text-white"}
                                         placeholder="Enter Product quantity" />
@@ -104,7 +137,7 @@ class Product extends Component {
                                     <Form.Label>Price</Form.Label>
                                     <Form.Control required
                                         type="test" name="price"
-                                        value={this.state.price}
+                                        value={price}
                                         onChange={this.productChange}
                                         // className={"bg-dark text-white"}
                                         placeholder="Enter Product price" />

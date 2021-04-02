@@ -26,12 +26,13 @@ class ProductList extends Component {
         return (
             <div>
                 <Card className="border bg-light">
-                    <Card.Header>
+                    {/* <Card.Header>
                         <FontAwesomeIcon icon={faList} /> List of Products
-                </Card.Header>
+                    </Card.Header> */}
                     <Card.Body>
                         <h3><FontAwesomeIcon icon={faList} /> List of Products</h3>
-                        <Table bordered hover striped variant="light">
+                        <br />
+                        <Table bordered hover striped className="table-responsive" variant="light">
                             <thead className="bg-primary text-white text-center">
                                 <tr>
                                     <th>Image</th>
@@ -48,25 +49,27 @@ class ProductList extends Component {
                                 {
                                     this.state.products.length === 0 ?
                                         <tr align="center">
-                                            <td colSpan="7">No Products Available.</td>
+                                            <td colSpan="8">No Products Available.</td>
                                         </tr> :
                                         this.state.products.map((product) => (
                                             <tr key={product.productId}>
-                                                <td className="text-center">
-                                                    <Image src={product.pictureUrl} roundedCircle width="75" height="100" /> {/*{product.productName}*/}
+                                                <td className="text-center align-middle">
+                                                    <Image src={product.pictureUrl} className="img-fluid rounded" width="60" height="65" /> {/*{product.productName}*/}
                                                 </td>
-                                                <td>{product.productName}</td>
-                                                <td>{product.dimension}</td>
-                                                <td>{product.specification}</td>
-                                                <td>{product.manufacturer}</td>
-                                                <td>{product.quantity}</td>
-                                                <td>{product.price}</td>
-                                                <td>
+                                                <td className="align-middle">{product.productName}</td>
+                                                <td className="align-middle">{product.dimension}</td>
+                                                <td className="align-middle">{product.specification}</td>
+                                                <td className="align-middle">{product.manufacturer}</td>
+                                                <td className="align-middle">{product.quantity}</td>
+                                                <td className="align-middle">{product.price}</td>
+                                                <td className="text-center align-middle">
                                                     <ButtonGroup>
                                                         {/* <Link to={"edit/" + product.id} className="btn btn-sm btn-outline-primary"> */}
-                                                        <FontAwesomeIcon icon={faEdit} />
+                                                        <Button size="md" variant="outline-primary rounded-0">
+                                                            <FontAwesomeIcon icon={faEdit} />
+                                                        </Button>
                                                         {/* </Link> */}{' '} &nbsp;&nbsp;&nbsp;
-                                                <Button size="sm" variant="outline-danger" /*onClick={this.deleteBook.bind(this, product.id)}*/>
+                                                <Button size="md" variant="outline-danger rounded-0" /*onClick={this.deleteBook.bind(this, product.id)}*/>
                                                             <FontAwesomeIcon icon={faTrash} />
                                                         </Button>
                                                     </ButtonGroup>
