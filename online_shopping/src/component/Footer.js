@@ -6,7 +6,7 @@ class Footer extends Component {
     render() {
         let fullYear = new Date().getFullYear();
         return (
-            <Navbar className="bottom"  bg="dark" varient="dark">
+            <Navbar fixed="bottom"  bg="dark" varient="dark">
                 <Container>
                     <Col lg={12} className="text-center text-white" >
                         <div>All Rights Reserved. &copy; Copyright {fullYear}-{fullYear+1} </div>  
