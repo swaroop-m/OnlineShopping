@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Product from './component/product/Product'
 import ProductList from './component/product/ProductList'
 import Cart from './component/navComponents/Cart'
+import ContactUs from './component/navComponents/ContactUs'
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
             <Route path="/" exact component={Welcome}/>
             <Route path="/addproduct" exact component={Product}/>
             <Route path="/listproducts" exact component={ProductList}/>
+            <Route path="/ContactUs" exact component={ContactUs}/>
 
             <Route path="/Cart" excat component={Cart}/>
             {/* <CreateProduct />

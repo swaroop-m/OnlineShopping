@@ -20,7 +20,7 @@ class NavBar extends React.Component
                     </NavDropdown>  
                     {/* <Link to={"addproduct"} className="nav-link">Add Products</Link>
                     <Link to={"listproducts"} className="nav-link">Product List</Link> */}
-                    <Nav.Link href="#"> &emsp;Contact Us</Nav.Link>
+                     <Link to={"ContactUs"} className="nav-link">&emsp;Contact Us</Link>
                 </Nav>
                 <Nav className="justify-content-end" activeKey="/home">
                 
