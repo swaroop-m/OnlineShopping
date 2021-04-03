@@ -58,6 +58,7 @@ function App() {
             <Route path="/Home" exact component={Home}/>
 
             <Route path="/addproduct" exact component={Product}/>
+            <Route path="/editproduct/:productId" exact component={Product}/>
             <Route path="/listproducts" exact component={ProductList}/>
             <Route path="/AboutUs" exact component={AboutUs}/>
             

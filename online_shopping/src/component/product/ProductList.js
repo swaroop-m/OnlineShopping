@@ -5,13 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList, faEdit, faTrash, faStepBackward, faFastBackward, faStepForward, faFastForward, faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 // import { connect } from 'react-redux';
 import axios from 'axios';
+import AddProductSuccessToast from "./AddProductSuccessToast";
 
 class ProductList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            products: []
+            products: [],
+            show: false
         };
     }
 
@@ -21,10 +23,45 @@ class ProductList extends Component {
             .then((data) => {
                 this.setState({ products: data });
             });
-    }
+    };
+
+    // deleteProduct = (productId) => {
+    //     this.props.deleteProduct(ProductId);
+    //     setTimeout(() => {
+    //         if(this.props.ProductObject != null) {
+    //             this.setState({"show":true});
+    //             setTimeout(() => this.setState({"show":false}), 3000);
+    //             this.findAllProducts(this.state.currentPage);
+    //         } else {
+    //             this.setState({"show":false});
+    //         }
+    //     }, 1000);
+    // };
+
+    deleteProduct = (productId) => {
+        axios.delete("http://localhost:9000/api/deleteproduct/"+productId)
+        .then(response => {
+            if(response.data != null){
+                this.setState({"show":true});
+                setTimeout(() => this.setState({"show":false}), 3000);
+                // alert("Product Deleted Succesfully!!");
+                this.setState({
+                    products : this.state.products.filter(product => product.productId != productId)
+                });
+            }
+            else{
+                this.setState({"show":false});
+            }
+            
+        });
+    };
+
     render() {
         return (
             <div>
+                <div style={{"display":this.state.show ? "block" : "none"}}>
+                <AddProductSuccessToast show = {this.state.show} message = {"Book Deleted Successfully."} type = {"danger"}/>
+                </div>
                 <Card className="border bg-light">
                     {/* <Card.Header>
                         <FontAwesomeIcon icon={faList} /> List of Products
@@ -64,12 +101,10 @@ class ProductList extends Component {
                                                 <td className="align-middle">{product.price}</td>
                                                 <td className="text-center align-middle">
                                                     <ButtonGroup>
-                                                        {/* <Link to={"edit/" + product.id} className="btn btn-sm btn-outline-primary"> */}
-                                                        <Button size="md" variant="outline-primary rounded-0">
+                                                        <Link to={"editproduct/" + product.productId} className="btn btn-md btn-outline-primary mr-2 rounded-0">
                                                             <FontAwesomeIcon icon={faEdit} />
-                                                        </Button>
-                                                        {/* </Link> */}{' '} &nbsp;&nbsp;&nbsp;
-                                                <Button size="md" variant="outline-danger rounded-0" /*onClick={this.deleteBook.bind(this, product.id)}*/>
+                                                        </Link>{' '}
+                                                <Button size="md" variant="outline-danger rounded-0" onClick={this.deleteProduct.bind(this, product.productId)}>
                                                             <FontAwesomeIcon icon={faTrash} />
                                                         </Button>
                                                     </ButtonGroup>
