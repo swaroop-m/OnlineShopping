@@ -1,19 +1,19 @@
-import React from 'react'
+import React,{Component} from 'react'
 import {Navbar, Nav , NavDropdown, NavLink} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import {AiOutlineShoppingCart } from 'react-icons/ai'
 import {RiCustomerService2Fill} from 'react-icons/ri'
 
-class NavBar extends React.Component
+class NavBar extends Component
 {
     render() {
         return ( 
             <Navbar bg="light" variant="light">
-                <Link to={"/"} className="navbar-brand">
+                <Link to={"#"} className="navbar-brand">
                 <Navbar.Brand href="#"><img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" width="40" height="40" alt="Brand_Logo"/> Shopping</Navbar.Brand>
                 </Link>
                 <Nav className="mr-auto">
-                    <Link to={"/"} className="nav-link">Home &emsp;</Link>
+                    <Link to={"Home"} className="nav-link">Home</Link>
                     {/* bg-dark text-white */}
                     <NavDropdown title="Product" id="basic-nav-dropdown" /*className="bg-dark text-white"*/> 
                     <NavDropdown.Item className="NavDropdown"><Link to={"addproduct"} className="nav-link">Add Product</Link></NavDropdown.Item>

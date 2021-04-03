@@ -11,6 +11,8 @@ import ProductList from './component/product/ProductList'
 import Cart from './component/navComponents/Cart'
 import ContactUs from './component/navComponents/ContactUs'
 import AboutUs from './component/navComponents/AboutUs'
+import Home from './component/navComponents/Home'
+
 
 function App() {
 
@@ -53,6 +55,8 @@ function App() {
         <Row>
           <Col lg={12} style={marginTop}>
             <Route path="/" exact component={Welcome}/>
+            <Route path="/Home" exact component={Home}/>
+
             <Route path="/addproduct" exact component={Product}/>
             <Route path="/listproducts" exact component={ProductList}/>
             <Route path="/AboutUs" exact component={AboutUs}/>

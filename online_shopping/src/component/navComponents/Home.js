@@ -1,10 +1,17 @@
-import React, { Component } from 'react';
-import { Carousel } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Carousel,Button } from 'react-bootstrap'
 
-class Home extends Component {
-    render() {
-        return (
-            <div>
+function Home(props) {
+
+    const [list,setList] =useState([1])
+
+  let addToCart = (()=> {
+    setList([...list,1])
+    console.log("added 1 product to cart")
+  })
+
+  return (
+    <div>
         <Carousel>
         <Carousel.Item>
           <img
@@ -43,13 +50,13 @@ class Home extends Component {
         </Carousel.Item>
       </Carousel>
 
-                <h1 className="text-white"> some Images</h1>
-                <h1 className="text-white">brand video</h1>
+                <br/>
+                <Button className="btn btn-success" onClick={addToCart}>Add To Cart</Button>
+                {list.map((data)=> <div className="Row bg-secondary mt-1"> Hello</div>)}
 
-                
+                <h1> some Images</h1>
+                <h1>brand video</h1>
             </div>
-        );
-    }
-} 
-
-  export default Home;
+  )
+}
+export default Home;
