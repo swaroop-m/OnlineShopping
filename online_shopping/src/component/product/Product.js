@@ -59,6 +59,33 @@ class Product extends Component {
     //this.resetProduct();
   };
 
+  updateProduct = event => {
+	event.preventDefault();
+
+    const product = {
+	  productId: this.state.productId,
+      pictureUrl: this.state.pictureUrl,
+      productName: this.state.productName,
+      dimension: this.state.dimension,
+      specification: this.state.specification,
+      manufacturer: this.state.manufacturer,
+      quantity: this.state.quantity,
+      price: this.state.price,
+    };
+
+    axios
+      .put("http://localhost:9000/api/updateproduct", product)
+      .then((response) => {
+        if (response.data != null) {
+          this.setState({ show: true });
+          setTimeout(() => this.setState({ show: false }), 3000);
+          setTimeout(() => this.productList(), 3000);
+        } else {
+          this.setState({ show: false });
+        }
+      });
+  };
+
   resetProduct = () => {
     this.setState(() => this.initialState);
   };
@@ -82,7 +109,7 @@ class Product extends Component {
 
   findProductById = productId => {
 	axios
-        .get("http://localhost:9000/api/viewproduct" + productId)
+        .get("http://localhost:9000/api/viewproduct/" + productId)
         .then((response) => {
           if (response.data != null) {
             this.setState({
@@ -127,12 +154,12 @@ class Product extends Component {
         </div>
         <Card className="border bg-light">
           <Card.Header>
-            <FontAwesomeIcon icon={this.state.id ? faEdit : faPlusSquare} />{" "}
-            {this.state.id ? "Update Product" : "Add New Product"}
+            <FontAwesomeIcon icon={this.state.productId ? faEdit : faPlusSquare} />{" "}
+            {this.state.productId ? "Update Product" : "Add New Product"}
           </Card.Header>
           <Form
             onReset={this.resetProduct}
-            onSubmit={this.submitProduct}
+            onSubmit={this.state.productId? this.updateProduct : this.submitProduct}
             id="productFormId"
           >
             <Card.Body>
@@ -234,7 +261,7 @@ class Product extends Component {
             <Card.Footer style={{ textAlign: "right" }}>
               <Button size="sm" variant="success" type="submit">
                 <FontAwesomeIcon icon={faSave} />{" "}
-                {this.state.id ? "Update" : "Save"}
+                {this.state.productId ? "Update" : "Save"}
               </Button>{" "}
               <Button size="sm" variant="info" type="reset">
                 <FontAwesomeIcon icon={faUndo} /> Reset
