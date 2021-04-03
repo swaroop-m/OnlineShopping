@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.onlineshopping.entities.Cart;
+import com.cg.onlineshopping.entities.CartItem;
 import com.cg.onlineshopping.service.ICartService;
 
 import io.swagger.annotations.Api;
@@ -29,6 +31,7 @@ import io.swagger.annotations.ApiModel;
 @RequestMapping(value = "/api")
 @Api(value = "Cart Controller", tags = { "CartAPI" })
 @ApiModel(description = "You can find all the Cart related services here ")
+@CrossOrigin(origins="http://localhost:3000")
 public class CartRestController {
 	
 	private static final Logger log =LogManager.getLogger(CartRestController.class);
@@ -36,10 +39,10 @@ public class CartRestController {
 	@Autowired
 	ICartService iCartService;
 
-	// @GetMapping("/") //for testing the controller
-	// public String CartPage() {
-	// return " Shopping Cart ";
-	// }
+	@GetMapping("/") //for testing the controller
+	public String CartPage() {
+	return " Shopping Cart ";
+	}
 
 	// 1. Add Product To Cart //Working
 	@PostMapping("/addproducttocart")
@@ -50,19 +53,20 @@ public class CartRestController {
 	}
 
 	// 2.Delete product from cart by product Id //Working
-	@DeleteMapping("/removeproductfromcart/{id}") // working
-	public ResponseEntity<Cart> removeProductFromCart(@PathVariable("id") int id) {
-		Cart deletedproduct = iCartService.removeProductFromCart(id);
-		log.info("Removed Product From Cart Database using ProductId");
-		return new ResponseEntity<Cart>(deletedproduct, HttpStatus.OK);
+	@DeleteMapping("/removeproductfromcart/{id}" ) // working
+	public ResponseEntity<CartItem> removeProductFromCart(@PathVariable int id) {
+		
+		CartItem deletedproduct = iCartService.removeProductFromCart(id);
+		log.info("Removed Product From Cart ");
+		return new ResponseEntity<CartItem>(deletedproduct, HttpStatus.OK);
 	}
 
 	// 3.Update Product quantity in cart //Working
 	@PutMapping("/updateproductquantity")
-	public ResponseEntity<Cart> updateProductQuantity(@RequestBody Cart cart) {
-		Cart updateProduct = iCartService.updateProductQuantity(cart);
+	public ResponseEntity<CartItem> updateProductQuantity(@RequestBody CartItem cartItem) {
+		CartItem updateProduct = iCartService.updateProductQuantity(cartItem);
 		log.info("Updated Product Quantity in Cart Database");
-		return new ResponseEntity<Cart>(updateProduct, HttpStatus.OK);
+		return new ResponseEntity<CartItem>(updateProduct,HttpStatus.OK);
 	}
 
 	// 4. Remove All Products in Cart //Working
@@ -80,5 +84,7 @@ public class CartRestController {
 		log.info("To View all Products present in Cart Database");
 		return new ResponseEntity<List<Cart>>(cartProducts, HttpStatus.OK);
 	}
+	
+	
 
 }
