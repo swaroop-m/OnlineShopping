@@ -39,10 +39,10 @@ public class CartRestController {
 	@Autowired
 	ICartService iCartService;
 
-	@GetMapping("/") //for testing the controller
-	public String CartPage() {
-	return " Shopping Cart ";
-	}
+//	@GetMapping("/") //for testing the controller
+//	public String CartPage() {
+//	return " Shopping Cart ";
+//	}
 
 	// 1. Add Product To Cart //Working
 	@PostMapping("/addproducttocart")

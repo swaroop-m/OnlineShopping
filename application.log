@@ -58,3 +58,7 @@
 20:32 14/Mar/2021 INFO :com.cg.onlineshopping.OnlineShoppingApplication[main] Application just started 19 
 >>>>>>> 01ed539f4d90fbe53ed1732f5ef026d4f0f399cd
 21:06 14/Mar/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 55 
+18:27 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 55 
+18:27 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 63 
+18:27 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 55 
+18:28 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
