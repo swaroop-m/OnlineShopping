@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Carousel,Button } from 'react-bootstrap'
+import Homepage from '../product/Homepage'
 
 function Home(props) {
 
@@ -56,6 +57,9 @@ function Home(props) {
 
                 <h1> some Images</h1>
                 <h1>brand video</h1>
+                <Homepage />
+                <br />
+                <br /><br /><br />
             </div>
   )
 }
