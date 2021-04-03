@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import com.cg.onlineshopping.exception.NotFoundException;
 import com.cg.onlineshopping.exception.ValidationException;
-import com.cg.onlineshopping.entities.Address;
 import com.cg.onlineshopping.entities.Customer;
+import com.cg.onlineshopping.entities.DeliveryAddress;
 import com.cg.onlineshopping.entities.Order;
-import com.cg.onlineshopping.repository.IAddressRepository;
 import com.cg.onlineshopping.repository.ICustomerRepository;
+import com.cg.onlineshopping.repository.IDeliveryAddressRepository;
 import com.cg.onlineshopping.repository.IOrderRepository;
 
 //Author:Aishwarya A S
@@ -21,7 +21,7 @@ import com.cg.onlineshopping.repository.IOrderRepository;
 
 @Service
 public class IOrderServiceImplementation implements IOrderService{
-	
+	//Autowiring beans
 	@Autowired
 	private IOrderRepository orderRepository;
 
@@ -29,61 +29,78 @@ public class IOrderServiceImplementation implements IOrderService{
 	private ICustomerRepository custRepository;
 
 	@Autowired
-	private IAddressRepository addressRepository;
+	private IDeliveryAddressRepository dAddressRepository;
+
 
 	Optional<Order> orderOptional = null;
 
-    //Adds an order
+	//Adds an order
 	@Override
 	public Order addOrder(Order o) throws ValidationException {
+		final String orderStatus1= "Confirmed";
+		final String orderStatus2= "Delivered";
+		String status=o.getOrderStatus();
+		LocalDate orderDateExisting=o.getOrderDate();
+		Customer cust=o.getCustomer();
+		
+		
+		if(!(status.matches(orderStatus1)||status.matches(orderStatus2)))
+			throw new ValidationException("Order Status is Invalid");
+		if(orderDateExisting==null)
+			throw new ValidationException("Order Date cannot be null");
+		if(cust==null)
+			throw new ValidationException("Please login/Sign Up to place an order");
+		
+		
 		return orderRepository.save(o);
 	}
 
-    //Updating an order
+	//Updating an order
 	@Override
 	public Order updateOrder(Order order)throws NotFoundException {
 		// find the order in the database which is to be updated 
-				Optional<Order> existing = orderRepository.findById(order.getOrderId());
-				// If no such order exist throw not found exception 
-				if (existing.isEmpty()) {
-					throw new NotFoundException("No Order found");
-				} 
-				// If product exist then check if fields of updating order is not empty
-				// then update that order.
-				else {
-					Order existingOrder = existing.get();
+		Optional<Order> existing = orderRepository.findById(order.getOrderId());
+		
+		// If no such order exist throw not found exception 
+		if (existing.isEmpty()) {
+			throw new NotFoundException("No Order found");
+		} 
+		
+		// If order exist then check if fields of updating order is not empty
+		else {
+			Order existingOrder = existing.get();
 
-					if (order.getAddress() != null) {
+			if (order.getDeliveryAddress() != null) {
 
-						existingOrder.setAddress(order.getAddress());
-					}
-					if (order.getCustomer() != null) {
+				existingOrder.setDeliveryAddress(order.getDeliveryAddress());
+			}
+			if (order.getCustomer() != null) {
 
-						existingOrder.setCustomer(order.getCustomer());
-					}
-				
-					if (order.getOrderDate() != null) {
+				existingOrder.setCustomer(order.getCustomer());
+			}
 
-						existingOrder.setOrderDate(order.getOrderDate());
-					}
-					if (order.getOrderStatus() != null) {
+			if (order.getOrderDate() != null) {
 
-						existingOrder.setOrderStatus(order.getOrderStatus());
-					}
-//					if (order.getProductlist() != null) {
-//
-//						existingOrder.setProductlist(order.getProductlist());
-//					}
-				
-					// perform update operation to the database table
-					orderRepository.save(existingOrder);
-					// return the order which is updated
-					return existingOrder;
-					}
-				
+				existingOrder.setOrderDate(order.getOrderDate());
+			}
+			if (order.getOrderStatus() != null) {
+
+				existingOrder.setOrderStatus(order.getOrderStatus());
+			}
+			if (order.getProductlist() != null) {
+
+				existingOrder.setProductlist(order.getProductlist());
+			}
+
+			// perform update operation to the database table
+			orderRepository.save(existingOrder);
+			// return the order which is updated
+			return existingOrder;
+		}
+
 	}
 
-    //Remove an order based on order ID
+	//Remove an order based on order ID
 	@Override
 	public Order removeOrder(Integer orderId)throws NotFoundException {
 		Optional<Order> order = orderRepository.findById(orderId);
@@ -97,7 +114,7 @@ public class IOrderServiceImplementation implements IOrderService{
 		}
 	}
 
-    //View an order based on order ID
+	//View an order based on order ID
 	@Override
 	public Order viewOrder(Integer  orderId) {
 
@@ -110,7 +127,7 @@ public class IOrderServiceImplementation implements IOrderService{
 
 	}
 
-    //View orders based on order date
+	//View orders based on order date
 	@Override
 	public List<Order> viewAllOrdersByDate(LocalDate date) {
 		List<Order> orders = orderRepository.findByOrderDate(date);
@@ -120,22 +137,22 @@ public class IOrderServiceImplementation implements IOrderService{
 		return orders;
 	}
 
-    //View order based on address ID
+	//View order based on address ID
 	@Override
-	public List<Order> viewAllOrdersByAddressId(Integer addressId){
-		Optional<Address> address = addressRepository.findById(addressId);
-		if(address.isEmpty())
-			throw new NotFoundException("Order with address id "+addressId+"  Not Found!");
-			
+	public List<Order> viewAllOrdersByAddressId(Integer deliveryAddressId){
+		Optional<DeliveryAddress> dAddress = dAddressRepository.findById(deliveryAddressId);
+		if(dAddress.isEmpty())
+			throw new NotFoundException("Order with address id "+deliveryAddressId+"  Not Found!");
+
 		else {
-			Address addr=address.get();
-		List<Order> order=orderRepository.findByAddress(addr);
-		return order;
+			DeliveryAddress dAddr=dAddress.get();
+			List<Order> order=orderRepository.findByDeliveryAddress(dAddr);
+			return order;
 		}
 
 	}
 
-    //View orders based on Customer ID
+	//View orders based on Customer ID
 	@Override
 	public List<Order> viewAllOrdersCustomer(Integer customerId) throws NotFoundException{
 		Optional<Customer> customer = custRepository.findById(customerId);
@@ -143,10 +160,10 @@ public class IOrderServiceImplementation implements IOrderService{
 			throw new NotFoundException("Order with Customer id "+customerId+" is not Found!");
 
 		else {
-		Customer customer1=customer.get();
-		List<Order> order=orderRepository.findByCustomer(customer1);
-	
-		return order;
+			Customer customer1=customer.get();
+			List<Order> order=orderRepository.findByCustomer(customer1);
+
+			return order;
 		}
 	}
 
