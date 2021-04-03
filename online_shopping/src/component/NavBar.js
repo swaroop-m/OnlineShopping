@@ -2,6 +2,7 @@ import React from 'react'
 import {Navbar, Nav , NavDropdown, NavLink} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import {AiOutlineShoppingCart } from 'react-icons/ai'
+import {RiCustomerService2Fill} from 'react-icons/ri'
 
 class NavBar extends React.Component
 {
@@ -14,23 +15,19 @@ class NavBar extends React.Component
                 <Nav className="mr-auto">
                     <Link to={"/"} className="nav-link">Home &emsp;</Link>
                     {/* bg-dark text-white */}
-                    <NavDropdown title="Product" id="basic-nav-dropdown" /*className="text-white"*/> 
+                    <NavDropdown title="Product" id="basic-nav-dropdown" /*className="bg-dark text-white"*/> 
                     <NavDropdown.Item className="NavDropdown"><Link to={"addproduct"} className="nav-link">Add Product</Link></NavDropdown.Item>
                     <NavDropdown.Item className="NavDropdown"><Link to={"listproducts"} className="nav-link">Product List</Link></NavDropdown.Item>
                     </NavDropdown>  
                     {/* <Link to={"addproduct"} className="nav-link">Add Products</Link>
                     <Link to={"listproducts"} className="nav-link">Product List</Link> */}
-                     <NavDropdown title="Order" id="basic-nav-dropdown" /*className="bg-dark text-white"*/> 
-                    <NavDropdown.Item className="NavDropdown"><Link to={"listorders"} className="nav-link">Order List</Link></NavDropdown.Item>
-                    <NavDropdown.Item className="NavDropdown"><Link to={"update"} className="nav-link">Update Order</Link></NavDropdown.Item>
-                    </NavDropdown>  
-                    <Nav.Link href="#"> &emsp;Contact Us</Nav.Link>
+                     <Link to={"AboutUs"} className="nav-link">AboutUs</Link>
                 </Nav>
-                
                 <Nav className="justify-content-end" activeKey="/home">
                 
                 <Link to={"#"} className="nav-link">Log in</Link> 
                     <Link to={"Cart"} className="nav-link">Cart<AiOutlineShoppingCart size="1.5em"/></Link>    
+                    <Link to={"ContactUs"} className="nav-link"><RiCustomerService2Fill/></Link>
                 </Nav>
             </Navbar>
         )

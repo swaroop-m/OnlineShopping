@@ -8,9 +8,9 @@ import CreateProduct from './component/product/CreateProduct'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Product from './component/product/Product'
 import ProductList from './component/product/ProductList'
-import OrderList from './component/Order/OrderList'
 import Cart from './component/navComponents/Cart'
-
+import ContactUs from './component/navComponents/ContactUs'
+import AboutUs from './component/navComponents/AboutUs'
 
 function App() {
 
@@ -56,9 +56,11 @@ function App() {
             <Route path="/addproduct" exact component={Product}/>
             <Route path="/editproduct/:productId" exact component={Product}/>
             <Route path="/listproducts" exact component={ProductList}/>
-            <Route path="/listorders" exact component={OrderList}/>
-            <Route path="/Cart" excat component={Cart}/>
+            <Route path="/AboutUs" exact component={AboutUs}/>
+            
 
+            <Route path="/Cart" excat component={Cart}/>
+            <Route path="/ContactUs" exact component={ContactUs}/>
             {/* <CreateProduct />
             <ProductList /> */}
           </Col>
