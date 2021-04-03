@@ -3,7 +3,7 @@ import { Carousel,Button } from 'react-bootstrap'
 
 function Home(props) {
 
-    const [list,setList] =useState([1])
+  const [list,setList] =useState([1])
 
   let addToCart = (()=> {
     setList([...list,1])
