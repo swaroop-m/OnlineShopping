@@ -6,6 +6,7 @@ package com.cg.onlineshopping.service; //business logic
 import java.util.List;
 
 import com.cg.onlineshopping.entities.Cart;
+import com.cg.onlineshopping.entities.CartItem;
 
 public interface ICartService {
 
@@ -13,10 +14,10 @@ public interface ICartService {
 	public Cart addProductToCart(Cart cart);
 
 	//2.Remove product from cart by product Id
-	public Cart removeProductFromCart(int id);
+	public CartItem removeProductFromCart(int id);
 
 	//3.Update Product quantity in cart
-	public Cart updateProductQuantity(Cart cart);
+	public CartItem updateProductQuantity(CartItem cartItem);
 
 	//4. Clear Cart
 	public Cart removeAllProducts(Cart cart);

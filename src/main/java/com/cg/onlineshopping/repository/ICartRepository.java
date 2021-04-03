@@ -13,6 +13,5 @@ import com.cg.onlineshopping.entities.Cart;
 @Repository
 public interface ICartRepository extends JpaRepository<Cart, Integer> {     //Cart Repo
 
-	Cart findByProductId(int productId); //find product by id in repository
 
 }

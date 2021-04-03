@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Jumbotron } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
+import Homepage from './product/Homepage'
 
 class Welcome extends Component {
     render() {
@@ -16,6 +18,10 @@ class Welcome extends Component {
                             Robert Downey Jr
                         </footer>
                     </blockquote>
+
+                <Homepage />
+
+
                 </Jumbotron>
             </div>
         );

@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cg.onlineshopping.entities.Address;
 import com.cg.onlineshopping.entities.Customer;
+import com.cg.onlineshopping.entities.DeliveryAddress;
 import com.cg.onlineshopping.entities.Order;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public interface IOrderRepository extends JpaRepository<Order, Integer>{
 	public List<Order> findOrderByOrderId(Integer orderId);
 	public List<Order> findByOrderDate(LocalDate date);
 	public List<Order> findByCustomer(Customer customer);
-	public List<Order> findByAddress(Address address1);
+	public List<Order> findByDeliveryAddress(DeliveryAddress dAddress1);
 }
 //Code ends here
 //Author:Aishwarya A S

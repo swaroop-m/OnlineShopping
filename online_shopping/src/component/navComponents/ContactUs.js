@@ -6,7 +6,7 @@ import {RiCustomerService2Fill} from 'react-icons/ri'
 
 function ContactUs() {
 
-  const [userList, setUserList] = useState([]);
+//   const [userList, setUserList] = useState([]);
 
   const [displayMessage, setDisplayMessage] = useState(false);
   const [invalidForm, setInvalidForm] = useState(false);
@@ -50,13 +50,13 @@ function ContactUs() {
 
     console.log(result);
 
-    // PUT INTO THE LIST :: Dummy CRUD Simulations
-    const newUser = {
-        name: name,
-        productId: productId,
-        message: message,
-      };
-      setUserList([newUser, ...userList]);
+    // // PUT INTO THE LIST :: Dummy CRUD Simulations
+    // const newUser = {
+    //     name: name,
+    //     productId: productId,
+    //     message: message,
+    //   };
+    //   setUserList([newUser, ...userList]);
 
     // B2:: Display message conditioanlly
     setDisplayMessage(true);
@@ -71,21 +71,21 @@ function ContactUs() {
     setApiCallInProgress(false);
   };
 
-  const deleteUser = (index) => {
-    console.log("call here....");
-    // remove specific index from the list
-    userList.splice(index, 1);
+//   const deleteUser = (index) => {
+//     console.log("call here....");
+//     // remove specific index from the list
+//     userList.splice(index, 1);
 
-    console.log(userList);
-    setUserList([...userList]);
-  };
+//     console.log(userList);
+//     setUserList([...userList]);
+//   };
 
-  const editUser = (inputData) => {
-    console.log(inputData);
-    setName(inputData.name);
-    setProductId(inputData.productId);
-    setMessage(inputData.message);
-  };
+//   const editUser = (inputData) => {
+//     console.log(inputData);
+//     setName(inputData.name);
+//     setProductId(inputData.productId);
+//     setMessage(inputData.message);
+//   };
 
   return (
     <div>
@@ -94,7 +94,7 @@ function ContactUs() {
       <Form>
              <div>
                  {displayMessage && (
-                <div className="alert alert-primary">Register successfully!</div>
+                <div className="alert alert-primary">Complaint Registered successfully!</div>
                 )}
             </div>
 
@@ -112,8 +112,8 @@ function ContactUs() {
             </Form.Group>
         
             <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Issue with the Product?</Form.Label>
-                <Form.Control as="textarea" rows={3} value={message} onChange={onChangeMessage} />
+                <Form.Label>Message</Form.Label>
+                <Form.Control as="textarea" placeholder="Issue with the product?" rows={3} value={message} onChange={onChangeMessage} />
             </Form.Group>
 
             {invalidForm && (
@@ -128,7 +128,7 @@ function ContactUs() {
 
         <br/>
         <br/>
-            <div >
+            {/* <div >
                 <h4>My Complaints</h4>
                 <hr/>
                 {
@@ -148,7 +148,7 @@ function ContactUs() {
                         )
                         )
                     }
-        </div>
+        </div> */}
         <br/>
         <br/>
     </div>

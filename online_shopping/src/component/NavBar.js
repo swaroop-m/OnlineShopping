@@ -9,8 +9,8 @@ class NavBar extends Component
     render() {
         return ( 
             <Navbar bg="light" variant="light">
-                <Link to={"#"} className="navbar-brand">
-                <Navbar.Brand href="#"><img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" width="40" height="40" alt="Brand_Logo"/> Shopping</Navbar.Brand>
+                <Link to={"Home"} className="navbar-link">
+                <Navbar.Brand ><img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" width="40" height="40" alt="Brand_Logo"/> Shopping</Navbar.Brand>
                 </Link>
                 <Nav className="mr-auto">
                     <Link to={"Home"} className="nav-link">Home</Link>

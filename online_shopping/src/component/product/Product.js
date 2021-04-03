@@ -16,7 +16,7 @@ class Product extends Component {
     super(props);
     this.state = this.initialState;
     this.state.show = false;
-
+	this.state.saving = false;
     this.productChange = this.productChange.bind(this);
     this.submitProduct = this.submitProduct.bind(this);
   }
@@ -28,12 +28,21 @@ class Product extends Component {
     specification: "",
     manufacturer: "",
     quantity: 0,
-    price: 0.0,
+    price: 0.0
   };
+ 
+//   const [apiCallInProgress, setApiCallInProgress] = useState(false);
 
   submitProduct = (event) => {
     // alert(this.state.productName);
     event.preventDefault();
+	this.setState({saving:true});
+	this.state.saving = true;
+	//await new Promise(r => setTimeout(r, 2000));
+	console.log(this.state.saving);
+	var now = Date.now();
+	var end = now + 2000;
+	while (now < end) { now = Date.now(); }
 
     const product = {
       pictureUrl: this.state.pictureUrl,
@@ -47,16 +56,19 @@ class Product extends Component {
 
     axios
       .post("http://localhost:9000/api/saveproduct", product)
+	  //.get("https://hub.dummyapis.com/delay?seconds=10")
       .then((response) => {
         if (response.data != null) {
-          this.setState({ show: true });
-          setTimeout(() => this.setState({ show: false }), 3000);
+			console.log("asdasdf");
+          this.setState({ show: true, saving:false});
+          setTimeout(() => this.setState({ show: false}), 3000);
         } else {
           this.setState({ show: false });
         }
       });
     this.setState(this.initialState);
-    //this.resetProduct();
+	this.state.saving=true;
+    // this.resetProduct();
   };
 
   updateProduct = event => {
@@ -259,7 +271,7 @@ class Product extends Component {
               </Form.Row>
             </Card.Body>
             <Card.Footer style={{ textAlign: "right" }}>
-              <Button size="sm" variant="success" type="submit">
+              <Button size="sm" variant="success" type="submit" disabled={this.state.saving}>
                 <FontAwesomeIcon icon={faSave} />{" "}
                 {this.state.productId ? "Update" : "Save"}
               </Button>{" "}
