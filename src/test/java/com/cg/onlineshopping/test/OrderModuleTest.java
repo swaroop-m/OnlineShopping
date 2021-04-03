@@ -18,10 +18,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.cg.onlineshopping.entities.Address;
 import com.cg.onlineshopping.entities.Customer;
+import com.cg.onlineshopping.entities.DeliveryAddress;
 import com.cg.onlineshopping.entities.Order;
-import com.cg.onlineshopping.entities.Product;
-import com.cg.onlineshopping.repository.IAddressRepository;
+import com.cg.onlineshopping.entities.CartItem;
 import com.cg.onlineshopping.repository.ICustomerRepository;
+import com.cg.onlineshopping.repository.IDeliveryAddressRepository;
 import com.cg.onlineshopping.repository.IOrderRepository;
 import com.cg.onlineshopping.service.IOrderServiceImplementation;
 
@@ -33,11 +34,12 @@ public class OrderModuleTest {
 
 
 	Customer customer;
-	Address address;
+	DeliveryAddress dAddress;
 	Order order1;
 	Order order2;
 	Order order3;
-	Product product;
+	CartItem product;
+	Address address;
 	@Autowired
 	IOrderServiceImplementation orderServiceImpl=new IOrderServiceImplementation();
 
@@ -49,19 +51,19 @@ public class OrderModuleTest {
 	@MockBean
 	ICustomerRepository custRepository;
 	
-	//Mock object of IAddressRepository
 	@MockBean
-	IAddressRepository addressRepository;
-
+	IDeliveryAddressRepository deliveryAddressRepository;
+	
+	
 	//Method that is executed before each test case
 	@BeforeEach
 	void setUp() {
-		address=new Address(2,"12", null, null, null, null, "560051");
+		dAddress=new DeliveryAddress(2,"12", null, null, null, null, "560051");
 		customer=new Customer(9, "aishwarya", "shan", null, address, null);
 
-		order1=new Order(3,LocalDate.of(2021, 11, 12), "10", customer, address);
-		order2=new Order(4,LocalDate.of(2021, 10, 24), "16", customer, address);
-		order3=new Order(6,LocalDate.of(2020, 01, 16), "20", customer, address);
+		order1=new Order(1,LocalDate.of(2021, 11, 12), "10", customer,null, dAddress);
+		order2=new Order(4,LocalDate.of(2021, 10, 24), "16", customer, null, dAddress);
+		order3=new Order(6,LocalDate.of(2020, 01, 16), "20", customer, null, dAddress);
 	}
 
 	//Test the addOrder method
@@ -76,9 +78,9 @@ public class OrderModuleTest {
 	//Tests the updateOrderMethod
 	@Test
 	public void testUpdateOrders() {
-		order2 = new Order(3, LocalDate.of(2022, 01, 22), "12",customer,address);
+		order2 = new Order(3, LocalDate.of(2022, 01, 22), "12",customer,null,dAddress);
 		Optional<Order> order2 = Optional
-				.of(new Order(3,LocalDate.of(2021, 11, 24), "14", customer,address));
+				.of(new Order(3,LocalDate.of(2021, 11, 24), "14", customer, null, dAddress));
 		when(orderRepository.findById(3)).thenReturn(order2);
 		Order order3=order2.get();
 		Order order1 = orderServiceImpl.updateOrder(order3);
@@ -111,10 +113,8 @@ public class OrderModuleTest {
 		List<Order> order=new ArrayList<Order>();
 		order.add(order1);
 		when(orderRepository.findByOrderDate(LocalDate.of(2021, 11, 12))).thenReturn(order);
-
 		List<Order> o=orderServiceImpl.viewAllOrdersByDate(LocalDate.of(2021, 11, 12));
 		Assertions.assertEquals(order,o);
-
 
 	}
 
@@ -123,9 +123,9 @@ public class OrderModuleTest {
 	public void testViewAllOrdersByAddressId() {
 		List<Order> order=new ArrayList<Order>();
 		order.add(order1);
-		Optional<Address> address1=Optional.of(address);
-		when(addressRepository.findById(2)).thenReturn(address1);
-		when(orderRepository.findByAddress(address)).thenReturn(order);
+		Optional<DeliveryAddress> dAddress1=Optional.of(dAddress);
+		when(deliveryAddressRepository.findById(2)).thenReturn(dAddress1);
+		when(orderRepository.findByDeliveryAddress(dAddress)).thenReturn(order);
 		List<Order> o=orderServiceImpl.viewAllOrdersByAddressId(2);
 		Assertions.assertEquals(order,o);
 
@@ -156,5 +156,4 @@ public class OrderModuleTest {
 
 
 }
-
 //Code ends here
