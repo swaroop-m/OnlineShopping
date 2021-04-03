@@ -54,6 +54,7 @@ function App() {
           <Col lg={12} style={marginTop}>
             <Route path="/" exact component={Welcome}/>
             <Route path="/addproduct" exact component={Product}/>
+            <Route path="/editproduct/:productId" exact component={Product}/>
             <Route path="/listproducts" exact component={ProductList}/>
             <Route path="/listorders" exact component={OrderList}/>
             <Route path="/Cart" excat component={Cart}/>
