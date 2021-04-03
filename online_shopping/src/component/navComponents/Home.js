@@ -53,7 +53,7 @@ function Home(props) {
 
                 <br/>
                 <Button className="btn btn-success" onClick={addToCart}>Add To Cart</Button>
-                {list.map((data)=> <div className="Row bg-secondary mt-1"> Hello</div>)}
+                {list.map((data)=> <div className="Row bg-secondary mt-1"> Image <br/> product details </div>)}
 
                 <h1> some Images</h1>
                 <h1>brand video</h1>

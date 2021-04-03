@@ -58,14 +58,14 @@ function Cart(props) {
                     <hr/>
                         <div>
                             <p>Shipping : ₹60 </p>
+                            <p>Delivery : ₹30 </p>
                             <select>
                                 <option >--Mode of payment--</option>
                                 <option>Cash on delivery</option>
-                                <option>Coming soon!</option>
                             </select>
                         </div>
                     <hr/>
-                        <h4>Total Price: 15060₹</h4>
+                        <h4>Total Price: 15060₹ (product + shipping+ delivery)</h4>
                     <hr/>
                         <Col  md={{offset: 1}}>
                             <Button className="btn btn-success" onClick={buttonClick}> Place Order</Button>

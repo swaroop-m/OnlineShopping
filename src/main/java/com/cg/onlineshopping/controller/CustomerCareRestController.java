@@ -45,5 +45,4 @@ public class CustomerCareRestController {
 		return new ResponseEntity<List<CustomerCare>>(viewAllComplaints,HttpStatus.ACCEPTED);
 	}
 	
-
 }

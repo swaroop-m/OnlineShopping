@@ -112,8 +112,8 @@ function ContactUs() {
             </Form.Group>
         
             <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Issue with the Product?</Form.Label>
-                <Form.Control as="textarea" rows={3} value={message} onChange={onChangeMessage} />
+                <Form.Label>Message</Form.Label>
+                <Form.Control as="textarea" placeholder="Issue with the product?" rows={3} value={message} onChange={onChangeMessage} />
             </Form.Group>
 
             {invalidForm && (
