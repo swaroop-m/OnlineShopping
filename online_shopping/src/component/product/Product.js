@@ -158,8 +158,8 @@ class Product extends Component {
             show={this.state.show}
             message={
               this.state.method === "put"
-                ? "Book Updated Successfully."
-                : "Book Saved Successfully."
+                ? "Product Updated Successfully."
+                : "Product Saved Successfully."
             }
             type={"success"}
           />
