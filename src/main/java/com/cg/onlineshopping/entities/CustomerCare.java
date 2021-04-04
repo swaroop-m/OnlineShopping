@@ -27,7 +27,7 @@ public class CustomerCare {
 	
 	private String phoneNo;
 	
-	private int productId;
+	private String productId;
 	
 	private String message;
 

@@ -57,8 +57,8 @@ function Home(props) {
 
                 
                 <Homepage />
-                <br />
-                <br /><br /><br />
+                
+                
             </div>
   )
 }

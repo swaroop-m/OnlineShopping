@@ -310,6 +310,8 @@ class Product extends Component {
                         <a className="btn btn-primary">Add Product</a>
                     </div>
                 </div>*/}
+
+                
         <br />
       </div>
     );

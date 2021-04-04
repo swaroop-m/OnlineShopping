@@ -20,7 +20,7 @@ function Cart(props) {
             console.log("remove the product from cart")
         }
 
-        let buttonClick= () => {
+        let placeOrderClick= () => {
             console.log("Placed Order", new Date())
         }
 
@@ -33,7 +33,8 @@ function Cart(props) {
          <div className="container">
              
                 <Row md={4} border-radius= "5%">
-                    <Col xs={12} md={8}> <h1><AiOutlineShoppingCart size="1.5em"/>My Cart</h1>
+                    <Col xs={12} md={8}> <h1><AiOutlineShoppingCart size="1.5em"/>My Cart</h1> 
+                    
                     <hr/>
                         <div>
                             <Row>
@@ -54,10 +55,11 @@ function Cart(props) {
                         </div>
                     </Col>
                     <span class="border-left border-dark">
-                    <Col ><h2>Price details</h2>
+                    <Col className="bg-light"><h4>Price details</h4>
                     <hr/>
                         <div>
                             <p>Shipping : ₹60 </p>
+                            <hr/>
                             <p>Delivery : ₹30 </p>
                             <select>
                                 <option >--Mode of payment--</option>
@@ -68,11 +70,13 @@ function Cart(props) {
                         <h4>Total Price: 15060₹ (product + shipping+ delivery)</h4>
                     <hr/>
                         <Col  md={{offset: 1}}>
-                            <Button className="btn btn-success" onClick={buttonClick}> Place Order</Button>
+                            <Button className="btn btn-success" onClick={placeOrderClick}> Place Order</Button>
                         </Col>
                     <br/>
                         <p><AiFillSafetyCertificate/>Safe and Secure Payments.Easy returns.100% Authentic products.</p>
+                        <br/>
                     </Col> 
+                    
                     </span>
                 </Row>
             </div>
