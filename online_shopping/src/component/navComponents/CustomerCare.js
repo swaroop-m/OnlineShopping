@@ -1,6 +1,6 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'
-import {Button,  Form, Row, Col} from 'react-bootstrap'
+import {Button,  Form } from 'react-bootstrap'
 import {RiCustomerService2Fill} from 'react-icons/ri'
 
 
@@ -11,23 +11,26 @@ function CustomerCare() {
   const [displayMessage, setDisplayMessage] = useState(false);
   const [invalidForm, setInvalidForm] = useState(false);
   const [apiCallInProgress, setApiCallInProgress] = useState(false);
-  const [name, setName] = useState("");
-  const [productId, setProductId] = useState("");
-  const [message, setMessage] = useState("");
+  const [name, setName] = useState("")
+  const [phoneNo, setPhoneNo] =useState(" ")
+  const [productId, setProductId] = useState("")
+  const [message, setMessage] = useState("")
+  
 
-  const onChangeName = (e) => setName(e.target.value);
-  const onChangeProductId = (e) => setProductId(e.target.value);
-  const onChangeMessage= (e) => setMessage(e.target.value);
+  const onChangeName = (e) => setName(e.target.value)
+  const onChangePhoneNo =(e)=> setPhoneNo(e.target.value)
+  const onChangeProductId = (e) => setProductId(e.target.value)
+  const onChangeMessage= (e) => setMessage(e.target.value)
 
   /**
    * THIS has all the data
    * About to MAKE API CALL
    */
   const onSubmit = async () => {
-    console.log(name, productId,message);
+    console.log(name,phoneNo, productId,message);
 
     // VALIDATION AT THE BEGINING
-    if (name === "" || productId == "" || message == "") {
+    if (name === "" || phoneNo==="" || productId == "" || message == "") {
       setInvalidForm(true);
     // setTimeout(() => setInvalidForm(false), 5000);
 
@@ -41,19 +44,20 @@ function CustomerCare() {
     setApiCallInProgress(true);
 
     // FAKE
-    const postUrl = "https://jsonplaceholder.typicode.com/posts";
-    const result = await axios({
-      method: "POST",
-      url: postUrl,
-      data: { title: name, body: message, userId: productId },
-    });
+    // const postUrl = "http://localhost:9000/api/addcomplaints";
+    // const result = await axios({
+    //   method: "POST",
+    //   url: postUrl,
+    //   data: { title: name, number : phoneNo, body: message, Id: productId },
+    // });
 
-    console.log(result);
+    // console.log(result);
 
     // // PUT INTO THE LIST :: Dummy CRUD Simulations
     // const newUser = {
     //     name: name,
     //     productId: productId,
+    //     phoneNo: phoneNo,
     //     message: message,
     //   };
     //   setUserList([newUser, ...userList]);
@@ -63,9 +67,10 @@ function CustomerCare() {
     setTimeout(() => setDisplayMessage(false), 3000);
 
     // B2:: RESET THE FORM AFTER GETTING THE OUTPUT FROM THE SERVER
-    setName("");
-    setProductId("");
-    setMessage("");
+    setName("")
+    setPhoneNo(" ")
+    setProductId("")
+    setMessage(" ")
 
     // eneable the button again
     setApiCallInProgress(false);
@@ -107,8 +112,17 @@ function CustomerCare() {
             </Form.Group>
 
             <Form.Group>
+                <Form.Label>Phone no</Form.Label>
+                <Form.Control type="text" placeholder="Enter Phone no" value={phoneNo} onChange={onChangePhoneNo} />
+            </Form.Group>
+
+            <Form.Group>
                 <Form.Label>Product Id</Form.Label>
                 <Form.Control type="text" placeholder="Enter Product ID" value={productId} onChange={onChangeProductId} />
+            </Form.Group>
+            
+            <Form.Group >
+              <Form.File id="exampleFormControlFile1" label="Defective product?" />
             </Form.Group>
         
             <Form.Group controlId="exampleForm.ControlTextarea1">
