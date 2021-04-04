@@ -62,3 +62,8 @@
 18:27 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 63 
 18:27 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 55 
 18:28 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+21:03 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 65 
+21:03 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+21:03 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 80 
+21:03 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+21:03 03/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 

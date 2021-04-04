@@ -9,9 +9,10 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Product from './component/product/Product'
 import ProductList from './component/product/ProductList'
 import Cart from './component/navComponents/Cart'
-import ContactUs from './component/navComponents/ContactUs'
 import AboutUs from './component/navComponents/AboutUs'
 import Home from './component/navComponents/Home'
+import CustomerCare from './component/navComponents/CustomerCare'
+import Login from './component/Login/Login'
 
 
 function App() {
@@ -62,9 +63,9 @@ function App() {
             <Route path="/listproducts" exact component={ProductList}/>
             <Route path="/AboutUs" exact component={AboutUs}/>
             
-
+            <Route path="/Login" exact component={Login}/>
             <Route path="/Cart" excat component={Cart}/>
-            <Route path="/ContactUs" exact component={ContactUs}/>
+            <Route path="/CustomerCare" exact component={CustomerCare}/>
             {/* <CreateProduct />
             <ProductList /> */}
           </Col>

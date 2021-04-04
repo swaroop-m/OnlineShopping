@@ -4,7 +4,7 @@ import {Button,  Form, Row, Col} from 'react-bootstrap'
 import {RiCustomerService2Fill} from 'react-icons/ri'
 
 
-function ContactUs() {
+function CustomerCare() {
 
 //   const [userList, setUserList] = useState([]);
 
@@ -155,5 +155,5 @@ function ContactUs() {
     )
 }
     
-export default ContactUs;
+export default CustomerCare;
 

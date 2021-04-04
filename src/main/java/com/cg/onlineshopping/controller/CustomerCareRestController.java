@@ -22,10 +22,10 @@ public class CustomerCareRestController {
 	@Autowired
 	ICustomerCareService iCusromerCareService;
 	
-	@GetMapping("/home") //for testing the controller
-	public String CustomerCarePage() {
-	return " Customer Care ";
-	}
+//	@GetMapping("/home") //for testing the controller
+//	public String CustomerCarePage() {
+//	return " Customer Care ";
+//	}
 	
 	@PostMapping("/addcomplaints")
 	public ResponseEntity<CustomerCare> addComplaints(@RequestBody CustomerCare customerCare) {

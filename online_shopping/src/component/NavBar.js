@@ -25,9 +25,9 @@ class NavBar extends Component
                 </Nav>
                 <Nav className="justify-content-end" activeKey="/home">
                 
-                <Link to={"#"} className="nav-link">Log in</Link> 
+                <Link to={"Login"} className="nav-link">Log in</Link> 
                     <Link to={"Cart"} className="nav-link">Cart<AiOutlineShoppingCart size="1.5em"/></Link>    
-                    <Link to={"ContactUs"} className="nav-link"><RiCustomerService2Fill/></Link>
+                    <Link to={"CustomerCare"} className="nav-link"><RiCustomerService2Fill/></Link>
                 </Nav>
             </Navbar>
         )
