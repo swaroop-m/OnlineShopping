@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Card, Button, CardDeck, CardGroup } from "react-bootstrap";
 import axios from 'axios';
+import { connect } from "react-redux";
 
-const addToCart =()=> {
-  console.log("added to cart")
-}
+
+
+
 
 class Homepage extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -46,9 +48,10 @@ class Homepage extends Component {
               {/* {product.specification}
               {product.dimension} */}
               {product.price}
+              {this.props.cart.length}
               
             </Card.Text>
-            <Button variant="primary" onClick={addToCart}>Add to Cart</Button>
+            <Button variant="primary" onClick={()=> this.props.dispatch({type:'ADD_TO_CART'})}>Add to Cart</Button>
           </Card.Body>
           </div>
         </Card>
@@ -63,4 +66,10 @@ class Homepage extends Component {
   }
 }
 
-export default Homepage;
+function mapStateToProps(state) {
+
+  return { cart:state.cart }
+}
+
+export default connect(mapStateToProps)(Homepage)
+// export default Homepage;

@@ -3,14 +3,6 @@ import { Carousel,Button } from 'react-bootstrap'
 import Homepage from '../product/Homepage'
 
 function Home(props) {
-
-  const [list,setList] =useState([1])
-
-  let addToCart = (()=> {
-    setList([...list,1])
-    console.log("added 1 product to cart")
-  })
-
   return (
     <div>
         <Carousel className="Container-fluid">
@@ -52,11 +44,14 @@ function Home(props) {
       </Carousel>
 
                 <br/>
-                <Button className="btn btn-success" onClick={addToCart}>Add To Cart</Button>
-                {list.map((data)=> <div className="Row bg-secondary mt-1"> Image <br/> product details </div>)}
+                
 
                 
                 <Homepage />
+                <br/>
+                <br/>
+                <br/>
+                <hr/>
                 
                 
             </div>

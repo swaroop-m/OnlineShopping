@@ -19,10 +19,11 @@ class Welcome extends Component {
                         </footer>
                     </blockquote>
 
-                <Homepage />
+                
 
 
                 </Jumbotron>
+                <Homepage />
             </div>
         );
     }

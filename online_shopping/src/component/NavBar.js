@@ -14,7 +14,6 @@ class NavBar extends Component
                 </Link>
                 <Nav className="mr-auto">
                     <Link to={"Home"} className="nav-link">Home</Link>
-                    <Link to={"Home1"} className="nav-link">Home1</Link>
                     {/* bg-dark text-white */}
                     <NavDropdown title="Product" id="basic-nav-dropdown" /*className="bg-dark text-white"*/> 
                     <NavDropdown.Item className="NavDropdown"><Link to={"addproduct"} className="nav-link">Add Product</Link></NavDropdown.Item>
