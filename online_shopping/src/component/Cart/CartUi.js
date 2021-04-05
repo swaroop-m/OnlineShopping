@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import {VscAdd} from 'react-icons/vsc'
-import {AiFillSafetyCertificate} from 'react-icons/ai'
 import {GrSubtract} from 'react-icons/gr'
 import { Button, Col, Row } from 'react-bootstrap'
 import { useSelector } from 'react-redux'

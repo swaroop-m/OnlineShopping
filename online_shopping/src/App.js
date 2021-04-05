@@ -58,8 +58,6 @@ function App() {
             <Route path="/" exact component={Welcome}/>
             <Route path="/Home" exact component={Home}/>
         
-
-
             <Route path="/addproduct" exact component={Product}/>
             <Route path="/editproduct/:productId" exact component={Product}/>
             <Route path="/listproducts" exact component={ProductList}/>

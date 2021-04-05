@@ -24,9 +24,6 @@ function NavBar(props) {
           <Link to={"Home"} className="nav-link">
             Home
           </Link>
-          <Link to={"Home1"} className="nav-link">
-            Home1
-          </Link>
           {/* bg-dark text-white */}
           <NavDropdown
             title="Product"
