@@ -16,7 +16,7 @@ class Product extends Component {
     super(props);
     this.state = this.initialState;
     this.state.show = false;
-	this.state.saving = false;
+  	this.state.saving = 0;
     this.productChange = this.productChange.bind(this);
     this.submitProduct = this.submitProduct.bind(this);
   }
@@ -30,46 +30,32 @@ class Product extends Component {
     quantity: 0,
     price: 0.0
   };
- 
-//   const [apiCallInProgress, setApiCallInProgress] = useState(false);
 
-  submitProduct = (event) => {
-    // alert(this.state.productName);
+  submitProduct = (event) =>{
     event.preventDefault();
-	this.setState({saving:true});
-	this.state.saving = true;
-	//await new Promise(r => setTimeout(r, 2000));
-	console.log(this.state.saving);
-	var now = Date.now();
-	var end = now + 2000;
-	while (now < end) { now = Date.now(); }
-
-    const product = {
-      pictureUrl: this.state.pictureUrl,
-      productName: this.state.productName,
-      dimension: this.state.dimension,
-      specification: this.state.specification,
-      manufacturer: this.state.manufacturer,
-      quantity: this.state.quantity,
-      price: this.state.price,
-    };
-
-    axios
+    this.setState({saving:1})
+      const product = {
+        pictureUrl: this.state.pictureUrl,
+        productName: this.state.productName,
+        dimension: this.state.dimension,
+        specification: this.state.specification,
+        manufacturer: this.state.manufacturer,
+        quantity: this.state.quantity,
+        price: this.state.price,
+      };
+      axios
       .post("http://localhost:9000/api/saveproduct", product)
-	  //.get("https://hub.dummyapis.com/delay?seconds=10")
       .then((response) => {
         if (response.data != null) {
-			console.log("asdasdf");
-          this.setState({ show: true, saving:false});
+      console.log("asdasdf");
+          this.setState({ show: true, saving:0});
           setTimeout(() => this.setState({ show: false}), 3000);
         } else {
           this.setState({ show: false });
         }
+        this.setState(this.initialState);
       });
-    this.setState(this.initialState);
-	this.state.saving=true;
-    // this.resetProduct();
-  };
+  }
 
   updateProduct = event => {
 	event.preventDefault();
@@ -171,7 +157,7 @@ class Product extends Component {
           </Card.Header>
           <Form
             onReset={this.resetProduct}
-            onSubmit={this.state.productId? this.updateProduct : this.submitProduct}
+            onSubmit={this.state.productId? this.updateProduct :  this.submitProduct}
             id="productFormId"
           >
             <Card.Body>
@@ -271,7 +257,7 @@ class Product extends Component {
               </Form.Row>
             </Card.Body>
             <Card.Footer style={{ textAlign: "right" }}>
-              <Button size="sm" variant="success" type="submit" disabled={this.state.saving}>
+              <Button size="sm" variant="success" type="submit" disabled={this.state.saving===1}>
                 <FontAwesomeIcon icon={faSave} />{" "}
                 {this.state.productId ? "Update" : "Save"}
               </Button>{" "}

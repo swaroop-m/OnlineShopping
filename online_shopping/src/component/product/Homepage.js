@@ -29,19 +29,19 @@ class Homepage extends Component {
   render() {
     return (
       <div className="container-fluid">
-      <div className="row mt-1">
+      <div className="row mt-1 ">
         {
         this.state.products.map((product) => (
           <div className="col-xs-12 col-md-6 col-lg-3" key={product.productId}>
             <CardGroup>
         <Card className="" style={{ width: "19rem"}} key={product.productId} >
-          <div className="text-center align-middle" style={{height: 300}}>
-          <Card.Img variant="top" className="mx-auto" max-height="300px" src={product.pictureUrl}/>
+          <div className="text-center align-middle" >
+          <Card.Img variant="top" className="mx-auto" src={product.pictureUrl} style={{height: 290, objectFit: "contain"}}/>
           </div>
               <div > 
-              {/* style={{height: 250}} */}
+              {/* style={{height: 250}} col-6 bg-secondary text-light d-flex justify-content-center align-items-center*/}
           <Card.Body>
-            <Card.Title className="overflow-hidden d-block">{product.productName}</Card.Title>
+            <Card.Title className="" style={{whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{product.productName}</Card.Title>
             <Card.Text>
               {/* {product.specification}
               {product.dimension} */}

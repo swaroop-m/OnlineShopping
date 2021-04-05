@@ -60,7 +60,7 @@ class ProductList extends Component {
         return (
             <div>
                 <div style={{"display":this.state.show ? "block" : "none"}}>
-                <AddProductSuccessToast show = {this.state.show} message = {"Book Deleted Successfully."} type = {"danger"}/>
+                <AddProductSuccessToast show = {this.state.show} message = {"Product Deleted Successfully."} type = {"danger"}/>
                 </div>
                 <Card className="border bg-light">
                     {/* <Card.Header>
