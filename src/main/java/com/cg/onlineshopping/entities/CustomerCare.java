@@ -17,7 +17,7 @@ public class CustomerCare {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int complaintId;
+	private Integer complaintId;
 	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "customerId")

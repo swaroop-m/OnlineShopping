@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Card, Button, CardDeck, CardGroup } from "react-bootstrap";
 import axios from 'axios';
 
+const addToCart =()=> {
+  console.log("added to cart")
+}
+
 class Homepage extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +23,8 @@ class Homepage extends Component {
         this.setState({ products: data });
       });
   }
+
+   
 
   render() {
     return (
@@ -41,7 +47,7 @@ class Homepage extends Component {
               {product.price}
               
             </Card.Text>
-            <Button variant="primary">Add to Cart</Button>
+            <Button variant="primary" onClick={addToCart}>Add to Cart</Button>
           </Card.Body>
           </div>
         </Card>
