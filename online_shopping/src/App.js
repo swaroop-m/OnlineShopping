@@ -4,6 +4,7 @@ import NavBar from './component/NavBar'
 import { Container, Row, Col } from 'react-bootstrap'
 import Welcome from './component/Welcome'
 import Footer from './component/Footer'
+
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Product from './component/product/Product'
 import ProductList from './component/product/ProductList'
@@ -58,6 +59,8 @@ function App() {
             <Route path="/" exact component={Welcome}/>
             <Route path="/Home" exact component={Home}/>
         
+
+
             <Route path="/addproduct" exact component={Product}/>
             <Route path="/editproduct/:productId" exact component={Product}/>
             <Route path="/listproducts" exact component={ProductList}/>
