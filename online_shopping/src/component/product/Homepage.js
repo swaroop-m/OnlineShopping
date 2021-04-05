@@ -32,15 +32,16 @@ class Homepage extends Component {
       <div className="row mt-1">
         {
         this.state.products.map((product) => (
-          <div className="col-3" key={product.productId}>
+          <div className="col-xs-12 col-md-6 col-lg-3" key={product.productId}>
             <CardGroup>
-        <Card style={{ width: "18rem"}} key={product.productId} >
-          <div className="text-center align-middle">
-          <Card.Img variant="top" className="img-fluid rounded" max-width="100%" height="350"  style={{height: 300}} src={product.pictureUrl}/>
+        <Card className="" style={{ width: "19rem"}} key={product.productId} >
+          <div className="text-center align-middle" style={{height: 300}}>
+          <Card.Img variant="top" className="mx-auto" max-height="300px" src={product.pictureUrl}/>
           </div>
-              <div style={{height: 250}}>
+              <div > 
+              {/* style={{height: 250}} */}
           <Card.Body>
-            <Card.Title>{product.productName}</Card.Title>
+            <Card.Title className="overflow-hidden d-block">{product.productName}</Card.Title>
             <Card.Text>
               {/* {product.specification}
               {product.dimension} */}
