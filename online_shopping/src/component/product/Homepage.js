@@ -29,11 +29,11 @@ class Homepage extends Component {
   render() {
     return (
       <div className="container-fluid">
-      <div className="row mt-1 ">
+      <div className="row mt-1" >
         {
         this.state.products.map((product) => (
           <div className="col-xs-12 col-md-6 col-lg-3" key={product.productId}>
-            <CardGroup>
+            <CardGroup style={{ marginTop:"15px" }}>
         <Card className="" style={{ width: "19rem"}} key={product.productId} >
           <div className="text-center align-middle" >
           <Card.Img variant="top" className="mx-auto" src={product.pictureUrl} style={{height: 290, objectFit: "contain"}}/>
@@ -45,7 +45,7 @@ class Homepage extends Component {
             <Card.Text>
               {/* {product.specification}
               {product.dimension} */}
-              {product.price}
+              &#8377; {product.price}
               
             </Card.Text>
             <Button variant="primary" onClick={addToCart}>Add to Cart</Button>

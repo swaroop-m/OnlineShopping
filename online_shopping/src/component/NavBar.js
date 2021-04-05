@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Navbar, Nav , NavDropdown, NavLink} from 'react-bootstrap'
+import {Navbar, Nav , NavDropdown, NavLink,} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import {AiOutlineShoppingCart } from 'react-icons/ai'
 import {RiCustomerService2Fill} from 'react-icons/ri'
@@ -8,10 +8,12 @@ class NavBar extends Component
 {
     render() {
         return ( 
-            <Navbar bg="light" variant="light">
+            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Link to={"Home"} className="navbar-link">
                 <Navbar.Brand ><img src="https://www.svgrepo.com/show/217771/shopping-logo.svg" width="40" height="40" alt="Brand_Logo"/> Shopping</Navbar.Brand>
                 </Link>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">  
                 <Nav className="mr-auto">
                     <Link to={"Home"} className="nav-link">Home</Link>
                     <Link to={"Home1"} className="nav-link">Home1</Link>
@@ -30,6 +32,7 @@ class NavBar extends Component
                     <Link to={"Cart"} className="nav-link">Cart<AiOutlineShoppingCart size="1.5em"/></Link>    
                     <Link to={"CustomerCare"} className="nav-link"><RiCustomerService2Fill/></Link>
                 </Nav>
+                </Navbar.Collapse>
             </Navbar>
         )
     }
