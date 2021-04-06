@@ -69,7 +69,8 @@ class ProductList extends Component {
                     <Card.Body>
                         <h3><FontAwesomeIcon icon={faList} /> List of Products</h3>
                         <br />
-                        <Table bordered hover striped className="table-responsive" variant="light">
+                        <div className="table-responsive ">
+                        <Table bordered hover striped className="table" variant="light">
                             <thead className="bg-primary text-white text-center">
                                 <tr>
                                     <th>Image</th>
@@ -99,6 +100,7 @@ class ProductList extends Component {
                                                 <td className="align-middle">{product.manufacturer}</td>
                                                 <td className="align-middle">{product.quantity}</td>
                                                 <td className="align-middle">{product.price}</td>
+                                                <td className="align-middle">{product.category?.categoryName}</td>
                                                 <td className="text-center align-middle">
                                                     <ButtonGroup>
                                                         <Link to={"editproduct/" + product.productId} className="btn btn-md btn-outline-primary mr-2 rounded-0">
@@ -114,6 +116,7 @@ class ProductList extends Component {
                                 }
                             </tbody>
                         </Table>
+                        </div>
                     </Card.Body>
                 </Card>
                 <br />
