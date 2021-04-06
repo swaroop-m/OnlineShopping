@@ -5,7 +5,7 @@ function Footer(props) {
   let fullYear = new Date().getFullYear();
   return (
     // position="bottom"
-    <Navbar fixed="bottom" className="" sticky="bottom" bg="dark" varient="dark">
+    <Navbar  className="" sticky="bottom" bg="dark" varient="dark">
       <Container>
         <Col lg={12} className="text-center text-white">
           <div>

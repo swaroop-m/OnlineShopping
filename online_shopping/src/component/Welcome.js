@@ -7,8 +7,8 @@ class Welcome extends Component {
     render() {
         return (
             <div>
-                 <Carousel>
-  <Carousel.Item interval={1000}>
+                  <Carousel >
+  <Carousel.Item >
     <img
       className="d-block w-100"
       src="https://cdn.pixabay.com/photo/2020/09/28/16/29/leaves-5610361_1280.png"
@@ -19,7 +19,7 @@ class Welcome extends Component {
       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
     </Carousel.Caption>
   </Carousel.Item>
-  <Carousel.Item interval={500}>
+  <Carousel.Item >
     <img
       className="d-block w-100"
       src="https://cdn.pixabay.com/photo/2021/02/22/08/41/crocus-6039312_1280.jpg"

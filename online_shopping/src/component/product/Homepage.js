@@ -4,10 +4,9 @@ import axios from 'axios';
 import { connect } from "react-redux";
 
 
-
-
-
 class Homepage extends Component {
+
+
 
   constructor(props) {
     super(props);
@@ -15,6 +14,7 @@ class Homepage extends Component {
       products: [],
       show: false,
     };
+    this.addToCart=this.addToCart.bind(this);
   }
 
   componentDidMount() {
@@ -26,7 +26,11 @@ class Homepage extends Component {
       });
   }
 
-   
+     addToCart = (product) => {
+      // const cartItem= {productName:"product2",price:"12",quantity:"34" }
+
+      this.props.dispatch({type:'ADD_TO_CART',payload:product})
+   }
 
   render() {
     return (
@@ -48,10 +52,10 @@ class Homepage extends Component {
               {/* {product.specification}
               {product.dimension} */}
               {product.price}
-              {this.props.cart.length}
+            
               
             </Card.Text>
-            <Button variant="primary" onClick={()=> this.props.dispatch({type:'ADD_TO_CART'})}>Add to Cart</Button>
+            <Button variant="primary" onClick={()=>this.addToCart(product)}>Add to Cart</Button>
           </Card.Body>
           </div>
         </Card>

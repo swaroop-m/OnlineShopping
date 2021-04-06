@@ -2,14 +2,7 @@ import { createStore } from "redux";
 
 // Common REUSABLE STATE
 const initialState = {
-    
-  cart: [
-      {
-          productName:"product1",
-          price:"122",
-          quantity:"1234",
-      }
-  ],
+  cart: [],
 };
 
 // LOGIC WE WRITE HERE :: {type: 'DEPOSIT'}
@@ -18,9 +11,10 @@ function reducer1(state = initialState, action) {
   switch (action.type) {
     // COMMON LOGIC
     case "ADD_TO_CART":
-      return { ...state, cart:[...state.cart, {productName:"product1",
-      price:"122",
-      quantity:"1234"}]};
+      return { ...state, cart:[...state.cart, {...action.payload}]}
+
+    case "CLEAR_CART":
+      return{...state,cart:[]}
     
     default:
       return state;

@@ -8,6 +8,7 @@ import {AiOutlineShoppingCart } from 'react-icons/ai'
 function CartUi(props) {
 
     const cartItems= useSelector(state=>state.cart)
+    console.log(cartItems)
 
     let [initialValue,setInitialValue] = useState(1);
 
@@ -28,15 +29,21 @@ function CartUi(props) {
             console.log("removing product from cart")
         }
 
+        let clearCart =() =>
+        {
+            console.log("clearing all items")
+        }
+
     return (
         
         <div className="small-container cart-page">
-            <h3><AiOutlineShoppingCart size="1.5em"/>My Cart</h3>  
+            
+            <h2><AiOutlineShoppingCart size="1.5em"/>My Cart</h2>  
 
-            <div className="bg-black d-flex justify-content-end">
-                <Button variant="dark">Clear Cart</Button>
+            <div className="myButton">
+                <Button variant="outline-dark" onClick={clearCart}>Clear Cart</Button>
             </div>
-    
+            
             <table >
                 <tr>
                     <th>Product</th>
@@ -48,9 +55,9 @@ function CartUi(props) {
                     <td>
                         <div className="cart-info">
                         
-                            <img src="https://www.accenture.com/t20210219T090132Z__w__/in-en/_acnmedia/Accenture/Redesign-Assets/DotCom/Images/Global/General/7/Accenture-Reinventing-Marquee-585x447.jpg"/>
+                            <img src={data.pictureUrl}/>
                             <div>
-                                <p>product name</p>
+                                <p>product name: {data.productName} </p>
                                 <p>Price: ₹100</p>
                                 <br/>
                                 <Button className="btn btn-danger" onClick={removeItem}>Remove</Button>
@@ -85,7 +92,14 @@ function CartUi(props) {
                         <td>Total</td>
                         <td>₹260</td>
                     </tr>
+                    
+                   
                 </table>
+              
+            </div>
+            <hr/>
+            <div className="d-flex justify-content-center align-items-center">
+            <Button className="btn btn-success placeOrder" style={{height:50}} onClick={placeOrderClick}>Place Order</Button>
             </div>
         </div>
        

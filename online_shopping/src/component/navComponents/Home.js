@@ -6,7 +6,7 @@ import Welcome from '../Welcome';
 function Home(props) {
   return (
     <div>
-<Welcome/>
+      <Welcome/>
 
                 <br/>
                 
