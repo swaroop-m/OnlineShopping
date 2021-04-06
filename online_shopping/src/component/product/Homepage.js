@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import { Card, Button, CardDeck, CardGroup } from "react-bootstrap";
 import axios from 'axios';
+import { connect } from "react-redux";
 
-const addToCart =()=> {
-  console.log("added to cart")
-}
 
 class Homepage extends Component {
+
+
+
   constructor(props) {
     super(props);
     this.state = {
       products: [],
       show: false,
     };
+    this.addToCart=this.addToCart.bind(this);
   }
 
   componentDidMount() {
@@ -24,31 +26,37 @@ class Homepage extends Component {
       });
   }
 
-   
+     addToCart = (product) => {
+      // const cartItem= {productName:"product2",price:"12",quantity:"34" }
+
+      this.props.dispatch({type:'ADD_TO_CART',payload:product})
+   }
 
   render() {
     return (
       <div className="container-fluid">
-      <div className="row mt-1" >
+      <div className="row mt-1">
         {
         this.state.products.map((product) => (
           <div className="col-xs-12 col-md-6 col-lg-3" key={product.productId}>
-            <CardGroup style={{ marginTop:"15px" }}>
+            <CardGroup>
         <Card className="" style={{ width: "19rem"}} key={product.productId} >
-          <div className="text-center align-middle" >
-          <Card.Img variant="top" className="mx-auto" src={product.pictureUrl} style={{height: 290, objectFit: "contain"}}/>
+          <div className="text-center align-middle" style={{height: 300}}>
+          <Card.Img variant="top" className="mx-auto" max-height="300px" src={product.pictureUrl}/>
           </div>
               <div > 
-              {/* style={{height: 250}} col-6 bg-secondary text-light d-flex justify-content-center align-items-center*/}
+              {/* style={{height: 250}} */}
           <Card.Body>
-            <Card.Title className="" style={{whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{product.productName}</Card.Title>
+            <Card.Title className="overflow-hidden d-block">{product.productName}</Card.Title>
             <Card.Text>
               {/* {product.specification}
               {product.dimension} */}
-              &#8377; {product.price}
+              {product.quantity}
+              {product.price}
+            
               
             </Card.Text>
-            <Button variant="primary" onClick={addToCart}>Add to Cart</Button>
+            <Button variant="primary" onClick={()=>this.addToCart(product)}>Add to Cart</Button>
           </Card.Body>
           </div>
         </Card>
@@ -63,4 +71,10 @@ class Homepage extends Component {
   }
 }
 
-export default Homepage;
+function mapStateToProps(state) {
+
+  return { cart:state.cart }
+}
+
+export default connect(mapStateToProps)(Homepage)
+// export default Homepage;

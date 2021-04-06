@@ -4,7 +4,7 @@ import NavBar from './component/NavBar'
 import { Container, Row, Col } from 'react-bootstrap'
 import Welcome from './component/Welcome'
 import Footer from './component/Footer'
-import CreateProduct from './component/product/CreateProduct'
+
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Product from './component/product/Product'
 import ProductList from './component/product/ProductList'
@@ -13,7 +13,7 @@ import AboutUs from './component/navComponents/AboutUs'
 import Home from './component/navComponents/Home'
 import CustomerCare from './component/navComponents/CustomerCare'
 import Login from './component/Login/Login'
-import Home1 from './component/navComponents/Home1'
+
 
 
 function App() {
@@ -58,7 +58,7 @@ function App() {
           <Col lg={12} style={marginTop}>
             <Route path="/" exact component={Welcome}/>
             <Route path="/Home" exact component={Home}/>
-            <Route path="/Home1" exact component={Home1}/>
+        
 
 
             <Route path="/addproduct" exact component={Product}/>
