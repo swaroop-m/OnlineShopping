@@ -42,7 +42,7 @@ class Welcome extends Component {
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
-                <Homepage/>
+                
                 
             </div>
         );

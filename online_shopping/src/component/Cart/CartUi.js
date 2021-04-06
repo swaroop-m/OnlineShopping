@@ -57,8 +57,8 @@ function CartUi(props) {
                         
                             <img src={data.pictureUrl}/>
                             <div>
-                                <p>product name: {data.productName} </p>
-                                <p>Price: ₹100</p>
+                                <p>Product: {data.productName} </p>
+                                <p>Price:₹{data.price}</p>
                                 <br/>
                                 <Button className="btn btn-danger" onClick={removeItem}>Remove</Button>
                             </div>
@@ -66,7 +66,7 @@ function CartUi(props) {
                         </div>
                     </td>
                     <td> <Button  variant="light" onClick={addQuantity}><VscAdd/></Button> {initialValue} <Button variant="light"  onClick={substractQuantity}><GrSubtract/></Button></td>
-                    <td>₹100</td>
+                    <td>₹{data.price}</td>
                     
                 </tr>
                 ) }

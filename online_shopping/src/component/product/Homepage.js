@@ -51,6 +51,7 @@ class Homepage extends Component {
             <Card.Text>
               {/* {product.specification}
               {product.dimension} */}
+              {product.quantity}
               {product.price}
             
               
