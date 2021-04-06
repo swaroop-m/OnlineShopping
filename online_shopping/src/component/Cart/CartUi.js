@@ -11,6 +11,7 @@ function CartUi(props) {
     console.log(cartItems)
 
     let [initialValue,setInitialValue] = useState(1);
+    let [initialTotal,setInitialTotal] = useState(0);
 
         let addQuantity =() =>{
             setInitialValue(initialValue+1)
@@ -78,7 +79,7 @@ function CartUi(props) {
                 <table>
                     <tr>
                         <td>SubTotal</td>
-                        <td>₹20</td>
+                        <td>{initialTotal}</td>
                     </tr>
                     <tr>
                         <td>Shipping</td>

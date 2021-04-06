@@ -53,6 +53,7 @@ function App() {
 
 
       <NavBar/>
+      <Welcome/>
       <Container>
         <Row>
           <Col lg={12} style={marginTop}>
