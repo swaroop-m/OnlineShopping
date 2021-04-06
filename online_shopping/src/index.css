@@ -51,7 +51,7 @@ td img {
   border-top: 3px solid black;
   width: 100%;
   max-width: 400px;
-}
+} 
 
 td:last-child {
   text-align: right;
@@ -67,9 +67,9 @@ th:last-child {
   }
 }
 
-/*Clear cart button*/
+/* Clear cart button */
 .myButton {
-  position: absolute; /* or position: absolute; */
+  position: absolute;  /* or position: absolute; */
   top: 30px;
   right: 20px;
 }

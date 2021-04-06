@@ -13,7 +13,9 @@ class ProductList extends Component {
         super(props);
         this.state = {
             products: [],
-            show: false
+            show: false,
+            currentPage : 1,
+            usersPerPage : 5
         };
     }
 
@@ -24,6 +26,46 @@ class ProductList extends Component {
                 this.setState({ products: data });
             });
     };
+
+    changePage = event => {
+        this.setState({
+            [event.target.name]: parseInt(event.target.value)
+        });
+    };
+
+    firstPage = () => {
+        if(this.state.currentPage > 1) {
+            this.setState({
+                currentPage: 1
+            });
+        }
+    };
+
+    prevPage = () => {
+        if(this.state.currentPage > 1) {
+            this.setState({
+                currentPage: this.state.currentPage - 1
+            });
+        }
+    };
+
+    lastPage = () => {
+        let usersLength = this.props.userData.users.length;
+        if(this.state.currentPage < Math.ceil(usersLength / this.state.usersPerPage)) {
+            this.setState({
+                currentPage: Math.ceil(usersLength / this.state.usersPerPage)
+            });
+        }
+    };
+
+    nextPage = () => {
+        if(this.state.currentPage < Math.ceil(this.props.userData.users.length / this.state.usersPerPage)) {
+            this.setState({
+                currentPage: this.state.currentPage + 1
+            });
+        }
+    };
+
 
     // deleteProduct = (productId) => {
     //     this.props.deleteProduct(ProductId);
@@ -80,6 +122,7 @@ class ProductList extends Component {
                                     <th>Manufacturer</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
+                                    <th>Category</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -87,7 +130,7 @@ class ProductList extends Component {
                                 {
                                     this.state.products.length === 0 ?
                                         <tr align="center">
-                                            <td colSpan="8">No Products Available.</td>
+                                            <td colSpan="9">No Products Available.</td>
                                         </tr> :
                                         this.state.products.map((product) => (
                                             <tr key={product.productId}>

@@ -36,7 +36,7 @@ class Product extends Component {
 
   submitProduct = (event) => {
     event.preventDefault();
-    this.setState({ saving: 1 });
+    this.setState({ show: true,saving: 1 });
     const product = {
       pictureUrl: this.state.pictureUrl,
       productName: this.state.productName,
@@ -49,11 +49,12 @@ class Product extends Component {
         categoryName: this.state.categoryName
       }
     };
+    setTimeout(() =>{
     axios
       .post("http://localhost:9000/api/saveproduct", product)
       .then((response) => {
         if (response.data != null) {
-          console.log("asdasdf");
+          this.setState({ show: true});
           this.setState({ show: true, saving: 1, method: "post" });
           setTimeout(() => this.setState({ show: false }), 3000);
         } else {
@@ -61,6 +62,7 @@ class Product extends Component {
         }
         this.setState(this.initialState);
       });
+    },500);
   };
 
   updateProduct = (event) => {
@@ -156,9 +158,7 @@ class Product extends Component {
           <AddProductSuccessToast
             show={this.state.show}
             message={
-              this.state.method === "put"
-                ? "Product Updated Successfully."
-                : "Product Saved Successfully."
+              this.state.method === "put" ? "Product Updated Successfully." : "Product Saved Successfully."
             }
             type={"success"}
           />

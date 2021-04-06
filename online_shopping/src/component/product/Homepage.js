@@ -41,13 +41,13 @@ class Homepage extends Component {
           <div className="col-xs-12 col-md-6 col-lg-3" key={product.productId}>
             <CardGroup>
         <Card className="" style={{ width: "19rem"}} key={product.productId} >
-          <div className="text-center align-middle" style={{height: 300}}>
-          <Card.Img variant="top" className="mx-auto" max-height="300px" src={product.pictureUrl}/>
+          <div className="text-center align-middle">
+          <Card.Img variant="top" className="mx-auto" style={{height: 290, objectFit: "contain"}} src={product.pictureUrl}/>
           </div>
               <div > 
               {/* style={{height: 250}} */}
           <Card.Body>
-            <Card.Title className="overflow-hidden d-block">{product.productName}</Card.Title>
+            <Card.Title className="" style={{whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{product.productName}</Card.Title>
             <Card.Text>
               {/* {product.specification}
               {product.dimension} */}

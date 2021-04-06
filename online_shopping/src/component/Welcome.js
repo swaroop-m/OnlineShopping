@@ -9,7 +9,7 @@ function Welcome(props) {
   return (
     <div>
 
-<Carousel>
+{/* <Carousel>
   <Carousel.Item>
     <img
       className="d-block w-100"
@@ -45,7 +45,7 @@ function Welcome(props) {
       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
     </Carousel.Caption>
   </Carousel.Item>
-</Carousel>
+</Carousel> */}
      
     </div>
        
