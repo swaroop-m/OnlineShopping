@@ -1,17 +1,19 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import {VscAdd} from 'react-icons/vsc'
 import {GrSubtract} from 'react-icons/gr'
-import { Button, Col, Row } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import {AiOutlineShoppingCart } from 'react-icons/ai'
+import './cart.css'
 
 function CartUi(props) {
 
     const cartItems= useSelector(state=>state.cart)
-    console.log(cartItems)
+    
+    const delivery= 40
 
     let [initialValue,setInitialValue] = useState(1);
-    let [initialTotal,setInitialTotal] = useState(0);
+
 
         let addQuantity =() =>{
             setInitialValue(initialValue+1)
@@ -24,15 +26,27 @@ function CartUi(props) {
         let placeOrderClick= () => {
             console.log("Placed Order", new Date())
         }
-    
+//not working   
         let removeItem =() =>
         {
             console.log("removing product from cart")
         }
-
-        let clearCart =() =>
+//not working
+        let clearCart =(product) =>
         {
             console.log("clearing all items")
+        }
+        
+//working
+        const getSubTotal =()=>{
+            return cartItems.reduce((sum,{price})=> sum + price,0)
+        }
+
+//notworking
+        let [total,setTotal]= useState(0)
+
+        let getTotal =()=>{
+          setTotal= getSubTotal(total+ 40)
         }
 
     return (
@@ -49,7 +63,7 @@ function CartUi(props) {
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
-                    <th>Subtotal</th>
+                    <th>Price</th>
                 </tr>
                 {cartItems.map((data,index)=>
                 <tr key={index}>
@@ -59,8 +73,8 @@ function CartUi(props) {
                             <img src={data.pictureUrl}/>
                             <div>
                                 <p>Product: {data.productName} </p>
-                                <p>Price:₹{data.price}</p>
-                                <br/>
+                                <p>Price: ₹ {data.price}</p>
+                                
                                 <Button className="btn btn-danger" onClick={removeItem}>Remove</Button>
                             </div>
 
@@ -78,23 +92,17 @@ function CartUi(props) {
             <div className="total-price">
                 <table>
                     <tr>
-                        <td>SubTotal</td>
-                        <td>{initialTotal}</td>
+                        <td>SubTotal: </td>
+                        <td>₹{getSubTotal()}</td>
                     </tr>
                     <tr>
-                        <td>Shipping</td>
-                        <td>₹20</td>
-                    </tr>
-                    <tr>
-                        <td>delivery</td>
-                        <td>₹40</td>
+                        <td>Delivery cost: </td>
+                        <td>₹{delivery}</td>
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td>₹260</td>
+                        <td>₹{getTotal}</td>
                     </tr>
-                    
-                   
                 </table>
               
             </div>

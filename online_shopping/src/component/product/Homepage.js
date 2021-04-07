@@ -27,8 +27,6 @@ class Homepage extends Component {
   }
 
      addToCart = (product) => {
-      // const cartItem= {productName:"product2",price:"12",quantity:"34" }
-
       this.props.dispatch({type:'ADD_TO_CART',payload:product})
    }
 
@@ -47,12 +45,14 @@ class Homepage extends Component {
               <div > 
               {/* style={{height: 250}} */}
           <Card.Body>
+          
             <Card.Title className="" style={{whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{product.productName}</Card.Title>
             <Card.Text>
               {/* {product.specification}
               {product.dimension} */}
-              {product.quantity}
-              {product.price}
+              Quantity: {product.quantity}<br/>
+              Price: ₹{product.price}
+              
             
               
             </Card.Text>

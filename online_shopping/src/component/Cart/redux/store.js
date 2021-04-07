@@ -13,8 +13,6 @@ function reducer1(state = initialState, action) {
     case "ADD_TO_CART":
       return { ...state, cart:[...state.cart, {...action.payload}]}
 
-    case "CLEAR_CART":
-      return{...state,cart:[]}
     
     default:
       return state;
