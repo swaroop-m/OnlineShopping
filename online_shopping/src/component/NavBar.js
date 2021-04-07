@@ -21,7 +21,7 @@ function NavBar(props) {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Link to={"Home"} className="nav-link">
+          <Link to={"/Home"} className="nav-link">
             Home
           </Link>
           {/* bg-dark text-white */}
@@ -30,31 +30,31 @@ function NavBar(props) {
             id="basic-nav-dropdown" /*className="bg-dark text-white"*/
           >
             <NavDropdown.Item className="NavDropdown">
-              <Link to={"addproduct"} className="nav-link">
+              <Link to={"/addproduct"} className="nav-link">
                 Add Product
               </Link>
             </NavDropdown.Item>
             <NavDropdown.Item className="NavDropdown">
-              <Link to={"listproducts"} className="nav-link">
+              <Link to={"/listproducts"} className="nav-link">
                 Product List
               </Link>
             </NavDropdown.Item>
           </NavDropdown>
           {/* <Link to={"addproduct"} className="nav-link">Add Products</Link>
                     <Link to={"listproducts"} className="nav-link">Product List</Link> */}
-          <Link to={"AboutUs"} className="nav-link">
+          <Link to={"/AboutUs"} className="nav-link">
             AboutUs
           </Link>
         </Nav>
         <Nav className="justify-content-end" activeKey="/home">
-          <Link to={"Login"} className="nav-link">
+          <Link to={"/Login"} className="nav-link">
             Log in
           </Link>
-          <Link to={"Cart"} className="nav-link">
+          <Link to={"/Cart"} className="nav-link">
             Cart
             <AiOutlineShoppingCart size="1.5em" />
           </Link>
-          <Link to={"CustomerCare"} className="nav-link">
+          <Link to={"/CustomerCare"} className="nav-link">
             <RiCustomerService2Fill />
           </Link>
         </Nav>
