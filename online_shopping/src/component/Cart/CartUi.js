@@ -4,6 +4,7 @@ import {GrSubtract} from 'react-icons/gr'
 import { Button } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import {AiOutlineShoppingCart } from 'react-icons/ai'
+import {BsInfoCircleFill} from 'react-icons/bs'
 import './cart.css'
 
 function CartUi(props) {
@@ -27,30 +28,26 @@ function CartUi(props) {
             console.log("Placed Order", new Date())
         }
 //not working   
-        let removeItem =() =>
+        let removeItem =(product) =>
         {
-            
             console.log("removing product from cart")
         }
 //not working v 
         let clearCart =() =>
         {
-            cartItems([])
+            // cartItems([])
             console.log("clearing all items")
         }
         
-//working
-        const getSubTotal =()=>{
-            return cartItems.reduce((sum,{price})=> sum + price,0)
-        }
-
-        const delivery= 40
+//working subTotal
+        const getSubTotal = cartItems.reduce((sum,{price})=> sum + price,0)
+        
+//delivery charge conditional
+        
+        const delivery =  getSubTotal > 5000 ? 0 : 50
 
 //notworking
-
-        // let getTotal =()=>{
-        //   setTotal= getSubTotal(total+ 40)
-        // }
+        const totalPrice= getSubTotal + delivery
 
     return (
         
@@ -61,6 +58,8 @@ function CartUi(props) {
             <div className="myButton">
                 <Button variant="outline-dark" onClick={clearCart}>Clear Cart</Button>
             </div>
+
+           
             
             <table>
                 <tr>
@@ -68,6 +67,10 @@ function CartUi(props) {
                     <th>Quantity</th>
                     <th>Price</th>
                 </tr>
+                <br/>
+
+                
+
                 {cartItems.map((data,index)=>
                 <tr key={index}>
                     <td>
@@ -90,29 +93,33 @@ function CartUi(props) {
                 ) }
 
             </table>
-            
 
+            <div>{cartItems.length === 0 && <div className=" bg-light d-flex justify-content-center align-items-center"><h3>Cart is empty</h3></div>}</div>
+            
+            {cartItems.length !== 0 && (
             <div className="total-price">
+                
                 <table>
                     <tr>
                         <td>SubTotal: </td>
-                        <td>₹{getSubTotal()}</td>
+                        <td>₹{getSubTotal}</td>
                     </tr>
                     <tr>
-                        <td>Delivery cost: </td>
+                        <td>Delivery cost: <BsInfoCircleFill/></td>
                         <td>₹{delivery}</td>
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td>₹{()=>getSubTotal+delivery}</td>
+                        <td>₹{totalPrice}</td>
+                    </tr>
+                    <hr/>
+                    <tr>
+                        <Button className="btn btn-success" style={{height:50}} onClick={placeOrderClick}>PlaceOrder</Button>
                     </tr>
                 </table>
-              
             </div>
-            <hr/>
-            <div className="d-flex justify-content-center align-items-center">
-            <Button className="btn btn-success placeOrder" style={{height:50}} onClick={placeOrderClick}>Place Order</Button>
-            </div>
+            )}
+            
         </div>
        
     )
