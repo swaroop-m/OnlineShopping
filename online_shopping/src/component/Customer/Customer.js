@@ -298,9 +298,9 @@ export default class Customer extends Component{
                                 <FontAwesomeIcon icon={faUndo} /> Reset
                             </Button>{' '}
 
-                            <Button size="sm" variant="warning" type="button" onClick={this.customerList.bind()}>
+                            {/* <Button size="sm" variant="warning" type="button" onClick={this.customerList.bind()}>
                                 <FontAwesomeIcon icon={faList} /> Customer List
-                            </Button>
+                            </Button> */}
                         </Card.Footer>
                     </Form>
                 </Card>
