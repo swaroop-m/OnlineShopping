@@ -16,7 +16,9 @@ class Product extends Component {
     super(props);
     this.state = this.initialState;
     this.state.show = false;
-	this.state.saving = false;
+    this.state.saving = 0;
+    this.state.method = "post";
+    // this.state.category.categoryName: "",
     this.productChange = this.productChange.bind(this);
     this.submitProduct = this.submitProduct.bind(this);
   }
@@ -28,22 +30,13 @@ class Product extends Component {
     specification: "",
     manufacturer: "",
     quantity: 0,
-    price: 0.0
+    price: 0.0,
+      categoryName: ""
   };
- 
-//   const [apiCallInProgress, setApiCallInProgress] = useState(false);
 
   submitProduct = (event) => {
-    // alert(this.state.productName);
     event.preventDefault();
-	this.setState({saving:true});
-	this.state.saving = true;
-	//await new Promise(r => setTimeout(r, 2000));
-	console.log(this.state.saving);
-	var now = Date.now();
-	var end = now + 2000;
-	while (now < end) { now = Date.now(); }
-
+    this.setState({ show: true,saving: 1 });
     const product = {
       pictureUrl: this.state.pictureUrl,
       productName: this.state.productName,
@@ -52,30 +45,31 @@ class Product extends Component {
       manufacturer: this.state.manufacturer,
       quantity: this.state.quantity,
       price: this.state.price,
+      category: {
+        categoryName: this.state.categoryName
+      }
     };
-
+    setTimeout(() =>{
     axios
       .post("http://localhost:9000/api/saveproduct", product)
-	  //.get("https://hub.dummyapis.com/delay?seconds=10")
       .then((response) => {
         if (response.data != null) {
-			console.log("asdasdf");
-          this.setState({ show: true, saving:false});
-          setTimeout(() => this.setState({ show: false}), 3000);
+          this.setState({ show: true});
+          this.setState({ show: true, saving: 1, method: "post" });
+          setTimeout(() => this.setState({ show: false }), 3000);
         } else {
           this.setState({ show: false });
         }
+        this.setState(this.initialState);
       });
-    this.setState(this.initialState);
-	this.state.saving=true;
-    // this.resetProduct();
+    },500);
   };
 
-  updateProduct = event => {
-	event.preventDefault();
+  updateProduct = (event) => {
+    event.preventDefault();
 
     const product = {
-	  productId: this.state.productId,
+      productId: this.state.productId,
       pictureUrl: this.state.pictureUrl,
       productName: this.state.productName,
       dimension: this.state.dimension,
@@ -83,13 +77,16 @@ class Product extends Component {
       manufacturer: this.state.manufacturer,
       quantity: this.state.quantity,
       price: this.state.price,
+      category: {
+        categoryName: this.state.categoryName
+      }
     };
 
     axios
       .put("http://localhost:9000/api/updateproduct", product)
       .then((response) => {
         if (response.data != null) {
-          this.setState({ show: true });
+          this.setState({ show: true, method: "put" });
           setTimeout(() => this.setState({ show: false }), 3000);
           setTimeout(() => this.productList(), 3000);
         } else {
@@ -119,32 +116,36 @@ class Product extends Component {
     }
   }
 
-  findProductById = productId => {
-	axios
-        .get("http://localhost:9000/api/viewproduct/" + productId)
-        .then((response) => {
-          if (response.data != null) {
-            this.setState({
-              productId: response.data,productId,
-              pictureUrl: response.data.pictureUrl,
-              productName: response.data.productName,
-              dimension: response.data.dimension,
-              specification: response.data.specification,
-              manufacturer: response.data.manufacturer,
-              quantity: response.data.quantity,
-              price: response.data.price,
-            });
-          }
-        })
-        .catch((error) => {
-          console.error("Error - " + error);
-        });
-  }
+  findProductById = (productId) => {
+    axios
+      .get("http://localhost:9000/api/viewproduct/" + productId)
+      .then((response) => {
+        if (response.data != null) {
+          this.setState({
+            productId: response.data,
+            productId,
+            pictureUrl: response.data.pictureUrl,
+            productName: response.data.productName,
+            dimension: response.data.dimension,
+            specification: response.data.specification,
+            manufacturer: response.data.manufacturer,
+            quantity: response.data.quantity,
+            price: response.data.price,
+            categoryName: response.data.category?.categoryName
+            
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error - " + error);
+      });
+  };
 
   render() {
     const {
       pictureUrl,
       productName,
+      categoryName,
       dimension,
       specification,
       manufacturer,
@@ -157,21 +158,23 @@ class Product extends Component {
           <AddProductSuccessToast
             show={this.state.show}
             message={
-              this.state.method === "put"
-                ? "Book Updated Successfully."
-                : "Book Saved Successfully."
+              this.state.method === "put" ? "Product Updated Successfully." : "Product Saved Successfully."
             }
             type={"success"}
           />
         </div>
         <Card className="border bg-light">
           <Card.Header>
-            <FontAwesomeIcon icon={this.state.productId ? faEdit : faPlusSquare} />{" "}
+            <FontAwesomeIcon
+              icon={this.state.productId ? faEdit : faPlusSquare}
+            />{" "}
             {this.state.productId ? "Update Product" : "Add New Product"}
           </Card.Header>
           <Form
             onReset={this.resetProduct}
-            onSubmit={this.state.productId? this.updateProduct : this.submitProduct}
+            onSubmit={
+              this.state.productId ? this.updateProduct : this.submitProduct
+            }
             id="productFormId"
           >
             <Card.Body>
@@ -188,13 +191,8 @@ class Product extends Component {
                       // className={"bg-dark text-white"}
                       placeholder="Enter Product Cover Photo URL"
                     />
-                    {/* <InputGroup.Append>
-                                    {this.state.coverPhotoURL !== '' && <Image src={this.state.coverPhotoURL} roundedRight width="40" height="38"/>}
-                                </InputGroup.Append> */}
                   </InputGroup>
                 </Form.Group>
-              </Form.Row>
-              <Form.Row>
                 <Form.Group as={Col} controlId="formGridName">
                   <Form.Label>Product Name</Form.Label>
                   <Form.Control
@@ -205,6 +203,18 @@ class Product extends Component {
                     onChange={this.productChange}
                     // className={"bg-dark text-white"}
                     placeholder="Enter Product Name"
+                  />
+                </Form.Group>
+              </Form.Row>
+              <Form.Row><Form.Group as={Col} controlId="formGridCategory">
+                  <Form.Label>Category</Form.Label>
+                  <Form.Control
+                    type="test"
+                    name="categoryName"
+                    value={categoryName}
+                    onChange={this.productChange}
+                    // className={"bg-dark text-white"}
+                    placeholder="Enter Product Catgory"
                   />
                 </Form.Group>
                 <Form.Group as={Col} controlId="formGridDimension">
@@ -271,7 +281,12 @@ class Product extends Component {
               </Form.Row>
             </Card.Body>
             <Card.Footer style={{ textAlign: "right" }}>
-              <Button size="sm" variant="success" type="submit" disabled={this.state.saving}>
+              <Button
+                size="sm"
+                variant="success"
+                type="submit"
+                disabled={this.state.saving === 1}
+              >
                 <FontAwesomeIcon icon={faSave} />{" "}
                 {this.state.productId ? "Update" : "Save"}
               </Button>{" "}
@@ -290,26 +305,6 @@ class Product extends Component {
           </Form>
         </Card>
         <hr />
-        {/* <div className="card border border-dark bg-dark text-white">
-                    <div className="card-header">
-                        Add a Product
-                    </div>
-                    <div className="card-body">
-                        <form>
-                            <div className="row">
-                                <div className="col">
-                                    <label>Title</label>
-                                    <input name="email" className="form-control bg-dark text-white" placeholder="email" />
-                                </div>
-                                <div className="col">
-                                    <label >Password</label>
-                                    <input name="password" className="form-control bg-dark text-white" />
-                                </div>
-                            </div>
-                        </form>
-                        <a className="btn btn-primary">Add Product</a>
-                    </div>
-                </div>*/}
         <br />
       </div>
     );

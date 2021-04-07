@@ -13,7 +13,9 @@ class ProductList extends Component {
         super(props);
         this.state = {
             products: [],
-            show: false
+            show: false,
+            currentPage : 1,
+            productsPerPage : 10
         };
     }
 
@@ -24,6 +26,46 @@ class ProductList extends Component {
                 this.setState({ products: data });
             });
     };
+
+    changePage = event => {
+        this.setState({
+            [event.target.name]: parseInt(event.target.value)
+        });
+    };
+
+    firstPage = () => {
+        if(this.state.currentPage > 1) {
+            this.setState({
+                currentPage: 1
+            });
+        }
+    };
+
+    prevPage = () => {
+        if(this.state.currentPage > 1) {
+            this.setState({
+                currentPage: this.state.currentPage - 1
+            });
+        }
+    };
+
+    lastPage = () => {
+        let productsLength = this.state.products.length;
+        if(this.state.currentPage < Math.ceil(productsLength / this.state.productsPerPage)) {
+            this.setState({
+                currentPage: Math.ceil(productsLength / this.state.productsPerPage)
+            });
+        }
+    };
+
+    nextPage = () => {
+        if(this.state.currentPage < Math.ceil(this.state.products.length / this.state.productsPerPage)) {
+            this.setState({
+                currentPage: this.state.currentPage + 1
+            });
+        }
+    };
+
 
     // deleteProduct = (productId) => {
     //     this.props.deleteProduct(ProductId);
@@ -57,10 +99,26 @@ class ProductList extends Component {
     };
 
     render() {
+
+        const {products, currentPage, productsPerPage} = this.state;
+        const lastIndex = currentPage * productsPerPage;
+        const firstIndex = lastIndex - productsPerPage;
+        //const productData = this.props.productData;
+        // const products = this.state.products;
+        const currentProducts = products.slice(firstIndex, lastIndex);
+        const totalPages = Math.ceil(products.length / productsPerPage);
+
+        const pageNumCss = {
+            width: "45px",
+            // border: "1px",
+            textAlign: "center",
+            fontWeight: "bold"
+        };
+
         return (
             <div>
                 <div style={{"display":this.state.show ? "block" : "none"}}>
-                <AddProductSuccessToast show = {this.state.show} message = {"Book Deleted Successfully."} type = {"danger"}/>
+                <AddProductSuccessToast show = {this.state.show} message = {"Product Deleted Successfully."} type = {"danger"}/>
                 </div>
                 <Card className="border bg-light">
                     {/* <Card.Header>
@@ -69,8 +127,9 @@ class ProductList extends Component {
                     <Card.Body>
                         <h3><FontAwesomeIcon icon={faList} /> List of Products</h3>
                         <br />
-                        <Table bordered hover striped className="table-responsive" variant="light">
-                            <thead className="bg-primary text-white text-center">
+                        <div className="table-responsive ">
+                        <Table bordered hover striped className="table" >
+                            <thead className="bg-primary text-dark text-center">
                                 <tr>
                                     <th>Image</th>
                                     <th>Product Name</th>
@@ -79,6 +138,7 @@ class ProductList extends Component {
                                     <th>Manufacturer</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
+                                    <th>Category</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -86,12 +146,12 @@ class ProductList extends Component {
                                 {
                                     this.state.products.length === 0 ?
                                         <tr align="center">
-                                            <td colSpan="8">No Products Available.</td>
+                                            <td colSpan="9">No Products Available.</td>
                                         </tr> :
-                                        this.state.products.map((product) => (
+                                        currentProducts.map((product, index) => (
                                             <tr key={product.productId}>
                                                 <td className="text-center align-middle">
-                                                    <Image src={product.pictureUrl} className="img-fluid rounded" width="60" height="65" /> {/*{product.productName}*/}
+                                                    <Image src={product.pictureUrl} className="img-fluid rounded" style={{width:"60", height:"65"}} /> {/*{product.productName}*/}
                                                 </td>
                                                 <td className="align-middle">{product.productName}</td>
                                                 <td className="align-middle">{product.dimension}</td>
@@ -99,6 +159,7 @@ class ProductList extends Component {
                                                 <td className="align-middle">{product.manufacturer}</td>
                                                 <td className="align-middle">{product.quantity}</td>
                                                 <td className="align-middle">{product.price}</td>
+                                                <td className="align-middle">{product.category?.categoryName}</td>
                                                 <td className="text-center align-middle">
                                                     <ButtonGroup>
                                                         <Link to={"editproduct/" + product.productId} className="btn btn-md btn-outline-primary mr-2 rounded-0">
@@ -114,7 +175,41 @@ class ProductList extends Component {
                                 }
                             </tbody>
                         </Table>
+                        </div>
                     </Card.Body>
+                    {products.length > 0 ?
+                            <Card.Footer>
+                                <div style={{"float":"left"}}>
+                                    Showing Page {currentPage} of {totalPages}
+                                </div>
+                                <div style={{"float":"right"}}>
+                                    <InputGroup size="sm">
+                                        <InputGroup.Prepend>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === 1 ? true : false}
+                                                onClick={this.firstPage}>
+                                                <FontAwesomeIcon icon={faFastBackward} /> First
+                                            </Button>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === 1 ? true : false}
+                                                onClick={this.prevPage}>
+                                                <FontAwesomeIcon icon={faStepBackward} /> Prev
+                                            </Button>
+                                        </InputGroup.Prepend>
+                                        <FormControl className={"pageNumCss "} style={pageNumCss} name="currentPage" value={currentPage}
+                                            onChange={this.changePage}/>
+                                        <InputGroup.Append>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === totalPages ? true : false}
+                                                onClick={this.nextPage}>
+                                                <FontAwesomeIcon icon={faStepForward} /> Next
+                                            </Button>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === totalPages ? true : false}
+                                                onClick={this.lastPage}>
+                                                <FontAwesomeIcon icon={faFastForward} /> Last
+                                            </Button>
+                                        </InputGroup.Append>
+                                    </InputGroup>
+                                </div>
+                            </Card.Footer> : null
+                         }
                 </Card>
                 <br />
             </div>

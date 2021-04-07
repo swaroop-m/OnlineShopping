@@ -25,9 +25,6 @@ public class CartItem {
 	
 	private Integer productId;
 	private String productName;
-	private String dimension;
-	private String specification;
-	private String manufacturer;
 	private Integer quantity;
 	private Integer price;
 	

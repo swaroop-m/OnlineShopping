@@ -1,14 +1,20 @@
 import React, { Component } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, CardDeck, CardGroup } from "react-bootstrap";
 import axios from 'axios';
+import { connect } from "react-redux";
+
 
 class Homepage extends Component {
+
+
+
   constructor(props) {
     super(props);
     this.state = {
       products: [],
       show: false,
     };
+    this.addToCart=this.addToCart.bind(this);
   }
 
   componentDidMount() {
@@ -20,29 +26,55 @@ class Homepage extends Component {
       });
   }
 
+     addToCart = (product) => {
+      this.props.dispatch({type:'ADD_TO_CART',payload:product})
+   }
+
   render() {
     return (
-      <div>
+      <div className="container-fluid">
+      <div className="row mt-1">
         {
         this.state.products.map((product) => (
-        <Card style={{ width: "18rem" }} key={product.productId}>
-          <Card.Img variant="top" src="holder.js/100px180" src={product.pictureUrl}/>
+          <div className="col-xs-12 col-md-6 col-lg-3" key={product.productId}>
+            <CardGroup>
+        <Card className="" style={{ width: "19rem"}} key={product.productId} >
+          <div className="text-center align-middle">
+          <Card.Img variant="top" className="mx-auto" style={{height: 290, objectFit: "contain"}} src={product.pictureUrl}/>
+          </div>
+              <div > 
+              {/* style={{height: 250}} */}
           <Card.Body>
-            <Card.Title>{product.productName}</Card.Title>
+          
+            <Card.Title className="" style={{whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{product.productName}</Card.Title>
             <Card.Text>
-              {product.specification}
-              {product.dimension}
-              {product.price}
+              {/* {product.specification}
+              {product.dimension} */}
+              Quantity: {product.quantity}<br/>
+              Price: ₹{product.price}
+              
+            
+              
             </Card.Text>
-            <Button variant="primary">Add to Cart</Button>
+            <Button variant="primary" onClick={()=>this.addToCart(product)}>Add to Cart</Button>
           </Card.Body>
+          </div>
         </Card>
+        </CardGroup>
+        </div>
         ))
         }
+      </div>
       </div>
     );
         
   }
 }
 
-export default Homepage;
+function mapStateToProps(state) {
+
+  return { cart:state.cart }
+}
+
+export default connect(mapStateToProps)(Homepage)
+// export default Homepage;
