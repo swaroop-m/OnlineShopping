@@ -336,3 +336,17 @@
 22:43 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
 22:44 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
 22:44 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+22:45 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+22:52 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+22:53 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+22:55 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+22:55 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+22:56 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+22:56 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+22:56 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+22:56 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[deleteProduct] Controller Triggered 88 
+22:56 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[deleteProduct] Controller Triggered 88 
+22:56 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[deleteProduct] Controller Triggered 88 
+22:56 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 65 
+22:56 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 
+22:56 07/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 57 

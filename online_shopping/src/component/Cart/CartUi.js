@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import {VscAdd} from 'react-icons/vsc'
 import {GrSubtract} from 'react-icons/gr'
-import { Button } from 'react-bootstrap'
+import { Button, Badge} from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import {AiOutlineShoppingCart } from 'react-icons/ai'
 import {BsInfoCircle} from 'react-icons/bs'
@@ -90,6 +90,7 @@ function CartUi(props) {
 
                         </div>
                     </td>
+                    
                     <td> <Button  variant="light" onClick={addQuantity}><VscAdd/></Button> {initialValue} <Button variant="light"  onClick={substractQuantity}><GrSubtract/></Button></td>
                     <td>₹{data.price}</td>
                     
@@ -118,7 +119,8 @@ function CartUi(props) {
                     </tr>
                     <br/>
                     <tr>
-                        <td><p variant="outline-info" onClick={deliveryInfo} >Delivery Charges <BsInfoCircle/></p></td>
+                        <td>Delivery Charges <Badge variant="light" onClick={deliveryInfo}><BsInfoCircle/></Badge>{' '}</td>
+                        {/* <p variant="outline-info" onClick={deliveryInfo} >Delivery Charges <BsInfoCircle/></p> */}
                         <td>₹{delivery}</td>
                     </tr>
                     <br/>
