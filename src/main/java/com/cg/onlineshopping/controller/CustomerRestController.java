@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,7 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/api")
 @Api(value = "Customer Controller", tags = { "CustomerAPI" })
 @ApiModel(description = "You can find all the customer related APIs here ")
+@CrossOrigin
 public class CustomerRestController {
 
 	private static final Logger log =LogManager.getLogger(CustomerRestController.class);
