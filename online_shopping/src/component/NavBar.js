@@ -60,6 +60,26 @@ function NavBar(props) {
               </Link>
             </NavDropdown.Item>
           </NavDropdown>
+    <NavDropdown
+            title="Order"
+            id="basic-nav-dropdown-c" /*className="bg-dark text-white"*/
+          >
+            <NavDropdown.Item className="NavDropdown">
+              <Link to={"/listorder"} className="nav-link">
+                Order List
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item className="NavDropdown">
+              <Link to={"/addorder"} className="nav-link">
+                Add Order
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item className="NavDropdown">
+              <Link to={"/ordersummary"} className="nav-link">
+                Order Summary
+              </Link>
+            </NavDropdown.Item>
+          </NavDropdown>
 
           <Link to={"/AboutUs"} className="nav-link">
             AboutUs
