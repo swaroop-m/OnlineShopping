@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Homepage from '../product/Homepage'
+import CardsOnHome from '../product/CardsOnHome';
 import Welcome from '../Welcome';
 
 
@@ -12,7 +12,7 @@ function Home(props) {
                 
 
                 
-                <Homepage />
+                <CardsOnHome />
                 <br/>
                 <br/>
                 <br/>

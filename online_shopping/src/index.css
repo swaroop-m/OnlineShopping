@@ -1,5 +1,5 @@
 /* Cart page */
-.cart-page {
+/* .cart-page {
   margin: 20px auto;
 }
 
@@ -67,9 +67,8 @@ th:last-child {
   }
 }
 
-/* Clear cart button */
 .myButton {
-  position: absolute;  /* or position: absolute; */
+  position: absolute; 
   top: 30px;
   right: 20px;
-}
+} */
