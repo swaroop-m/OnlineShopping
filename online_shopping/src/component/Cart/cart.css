@@ -62,7 +62,7 @@ td:last-child {
   text-align: right;
 }
 
-th:last-child {
+.table-header:last-child {
   text-align: right;
 }
 
