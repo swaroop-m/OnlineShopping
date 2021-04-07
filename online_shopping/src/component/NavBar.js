@@ -4,18 +4,19 @@ import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { RiCustomerService2Fill } from "react-icons/ri";
 
+
 function NavBar(props) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Link to={"/Home"} className="navbar-link">
-        <Navbar.Brand>
+        <Navbar.Brand style={{fontFamily:'Sans'}}>
           <img
             src="https://www.svgrepo.com/show/217771/shopping-logo.svg"
             width="40"
             height="40"
             alt="Brand_Logo"
-          />{" "}
-          Shopping
+          />
+          ShopAura
         </Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -69,7 +70,7 @@ function NavBar(props) {
             Log in
           </Link>
           <Link to={"/Cart"} className="nav-link">
-            Cart
+            Cart 
             <AiOutlineShoppingCart size="1.5em" />
           </Link>
           <Link to={"/CustomerCare"} className="nav-link">

@@ -59,7 +59,7 @@ function CartUi(props) {
         
         <div className="small-container cart-page">
             
-            <h2><AiOutlineShoppingCart size="1.5em"/>My Cart</h2>  
+            <h2><AiOutlineShoppingCart size="1.5em"/>My Cart ({cartItems.length})</h2>  
 
             <div className="myButton">
                 <Button variant="outline-dark" onClick={clearCart}>Clear Cart</Button>
@@ -74,8 +74,6 @@ function CartUi(props) {
                     <th className="table-header">Price</th>
                 </tr>
                 <br/>
-
-                
 
                 {cartItems.map((data,index)=>
                 <tr key={index}>
@@ -130,7 +128,7 @@ function CartUi(props) {
                     </tr>
                     <hr/>
                     <tr>
-                        <Button className="btn btn-success" style={{height:50}} onClick={placeOrderClick}>PlaceOrder</Button>
+                        <Button className="btn" variant="success" style={{height:50}} onClick={placeOrderClick}>PlaceOrder</Button>
                     </tr>
                 </table>
             </div>

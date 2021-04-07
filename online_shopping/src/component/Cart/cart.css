@@ -53,10 +53,10 @@
   max-width: 400px;
 }
 
-/* .total-price table tr Button {
+.btn {
   display: flex;
   justify-content: flex-end;
-} */
+}
 
 td:last-child {
   text-align: right;
