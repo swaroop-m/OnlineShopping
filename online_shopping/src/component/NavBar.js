@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, Nav, NavDropdown, NavLink } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, NavLink, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { RiCustomerService2Fill } from "react-icons/ri";
@@ -66,6 +66,20 @@ function NavBar(props) {
           </Link>
         </Nav>
         <Nav className="justify-content-end" activeKey="/home">
+
+        <NavDropdown
+            title="My Account"
+            id="basic-nav-dropdown" /*className="bg-dark text-white"*/>
+            <NavDropdown.Item className="NavDropdown">
+              <Link to={"/Myprofile"} className="nav-link">
+                My Profile
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item >
+              <Button className="btn btn-danger">Log out</Button>
+            </NavDropdown.Item>
+          </NavDropdown>
+
           <Link to={"/Login"} className="nav-link">
             Log in
           </Link>
