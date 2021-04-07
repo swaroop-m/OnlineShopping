@@ -40,8 +40,26 @@ function NavBar(props) {
               </Link>
             </NavDropdown.Item>
           </NavDropdown>
+
           {/* <Link to={"addproduct"} className="nav-link">Add Products</Link>
                     <Link to={"listproducts"} className="nav-link">Product List</Link> */}
+          
+          <NavDropdown
+            title="Customer"
+            id="basic-nav-dropdown-c" /*className="bg-dark text-white"*/
+          >
+            <NavDropdown.Item className="NavDropdown">
+              <Link to={"/addcustomer"} className="nav-link">
+                Add Customer
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item className="NavDropdown">
+              <Link to={"/listcustomers"} className="nav-link">
+                Customer List
+              </Link>
+            </NavDropdown.Item>
+          </NavDropdown>
+
           <Link to={"/AboutUs"} className="nav-link">
             AboutUs
           </Link>
