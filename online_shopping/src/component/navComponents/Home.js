@@ -11,7 +11,7 @@ function Home(props) {
 
                 <br/>
                 
-                <CarouselOnHome />
+                {/* <CarouselOnHome /> */}
                 <br />
                 <CardsOnHome />
 
