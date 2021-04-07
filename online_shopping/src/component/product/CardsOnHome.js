@@ -9,7 +9,7 @@ class Homepage extends Component {
     super(props);
     this.state = {
       products: [],
-      show: false,
+      //show: false,
     };
     this.addToCart = this.addToCart.bind(this);
   }
@@ -56,7 +56,7 @@ class Homepage extends Component {
               >
                 <CardGroup style={{ marginTop: "15px", width: "16.5rem" }}>
                   <Card className="border-0" >
-                    <Link to={"viewproduct/" + product.productId} className="text-center align-middle">
+                    <Link to={"/viewproduct/" + product.productId} className="text-center align-middle">
                       <Card.Img
                         variant="top"
                         className="mx-auto"
@@ -66,15 +66,12 @@ class Homepage extends Component {
                     </Link>
                     <div>
                       <Card.Body>
-                        <Card.Title
-                          className=""
-                          style={{
+                        <Card.Title className="">
+                          <div className="text-center" style={{
                             whiteSpace: "nowrap",
                             overflow: "hidden",
                             textOverflow: "ellipsis",
-                          }}
-                        >
-                          <div className="text-center">
+                          }}>
                             {product.productName}
                           </div>
                         </Card.Title>
