@@ -129,7 +129,7 @@ class ProductList extends Component {
                         <br />
                         <div className="table-responsive ">
                         <Table bordered hover striped className="table" >
-                            <thead className="bg-primary text-dark text-center">
+                            <thead className="bg-primary text-white text-center">
                                 <tr>
                                     <th>Image</th>
                                     <th>Product Name</th>
