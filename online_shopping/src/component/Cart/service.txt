@@ -1,9 +1,10 @@
-addToCart -- //done->front end done. //pending .use axios
-removeItem -- //pending use axios
+addToCart --  //pending .use axios
+removeItem -- //pending use axios and onclick
 updateQuantity --  //pending update quantity, use axios
-removeAllItem -- //pending clear cart  use axios
+removeAllItem -- //pending onClick clear cart , use axios 
 viewAllCartItems -- //pending admin login  use axios
 
 
 TO-DO //pending
-total price: SUBTOTAL+DELIVERY
+
+

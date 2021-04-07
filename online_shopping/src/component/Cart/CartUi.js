@@ -4,7 +4,8 @@ import {GrSubtract} from 'react-icons/gr'
 import { Button } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import {AiOutlineShoppingCart } from 'react-icons/ai'
-import {BsInfoCircleFill} from 'react-icons/bs'
+import {BsInfoCircle} from 'react-icons/bs'
+import {Link} from 'react-router-dom'
 import './cart.css'
 
 function CartUi(props) {
@@ -32,7 +33,7 @@ function CartUi(props) {
         {
             console.log("removing product from cart")
         }
-//not working v 
+//not working 
         let clearCart =() =>
         {
             // cartItems([])
@@ -46,8 +47,13 @@ function CartUi(props) {
         
         const delivery =  getSubTotal > 5000 ? 0 : 50
 
-//notworking
+//working totalPrice
         const totalPrice= getSubTotal + delivery
+
+//alert / info
+       let  deliveryInfo = ()=> {
+            alert("1. Delivery charges applicable only for order's under ₹5000 \n2. No Delivery Charges for orders above ₹5000")
+        }
 
     return (
         
@@ -61,7 +67,7 @@ function CartUi(props) {
 
            
             
-            <table>
+            <table className="table-style">
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
@@ -73,7 +79,7 @@ function CartUi(props) {
 
                 {cartItems.map((data,index)=>
                 <tr key={index}>
-                    <td>
+                    <td className="table-data">
                         <div className="cart-info">
                         
                             <img src={data.pictureUrl}/>
@@ -94,7 +100,15 @@ function CartUi(props) {
 
             </table>
 
-            <div>{cartItems.length === 0 && <div className=" bg-light d-flex justify-content-center align-items-center"><h3>Cart is empty</h3></div>}</div>
+            <div>
+                {cartItems.length === 0 && 
+                    <div className=" bg-light d-flex justify-content-center align-items-center">
+                        <p>Your cart is currently empty</p> 
+                        
+                    </div>}
+                    <br/>
+                        <p>Continue Browsing <Link to="Home">Here!</Link></p>
+            </div>
             
             {cartItems.length !== 0 && (
             <div className="total-price">
@@ -105,7 +119,7 @@ function CartUi(props) {
                         <td>₹{getSubTotal}</td>
                     </tr>
                     <tr>
-                        <td>Delivery cost: <BsInfoCircleFill/></td>
+                        <td>Delivery Charges <Button variant="outline-info" onClick={deliveryInfo} ><BsInfoCircle/></Button></td>
                         <td>₹{delivery}</td>
                     </tr>
                     <tr>
