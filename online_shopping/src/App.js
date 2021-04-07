@@ -13,6 +13,7 @@ import AboutUs from './component/navComponents/AboutUs'
 import Home from './component/navComponents/Home'
 import CustomerCare from './component/navComponents/CustomerCare'
 import Login from './component/Login/Login'
+import ViewProduct from './component/product/ViewProduct'
 
 
 
@@ -65,11 +66,13 @@ function App() {
             <Route path="/addproduct" exact component={Product}/>
             <Route path="/editproduct/:productId" exact component={Product}/>
             <Route path="/listproducts" exact component={ProductList}/>
+            <Route path="/viewproduct/:productId" exact component={ViewProduct}/>
             <Route path="/AboutUs" exact component={AboutUs}/>
             
             <Route path="/Login" exact component={Login}/>
             <Route path="/Cart" excat component={Cart}/>
             <Route path="/CustomerCare" exact component={CustomerCare}/>
+
             {/* <CreateProduct />
             <ProductList /> */}
           </Col>
