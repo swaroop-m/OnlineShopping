@@ -10,8 +10,19 @@ function reducer1(state = initialState, action) {
   //  LOGIC
   switch (action.type) {
     // COMMON LOGIC
+
     case "ADD_TO_CART":
-      return { ...state, cart:[...state.cart, {...action.payload}]}
+    // let itemInCart= state.cart
+
+    // if(product.productName===cart.productname)
+    // {
+    //   itemInCart.quantity++
+    // }else
+    // {
+    //   itemInCart={...state.cart,quantity:1}
+    // }
+
+    return { ...state, cart:[...state.cart,{...action.payload}]}
 
     
     default:

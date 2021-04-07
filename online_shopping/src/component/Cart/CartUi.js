@@ -9,9 +9,9 @@ import './cart.css'
 function CartUi(props) {
 
     const cartItems= useSelector(state=>state.cart)
-    
-    const delivery= 40
 
+    const clear= useSelector(state=>state.cart)
+    
     let [initialValue,setInitialValue] = useState(1);
 
 
@@ -29,11 +29,13 @@ function CartUi(props) {
 //not working   
         let removeItem =() =>
         {
+            
             console.log("removing product from cart")
         }
-//not working
-        let clearCart =(product) =>
+//not working v 
+        let clearCart =() =>
         {
+            cartItems([])
             console.log("clearing all items")
         }
         
@@ -42,12 +44,13 @@ function CartUi(props) {
             return cartItems.reduce((sum,{price})=> sum + price,0)
         }
 
-//notworking
-        let [total,setTotal]= useState(0)
+        const delivery= 40
 
-        let getTotal =()=>{
-          setTotal= getSubTotal(total+ 40)
-        }
+//notworking
+
+        // let getTotal =()=>{
+        //   setTotal= getSubTotal(total+ 40)
+        // }
 
     return (
         
@@ -59,7 +62,7 @@ function CartUi(props) {
                 <Button variant="outline-dark" onClick={clearCart}>Clear Cart</Button>
             </div>
             
-            <table >
+            <table>
                 <tr>
                     <th>Product</th>
                     <th>Quantity</th>
@@ -101,7 +104,7 @@ function CartUi(props) {
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td>₹{getTotal}</td>
+                        <td>₹{()=>getSubTotal+delivery}</td>
                     </tr>
                 </table>
               

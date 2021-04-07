@@ -128,8 +128,8 @@ class ProductList extends Component {
                         <h3><FontAwesomeIcon icon={faList} /> List of Products</h3>
                         <br />
                         <div className="table-responsive ">
-                        <Table bordered hover striped className="table" variant="light">
-                            <thead className="bg-primary text-white text-center">
+                        <Table bordered hover striped className="table" >
+                            <thead className="bg-primary text-dark text-center">
                                 <tr>
                                     <th>Image</th>
                                     <th>Product Name</th>
