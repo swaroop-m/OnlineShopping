@@ -7,7 +7,7 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 function NavBar(props) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-      <Link to={"Home"} className="navbar-link">
+      <Link to={"/Home"} className="navbar-link">
         <Navbar.Brand>
           <img
             src="https://www.svgrepo.com/show/217771/shopping-logo.svg"
