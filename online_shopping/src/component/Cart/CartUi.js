@@ -1,38 +1,18 @@
-import React,{useEffect, useState} from 'react'
-import {VscAdd} from 'react-icons/vsc'
-import {GrSubtract} from 'react-icons/gr'
-import { Button, Badge} from 'react-bootstrap'
+import React from 'react'
+import { Button} from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import {AiOutlineShoppingCart } from 'react-icons/ai'
-import {BsInfoCircle} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 import './cart.css'
+import Cartpricedetails from './CartPriceDetails'
+import Addtocart from './AddToCart'
 
+
+//contains-> header , clear cart , display text 'cart is empty'
 function CartUi(props) {
 
     const cartItems= useSelector(state=>state.cart)
 
-    const clear= useSelector(state=>state.cart)
-    
-    let [initialValue,setInitialValue] = useState(1);
-
-
-        let addQuantity =() =>{
-            setInitialValue(initialValue+1)
-        }
-
-        let substractQuantity =() =>{
-            setInitialValue(initialValue-1)
-        }
-
-        let placeOrderClick= () => {
-            console.log("Placed Order", new Date())
-        }
-//not working   
-        let removeItem =(product) =>
-        {
-            console.log("removing product from cart")
-        }
 //not working 
         let clearCart =() =>
         {
@@ -40,21 +20,6 @@ function CartUi(props) {
             console.log("clearing all items")
         }
         
-//working subTotal
-        const getSubTotal = cartItems.reduce((sum,{price})=> sum + price,0)
-        
-//delivery charge conditional
-        
-        const delivery =  getSubTotal > 5000 ? 0 : 50
-
-//working totalPrice
-        const totalPrice= getSubTotal + delivery
-
-//alert / info
-       let  deliveryInfo = ()=> {
-            alert("1. Delivery charges applicable only for order's under ₹5000 \n2. No Delivery Charges for orders above ₹5000")
-        }
-
     return (
         
         <div className="small-container cart-page">
@@ -65,39 +30,7 @@ function CartUi(props) {
                 <Button variant="outline-dark" onClick={clearCart}>Clear Cart</Button>
             </div>
 
-           
-            
-            <table className="table-style">
-                <tr>
-                    <th className="table-header">Product</th>
-                    <th className="table-header">Quantity</th>
-                    <th className="table-header">Price</th>
-                </tr>
-                <br/>
-
-                {cartItems.map((data,index)=>
-                <tr key={index}>
-                    <td className="table-data">
-                        <div className="cart-info">
-                        
-                            <img src={data.pictureUrl}/>
-                            <div>
-                                <p>Product: {data.productName} </p>
-                                <p>Price: ₹ {data.price}</p>
-                                
-                                <Button className="btn btn-danger" onClick={removeItem}>Remove</Button>
-                            </div>
-
-                        </div>
-                    </td>
-                    
-                    <td> <Button  variant="light" onClick={addQuantity}><VscAdd/></Button> {initialValue} <Button variant="light"  onClick={substractQuantity}><GrSubtract/></Button></td>
-                    <td>₹{data.price}</td>
-                    
-                </tr>
-                ) }
-
-            </table>
+            <Addtocart/>
 
             <div>
                 {cartItems.length === 0 && 
@@ -106,38 +39,12 @@ function CartUi(props) {
                         
                     </div>}
                     <br/>
-                        <p>Continue Browsing <Link to="Home">Here!</Link></p>
+                    <p>Continue Browsing <Link to="Home">Here!</Link></p>
             </div>
-            
-            {cartItems.length !== 0 && (
-            <div className="total-price">
-                
-                <table>
-                    <tr>
-                        <td>SubTotal: </td>
-                        <td>₹{getSubTotal}</td>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <td>Delivery Charges <Badge variant="light" onClick={deliveryInfo}><BsInfoCircle/></Badge>{' '}</td>
-                        {/* <p variant="outline-info" onClick={deliveryInfo} >Delivery Charges <BsInfoCircle/></p> */}
-                        <td>₹{delivery}</td>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <td>Total</td>
-                        <td>₹{totalPrice}</td>
-                    </tr>
-                    <hr/>
-                    <tr>
-                        <Button className="btn" variant="success" style={{height:50}} onClick={placeOrderClick}>PlaceOrder</Button>
-                    </tr>
-                </table>
-            </div>
-            )}
-            
-        </div>
-       
+
+            <Cartpricedetails/>
+     
+        </div> 
     )
 }
 
