@@ -8,12 +8,17 @@ import Footer from './component/Footer'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Product from './component/product/Product'
 import ProductList from './component/product/ProductList'
+import ViewProduct from './component/product/ViewProduct'
+
+import Customer from './component/Customer/Customer'
+import CustomerList from './component/Customer/CustomerList'
+// import Customer from './component/Customer/Customer'
+
 import Cart from './component/navComponents/Cart'
 import AboutUs from './component/navComponents/AboutUs'
 import Home from './component/navComponents/Home'
 import CustomerCare from './component/navComponents/CustomerCare'
 import Login from './component/Login/Login'
-import ViewProduct from './component/product/ViewProduct'
 
 
 
@@ -68,6 +73,10 @@ function App() {
             <Route path="/listproducts" exact component={ProductList}/>
             <Route path="/viewproduct/:productId" exact component={ViewProduct}/>
             <Route path="/AboutUs" exact component={AboutUs}/>
+            
+            <Route path="/addcustomer" exact component={Customer}/>
+            <Route path="/editcustomer/:customerId" exact component={Customer}/>
+            <Route path="/listcustomers" exact component={CustomerList}/>
             
             <Route path="/Login" exact component={Login}/>
             <Route path="/Cart" excat component={Cart}/>
