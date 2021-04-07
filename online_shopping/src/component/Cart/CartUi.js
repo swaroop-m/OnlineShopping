@@ -69,9 +69,9 @@ function CartUi(props) {
             
             <table className="table-style">
                 <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
+                    <th className="table-header">Product</th>
+                    <th className="table-header">Quantity</th>
+                    <th className="table-header">Price</th>
                 </tr>
                 <br/>
 
@@ -118,10 +118,12 @@ function CartUi(props) {
                         <td>SubTotal: </td>
                         <td>₹{getSubTotal}</td>
                     </tr>
+                    <br/>
                     <tr>
-                        <td>Delivery Charges <Button variant="outline-info" onClick={deliveryInfo} ><BsInfoCircle/></Button></td>
+                        <td><p variant="outline-info" onClick={deliveryInfo} >Delivery Charges <BsInfoCircle/></p></td>
                         <td>₹{delivery}</td>
                     </tr>
+                    <br/>
                     <tr>
                         <td>Total</td>
                         <td>₹{totalPrice}</td>

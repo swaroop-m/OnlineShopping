@@ -13,7 +13,7 @@
   flex-wrap: wrap;
 }
 
-th {
+.table-header {
   text-align: left;
   padding: 5px;
   color: white;
