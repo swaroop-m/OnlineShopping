@@ -13,13 +13,14 @@ import ViewProduct from './component/product/ViewProduct'
 import Customer from './component/Customer/Customer'
 import CustomerList from './component/Customer/CustomerList'
 // import Customer from './component/Customer/Customer'
+import Myprofile from './component/Customer/MyProfile'
 
 import Cart from './component/navComponents/Cart'
 import AboutUs from './component/navComponents/AboutUs'
 import Home from './component/navComponents/Home'
 import CustomerCare from './component/navComponents/CustomerCare'
 import Login from './component/Login/Login'
-import Myprofile from './component/Customer/myProfile'
+
 
 
 
