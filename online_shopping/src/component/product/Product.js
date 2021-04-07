@@ -206,7 +206,7 @@ class Product extends Component {
                   />
                 </Form.Group>
               </Form.Row>
-              <Form.Row><Form.Group as={Col} controlId="formGridDimension">
+              <Form.Row><Form.Group as={Col} controlId="formGridCategory">
                   <Form.Label>Category</Form.Label>
                   <Form.Control
                     type="test"

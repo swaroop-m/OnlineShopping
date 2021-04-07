@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Jumbotron } from 'react-bootstrap'
 import { Card, Carousel,Button } from 'react-bootstrap'
-import Homepage from './product/Homepage'
+import CardsOnHome from './product/CardsOnHome'
 
 function Welcome(props) {
   

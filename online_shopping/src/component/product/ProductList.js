@@ -15,7 +15,7 @@ class ProductList extends Component {
             products: [],
             show: false,
             currentPage : 1,
-            usersPerPage : 5
+            productsPerPage : 10
         };
     }
 
@@ -50,16 +50,16 @@ class ProductList extends Component {
     };
 
     lastPage = () => {
-        let usersLength = this.props.userData.users.length;
-        if(this.state.currentPage < Math.ceil(usersLength / this.state.usersPerPage)) {
+        let productsLength = this.state.products.length;
+        if(this.state.currentPage < Math.ceil(productsLength / this.state.productsPerPage)) {
             this.setState({
-                currentPage: Math.ceil(usersLength / this.state.usersPerPage)
+                currentPage: Math.ceil(productsLength / this.state.productsPerPage)
             });
         }
     };
 
     nextPage = () => {
-        if(this.state.currentPage < Math.ceil(this.props.userData.users.length / this.state.usersPerPage)) {
+        if(this.state.currentPage < Math.ceil(this.state.products.length / this.state.productsPerPage)) {
             this.setState({
                 currentPage: this.state.currentPage + 1
             });
@@ -99,6 +99,22 @@ class ProductList extends Component {
     };
 
     render() {
+
+        const {products, currentPage, productsPerPage} = this.state;
+        const lastIndex = currentPage * productsPerPage;
+        const firstIndex = lastIndex - productsPerPage;
+        //const productData = this.props.productData;
+        // const products = this.state.products;
+        const currentProducts = products.slice(firstIndex, lastIndex);
+        const totalPages = Math.ceil(products.length / productsPerPage);
+
+        const pageNumCss = {
+            width: "45px",
+            // border: "1px",
+            textAlign: "center",
+            fontWeight: "bold"
+        };
+
         return (
             <div>
                 <div style={{"display":this.state.show ? "block" : "none"}}>
@@ -132,10 +148,10 @@ class ProductList extends Component {
                                         <tr align="center">
                                             <td colSpan="9">No Products Available.</td>
                                         </tr> :
-                                        this.state.products.map((product) => (
+                                        currentProducts.map((product, index) => (
                                             <tr key={product.productId}>
                                                 <td className="text-center align-middle">
-                                                    <Image src={product.pictureUrl} className="img-fluid rounded" width="60" height="65" /> {/*{product.productName}*/}
+                                                    <Image src={product.pictureUrl} className="img-fluid rounded" style={{width:"60", height:"65"}} /> {/*{product.productName}*/}
                                                 </td>
                                                 <td className="align-middle">{product.productName}</td>
                                                 <td className="align-middle">{product.dimension}</td>
@@ -161,6 +177,39 @@ class ProductList extends Component {
                         </Table>
                         </div>
                     </Card.Body>
+                    {products.length > 0 ?
+                            <Card.Footer>
+                                <div style={{"float":"left"}}>
+                                    Showing Page {currentPage} of {totalPages}
+                                </div>
+                                <div style={{"float":"right"}}>
+                                    <InputGroup size="sm">
+                                        <InputGroup.Prepend>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === 1 ? true : false}
+                                                onClick={this.firstPage}>
+                                                <FontAwesomeIcon icon={faFastBackward} /> First
+                                            </Button>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === 1 ? true : false}
+                                                onClick={this.prevPage}>
+                                                <FontAwesomeIcon icon={faStepBackward} /> Prev
+                                            </Button>
+                                        </InputGroup.Prepend>
+                                        <FormControl className={"pageNumCss "} style={pageNumCss} name="currentPage" value={currentPage}
+                                            onChange={this.changePage}/>
+                                        <InputGroup.Append>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === totalPages ? true : false}
+                                                onClick={this.nextPage}>
+                                                <FontAwesomeIcon icon={faStepForward} /> Next
+                                            </Button>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === totalPages ? true : false}
+                                                onClick={this.lastPage}>
+                                                <FontAwesomeIcon icon={faFastForward} /> Last
+                                            </Button>
+                                        </InputGroup.Append>
+                                    </InputGroup>
+                                </div>
+                            </Card.Footer> : null
+                         }
                 </Card>
                 <br />
             </div>
