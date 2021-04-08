@@ -12,13 +12,15 @@ function Addtocart(props) {
 
     let [addToCart,setAddToCart]=useState({productName:'',quantity:'',price:''})
 
-    useEffect(()=>
-    {
-    setAddToCart(addToCart)
-        axios.post('http://localhost:9000/api/addproducttocart',addToCart)
-        .then(res=>console.log(res.data))
-        .catch(error=>console.log(error))
-    },[])
+    let [initialValue,setInitialValue] = useState(1)
+
+    let addQuantity =() =>{
+        setInitialValue(initialValue+1)
+    }
+
+    let substractQuantity =() =>{
+        setInitialValue(initialValue-1)
+    } 
 
     const cartItems= useSelector(state=>state.cart)
 
@@ -51,7 +53,7 @@ function Addtocart(props) {
                         </div>
                     </td>
                     
-                    <td> <Button  variant="light"><VscAdd/></Button> {data.quantity} <Button variant="light" ><GrSubtract/></Button></td>
+                    <td> <Button  variant="light" onClick={addQuantity}><VscAdd/></Button> {data.quantity} <Button variant="light" onClick={substractQuantity} ><GrSubtract/></Button></td>
 
                     <td>₹{data.price}</td>
                 </tr>

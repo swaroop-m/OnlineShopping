@@ -3,7 +3,7 @@ import { Navbar, Nav, NavDropdown, NavLink, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { RiCustomerService2Fill } from "react-icons/ri";
-
+import Logo from './Image/Logo.svg'
 
 function NavBar(props) {
   return (
@@ -11,9 +11,9 @@ function NavBar(props) {
       <Link to={"/Home"} className="navbar-link">
         <Navbar.Brand style={{fontFamily:'Sans'}}>
           <img
-            src="https://www.svgrepo.com/show/217771/shopping-logo.svg"
-            width="40"
-            height="40"
+            src={Logo}
+            width="50"
+            height="60"
             alt="Brand_Logo"
           />
           ShopAura

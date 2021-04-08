@@ -9,29 +9,25 @@ function Addcomplaints() {
     let [submit,setSubmit]=useState({name:' ',phoneNo: ' ',productName:' ',message:' '})
 
 
-    function handleSubmit()
-    {
-       setSubmit(complaints)
-    }
-    function successSubmit(){  
-            alert("Complaint registered successfully!!");
-    }
-
-
-    useEffect(()=>
-    {
-    setComplaints(complaints)
+     const submitProduct = (event) => {
+        event.preventDefault();
         axios.post('http://localhost:9000/api/addcomplaints',complaints)
         .then(res=>console.log(res.data))
         .catch(error=>console.log(error))
-    },[submit])
+        window.location.reload()
+        };
+
+
+    function successSubmit(){  
+            alert("Complaint registered successfully!!");
+    }
 
     return (
 
         <div>
       <h3><RiCustomerService2Fill/> Customer Care</h3>
 
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={submitProduct}>
 
             <Form.Group controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
