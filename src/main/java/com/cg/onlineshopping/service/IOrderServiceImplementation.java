@@ -37,19 +37,13 @@ public class IOrderServiceImplementation implements IOrderService{
 	//Adds an order
 	@Override
 	public Order addOrder(Order o) throws ValidationException {
-		final String orderStatus1= "Confirmed";
-		final String orderStatus2= "Delivered";
-		String status=o.getOrderStatus();
+		
 		LocalDate orderDateExisting=o.getOrderDate();
 		Customer cust=o.getCustomer();
 		
 		
-		if(!(status.matches(orderStatus1)||status.matches(orderStatus2)))
-			throw new ValidationException("Order Status is Invalid");
-		if(orderDateExisting==null)
-			throw new ValidationException("Order Date cannot be null");
-		if(cust==null)
-			throw new ValidationException("Please login/Sign Up to place an order");
+		
+		
 		
 		
 		return orderRepository.save(o);
@@ -87,9 +81,9 @@ public class IOrderServiceImplementation implements IOrderService{
 
 				existingOrder.setOrderStatus(order.getOrderStatus());
 			}
-			if (order.getProductlist() != null) {
+			if (order.getCartItem() != null) {
 
-				existingOrder.setProductlist(order.getProductlist());
+				existingOrder.setCartItem(order.getCartItem());
 			}
 
 			// perform update operation to the database table
