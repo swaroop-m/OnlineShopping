@@ -36,7 +36,7 @@ class Product extends Component {
 
   submitProduct = (event) => {
     event.preventDefault();
-    this.setState({ show: true,saving: 1 });
+    this.setState({ saving: 1 });
     const product = {
       pictureUrl: this.state.pictureUrl,
       productName: this.state.productName,
