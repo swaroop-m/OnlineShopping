@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useSelector } from 'react-redux'
 import './cart.css'
-import RemoveProductFromCart from './removeProductFromCart'
+import RemoveProductFromCart from './RemoveProductFromCart'
 import { Button} from 'react-bootstrap'
 import {GrSubtract} from 'react-icons/gr'
 import {VscAdd} from 'react-icons/vsc'
