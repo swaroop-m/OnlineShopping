@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
-import { Card, Table,  ButtonGroup, Button, InputGroup, FormControl } from 'react-bootstrap';
+import { Card, Table, Image, ButtonGroup, Button, InputGroup, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers,faList, faEdit, faTrash, faStepBackward, faFastBackward, faStepForward, faFastForward, faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
-import OrderToast from './OrderToast'
 import { connect } from 'react-redux';
 import axios from 'axios';
+import OrderToast from "./OrderToast";
 
 class OrderList extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            order: [],
-            //pagination code begins
+
+            orders:[],
+            show: false,
             currentPage : 1,
-            orderPerPage : 5
-            //pagination code ends
+            ordersPerPage : 10
+
+           
+
         };
     }
 
@@ -47,7 +50,8 @@ class OrderList extends Component {
             });
     };
 
-    //Methods used to implement pagination
+
+
     changePage = event => {
         this.setState({
             [event.target.name]: parseInt(event.target.value)
@@ -71,78 +75,98 @@ class OrderList extends Component {
     };
 
     lastPage = () => {
-        if(this.state.currentPage < Math.ceil(this.state.order.length / this.state.orderPerPage)) {
+        let productsLength = this.state.products.length;
+        if(this.state.currentPage < Math.ceil(productsLength / this.state.ordersPerPage)) {
             this.setState({
-                currentPage: Math.ceil(this.state.order.length / this.state.orderPerPage)
+                currentPage: Math.ceil(productsLength / this.state.ordersPerPage)
             });
         }
     };
 
     nextPage = () => {
-        if(this.state.currentPage < Math.ceil(this.state.order.length / this.state.orderPerPage)) {
+        if(this.state.currentPage < Math.ceil(this.state.products.length / this.state.ordersPerPage)) {
             this.setState({
                 currentPage: this.state.currentPage + 1
             });
         }
     };
 
-    
+
+   
+
+    deleteOrder = (orderId) => {
+        axios.delete("http://localhost:9000/api/deleteorders/"+orderId)
+        .then(response => {
+            if(response.data != null){
+                this.setState({"show":true});
+                setTimeout(() => this.setState({"show":false}), 3000);
+                // alert("Order Deleted Succesfully!!");
+                this.setState({
+                    products : this.state.products.filter(order => order.orderId!= orderId)
+                });
+            }
+            else{
+                this.setState({"show":false});
+            }
+            
+        });
+    };
+
     render() {
-        //pagination code begins
-        const {order, currentPage, orderPerPage} = this.state;
-        const lastIndex = currentPage * orderPerPage;
-        const firstIndex = lastIndex - orderPerPage;
-        const currentOrder = order.slice(firstIndex, lastIndex);
-        const totalPages = order.length / orderPerPage;
+
+        const {orders, currentPage, ordersPerPage} = this.state;
+        const lastIndex = currentPage * ordersPerPage;
+        const firstIndex = lastIndex - ordersPerPage;
+        //const productData = this.props.productData;
+        // const products = this.state.products;
+        const currentOrders = orders.slice(firstIndex, lastIndex);
+        const totalPages = Math.ceil(orders.length / ordersPerPage);
 
         const pageNumCss = {
             width: "45px",
-            border: "1px solid #FFFFFF",
-            color: "#FFFFFF",
+            // border: "1px",
             textAlign: "center",
             fontWeight: "bold"
         };
 
-
         return (
             <div>
-                <div style={{ "display": this.state.show ? "block" : "none" }}>
-                    <OrderToast  show={this.state.show} message= {"Order Deleted Successfully."} type={"danger"} />
+                <div style={{"display":this.state.show ? "block" : "none"}}>
+                <OrderToast show = {this.state.show} message = {"Order Deleted Successfully."} type = {"danger"}/>
                 </div>
-
-                <Card className={"border border-dark bg-info text-white"}>
-                    <Card.Header><FontAwesomeIcon icon={faUsers} /> Order List
-                </Card.Header>
+                <Card className="border bg-light">
+                    {/* <Card.Header>
+                        <FontAwesomeIcon icon={faList} /> List of Orders
+                    </Card.Header> */}
                     <Card.Body>
-                        <Table bordered hover striped variant="light">
-                            <thead>
+                        <h3><FontAwesomeIcon icon={faList} /> List of Orders</h3>
+                        <br />
+                        <div className="table-responsive ">
+                        <Table bordered hover striped className="table" >
+                            <thead className="bg-primary text-dark text-center">
                                 <tr>
-                                   
                                     <th>Order ID</th>
                                     <th>Order Status</th>
                                     <th>Order Date</th>
                                     <th>Customer details</th>
                                     <th>Products</th>
-
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {
                                     
-                                    order.length === 0 ?
+                                    orders.length === 0 ?
                                         <tr align="center">
-                                            <td colSpan="6">No Orders available!</td>
-
+                                            <td colSpan="9">No Orders Available.</td>
                                         </tr> :
-                                        // this.state.customer.map((customer) => (
-                                            currentOrder.map((order) => (
-                                            <tr className="col-3" key={order.orderId}>
-                                                <td>
-                                                    {order.orderId}
-                                                </td>
-                                                <td>{order.orderStatus}</td>
-                                                <td>{order.orderDate}</td>
-                                                <td>{order.customer?.firstName}
+                                        currentOrders.map((order, index) => (
+                                            <tr key={order.orderId}>
+                                                <td className="text-center align-middle">{order.orderId}</td>
+                                                <td className="align-middle">{order.orderStatus}</td>
+                                                <td className="align-middle">{order.orderDate}</td>
+                                                <td className="align-middle">
+						    {order.customer?.firstName}
                                                     {" "}
                                                     {order.customer?.lastName}
                                                     {" "}
@@ -150,16 +174,20 @@ class OrderList extends Component {
                                                     {" "}
                                                     {order.customer?.mobileNumber}
                                                     {" "}
-                                                     </td>
-                                                <td>{order.cartItem}</td>
-
-                        
-
-                                                <td>
+						</td>
+                                                <td className="align-middle">{order.cartItem?.productName}{""}
+									     {order.cartItem?.quantity}{""}
+									     {order.cartItem?.price}{""}
+						</td>
+                          
+                                                <td className="text-center align-middle">
                                                     <ButtonGroup>
-                                                    <Link to={"editorder/"+order.orderId} className="btn btn-sm btn-outline-success"><FontAwesomeIcon icon={faEdit} /></Link>{' '}
-                                                       
-                                                        <Button size="sm" variant="outline-danger" onClick={this.deleteOrder.bind(this, order.orderId)}><FontAwesomeIcon icon={faTrash} /></Button>
+                                                        <Link to={"editorder/" + order.orderId} className="btn btn-md btn-outline-primary mr-2 rounded-0">
+                                                            <FontAwesomeIcon icon={faEdit} />
+                                                        </Link>{' '}
+                                                <Button size="md" variant="outline-danger rounded-0" onClick={this.deleteOrder.bind(this, order.orderId)}>
+                                                            <FontAwesomeIcon icon={faTrash} />
+                                                        </Button>
                                                     </ButtonGroup>
 
                                                 </td>
@@ -170,40 +198,41 @@ class OrderList extends Component {
                             </tbody>
 
                         </Table>
+                        </div>
                     </Card.Body>
-                    {/*Pagination code begins here */}
-                    <Card.Footer>
-                        <div style={{"float":"left"}}>
-                                Showing Page {currentPage} of {totalPages}
-                        </div>
-                        <div style={{"float":"right"}}>
-                                <InputGroup size="sm">
-                                    <InputGroup.Prepend>
-                                        <Button type="button" variant="outline-light" disabled={currentPage === 1 ? true : false}
-                                            onClick={this.firstPage}>
-                                        <FontAwesomeIcon icon={faFastBackward} /> First
-                                        </Button>
-                                        <Button type="button" variant="outline-light" disabled={currentPage === 1 ? true : false}
-                                            onClick={this.prevPage}>
-                                        <FontAwesomeIcon icon={faStepBackward} /> Prev
-                                        </Button>
-                                    </InputGroup.Prepend>
-                                    <FormControl style={pageNumCss} className={"bg-info"} name="currentPage" value={currentPage}
-                                        onChange={this.changePage}/>
-                                    <InputGroup.Append>
-                                        <Button type="button" variant="outline-light" disabled={currentPage === totalPages ? true : false}
-                                            onClick={this.nextPage}>
-                                        <FontAwesomeIcon icon={faStepForward} /> Next
-                                        </Button>
-                                        <Button type="button" variant="outline-light" disabled={currentPage === totalPages ? true : false}
-                                            onClick={this.lastPage}>
-                                        <FontAwesomeIcon icon={faFastForward} /> Last
-                                        </Button>
-                                    </InputGroup.Append>
-                                </InputGroup>
-                        </div>
-                    </Card.Footer>
-
+                    {orders.length > 0 ?
+                            <Card.Footer>
+                                <div style={{"float":"left"}}>
+                                    Showing Page {currentPage} of {totalPages}
+                                </div>
+                                <div style={{"float":"right"}}>
+                                    <InputGroup size="sm">
+                                        <InputGroup.Prepend>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === 1 ? true : false}
+                                                onClick={this.firstPage}>
+                                                <FontAwesomeIcon icon={faFastBackward} /> First
+                                            </Button>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === 1 ? true : false}
+                                                onClick={this.prevPage}>
+                                                <FontAwesomeIcon icon={faStepBackward} /> Prev
+                                            </Button>
+                                        </InputGroup.Prepend>
+                                        <FormControl className={"pageNumCss "} style={pageNumCss} name="currentPage" value={currentPage}
+                                            onChange={this.changePage}/>
+                                        <InputGroup.Append>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === totalPages ? true : false}
+                                                onClick={this.nextPage}>
+                                                <FontAwesomeIcon icon={faStepForward} /> Next
+                                            </Button>
+                                            <Button type="button" variant="outline-info" disabled={currentPage === totalPages ? true : false}
+                                                onClick={this.lastPage}>
+                                                <FontAwesomeIcon icon={faFastForward} /> Last
+                                            </Button>
+                                        </InputGroup.Append>
+                                    </InputGroup>
+                                </div>
+                            </Card.Footer> : null
+                         }
                 </Card>
 
                 <br />
