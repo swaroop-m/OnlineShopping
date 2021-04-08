@@ -1,32 +1,14 @@
-import React,{ useState} from 'react'
-import { Button} from 'react-bootstrap'
-import {VscAdd} from 'react-icons/vsc'
+import React from 'react'
 import { useSelector } from 'react-redux'
-import {GrSubtract} from 'react-icons/gr'
 import './cart.css'
+import Removeproductfromcart from './removeProductFromCart'
+import Updateproductquantity from './updateProductQuantity'
 
 
-//contains all products which are added to cart, remove item button, quantity add or sub
+//contains all products which are added to cart //allworking
 function Addtocart(props) {
 
     const cartItems= useSelector(state=>state.cart)
-
-    let [initialValue,setInitialValue] = useState(1);
-
-
-    let addQuantity =() =>{
-        setInitialValue(initialValue+1)
-    }
-
-    let substractQuantity =() =>{
-        setInitialValue(initialValue-1)
-    }
-
-    //not working   
-    let removeItem =(product) =>
-    {
-        console.log("removing product from cart")
-    }
 
     return (
         <>
@@ -42,24 +24,22 @@ function Addtocart(props) {
                 <tr key={index}>
                     <td className="table-data">
                         <div className="cart-info">
-                        
                             <img src={data.pictureUrl}/>
                             <div>
                                 <p>Product: {data.productName} </p>
                                 <p>Price: ₹ {data.price}</p>
                                 
-                                <Button className="btn btn-danger" onClick={removeItem}>Remove</Button>
-                            </div>
+                                <Removeproductfromcart/>
 
+                            </div>
                         </div>
                     </td>
                     
-                    <td> <Button  variant="light" onClick={addQuantity}><VscAdd/></Button> {initialValue} <Button variant="light"  onClick={substractQuantity}><GrSubtract/></Button></td>
+                    <Updateproductquantity/>
+
                     <td>₹{data.price}</td>
-                    
                 </tr>
                 ) }
-
             </table>
         </>
     )

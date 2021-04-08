@@ -24,7 +24,14 @@ function reducer1(state = initialState, action) {
 
     return { ...state, cart:[...state.cart,{...action.payload}]}
 
-    
+    // case "REMOVE_PRODUCT_FROM_CART":
+    //         return state.filter((e) => {
+    //             if (e.name !== action.payload.name) {
+    //                 return true;
+    //             }
+    //             return false;
+    //         });
+
     default:
       return state;
   }

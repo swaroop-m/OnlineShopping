@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import './cart.css'
 
 
-//conatins-> subtotal,delivery(info),total and placeOder button
+//conatins-> subtotal,delivery(info),total and placeOder button //all working
 function Cartpricedetails(props) {
     
     const cartItems= useSelector(state=>state.cart)
@@ -15,11 +15,12 @@ function Cartpricedetails(props) {
     }
 
 //working subTotal
-        const getSubTotal = cartItems.reduce((sum,{price})=> sum + price,0)
+        const getSubTotal = cartItems.reduce((sum,{price})=> sum + price ,0)
         
 //working delivery charge conditional
         
-        const delivery =  getSubTotal > 5000 ? 0 : 50
+        const delivery =   getSubTotal > 5000 ? 0 : 50
+    
 
 //working totalPrice
         const totalPrice= getSubTotal + delivery
