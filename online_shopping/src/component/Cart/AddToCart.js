@@ -5,7 +5,7 @@ import RemoveProductFromCart from './RemoveProductFromCart'
 import { Button} from 'react-bootstrap'
 import {GrSubtract} from 'react-icons/gr'
 import {VscAdd} from 'react-icons/vsc'
-import axios from 'axios'
+
 
 //contains all products which are added to cart //allworking
 function Addtocart(props) {

@@ -4,7 +4,7 @@ import {AiOutlineShoppingCart } from 'react-icons/ai'
 import {Link} from 'react-router-dom'
 import './cart.css'
 
-import Addtocart from './AddToCart'
+import AddToCart from './AddToCart'
 import  CartPriceDetails from './CartPriceDetails'
 
 import RemoveAllProducts from './RemoveAllProducts'
@@ -25,7 +25,7 @@ function CartUi(props) {
 
             <RemoveAllProducts/>
 
-            <Addtocart/>
+            <AddToCart/>
 
             <div>
                 {cartItems.length === 0 && 
