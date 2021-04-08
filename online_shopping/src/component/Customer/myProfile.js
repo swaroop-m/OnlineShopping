@@ -6,15 +6,17 @@ function Myprofile(props) {
 
     return (
         <>
-            <h1>My profile</h1>
+            <h1>My Profile</h1>
             <hr/>
             <Card className="d-flex justify-content-center"style={{ width: '70rem' }}>
                 <Card.Body>
                     <Card.Title>Personal Details</Card.Title> 
                     <div>
                         <Button>Update</Button>
+                       
                     </div>
                     <ListGroup variant="flush">
+                       
                     <ListGroup.Item> Street no: Shreshta</ListGroup.Item>
                         <ListGroup.Item> Building name: Shreshta</ListGroup.Item>
                         <ListGroup.Item> City: Shreshta</ListGroup.Item>

@@ -6,8 +6,6 @@ import { connect } from "react-redux";
 
 class Homepage extends Component {
 
-
-
   constructor(props) {
     super(props);
     this.state = {
