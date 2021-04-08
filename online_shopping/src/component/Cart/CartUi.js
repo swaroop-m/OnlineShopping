@@ -4,10 +4,11 @@ import {AiOutlineShoppingCart } from 'react-icons/ai'
 import {Link} from 'react-router-dom'
 import './cart.css'
 
-import Cartpricedetails from './cartPriceDetails'
-import Addtocart from './addToCart'
-import Removeallproducts from './removeAllProducts'
-import Viewallproducts from './viewAllProducts'
+import Addtocart from './AddToCart'
+import  CartPriceDetails from './CartPriceDetails'
+
+import RemoveAllProducts from './RemoveAllProducts'
+
 
 
 //contains-> header , clear cart , display text 'cart is empty'
@@ -22,7 +23,7 @@ function CartUi(props) {
             
             <h2><AiOutlineShoppingCart size="1.5em"/>My Cart ({cartItems.length})</h2>  
 
-            <Removeallproducts/>
+            <RemoveAllProducts/>
 
             <Addtocart/>
 
@@ -35,7 +36,7 @@ function CartUi(props) {
                     <p>Continue Browsing <Link to="Home">Here!</Link></p>
             </div>
 
-            <Cartpricedetails/>
+            <CartPriceDetails/>
      
         </div> 
         {/* <Viewallproducts/> */}

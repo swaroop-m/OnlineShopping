@@ -4,7 +4,7 @@ import { Button} from 'react-bootstrap'
 import './cart.css'
 
 //contains Clear cart button
-function Removeallproducts(props) {
+function RemoveAllProducts(props) {
    
     const cartItems= useSelector(state=>state.cart)
 
@@ -25,4 +25,4 @@ function Removeallproducts(props) {
 }
 
 
-export default Removeallproducts
+export default RemoveAllProducts

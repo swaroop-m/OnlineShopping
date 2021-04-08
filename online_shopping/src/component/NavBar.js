@@ -91,7 +91,7 @@ function NavBar(props) {
             title="My Account"
             id="basic-nav-dropdown" /*className="bg-dark text-white"*/>
             <NavDropdown.Item className="NavDropdown">
-              <Link to={"/Myprofile"} className="nav-link">
+              <Link to={"/MyProfile"} className="nav-link">
                 My Profile
               </Link>
             </NavDropdown.Item>

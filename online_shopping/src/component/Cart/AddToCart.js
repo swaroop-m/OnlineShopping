@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import './cart.css'
-import Removeproductfromcart from './removeProductFromCart'
-import Updateproductquantity from './updateProductQuantity'
+import RemoveProductFromCart from './RemoveProductFromCart'
+import Updateproductquantity from './UpdateProductQuantity'
 
 
 //contains all products which are added to cart //allworking
@@ -29,7 +29,7 @@ function Addtocart(props) {
                                 <p>Product: {data.productName} </p>
                                 <p>Price: ₹ {data.price}</p>
                                 
-                                <Removeproductfromcart/>
+                                <RemoveProductFromCart/>
 
                             </div>
                         </div>

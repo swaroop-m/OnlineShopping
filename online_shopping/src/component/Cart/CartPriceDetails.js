@@ -6,7 +6,7 @@ import './cart.css'
 
 
 //conatins-> subtotal,delivery(info),total and placeOder button //all working
-function Cartpricedetails(props) {
+function  CartPriceDetails(props) {
     
     const cartItems= useSelector(state=>state.cart)
 
@@ -63,4 +63,4 @@ function Cartpricedetails(props) {
     )
 }
 
-export default Cartpricedetails
+export default CartPriceDetails

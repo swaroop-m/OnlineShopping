@@ -6,7 +6,7 @@ import {VscAdd} from 'react-icons/vsc'
 import './cart.css'
 
 //contains quantity add or sub
-function Updateproductquantity(props) {
+function UpdateProductQuantity(props) {
 
     const cartItems= useSelector(state=>state.cart)
     let [initialValue,setInitialValue] = useState(1);
@@ -28,4 +28,4 @@ function Updateproductquantity(props) {
 }
 
 
-export default Updateproductquantity
+export default UpdateProductQuantity

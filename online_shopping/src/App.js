@@ -19,7 +19,7 @@ import AboutUs from './component/navComponents/AboutUs'
 import Home from './component/navComponents/Home'
 import CustomerCare from './component/navComponents/CustomerCare'
 import Login from './component/Login/Login'
-import Myprofile from './component/Customer/myProfile'
+import MyProfile from './component/Customer/MyProfile'
 
 
 
@@ -78,7 +78,7 @@ function App() {
             <Route path="/addcustomer" exact component={Customer}/>
             <Route path="/editcustomer/:customerId" exact component={Customer}/>
             <Route path="/listcustomers" exact component={CustomerList}/>
-            <Route path="/Myprofile" exact component={Myprofile}/>
+            <Route path="/MyProfile" exact component={MyProfile}/>
             <Route path="/Login" exact component={Login}/>
             <Route path="/Cart" excat component={Cart}/>
             <Route path="/CustomerCare" exact component={CustomerCare}/>

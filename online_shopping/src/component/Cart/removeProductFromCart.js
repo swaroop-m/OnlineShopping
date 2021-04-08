@@ -4,7 +4,7 @@ import { Button} from 'react-bootstrap'
 import './cart.css'
 
 //contains remove item button
-function Removeproductfromcart(props) {
+function RemoveProductFromCart(props) {
     
     const cartItems= useSelector(state=>state.cart)
 
@@ -20,4 +20,4 @@ function Removeproductfromcart(props) {
     )
 }
 
-export default Removeproductfromcart
+export default RemoveProductFromCart
