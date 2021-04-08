@@ -44,12 +44,21 @@ function reducer1(state = initialState, action) {
       //   }
     
       //removeAllproducts
+      
       //substract_Quantity
 
       // case "ADD_QUANTITY":
       //     const addQuantity = state.cart.find((cartItem)=>{
       //       if(cartItem.productId === action.payload.productId)
       //       cartItem.quantity =cartItem.quantity +1 
+      //       return{...state ,cart:[...addQuantity]
+      //       }
+      // })
+
+      // case "SUB_QUANTITY":
+      //     const subQuantity = state.cart.find((cartItem)=>{
+      //       if(cartItem.productId === action.payload.productId)
+      //       cartItem.quantity =cartItem.quantity - 1 
       //       return{...state ,cart:[...addQuantity]
       //       }
       // })

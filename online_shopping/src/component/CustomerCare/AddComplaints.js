@@ -3,10 +3,11 @@ import axios from 'axios'
 import {Button,  Form } from 'react-bootstrap'
 import {RiCustomerService2Fill} from 'react-icons/ri'
 
+
 function Addcomplaints() {
 
     let [complaints,setComplaints]=useState({name:' ',phoneNo: ' ',productName:' ',message:' '})
-    let [submit,setSubmit]=useState({name:' ',phoneNo: ' ',productName:' ',message:' '})
+   
 
 
      const submitProduct = (event) => {
@@ -23,7 +24,7 @@ function Addcomplaints() {
     }
 
     return (
-
+<>
         <div>
       <h3><RiCustomerService2Fill/> Customer Care</h3>
 
@@ -57,6 +58,8 @@ function Addcomplaints() {
             </Button>
         </Form>
         </div>
+    
+        </>
         )
     }
     
