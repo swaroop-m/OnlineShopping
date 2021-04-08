@@ -146,7 +146,7 @@ class ProductList extends Component {
                                 {
                                     this.state.products.length === 0 ?
                                         <tr align="center">
-                                            <td colSpan="9">No Products Available.</td>
+                                            <td colSpan="9" className="text-center">No Products Available.</td>
                                         </tr> :
                                         currentProducts.map((product, index) => (
                                             <tr key={product.productId}>

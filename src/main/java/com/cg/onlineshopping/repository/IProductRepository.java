@@ -8,6 +8,7 @@ package com.cg.onlineshopping.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.cg.onlineshopping.entities.Category;
@@ -16,6 +17,9 @@ import com.cg.onlineshopping.entities.Product;
 @Repository
 public interface IProductRepository extends JpaRepository<Product, Integer> {
 
+	 @Query("SELECT DISTINCT c.categoryName FROM Category c")
+	 List<String> findDistinctCategory();
+	 
 	// All the methods below are implemented by JPA Repository
 
 	// Method to find a product by Category

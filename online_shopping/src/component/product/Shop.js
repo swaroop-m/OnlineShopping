@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import CardsOnHome from "./CardsOnHome";
+import { Image } from "react-bootstrap";
 import HorizontalGallery from "react-dynamic-carousel";
+import { Link } from "react-router-dom";
 
+// import Slider from "react-slick";
 import axios from "axios";
 
 class Shop extends Component {
@@ -35,35 +38,62 @@ class Shop extends Component {
   }
 
   render() {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    };
     return (
       <div>
         {/* <CardsOnHome/> */}
         <div>
           <div className="row">
-            <HorizontalGallery 
+            <HorizontalGallery
               tiles={this.state.products.map((product) => (
                 <div
-                key={product.productId}
+                  key={product.productId}
                   style={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    width: 250,
-                    height: 350,
-                    backgroundColor: "#D0D0D0",
-                    borderRadius: 10,
+                    width: 100,
+                    height: 250,
+                    //     backgroundColor: "#D0D0D0",
+                    //     borderRadius: 10,
+                    // height:"auto",
+                    // position: "relative",
+                    // overflow: "hidden",
+                    // display: "inline-block",
+                    // backgroundSize:"cover",
+                    // height:"200px", width:"70px"
                   }}
                 >
-                  <h1>{product.productName}</h1>
+                  <Link
+                    to={"/viewproduct/" + product.productId}
+                    className="text-center align-middle"
+                  >
+                    <Image
+                      src={product.pictureUrl}
+                      style={{objectFit: "contain",}}
+                      className="img-fluid rounded "
+                    />
+                  </Link>
                 </div>
+                //     <div>
+                //   <h1>{product.productName}</h1>
+                // </div>
               ))}
-              elementWidth={250}
-              fadeDistance={100}
-              minPadding={20}
+              elementWidth={200}
+              fadeDistance={90}
+              //   minPadding={80}
             />
           </div>
         </div>
-        <div></div>
+        <div className="row">
+          
+        </div>
       </div>
     );
   }

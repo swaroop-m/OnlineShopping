@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.onlineshopping.entities.Product;
+import com.cg.onlineshopping.repository.IProductRepository;
 //import com.cg.onlineshopping.service.IProductService;
 import com.cg.onlineshopping.service.ProductServiceImpl;
 
@@ -41,6 +42,8 @@ public class ProductRestController {
 	
 	@Autowired
 	private ProductServiceImpl iProductService;
+	@Autowired
+	private IProductRepository iProductRepository;
 
 	@ApiOperation(value = "Homepage URL")
 	@GetMapping("/") // working
@@ -96,6 +99,13 @@ public class ProductRestController {
 		log.info("Controller Triggered");
 		List<Product> productsInCategory = iProductService.viewProductByCategory(cname);
 		return new ResponseEntity<List<Product>>(productsInCategory,HttpStatus.OK);
+	}
+	
+	@ApiOperation(value = "View Categories")
+	@GetMapping("/viewcategories") // working
+	public ResponseEntity<List<String>> viewCategory() {
+		log.info("view all categories");
+		return new ResponseEntity<List<String>>(iProductRepository.findDistinctCategory(),HttpStatus.OK);
 	}
 
 }

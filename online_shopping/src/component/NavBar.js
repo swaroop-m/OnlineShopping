@@ -7,7 +7,7 @@ import Logo from './Image/Logo.svg'
 
 function NavBar(props) {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+    <Navbar collapseOnSelect expand="lg" bg="warning" variant="light">
       <Link to={"/Home"} className="navbar-link">
         <Navbar.Brand style={{fontFamily:'Sans'}}>
           <img
@@ -21,24 +21,24 @@ function NavBar(props) {
       </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
-          <Link to={"/Home"} className="nav-link">
+        <Nav className="mr-auto font-weight-bold fs-5">
+          <Link to={"/Home"} className="nav-link ">
             Home
           </Link>
           {/* bg-dark text-white */}
           <Link to={"/Shop"} className="nav-link">
             Shop
           </Link>
-          <NavDropdown
+          <NavDropdown className=""
             title="Product"
             id="basic-nav-dropdown" /*className="bg-dark text-white"*/
           >
-            <NavDropdown.Item className="NavDropdown">
+            <NavDropdown.Item className="NavDropdown bg-warning">
               <Link to={"/addproduct"} className="nav-link">
                 Add Product
               </Link>
             </NavDropdown.Item>
-            <NavDropdown.Item className="NavDropdown">
+            <NavDropdown.Item className="NavDropdown bg-warning">
               <Link to={"/listproducts"} className="nav-link">
                 Product List
               </Link>

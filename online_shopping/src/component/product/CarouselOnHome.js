@@ -7,6 +7,9 @@ class CarouselOnHome extends Component {
         super(props);
         this.state = {
           products: [],
+          product1: {},
+          product2: {},
+          product3: {},
           //show: false,
         };
         // this.addToCart = this.addToCart.bind(this);
@@ -19,20 +22,24 @@ class CarouselOnHome extends Component {
           .then((data) => {
             this.setState({ products: data });
           });
+        const product1 = this.state.products[-1];
+        const product2 = this.state.products[-2];
+        const product3 = this.state.products[-3];
       }
 
   render() {
     const carouselProducts = this.state.products.slice(-3);
-    // const product1 = this.state.products[-1];
-    // const product2 = this.state.products[-2];
-    // const product3 = this.state.products[-3];
+    const product1 = this.state.products[-1];
+    const product2 = this.state.products[-2];
+    const product3 = this.state.products[-3];
     return (
       <div>
           <div>
               {
                   carouselProducts.map((product) => (
         <Carousel className="align-middle text-center">
-          <Carousel.Item className=""  key={product.productId}>
+        
+          <Carousel.Item className="" key={product.productId}>
             <img
               className="text-center"
               style={{height:"400px", width:"470px",objectFit:"contain"}}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import {Image}   from "react-bootstrap";
+import {Image, Button}   from "react-bootstrap";
 class ViewProduct extends Component {
 
     constructor(props) {
@@ -83,18 +83,16 @@ class ViewProduct extends Component {
         return (
             <div className="">
                 {
-                <div className="row d-flex align-items-center bg-light">
-                    <div className="col-xs-12 col-md-6 col-lg-6 float-left align-middle text-center">
-                        <Image src={pictureUrl} className="img-fluid rounded" style={{width:"400px", height:"250px", objectFit:"contain",}} />
+                <div className="row d-flex align-items-center bg-light ">
+                    <div className="col-xs-12 col-md-6 col-lg-5 mr-auto float-left align-middle text-center border border-dark">
+                        <Image src={pictureUrl} className="img-fluid rounded p-2" style={{width:"500px", height:"500px", objectFit:"contain",}} />
                     </div>
                     <div className="col-xs-12 col-md-6 col-lg-6">
-                    <div className=" " style={ptitle}>
-                            <h1 style= {{   fontFamily: "Raleway, sans-serif",
-                                            fontWeight: "200",
-                                            fontStyle: "normal",
-                                            textRendering: "optimizeLegibility",
-                                            margin: "0 0 1em",
-                                            marginBottom: "1em",
+                    <div className="" style={ptitle}>
+                            <h1 style= {{   //fontFamily: "Raleway, sans-serif",
+                                            // fontWeight: "200",
+                                            // fontStyle: "normal",
+                                            marginBottom: "0em",
                                             lineHeight: "1.4",
                                             color: "#333333"
 
@@ -120,6 +118,15 @@ class ViewProduct extends Component {
                            Price : &#8377; {price}
                         </div>
                         <br />
+                        <div className="">
+                          <Button
+                            variant="primary"
+                            // onClick={() => this.addToCart(product)}
+                          >
+                            Add to Cart
+                          </Button>
+                        </div>
+                        <br/>
                     </div>
                 </div>
                 }
