@@ -4,6 +4,7 @@ import { createStore } from "redux";
 // Common REUSABLE STATE
 const initialState = {
   cart:[], 
+
 };
 
 
@@ -33,6 +34,15 @@ function reducer1(state = initialState, action) {
       }
 
       //removeProduct
+      // case "REMOVE_PRODUCTS":
+      //   let itemToRemove= state.cartItem.find(cartItem=> cartItem.productId === action.payload.productId)
+      //   let new_items = state.cartItem.filter(cartItem=> cartItem.productId === action.payload.productId)
+        
+      //   return{
+      //       ...state,
+      //       cartItem: new_items,
+      //   }
+    
       //removeAllproducts
       //substract_Quantity
 

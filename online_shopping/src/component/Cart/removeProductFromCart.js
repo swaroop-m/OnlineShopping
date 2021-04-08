@@ -8,6 +8,7 @@ function RemoveProductFromCart(props) {
     
     const cartItems= useSelector(state=>state.cart)
 
+
     // removeFromcart = (cartItems) => {
     //     this.props.dispatch({type:'REMOVE_PRODUCT_FROM_CART',payload:productName})
     //  }
