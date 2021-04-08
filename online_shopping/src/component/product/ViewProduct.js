@@ -81,11 +81,11 @@ class ViewProduct extends Component {
         };
 
         return (
-            <div>
+            <div className="">
                 {
-                <div className="row">
+                <div className="row d-flex align-items-center bg-light">
                     <div className="col-xs-12 col-md-6 col-lg-6 float-left align-middle text-center">
-                        <Image src={pictureUrl} className="img-fluid rounded" style={{width:"60", height:"65"}} />
+                        <Image src={pictureUrl} className="img-fluid rounded" style={{width:"400px", height:"250px", objectFit:"contain",}} />
                     </div>
                     <div className="col-xs-12 col-md-6 col-lg-6">
                     <div className=" " style={ptitle}>
@@ -123,6 +123,7 @@ class ViewProduct extends Component {
                     </div>
                 </div>
                 }
+                <br/>
             </div>
         );
     }

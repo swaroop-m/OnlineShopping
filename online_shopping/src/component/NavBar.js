@@ -26,6 +26,9 @@ function NavBar(props) {
             Home
           </Link>
           {/* bg-dark text-white */}
+          <Link to={"/Shop"} className="nav-link">
+            Shop
+          </Link>
           <NavDropdown
             title="Product"
             id="basic-nav-dropdown" /*className="bg-dark text-white"*/

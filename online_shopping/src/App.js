@@ -20,6 +20,7 @@ import Home from './component/navComponents/Home'
 import CustomerCare from './component/navComponents/CustomerCare'
 import Login from './component/Login/Login'
 import MyProfile from './component/Customer/MyProfile'
+import Shop from './component/product/Shop'
 
 
 
@@ -66,6 +67,7 @@ function App() {
           <Col lg={12} style={marginTop}>
             <Route path="/" exact component={Welcome}/>
             <Route path="/Home" exact component={Home}/>
+            <Route path="/Shop" exact component={Shop}/>
         
 
 

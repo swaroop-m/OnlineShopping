@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import CardsOnHome from './CardsOnHome';
+
+import axios from "axios";
 
 class Shop extends Component {
 
@@ -16,13 +19,13 @@ class Shop extends Component {
                 this.setState({ products: data });
             });
     };
-    
+
     render() {
 
 
         return (
             <div>
-                
+                <CardsOnHome/>
             </div>
         );
     }

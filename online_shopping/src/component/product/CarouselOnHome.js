@@ -23,16 +23,19 @@ class CarouselOnHome extends Component {
 
   render() {
     const carouselProducts = this.state.products.slice(-3);
+    // const product1 = this.state.products[-1];
+    // const product2 = this.state.products[-2];
+    // const product3 = this.state.products[-3];
     return (
       <div>
           <div>
               {
                   carouselProducts.map((product) => (
-        <Carousel>
-          <Carousel.Item  key={product.productId}>
+        <Carousel className="align-middle text-center">
+          <Carousel.Item className=""  key={product.productId}>
             <img
-              className="d-block text-center"
-              style={{height:600}}
+              className="text-center"
+              style={{height:"400px", width:"470px",objectFit:"contain"}}
               src={product.pictureUrl}
               //alt="First slide"
             />
@@ -41,30 +44,28 @@ class CarouselOnHome extends Component {
               <p>{product.dimension}<br/>{product.specification}</p>
             </Carousel.Caption>
           </Carousel.Item>
-          {/* <Carousel.Item>
+          {/* <Carousel.Item className="" style={{height:"400px", width:"470px",objectFit:"contain"}} key={product2.productId}>
             <img
-              className="d-block w-100"
-              src="holder.js/800x400?text=Second slide&bg=282c34"
-              alt="Second slide"
+              className="d-block text-center"
+            //   style={{height:"400px", width:"470px",objectFit:"contain"}}
+              src={product2.pictureUrl}
+              //alt="First slide"
             />
-
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>{product2.productName}</h3>
+              <p>{product2.dimension}<br/>{product2.specification}</p>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
+          <Carousel.Item className="" style={{height:"400px", width:"470px",objectFit:"contain"}} key={product3.productId}>
             <img
-              className="d-block w-100"
-              src="holder.js/800x400?text=Third slide&bg=20232a"
-              alt="Third slide"
+              className="d-block text-center"
+            //   style={{height:"400px", width:"470px",objectFit:"contain"}}
+              src={product3.pictureUrl}
+              //alt="First slide"
             />
-
             <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              <h3>{product3.productName}</h3>
+              <p>{product3.dimension}<br/>{product3.specification}</p>
             </Carousel.Caption>
           </Carousel.Item> */}
         </Carousel>
