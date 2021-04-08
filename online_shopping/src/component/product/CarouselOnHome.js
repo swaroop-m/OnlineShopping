@@ -21,6 +21,9 @@ class CarouselOnHome extends Component {
           .then((response) => response.data)
           .then((data) => {
             this.setState({ products: data });
+          })
+          .catch((error) => {
+            console.error("Error - " + error);
           });
         const product1 = this.state.products[-1];
         const product2 = this.state.products[-2];

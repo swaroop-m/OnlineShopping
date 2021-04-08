@@ -761,3 +761,79 @@
 20:42 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
 20:42 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
 20:43 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+20:47 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+20:47 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+20:47 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+20:47 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+20:48 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+20:48 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:20 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:21 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:21 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:21 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:21 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:22 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:22 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:22 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:22 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:22 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:22 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:22 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:22 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:22 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:22 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:24 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 68 
+22:27 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 68 
+22:29 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[createProduct] New product added into the Database 68 
+22:30 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:30 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:30 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:30 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:30 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:30 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:30 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:31 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:31 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:31 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:31 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:31 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:32 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:32 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:32 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:32 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:32 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:33 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:33 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:33 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:33 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:34 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:34 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:35 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:35 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:35 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:35 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:35 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 99 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 99 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 99 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 99 
+22:39 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:40 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:40 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 99 
+22:40 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:41 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:41 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 99 
+22:41 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:44 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:44 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:49 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[viewCategory] view all categories 107 
+22:49 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 
+22:50 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductById] Controller Triggered 83 
+22:50 08/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 60 

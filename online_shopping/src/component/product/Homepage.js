@@ -21,6 +21,9 @@ class Homepage extends Component {
       .then((response) => response.data)
       .then((data) => {
         this.setState({ products: data });
+      })
+      .catch((error) => {
+        console.error("Error - " + error);
       });
   }
 

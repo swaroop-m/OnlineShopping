@@ -14,27 +14,55 @@ class Shop extends Component {
       products: [],
       categories: [],
       productsInCategory: [],
+      homeAndAppliences: [],
+      telivision: [],
+      mobiles: [],
     };
   }
 
   componentDidMount() {
+    // axios
+    //   .get("http://localhost:9000/api/viewcategories")
+    //   .then((response) => response.data)
+    //   .then((data) => {
+    //     this.setState({ categories: data });
+    //   });
     axios
-      .get("http://localhost:9000/api/viewcategories")
+      .get("http://localhost:9000/api/viewbycategory/Home & Accessories")
       .then((response) => response.data)
       .then((data) => {
-        this.setState({ categories: data });
+        this.setState({ homeAndAppliences: data });
+      })
+      .catch((error) => {
+        console.error("Error - " + error);
       });
-    // axios.get("http://localhost:9000/api/viewbycategory/"+categories[1])
-    // .then(response => response.data)
-    // .then((data) => {
-    //     this.setState({ productsInCategory: data });
-    // });
     axios
-      .get("http://localhost:9000/api/viewallproducts")
+      .get("http://localhost:9000/api/viewbycategory/Mobiles")
       .then((response) => response.data)
       .then((data) => {
-        this.setState({ products: data });
+        this.setState({ mobiles: data });
+      })
+      .catch((error) => {
+        console.error("Error - " + error);
       });
+    axios
+      .get("http://localhost:9000/api/viewbycategory/Telivision")
+      .then((response) => response.data)
+      .then((data) => {
+        this.setState({ telivision: data });
+      })
+      .catch((error) => {
+        console.error("Error - " + error);
+      });
+    // axios
+    //   .get("http://localhost:9000/api/viewallproducts")
+    //   .then((response) => response.data)
+    //   .then((data) => {
+    //     this.setState({ products: data });
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error - " + error);
+    //   });
   }
 
   render() {
@@ -49,9 +77,108 @@ class Shop extends Component {
       <div>
         {/* <CardsOnHome/> */}
         <div>
+          <div>
+            <h2>Shop By Categories:</h2>
+            <span
+              style={{
+                position: "absolute",
+                content: "",
+                width: "100%",
+                height: "0",
+                top: "50",
+                left: "0",
+                borderTop: "1px dashed #bec5cb",
+                zIndex: "-1",
+              }}
+            ></span>
+          </div>
+
+          <br />
+          <br />
+          <h3>Mobile Phones</h3>
           <div className="row">
             <HorizontalGallery
-              tiles={this.state.products.map((product) => (
+              tiles={this.state.mobiles.map((product) => (
+                <div
+                  key={product.productId}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: 100,
+                    height: 310,
+                  }}
+                >
+                  <div>
+                    <Link
+                      to={"/viewproduct/" + product.productId}
+                      className="text-center align-middle"
+                    >
+                      <Image
+                        src={product.pictureUrl}
+                        style={{ objectFit: "contain" }}
+                        className="img-fluid rounded "
+                      />
+                    </Link>
+                    {/* <div
+                      style={
+                        {
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }
+                      }
+                    >
+                      {product.productName}
+                    </div> */}
+                  </div>
+                </div>
+              ))}
+              elementWidth={190}
+              fadeDistance={90}
+              //   minPadding={80}
+            />
+          </div>
+          <br />
+          <h3>Telivisions</h3>
+          <div className="row">
+            <HorizontalGallery
+              tiles={this.state.telivision.map((product) => (
+                <div
+                  key={product.productId}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: 170,
+                    height: 270,
+                  }}
+                >
+                  <div>
+                    <Link
+                      to={"/viewproduct/" + product.productId}
+                      className="text-center align-middle"
+                    >
+                      <Image
+                        src={product.pictureUrl}
+                        style={{ objectFit: "contain" }}
+                        className="img-fluid rounded "
+                      />
+                    </Link>
+                    <div>{product.productName}</div>
+                  </div>
+                </div>
+              ))}
+              elementWidth={200}
+              fadeDistance={90}
+              //   minPadding={80}
+            />
+          </div>
+          <br />
+          <h3>Home And Appliences</h3>
+          <div className="row">
+            <HorizontalGallery
+              tiles={this.state.homeAndAppliences.map((product) => (
                 <div
                   key={product.productId}
                   style={{
@@ -60,14 +187,6 @@ class Shop extends Component {
                     alignItems: "center",
                     width: 100,
                     height: 250,
-                    //     backgroundColor: "#D0D0D0",
-                    //     borderRadius: 10,
-                    // height:"auto",
-                    // position: "relative",
-                    // overflow: "hidden",
-                    // display: "inline-block",
-                    // backgroundSize:"cover",
-                    // height:"200px", width:"70px"
                   }}
                 >
                   <Link
@@ -76,14 +195,11 @@ class Shop extends Component {
                   >
                     <Image
                       src={product.pictureUrl}
-                      style={{objectFit: "contain",}}
+                      style={{ objectFit: "contain" }}
                       className="img-fluid rounded "
                     />
                   </Link>
                 </div>
-                //     <div>
-                //   <h1>{product.productName}</h1>
-                // </div>
               ))}
               elementWidth={200}
               fadeDistance={90}
@@ -91,9 +207,9 @@ class Shop extends Component {
             />
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           
-        </div>
+        </div> */}
       </div>
     );
   }

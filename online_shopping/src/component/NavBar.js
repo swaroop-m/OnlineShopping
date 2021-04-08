@@ -103,26 +103,9 @@ function NavBar(props) {
             </NavDropdown.Item>
           </NavDropdown>
 
-          <NavDropdown
-            title="Sign In"
-            id="basic-nav-dropdown" /*className="bg-dark text-white"*/
-          > <NavDropdown.Item className="NavDropdown">
-              <Link to={"/Login"} className="nav-link">
-                Login
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/Register"} className="nav-link">
-                Register
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/UserList"} className="nav-link">
-                Users List
-              </Link>
-            </NavDropdown.Item>
-          </NavDropdown>
-
+          <Link to={"/Login"} className="nav-link">
+            Log in
+          </Link>
           <Link to={"/Cart"} className="nav-link">
             Cart 
             <AiOutlineShoppingCart size="1.5em" />

@@ -35,7 +35,8 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(path = "/api")
 @Api(value = "Product Controller", tags = { "ProductAPI" })
 @ApiModel(description = "You can find all the product related APIs here ")
-@CrossOrigin(origins="http://localhost:3000")
+//@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin
 public class ProductRestController {
 
 	private static final Logger log =LogManager.getLogger(ProductRestController.class);
