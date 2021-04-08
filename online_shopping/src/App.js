@@ -18,9 +18,12 @@ import Cart from './component/navComponents/Cart'
 import AboutUs from './component/navComponents/AboutUs'
 import Home from './component/navComponents/Home'
 import CustomerCare from './component/navComponents/CustomerCare'
-import Login from './component/Login/Login'
 import MyProfile from './component/Customer/MyProfile'
 import Shop from './component/product/Shop'
+
+import Login from './component/Login/Login'
+import Register from './component/Login/Register'
+import UserList from './component/Login/UserList'
 
 
 
@@ -81,9 +84,12 @@ function App() {
             <Route path="/editcustomer/:customerId" exact component={Customer}/>
             <Route path="/listcustomers" exact component={CustomerList}/>
             <Route path="/MyProfile" exact component={MyProfile}/>
-            <Route path="/Login" exact component={Login}/>
             <Route path="/Cart" excat component={Cart}/>
             <Route path="/CustomerCare" exact component={CustomerCare}/>
+
+            <Route path="/Login" exact component={Login}/>
+            <Route path="/Register" exact component={Register}/>
+            <Route path="/UserList" exact component={UserList}/>
 
             {/* <CreateProduct />
             <ProductList /> */}
