@@ -5,8 +5,8 @@ import {RiCustomerService2Fill} from 'react-icons/ri'
 
 function Addcomplaints() {
 
-    let [complaints,setComplaints]=useState({name:' ',phoneNo: ' ',productId:' ',message:' '})
-    let [submit,setSubmit]=useState({name:' ',phoneNo: ' ',productId:' ',message:' '})
+    let [complaints,setComplaints]=useState({name:' ',phoneNo: ' ',productName:' ',message:' '})
+    let [submit,setSubmit]=useState({name:' ',phoneNo: ' ',productName:' ',message:' '})
 
 
     function handleSubmit()
@@ -47,8 +47,8 @@ function Addcomplaints() {
             </Form.Group>
 
             <Form.Group>
-                <Form.Label>Product Id</Form.Label>
-                <Form.Control type="text" placeholder="Enter Product ID" onChange={e=>setComplaints({...complaints,productId:e.target.value})} value={complaints.productId} />
+                <Form.Label>Product Name</Form.Label>
+                <Form.Control type="text" placeholder="Enter Product Name" onChange={e=>setComplaints({...complaints,productName:e.target.value})} value={complaints.productName} />
             </Form.Group>
         
             <Form.Group controlId="exampleForm.ControlTextarea1">

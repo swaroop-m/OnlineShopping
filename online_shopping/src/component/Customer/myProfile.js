@@ -13,7 +13,6 @@ function Myprofile(props) {
                     <Card.Title>Personal Details</Card.Title> 
                     <div>
                         <Button>Update</Button>
-                       
                     </div>
                     <ListGroup variant="flush">
                        

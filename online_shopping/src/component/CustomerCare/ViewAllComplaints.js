@@ -28,7 +28,7 @@ function ViewAllComplaints(props) {
                     <tr>
                         <th>name</th>
                         <th>phoneNo</th>
-                        <th>productId</th>
+                        <th>productName</th>
                         <th>message</th>
                     </tr>
                 </thead>
@@ -38,7 +38,7 @@ function ViewAllComplaints(props) {
                         <tr key={complaints.name}>
                             <td>{complaints.name}</td>
                             <td>{complaints.phoneNo}</td>
-                            <td>{complaints.productId}</td>
+                            <td>{complaints.productName}</td>
                             <td>{complaints.message}</td>
                         </tr>)
                     }
