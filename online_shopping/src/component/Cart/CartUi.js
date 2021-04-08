@@ -7,7 +7,7 @@ import './cart.css'
 import Addtocart from './AddToCart'
 import  CartPriceDetails from './CartPriceDetails'
 
-import RemoveAllProducts from './RemoveAllProducts'
+import RemoveAllProducts from './removeAllProducts'
 
 
 
