@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react'
 
 import { Button, Col, Row } from 'react-bootstrap'
+import Order from './Order'
 
 function OrderSummary(props) {
          
@@ -12,7 +13,7 @@ function OrderSummary(props) {
         let buttonClick= () => {
             console.log("Order Placed", new Date())
         }
-
+      
         
     
 
@@ -27,7 +28,8 @@ function OrderSummary(props) {
                                
                                 <Col>
                                     <p className="title"><b>Customer Details</b></p>
-                                     <p>Aishwarya A S</p>
+                                     <p>
+                                     Aishwarya A S</p>
                                      <p>986628822</p>
                                      <p>No.10,Payappa Garden,Bangalore-560051</p>
                                      <p><b>Order Date:</b>12.2.2021</p>
