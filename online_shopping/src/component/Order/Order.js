@@ -19,7 +19,7 @@ export default class Order extends Component{
     }
 
     initialState = {
-        orderId:'',orderDate:'',orderStatus:'', firstName:'', lastName:'', mobileNumber:'', email:'', streetNo:'', buildingName:'', city:'', state:'', country:'', pincode:''
+        orderId:'',orderDate:'',orderStatus:'', firstName:'', lastName:'', mobileNumber:'', email:'', deStreetNo:'', deBuildingName:'', deCity:'', deState:'', country:'', pincode:''
 
     };
 
