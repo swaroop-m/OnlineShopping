@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlusSquare, faSave, faUndo, faList, faEdit} from '@fortawesome/free-solid-svg-icons';
 import OrderToast from './OrderToast';
 import axios from 'axios';
-import DatePicker from 'react-date-picker'
+// import DatePicker from 'react-date-picker'
 
 
 export default class Order extends Component{
