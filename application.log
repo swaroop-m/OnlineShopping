@@ -1471,3 +1471,15 @@
 02:12 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
 02:12 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
 02:12 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+02:18 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+02:18 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+02:18 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+02:18 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+02:18 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+02:18 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+02:19 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+02:19 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+02:19 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+02:19 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+02:19 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+02:22 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
