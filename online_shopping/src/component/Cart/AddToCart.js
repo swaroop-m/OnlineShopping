@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import './cart.css'
 import RemoveProductFromCart from './RemoveProductFromCart'
 import { Button} from 'react-bootstrap'
@@ -24,8 +24,10 @@ function Addtocart(props) {
 
     const cartItems= useSelector(state=>state.cart)
 
-    // addQuantity = (product) => {
-    //     this.props.dispatch({type:'ADD_QUANTITY',payload:product})
+    const dispatch = useDispatch();
+
+    // const addQuantity = () => {
+    //     dispatch({type:'ADD_QUANTITY'})
     //  }
 
     return (
@@ -52,8 +54,8 @@ function Addtocart(props) {
                             </div>
                         </div>
                     </td>
-                    
-                    <td> <Button  variant="light" onClick={addQuantity}><VscAdd/></Button> {data.quantity} <Button variant="light" onClick={substractQuantity} ><GrSubtract/></Button></td>
+                    {/* onClick={()=>dispatch({type:"ADD_QUANTITY"})} */}
+                    <td> <Button  variant="light" ><VscAdd/></Button> {data.quantity} <Button variant="light" onClick={substractQuantity} ><GrSubtract/></Button></td>
 
                     <td>₹{data.price}</td>
                 </tr>

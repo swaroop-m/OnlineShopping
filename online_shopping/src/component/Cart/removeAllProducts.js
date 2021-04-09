@@ -1,24 +1,22 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Button} from 'react-bootstrap'
+import { useDispatch, useSelector } from "react-redux";
 import './cart.css'
 
 //contains Clear cart button
 function RemoveAllProducts(props) {
    
-    const cartItems= useSelector(state=>state.cart)
+    const cartItems= useSelector((state)=>state.cart)
 
-        //not working 
-        let clearCart =() =>
-        {
-            // cartItems([])
-            console.log("clearing all items")
-        }
+    const dispatch = useDispatch();
 
+        
+      
     return (
+       
         <>
             <div className="myButton">
-                <Button variant="outline-dark" onClick={clearCart}>Clear Cart</Button>
+                <Button variant="outline-dark"  onClick={()=>dispatch({type:"CLEAR_CART"})}>Clear Cart</Button>
             </div>
         </>
     )

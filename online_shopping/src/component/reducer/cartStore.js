@@ -3,8 +3,9 @@ import { createStore } from "redux";
 
 // Common REUSABLE STATE
 const initialState = {
-  cart:[], 
-
+  
+  totalPrice:0,
+  cart:[{quantity:1}], 
 };
 
 
@@ -34,7 +35,10 @@ function reducer1(state = initialState, action) {
       }
 
       //removeProduct
-      // case "REMOVE_PRODUCTS":
+    //    case "REMOVE_PRODUCTS":
+         
+    //    return state.cart.filter((cartItem) => cartItem.productId !== action.payload.productId);
+  
       //   let itemToRemove= state.cartItem.find(cartItem=> cartItem.productId === action.payload.productId)
       //   let new_items = state.cartItem.filter(cartItem=> cartItem.productId === action.payload.productId)
         
@@ -44,8 +48,9 @@ function reducer1(state = initialState, action) {
       //   }
     
       //removeAllproducts
+      case 'CLEAR_CART' :
+        return {...state,cart:([])}
       
-      //substract_Quantity
 
       // case "ADD_QUANTITY":
       //     const addQuantity = state.cart.find((cartItem)=>{
@@ -59,7 +64,7 @@ function reducer1(state = initialState, action) {
       //     const subQuantity = state.cart.find((cartItem)=>{
       //       if(cartItem.productId === action.payload.productId)
       //       cartItem.quantity =cartItem.quantity - 1 
-      //       return{...state ,cart:[...addQuantity]
+      //       return{...state ,cart:[...subQuantity]
       //       }
       // })
     
@@ -68,4 +73,4 @@ function reducer1(state = initialState, action) {
   }
 }
 
-export const store = createStore(reducer1);
+export const cartStore = createStore(reducer1);

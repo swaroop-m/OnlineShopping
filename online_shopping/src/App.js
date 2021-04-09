@@ -38,6 +38,7 @@ function App() {
   // const footer = "Mark Twain";
 
   return (
+    <>
     <Router>
       {/* <Router>
         <NavBar />
@@ -98,6 +99,7 @@ function App() {
       </Container>
       <Footer/>
     </Router>
+    </>
   );
 }
 
