@@ -21,7 +21,7 @@ import Cart from './component/navComponents/Cart'
 import AboutUs from './component/navComponents/AboutUs'
 import Home from './component/navComponents/Home'
 import CustomerCare from './component/navComponents/CustomerCare'
-import MyProfile from './component/Customer/myProfile'
+import MyProfile from './component/Customer/MyProfile'
 import Shop from './component/product/Shop'
 
 import OrderList from './component/Order/OrderList'

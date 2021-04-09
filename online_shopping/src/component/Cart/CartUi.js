@@ -20,8 +20,8 @@ function CartUi(props) {
         
         <div className="small-container cart-page">
             
-            <h2><AiOutlineShoppingCart size="1.5em"/>My Cart ({cartItems.length})</h2>  
-
+            <h2><AiOutlineShoppingCart size="1.5em"/>My Cart ({cartItems.length})</h2>   
+            
             <RemoveAllProducts/>
 
             <AddToCart/>
