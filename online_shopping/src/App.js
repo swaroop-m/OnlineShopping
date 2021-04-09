@@ -5,6 +5,9 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Welcome from './component/Welcome'
 import Footer from './component/Footer'
 
+import {Provider} from 'react-redux';
+import store from './component/reducer/store';
+
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Product from './component/product/Product'
 import ProductList from './component/product/ProductList'
@@ -18,7 +21,7 @@ import Cart from './component/navComponents/Cart'
 import AboutUs from './component/navComponents/AboutUs'
 import Home from './component/navComponents/Home'
 import CustomerCare from './component/navComponents/CustomerCare'
-import MyProfile from './component/Customer/MyProfile'
+import MyProfile from './component/Customer/myProfile'
 import Shop from './component/product/Shop'
 
 import OrderList from './component/Order/OrderList'
@@ -99,7 +102,9 @@ function App() {
 
             <Route path="/Login" exact component={Login}/>
             <Route path="/Register" exact component={Register}/>
-            <Route path="/UserList" exact component={UserList}/>
+            <Route path="/UserList" exact component={() => 
+              <Provider store={store}><UserList/></Provider>}/>
+            <Route path="/Logout" exact component={Login}/>
 
             {/* <CreateProduct />
             <ProductList /> */}

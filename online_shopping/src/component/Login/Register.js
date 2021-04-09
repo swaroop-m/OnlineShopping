@@ -1,50 +1,85 @@
 import React, { Component } from 'react';
-import {Card,Form,Button} from 'react-bootstrap';
-import { faPlusSquare, faSave} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {Row, Col, Card, Form, InputGroup, FormControl, Button} from 'react-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faPhone, faEnvelope, faLock, faUndo, faUserPlus, faUser} from "@fortawesome/free-solid-svg-icons";
 
-export default class Register extends Component{
-
-    constructor(props){
+export default class Register extends Component {
+    constructor(props) {
         super(props);
-        this.state={userName:'',password:'',role:''};
+        this.state = this.initialState;
     }
 
-    resgisterUser(event){
-        alert(this.state.userName)
-        event.preventDefault();
-    }
+    initialState = {
+        userName:'', password:'', role:''
+    };
 
-    render () {
-        return(
-            <Card className={"border border-dark"}>
-                <Card.Header><FontAwesomeIcon icon={faPlusSquare}/>Register</Card.Header>
-                <Form onSubmit={this.registerUser} id="registerId">
-                <Card.Body>
-                    <Form.Group>
-                        <Form.Label>User Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter username" name="userName" 
-                        value={this.state.userName} onChange={this.userChange} required />
-                    </Form.Group>
+    userChange = event => {
+        this.setState({
+            [event.target.name] : event.target.value
+        });
+    };
 
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" name="password"/>
-                    </Form.Group>
+    resetRegisterForm = () => {
+        this.setState(() => this.initialState);
+    };
 
-                    <Form.Group>
-                        <Form.Label>Role</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Role" name="role"/>
-                    </Form.Group>
-                </Card.Body>
-                <Card.Footer style={{"textAlign":"right"}}>
-                    <Button variant="success" type="submit" size="sm">
-                        <FontAwesomeIcon icon={faSave}/>
-                        Submit
-                    </Button>
-                </Card.Footer>
-                </Form>
-            </Card>
+    render() {
+        const {userName, password, role} = this.state;
+
+        return (
+            <Row className="justify-content-md-center">
+                <Col xs={5}>
+                    <Card className="border border-dark bg dark text-black">
+                        <Card.Header>
+                            <FontAwesomeIcon icon={faUserPlus}/> Register
+                        </Card.Header>
+                        <Card.Body>
+                            <Form.Row>
+                                <Form.Group as={Col}>
+                                    <InputGroup>
+                                        <InputGroup.Prepend>
+                                            <InputGroup.Text><FontAwesomeIcon icon={faUser}/></InputGroup.Text>
+                                        </InputGroup.Prepend>
+                                        <FormControl autoComplete="off" type="text" name="name" value={userName} onChange={this.userChange}
+                                            className={"bg-dark text-white"} placeholder="Enter userName"/>
+                                    </InputGroup>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group as={Col}>
+                                    <InputGroup>
+                                        <InputGroup.Prepend>
+                                            <InputGroup.Text><FontAwesomeIcon icon={faLock}/></InputGroup.Text>
+                                        </InputGroup.Prepend>
+                                        <FormControl required autoComplete="off" type="password" name="password" value={password} onChange={this.userChange}
+                                            className={"bg-dark text-white"} placeholder="Enter Password"/>
+                                    </InputGroup>
+                                </Form.Group>
+                            </Form.Row>
+                            <Form.Row>
+                                <Form.Group as={Col}>
+                                    <InputGroup>
+                                        <InputGroup.Prepend>
+                                            <InputGroup.Text><FontAwesomeIcon icon={faUser}/></InputGroup.Text>
+                                        </InputGroup.Prepend>
+                                        <FormControl autoComplete="off" type="text" name="role" value={role} onChange={this.userChange}
+                                            className={"bg-dark text-white"} placeholder="Enter Role"/>
+                                    </InputGroup>
+                                </Form.Group>
+                            </Form.Row>
+                        </Card.Body>
+                        <Card.Footer style={{"text-align":"right"}}>
+                            <Button size="sm" type="button" variant="success" 
+                                disabled={this.state.userName.length === 0 || this.state.password.length === 0}>
+                                <FontAwesomeIcon icon={faUserPlus}/> Register
+                            </Button>{' '}
+                            <Button size="sm" type="button" variant="info" onClick={this.resetRegisterForm}>
+                                <FontAwesomeIcon icon={faUndo}/> Reset
+                            </Button>
+                        </Card.Footer>
+                    </Card>
+                </Col>
+            </Row>
         );
     }
 }
