@@ -13,7 +13,7 @@ class Login extends Component {
     }
 
     initialState = {
-        username:'', password:'',error:''
+        userName:'', password:'',error:''
     };
 
     credentialChange = event => {
@@ -40,7 +40,7 @@ class Login extends Component {
     };
 
     render () {
-        const {username,password,error}=this.state;
+        const {userName,password,error}=this.state;
         return (
         <Row className="justify-content-md-center">
             <Col xs={5}>
@@ -58,7 +58,7 @@ class Login extends Component {
                                             <FontAwesomeIcon icon={faEnvelope}/>
                                         </InputGroup.Text>
                                     </InputGroup.Prepend>
-                                    <FormControl required autoComplete="off" type="text" name="username" value={username} onChange={this.credentialChange}
+                                    <FormControl required autoComplete="off" type="text" name="userName" value={userName} onChange={this.credentialChange}
                                     className={"bg-dark text-white"} placeholder="Enter Username"/>
                                 </InputGroup>
                             </Form.Group>
@@ -79,11 +79,11 @@ class Login extends Component {
                     </Card.Body>
                     <Card.Footer style={{"text-align":"right"}}>
                         <Button size="sm" type="button" variant="success" onClick={this.validateUser}
-                        disabled={this.state.username.length===0 || this.state.password.length===0}>
+                        disabled={this.state.userName.length===0 || this.state.password.length===0}>
                             <FontAwesomeIcon icon={faSignInAlt}/> Login
                         </Button >{' '}
                         <Button size="sm" type="button" variant="info" onClick={this.resetLoginForm}
-                        disabled={this.state.username.length===0 && this.state.password.length===0 && this.state.error.length===0}>
+                        disabled={this.state.userName.length===0 && this.state.password.length===0 && this.state.error.length===0}>
                             <FontAwesomeIcon icon={faUndo}/> Reset
                         </Button>
                     </Card.Footer>

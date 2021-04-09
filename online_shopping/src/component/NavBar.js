@@ -145,7 +145,7 @@ class NavBar extends Component {
         </Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" /> 
-      {this.props.auth.isLoggedIn ? guestLinks : userLinks }
+      {this.props.auth.isLoggedIn ? userLinks : guestLinks }
     </Navbar>
   );
 };

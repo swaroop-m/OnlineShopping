@@ -3,6 +3,7 @@ import axios from "axios";
 import { Image, Button } from "react-bootstrap";
 import HorizontalGallery from "react-dynamic-carousel";
 import { Link, useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 
 
 
@@ -13,6 +14,8 @@ class ViewProduct extends Component {
     // this.state.show = false;
     // this.state.saving = 0;
     this.state.productsInCategory = [];
+    this.state.currentProduct = {};
+    this.addToCart = this.addToCart.bind(this);
   }
   initialState = {
     productId: "",
@@ -31,6 +34,7 @@ class ViewProduct extends Component {
       .get("http://localhost:9000/api/viewproduct/" + productId)
       .then((response) => {
         if (response.data != null) {
+          
           this.setState({
             productId: response.data.
             productId,
@@ -42,6 +46,7 @@ class ViewProduct extends Component {
             quantity: response.data.quantity,
             price: response.data.price,
             categoryName: response.data.category?.categoryName,
+            currentProduct: response.data,
           });
           // const categoryname = 
       this.findProductsInCategory(this.state.categoryName);
@@ -74,6 +79,12 @@ class ViewProduct extends Component {
       
     }
   }
+
+  addToCart = (product) => {
+    // const cartItem= {productName:"product2",price:"12",quantity:"34" }
+
+    this.props.dispatch({ type: "ADD_TO_CART", payload: product });
+  };
 
   render() {
     const {
@@ -140,7 +151,7 @@ class ViewProduct extends Component {
               <div className="">
                 <Button
                   variant="primary"
-                  // onClick={() => this.addToCart(product)}
+                  onClick={() => this.addToCart(this.state.currentProduct)}
                 >
                   Add to Cart
                 </Button>
@@ -150,7 +161,7 @@ class ViewProduct extends Component {
           </div>
         }
         <br /><br />
-        <div>
+        <div className="container-fluid p-5">
           <div className="row">
               <h2>You Might be interested in...</h2>
             <HorizontalGallery
@@ -180,9 +191,9 @@ class ViewProduct extends Component {
                 </div>
               ))}
               
-              elementWidth={200}
+              elementWidth={190}
               fadeDistance={90}
-              //   minPadding={80}
+                // minPadding={80}
             />
           </div>
         </div>
@@ -191,4 +202,8 @@ class ViewProduct extends Component {
   }
 }
 
-export default ViewProduct;
+function mapStateToProps(state) {
+  return { cart: state.cart };
+}
+
+export default connect(mapStateToProps)(ViewProduct);
