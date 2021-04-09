@@ -19,7 +19,7 @@ class NavBar extends Component {
 
     const guestLinks=(
       <>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto font-weight-bold fs-5 navbar-right">
           <Link to={"/Login"} className="nav-link"><FontAwesomeIcon icon={faUserPlus} />Login</Link>
@@ -32,7 +32,7 @@ class NavBar extends Component {
 
     const userLinks=(
       <>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto font-weight-bold fs-5">
           <Link to={"/Home"} className="nav-link ">

@@ -9,6 +9,7 @@ class Homepage extends Component {
     super(props);
     this.state = {
       products: [],
+      randomProducts: [],
       //show: false,
     };
     this.addToCart = this.addToCart.bind(this);
@@ -24,6 +25,7 @@ class Homepage extends Component {
       .catch((error) => {
         console.error("Error - " + error);
       });
+      this.setState({randomProducts : (products) => products.sort(() => Math.random() - 0.5) });
   }
 
   addToCart = (product) => {
@@ -33,7 +35,10 @@ class Homepage extends Component {
   };
 
   render() {
-    const cardProducts = this.state.products.slice(0, 8);
+    const products = this.state.products;
+    const shuffle = (products) => products.sort(() => Math.random() - 0.5);
+    shuffle(products);
+    const cardProducts = products.slice(0,4);
     return (
       <div className="container-fluid">
         {/* <div className="row mt-1">
@@ -51,7 +56,7 @@ class Homepage extends Component {
         </div>
         <div className="row mt-1">
           {
-            // this.state.products.map((product) => (
+            // randomProducts.map((product) => (
             cardProducts.map((product) => (
               <div
                 className="col-xs-12 col-md-6 col-lg-3 "
@@ -79,20 +84,24 @@ class Homepage extends Component {
                           </div>
                         </Card.Title>
                         <Card.Text>
-                          {/* {product.specification}
-              {product.dimension} */}
-                          <div className="text-center">{product.dimension}</div>
-                          <div className="text-center">
+                          <div className="text-center" style={{
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                          }}>
+                            {product.dimension}
+                          </div>
+                          <div className="text-center fs-4">
                             &#8377; {product.price}
                           </div>
                         </Card.Text>
                         <div className="text-center">
-                          <Button
+                          {/* <Button
                             variant="primary"
                             onClick={() => this.addToCart(product)}
                           >
                             Add to Cart
-                          </Button>
+                          </Button> */}
                         </div>
                       </Card.Body>
                     </div>

@@ -108,7 +108,7 @@ class Shop extends Component {
 
           <br />
           <br />
-          <h3>Mobile Phones</h3>
+          <h3 className="text-uppercase font-weight-heavy position-relative">Mobile Phones</h3>
           <div className="row">
             <HorizontalGallery
               tiles={this.state.mobiles.filter(product=> product).map((product) => (
@@ -153,7 +153,7 @@ class Shop extends Component {
             />
           </div>
           <br />
-          <h3>Telivisions</h3>
+          <h3 className="text-uppercase font-weight-heavy position-relative">Telivisions</h3>
           <div className="row">
             <HorizontalGallery
               tiles={this.state.telivision.filter(product=> product).map((product) => (
@@ -182,13 +182,13 @@ class Shop extends Component {
                   </div>
                 </div>
               ))}
-              elementWidth={200}
+              elementWidth={190}
               fadeDistance={90}
               //   minPadding={80}
             />
           </div>
           <br />
-          <h3>Home And Appliences</h3>
+          <h3 className="text-uppercase font-weight-heavy position-relative">Home And Appliences</h3>
           <div className="row">
             <HorizontalGallery
               tiles={this.state.homeAndAppliences.filter(product=> product).map((product) => (
