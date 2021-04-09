@@ -1,25 +1,38 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
 import { Navbar, Nav, NavDropdown, NavLink, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import Logo from './Image/Logo.svg'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignInAlt,faUserPlus,faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
+import { logoutUser } from './Services/auth/authActions';
 
-function NavBar(props) {
-  return (
-    <Navbar collapseOnSelect expand="lg" bg="warning" variant="light">
-      <Link to={"/Home"} className="navbar-link">
-        <Navbar.Brand style={{fontFamily:'Sans'}}>
-          <img
-            src={Logo}
-            width="50"
-            height="60"
-            alt="Brand_Logo"
-          />
-          ShopAura
-        </Navbar.Brand>
-      </Link>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+class NavBar extends Component {
+
+  logout=()=>{
+    this.props.logoutUser();
+  };
+
+  render(){
+
+    const guestLinks=(
+      <>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto font-weight-bold fs-5 navbar-right">
+          <Link to={"/Login"} className="nav-link"><FontAwesomeIcon icon={faUserPlus} />Login</Link>
+          <Link to={"/Register"} className="nav-link"><FontAwesomeIcon icon={faSignInAlt} />Register</Link>
+          <Link to={"/AboutUs"} className="nav-link">AboutUs</Link>
+        </Nav>
+        </Navbar.Collapse>
+      </>
+    );
+
+    const userLinks=(
+      <>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto font-weight-bold fs-5">
           <Link to={"/Home"} className="nav-link ">
@@ -102,10 +115,8 @@ function NavBar(props) {
               <Button className="btn btn-danger">Log out</Button>
             </NavDropdown.Item>
           </NavDropdown>
+          <Link to={"/UserList"} className="nav-link">Users List</Link>
 
-          <Link to={"/Login"} className="nav-link">
-            Log in
-          </Link>
           <Link to={"/Cart"} className="nav-link">
             Cart 
             <AiOutlineShoppingCart size="1.5em" />
@@ -113,10 +124,44 @@ function NavBar(props) {
           <Link to={"/CustomerCare"} className="nav-link">
             <RiCustomerService2Fill />
           </Link>
+          <Link to={"/LogOut"} className="nav-link" onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt} />LogOut</Link>
         </Nav>
       </Navbar.Collapse>
+      </>
+    );
+    
+
+  return (
+    <Navbar collapseOnSelect expand="lg" bg="warning" variant="light">
+      <Link to={"/Home"} className="navbar-link">
+        <Navbar.Brand style={{fontFamily:'Sans'}}>
+          <img
+            src={Logo}
+            width="50"
+            height="60"
+            alt="Brand_Logo"
+          />
+          ShopAura
+        </Navbar.Brand>
+      </Link>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" /> 
+      {this.props.auth.isLoggedIn ? guestLinks : userLinks }
     </Navbar>
   );
+};
 }
 
-export default NavBar;
+const mapStateToProps= state=>{
+  console.log(state)
+  return{
+    auth:state.auth
+  };
+};
+
+const mapDispatchToProps=dispatch=>{
+  return{
+    logoutUser:()=>dispatch(logoutUser())
+  };
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(NavBar);

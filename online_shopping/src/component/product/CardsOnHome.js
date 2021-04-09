@@ -80,12 +80,12 @@ class Homepage extends Component {
             // this.state.products.map((product) => (
             cardProducts.map((product) => (
               <div
-                className="col-xs-12 col-md-6 col-lg-3"
+                className="col-xs-12 col-md-6 col-lg-3 "
                 key={product.productId}
               >
                 <CardGroup style={{ marginTop: "15px", width: "16.5rem" }}>
                   <Card className="border-0" >
-                    <Link to={"/viewproduct/" + product.productId} className="text-center align-middle">
+                    <Link to={"/viewproduct/" + product.productId}  className="text-center align-middle">
                       <Card.Img
                         variant="top"
                         className="mx-auto"

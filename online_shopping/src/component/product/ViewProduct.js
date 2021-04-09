@@ -12,10 +12,6 @@ class ViewProduct extends Component {
     this.state = this.initialState;
     // this.state.show = false;
     // this.state.saving = 0;
-    // this.state.method = "post";
-    // this.state.category.categoryName: "",
-    // this.productChange = this.productChange.bind(this);
-    // this.submitProduct = this.submitProduct.bind(this);
     this.state.productsInCategory = [];
   }
   initialState = {
@@ -36,7 +32,7 @@ class ViewProduct extends Component {
       .then((response) => {
         if (response.data != null) {
           this.setState({
-            productId: response.data,
+            productId: response.data.
             productId,
             pictureUrl: response.data.pictureUrl,
             productName: response.data.productName,
@@ -47,6 +43,9 @@ class ViewProduct extends Component {
             price: response.data.price,
             categoryName: response.data.category?.categoryName,
           });
+          // const categoryname = 
+      this.findProductsInCategory(this.state.categoryName);
+      console.log(this.state.productsInCategory);
         }
       })
       .catch((error) => {
@@ -54,31 +53,25 @@ class ViewProduct extends Component {
       });
   };
 
-  findProductsInCategory = (categoryName) => {
+  findProductsInCategory = (categoryname) => {
     axios
-      .get("http://localhost:9000/api/viewbycategory/Home & Accessories")
+      .get("http://localhost:9000/api/viewbycategory/"+categoryname)
       .then((response) => response.data)
       .then((data) => {
-        this.setState({ productsInCategory: data });
+        this.setState({ 
+          productsInCategory: data.filter(product => product).filter(product => product.productId != this.state.productId) 
+        });
       })
       .catch((error) => {
         console.error("Error - " + error);
       });
   };
 
-//   reloadPage = (id) => {
-//     let history = useHistory();
-//     window.history.push("/viewproduct/" + id)
-//   }
-//   sliderClick = (productId) => {
-//     this.props.dispatch({type:'SLIDER_CLICK',payload:productId})
-//  }
-
   componentDidMount() {
     const productId = +this.props.match.params.productId;
     if (productId) {
       this.findProductById(productId);
-      this.findProductsInCategory(this.state.categoryName);
+      
     }
   }
 
@@ -161,7 +154,7 @@ class ViewProduct extends Component {
           <div className="row">
               <h2>You Might be interested in...</h2>
             <HorizontalGallery
-              tiles={this.state.productsInCategory.map((product) => (
+              tiles={this.state.productsInCategory.filter(product=> product).map((product) => (
                 <div
                   key={product.productId}
                   style={{
@@ -174,11 +167,8 @@ class ViewProduct extends Component {
                 >
                   <Link
                     to={"/viewproduct/" + product.productId}
-                    // to={this.reloadPage(product.productId)}
                     className="text-center align-middle"
                     target="_blank"
-                    // onClick={window.history.go(0)}
-                    // window.history.push("/viewproduct/" + product.productId)
                   >
                     <Image
                       src={product.pictureUrl}
@@ -197,7 +187,6 @@ class ViewProduct extends Component {
           </div>
         </div>
       </div>
-      // </div>
     );
   }
 }
