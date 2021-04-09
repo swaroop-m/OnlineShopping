@@ -21,12 +21,13 @@ class Shop extends Component {
   }
 
   componentDidMount() {
-    // axios
-    //   .get("http://localhost:9000/api/viewcategories")
-    //   .then((response) => response.data)
-    //   .then((data) => {
-    //     this.setState({ categories: data });
-    //   });
+    axios
+      .get("http://localhost:9000/api/viewcategories")
+      .then((response) => response.data)
+      .then((data) => {
+        this.setState({ categories: data });
+        console.log(this.state.categories);
+      });
     axios
       .get("http://localhost:9000/api/viewbycategory/Home & Accessories")
       .then((response) => response.data)
@@ -64,6 +65,18 @@ class Shop extends Component {
     //     console.error("Error - " + error);
     //   });
   }
+
+  findProductInCategory = categoryName => {
+    axios
+      .get("http://localhost:9000/api/viewbycategory/"+categoryName)
+      .then((response) => response.data)
+      .then((data) => {
+        this.setState({ productsInCategory: data });
+      })
+      .catch((error) => {
+        console.error("Error - " + error);
+      });
+};
 
   render() {
     var settings = {
@@ -143,7 +156,7 @@ class Shop extends Component {
           <h3>Telivisions</h3>
           <div className="row">
             <HorizontalGallery
-              tiles={this.state.telivision.map((product) => (
+              tiles={this.state.telivision.filter(product=> product).map((product) => (
                 <div
                   key={product.productId}
                   style={{
@@ -178,7 +191,7 @@ class Shop extends Component {
           <h3>Home And Appliences</h3>
           <div className="row">
             <HorizontalGallery
-              tiles={this.state.homeAndAppliences.map((product) => (
+              tiles={this.state.homeAndAppliences.filter(product=> product).map((product) => (
                 <div
                   key={product.productId}
                   style={{

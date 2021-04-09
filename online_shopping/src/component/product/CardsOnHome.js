@@ -59,7 +59,7 @@ class Homepage extends Component {
               >
                 <CardGroup style={{ marginTop: "15px", width: "16.5rem" }}>
                   <Card className="border-0" >
-                    <Link to={"/viewproduct/" + product.productId} className="text-center align-middle">
+                    <Link to={"/viewproduct/" + product.productId}  className="text-center align-middle">
                       <Card.Img
                         variant="top"
                         className="mx-auto"
