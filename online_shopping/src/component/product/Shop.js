@@ -87,7 +87,7 @@ class Shop extends Component {
       slidesToScroll: 1,
     };
     return (
-      <div>
+      <div className="container-fluid p-5">
         {/* <CardsOnHome/> */}
         <div>
           <div>
@@ -170,7 +170,7 @@ class Shop extends Component {
                   <div>
                     <Link
                       to={"/viewproduct/" + product.productId}
-                      className="text-center align-middle"
+                      className="text-left align-middle"
                     >
                       <Image
                         src={product.pictureUrl}
