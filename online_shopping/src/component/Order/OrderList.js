@@ -30,7 +30,8 @@ class OrderList extends Component {
         axios.get("http://localhost:9000/api/viewallorders")
         .then(response => response.data)
         .then((data) => {
-            this.setState({ order: data });
+            console.log(data);
+            this.setState({ orders: data });
         });
     };
     deleteOrder = (orderId) => {

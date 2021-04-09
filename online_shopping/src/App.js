@@ -21,6 +21,10 @@ import CustomerCare from './component/navComponents/CustomerCare'
 import MyProfile from './component/Customer/MyProfile'
 import Shop from './component/product/Shop'
 
+import OrderList from './component/Order/OrderList'
+import OrderSummary from './component/Order/OrderSummary'
+import Order from './component/Order/Order'
+
 import Login from './component/Login/Login'
 import Register from './component/Login/Register'
 import UserList from './component/Login/UserList'
@@ -38,6 +42,7 @@ function App() {
   // const footer = "Mark Twain";
 
   return (
+    <>
     <Router>
       {/* <Router>
         <NavBar />
@@ -87,6 +92,11 @@ function App() {
             <Route path="/Cart" excat component={Cart}/>
             <Route path="/CustomerCare" exact component={CustomerCare}/>
 
+            <Route path="/listorder" exact component={OrderList}/>
+            <Route path="/editorder/:orderId" exact component={Order}/>
+            <Route path="/ordersummary" exact component={OrderSummary}/>
+            <Route path="/addorder" exact component={Order}/>
+
             <Route path="/Login" exact component={Login}/>
             <Route path="/Register" exact component={Register}/>
             <Route path="/UserList" exact component={UserList}/>
@@ -98,6 +108,7 @@ function App() {
       </Container>
       <Footer/>
     </Router>
+    </>
   );
 }
 

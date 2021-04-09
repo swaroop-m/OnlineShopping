@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { Button} from 'react-bootstrap'
 import './cart.css'
 
@@ -7,6 +7,7 @@ import './cart.css'
 function RemoveProductFromCart(props) {
     
     const cartItems= useSelector(state=>state.cart)
+    const dispatch = useDispatch();
 
 
     // removeFromcart = (cartItems) => {
@@ -16,6 +17,7 @@ function RemoveProductFromCart(props) {
     return (
         <>
             <Button className="btn btn-danger" >Remove</Button>
+            {/* onClick={(cartItem)=>dispatch({type:"REMOVE_PRODUCTS"})} */}
             {/* onClick={() => this.removeFromcart(cartItems)} */}
         </>
     )

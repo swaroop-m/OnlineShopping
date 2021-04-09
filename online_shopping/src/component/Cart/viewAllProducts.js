@@ -3,7 +3,7 @@
 // import axios from 'axios'
 // import './cart.css'
 
-// function Viewallproducts(props) {
+// function ViewAllProducts(props) {
 
 //     let [cart,setCart]=useState({productId:"",productName:"",quantity:'',price:'',cartId:''})
 //     let [viewAll,setViewAll]=useState({productId:"",productName:"",quantity:'',price:'',cartId:''})
@@ -32,4 +32,4 @@
 //     )
 // }
 
-// export default Viewallproducts
+// export default ViewAllProducts

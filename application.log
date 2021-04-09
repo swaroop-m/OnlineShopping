@@ -1488,3 +1488,23 @@
 11:58 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
 11:58 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
 11:58 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+12:27 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+12:30 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+12:30 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+12:30 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+12:30 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+12:35 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+12:35 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+12:35 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+12:35 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showProductByCategory] Controller Triggered 100 
+12:35 09/Apr/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrder] All the orders in the database are displayed 92 
+12:35 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+12:36 09/Apr/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrder] All the orders in the database are displayed 92 
+12:37 09/Apr/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrder] All the orders in the database are displayed 92 
+12:37 09/Apr/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrder] All the orders in the database are displayed 92 
+12:38 09/Apr/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrder] All the orders in the database are displayed 92 
+12:38 09/Apr/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrder] All the orders in the database are displayed 92 
+12:39 09/Apr/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrder] All the orders in the database are displayed 92 
+12:39 09/Apr/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrder] All the orders in the database are displayed 92 
+12:40 09/Apr/2021 INFO :com.cg.onlineshopping.controller.ProductRestController[showAllProducts] Viewed All Products Present in the Database 61 
+12:40 09/Apr/2021 INFO :com.cg.onlineshopping.controller.OrderRestController[viewAllOrder] All the orders in the database are displayed 92 
