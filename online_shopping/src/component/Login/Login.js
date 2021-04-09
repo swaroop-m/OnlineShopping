@@ -1,7 +1,9 @@
 import React,{Component} from 'react'
-import { Row,Col,Card,Form,InputGroup,FormControl,Button} from 'react-bootstrap';
+import {connect} from 'react-redux'
+import { Row,Col,Card,Form,InputGroup,FormControl,Button,Alert} from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt,faEnvelope,faLock,faUndo} from "@fortawesome/free-solid-svg-icons";
+import {authenticateUser} from '../Services/auth/authActions';
 
 
 class Login extends Component {
@@ -11,7 +13,7 @@ class Login extends Component {
     }
 
     initialState = {
-        username:'', password:''
+        username:'', password:'',error:''
     };
 
     credentialChange = event => {
@@ -20,15 +22,29 @@ class Login extends Component {
         });
     };
 
+    validateUser = () => {
+        this.props.authenticateUser(this.state.userName, this.state.password);
+        setTimeout(() => {
+            if(this.props.auth.isLoggedIn) {
+                return this.props.history.push("/");
+            } else {
+                this.resetLoginForm();
+                this.setState({"error":"Invalid userName and password"});
+            }
+        }, 500);
+    };
+
+
     resetLoginForm = () => {
         this.setState(() => this.initialState);
     };
 
     render () {
-        const {username,password}=this.state;
+        const {username,password,error}=this.state;
         return (
         <Row className="justify-content-md-center">
             <Col xs={5}>
+                {error && <Alert variant="danger">error</Alert>}
                 <Card className="border border-dark bg dark text-black">
                     <Card.Header>
                         <FontAwesomeIcon icon={faSignInAlt}/> Login
@@ -62,12 +78,12 @@ class Login extends Component {
                         </Form.Row>
                     </Card.Body>
                     <Card.Footer style={{"text-align":"right"}}>
-                        <Button size="sm" type="button" variant="success" 
+                        <Button size="sm" type="button" variant="success" onClick={this.validateUser}
                         disabled={this.state.username.length===0 || this.state.password.length===0}>
                             <FontAwesomeIcon icon={faSignInAlt}/> Login
                         </Button >{' '}
                         <Button size="sm" type="button" variant="info" onClick={this.resetLoginForm}
-                        disabled={this.state.username.length===0 && this.state.password.length===0}>
+                        disabled={this.state.username.length===0 && this.state.password.length===0 && this.state.error.length===0}>
                             <FontAwesomeIcon icon={faUndo}/> Reset
                         </Button>
                     </Card.Footer>
@@ -79,5 +95,16 @@ class Login extends Component {
         );
     }
 }
+const mapStateToProps=state=>{
+    return{
+        auth:state.auth
+    };
+};
 
-export default Login;
+const mapDispatchToProps = dispatch => {
+    return {
+        authenticateUser: (userName, password) => dispatch(authenticateUser(userName, password))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

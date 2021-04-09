@@ -5,11 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { Provider } from "react-redux";
-
-import {cartStore} from './component/reducer/cartStore'
+//import { store } from './component/Cart/redux/store';
+import store from './component/reducer/store';
 
 ReactDOM.render(
-  <Provider store={cartStore}>
+  <Provider store={store}>
   <React.StrictMode>
     <App />
   </React.StrictMode>
@@ -21,3 +21,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
