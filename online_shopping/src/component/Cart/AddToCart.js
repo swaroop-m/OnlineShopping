@@ -10,8 +10,6 @@ import {VscAdd} from 'react-icons/vsc'
 //contains all products which are added to cart //allworking
 function Addtocart(props) {
 
-    let [addToCart,setAddToCart]=useState({productName:'',quantity:'',price:''})
-
     let [initialValue,setInitialValue] = useState(1)
 
     let addQuantity =() =>{

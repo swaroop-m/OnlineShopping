@@ -8,8 +8,7 @@ import AddToCart from './AddToCart'
 import  CartPriceDetails from './CartPriceDetails'
 
 import RemoveAllProducts from './RemoveAllProducts'
-
-
+// import ViewAllProducts from './ViewAllProducts'
 
 //contains-> header , clear cart , display text 'cart is empty'
 function CartUi(props) {
@@ -39,7 +38,7 @@ function CartUi(props) {
             <CartPriceDetails/>
      
         </div> 
-        {/* <Viewallproducts/> */}
+        {/* <ViewAllProducts/> */}
         </>
     )
 }

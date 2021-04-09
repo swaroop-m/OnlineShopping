@@ -22,8 +22,6 @@
 //     },[handleClick])
 
     
-    
-
 //     return (
 //         <>
 //             <h1>View All Products</h1>

@@ -3,9 +3,7 @@ import { createStore } from "redux";
 
 // Common REUSABLE STATE
 const initialState = {
-  
-  totalPrice:0,
-  cart:[{quantity:1}], 
+  cart:[], 
 };
 
 
