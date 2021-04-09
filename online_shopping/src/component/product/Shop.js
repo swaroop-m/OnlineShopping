@@ -98,7 +98,7 @@ class Shop extends Component {
           <h3>Mobile Phones</h3>
           <div className="row">
             <HorizontalGallery
-              tiles={this.state.mobiles.map((product) => (
+              tiles={this.state.mobiles.filter(product=> product).map((product) => (
                 <div
                   key={product.productId}
                   style={{

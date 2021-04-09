@@ -54,7 +54,7 @@ class Homepage extends Component {
             // this.state.products.map((product) => (
             cardProducts.map((product) => (
               <div
-                className="col-xs-12 col-md-6 col-lg-3"
+                className="col-xs-12 col-md-6 col-lg-3 "
                 key={product.productId}
               >
                 <CardGroup style={{ marginTop: "15px", width: "16.5rem" }}>

@@ -36,7 +36,7 @@ class ViewProduct extends Component {
       .then((response) => {
         if (response.data != null) {
           this.setState({
-            productId: response.data,
+            productId: response.data.
             productId,
             pictureUrl: response.data.pictureUrl,
             productName: response.data.productName,
