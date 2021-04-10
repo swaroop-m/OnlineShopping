@@ -20,7 +20,7 @@ function Addtocart(props) {
         setInitialValue(initialValue-1)
     } 
 
-    const cartItems= useSelector(state=>state.cart)
+    const cartItems= useSelector(state=>state.cart.cart)
 
     const dispatch = useDispatch();
 

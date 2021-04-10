@@ -6,7 +6,7 @@ import './cart.css'
 //contains remove item button
 function RemoveProductFromCart(props) {
     
-    const cartItems= useSelector(state=>state.cart)
+    const cartItems= useSelector(state=>state.cart.cart)
     const dispatch = useDispatch();
 
 

@@ -13,7 +13,7 @@ import RemoveAllProducts from './RemoveAllProducts'
 //contains-> header , clear cart , display text 'cart is empty'
 function CartUi(props) {
 
-    const cartItems= useSelector(state=>state.cart)
+    const cartItems= useSelector(state=>state.cart.cart)
         
     return (
         <>

@@ -31,6 +31,7 @@ import Order from './component/Order/Order'
 import Login from './component/Login/Login'
 import Register from './component/Login/Register'
 import UserList from './component/Login/UserList'
+import ViewAllComplaints from './component/CustomerCare/ViewAllComplaints'
 
 
 
@@ -94,6 +95,7 @@ function App() {
             <Route path="/MyProfile" exact component={MyProfile}/>
             <Route path="/Cart" excat component={Cart}/>
             <Route path="/CustomerCare" exact component={CustomerCare}/>
+            <Route path="/ViewAllComplaints" exact component={ViewAllComplaints}/>
 
             <Route path="/listorder" exact component={OrderList}/>
             <Route path="/editorder/:orderId" exact component={Order}/>
