@@ -32,17 +32,19 @@ function cartReducer(state = initialState, action) {
       }
 
       //removeProduct
-    //    case "REMOVE_PRODUCT":
-         
-    //    return state.cart.filter((cartItem) => cartItem.productId !== action.payload.productId);
-  
-      //   let itemToRemove= state.cartItem.find(cartItem=> cartItem.productId === action.payload.productId)
-      //   let new_items = state.cartItem.filter(cartItem=> cartItem.productId === action.payload.productId)
+       case "REMOVE_PRODUCT":
+
+        let itemToRemove= state.cart.find(cartItem => cartItem.productId !== action.payload.productId)
+        let new_items = state.cart.filter(cartItem => cartItem.productId !== action.payload.productId)
         
-      //   return{
-      //       ...state,
-      //       cartItem: new_items,
-      //   }
+        //calculating the total
+        console.log(itemToRemove)
+        return{
+            ...state,
+            cart:[new_items] 
+        }
+    
+  
     
       //removeAllproducts
       case 'CLEAR_CART' :

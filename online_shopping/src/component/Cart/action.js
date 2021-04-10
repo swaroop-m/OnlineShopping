@@ -13,55 +13,55 @@ export default function apiAddToCart(product){
 
 }
 
-//remove product from cart
-export default function apiRemoveproductFromCart(product){
+// //remove product from cart
+// export function apiRemoveproductFromCart(product){
 
-    return async(product) => {
-        console.log(product)
-        const url="http://localhost:9000/api/removeproductfromcart/{id}"
+//     return async(product) => {
+//         console.log(product)
+//         const url="http://localhost:9000/api/removeproductfromcart/{id}"
         
-        await axios.post(url,product)
-        dispatch({type:"REMOVE_PRODUCT",payload: product})
-    }
+//         await axios.post(url,product)
+//         dispatch({type:"REMOVE_PRODUCT",payload: product})
+//     }
 
-}
+// }
 
-//update quantity
-export default function apiUpdatedCart(product){
+// //update quantity
+// export function apiUpdatedCart(product){
 
-    return async(product) => {
-        console.log(product)
-        const url="http://localhost:9000/api/updateproductquantity"
+//     return async(product) => {
+//         console.log(product)
+//         const url="http://localhost:9000/api/updateproductquantity"
         
-        await axios.post(url,product)
-        dispatch({type:"UPDATED_CART",payload: product})
-    }
+//         await axios.post(url,product)
+//         dispatch({type:"UPDATED_CART",payload: product})
+//     }
 
-}
+// }
 
-//remove All products
-export default function apiRemoveAllproducts(product){
+// //remove All products
+// export function apiRemoveAllproducts(product){
 
-    return async(dispatch) => {
-        console.log(product)
-        const url="http://localhost:9000/api/removeallproducts"
+//     return async(dispatch) => {
+//         console.log(product)
+//         const url="http://localhost:9000/api/removeallproducts"
         
-        await axios.post(url,product)
-        dispatch({type:"CLEAR_CART",payload: product})
-    }
+//         await axios.post(url,product)
+//         dispatch({type:"CLEAR_CART",payload: product})
+//     }
 
-}
+// }
 
-//view all cart products
-export default function apiViewAllproducts(product){
+// //view all cart products
+// export function apiViewAllproducts(product){
 
-    return async(dispatch) => {
-        console.log(product)
-        const url="http://localhost:9000/api/viewallproductsfromcart"
+//     return async(dispatch) => {
+//         console.log(product)
+//         const url="http://localhost:9000/api/viewallproductsfromcart"
         
-        await axios.post(url,product)
-        dispatch({type:"CLEAR_CART",payload: product})
-    }
+//         await axios.post(url,product)
+//         dispatch({type:"CLEAR_CART",payload: product})
+//     }
 
-}
+// }
 

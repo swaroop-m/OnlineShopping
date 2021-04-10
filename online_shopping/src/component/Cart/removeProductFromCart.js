@@ -10,15 +10,15 @@ function RemoveProductFromCart(props) {
     const dispatch = useDispatch();
 
 
-    // removeFromcart = (cartItems) => {
-    //     this.props.dispatch({type:'REMOVE_PRODUCT_FROM_CART',payload:productName})
-    //  }
+    const removeFromcart = (cartItems) => {
+        dispatch({type:'REMOVE_PRODUCT'})
+     }
 
     return (
         <>
-            <Button className="btn btn-danger" >Remove</Button>
+            <Button className="btn btn-danger"onClick={() => removeFromcart(cartItems)}>Remove</Button>
             {/* onClick={(cartItem)=>dispatch({type:"REMOVE_PRODUCTS"})} */}
-            {/* onClick={() => this.removeFromcart(cartItems)} */}
+           
         </>
     )
 }
