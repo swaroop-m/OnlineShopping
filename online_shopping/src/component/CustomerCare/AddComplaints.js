@@ -18,8 +18,9 @@ function Addcomplaints() {
 
 
     function successSubmit(){  
-            alert("Complaint registered successfully!!");
-    }
+          alert("Complaint registered successfully!!");
+        }
+            
 
     return (
 <>
@@ -38,7 +39,7 @@ function Addcomplaints() {
 
             <Form.Group>
                 <Form.Label>Phone no</Form.Label>
-                <Form.Control type="text" placeholder="Enter Phone no" onChange={e=>setComplaints({...complaints,phoneNo:e.target.value})} value={complaints.phoneNo} />
+                <Form.Control type="text" placeholder="Enter Phone no" onChange={e=>setComplaints({...complaints,phoneNo:e.target.value})} value={complaints.phoneNo} required/>
             </Form.Group>
 
             <Form.Group>

@@ -4,7 +4,7 @@ import {Card, Button, Row,Col ,Container, Jumbotron } from 'react-bootstrap'
 class AboutUs extends Component {
     render() {
         return (
-            <div className="Container">
+            <div className="container">
                 <center><h3>WE <img src="https://img.icons8.com/emoji/48/000000/beating-heart.png"/> WHAT WE DO!</h3></center>
 
 
@@ -25,7 +25,10 @@ class AboutUs extends Component {
                 <div>
                 <br/>
                     <Row>
-                        <Col>
+                    
+                    <div className="align-items-center">
+                    
+                        <div classsName="col-sm-12 col-lg-6">
                         
                         <h1>About Us</h1>
                         <p>Shopping is an activity in which a customer browses the available goods or services presented by one or more retailers with the potential intent to purchase a suitable selection of them. A typology of shopper types has been developed by scholars which identifies one group of shoppers as recreational shoppers,[1] that is, those who enjoy shopping and view it as a leisure activity.<br/>
@@ -34,18 +37,19 @@ class AboutUs extends Component {
 
                            </p>
                            <p> Shoppers' shopping experiences may vary. They are based on a variety of factors including how the customer is treated, convenience, the type of goods being purchased, and mood.</p>
-                        </Col>
+                        </div>
                         
-                        <Col>
-                        <img src="https://cdn.pixabay.com/photo/2018/06/04/00/29/women-3452067_960_720.jpg" width="450px" height="550px"/>
-                        </Col>
+                        <div classsName="col-sm-12 col-lg-6">
+                        <img src="https://cdn.pixabay.com/photo/2018/06/04/00/29/women-3452067_960_720.jpg" style={{ height: 330, objectFit: "contain" }}/>
+                        </div>
+                        </div>
                     </Row>
                 
                 </div>
                 <h1 className="text-white">About Shopping </h1>
 
                 <img src="https://cdn.pixabay.com/photo/2017/03/13/17/26/ecommerce-2140604_1280.jpg" width="200px" height="150px"/>
-                <p className="text-white">Online shopping is a form of electronic commerce which allows consumers to directly buy goods or services from a seller over the Internet using a web browser or a mobile app. Consumers find a product of interest by visiting the website of the retailer directly or by searching among alternative vendors using a shopping search engine, which displays the same product's availability and pricing at different e-retailers. As of 2020, customers can shop online using a range of different computers and devices, including desktop computers, laptops, tablet computers and smartphones.
+                <p >Online shopping is a form of electronic commerce which allows consumers to directly buy goods or services from a seller over the Internet using a web browser or a mobile app. Consumers find a product of interest by visiting the website of the retailer directly or by searching among alternative vendors using a shopping search engine, which displays the same product's availability and pricing at different e-retailers. As of 2020, customers can shop online using a range of different computers and devices, including desktop computers, laptops, tablet computers and smartphones.
 
                             An online shop evokes the physical analogy of buying products or services at a regular "bricks-and-mortar" retailer or shopping center; the process is called business-to-consumer (B2C) online shopping. When an online store is set up to enable businesses to buy from another businesses, the process is called business-to-business (B2B) online shopping. A typical online store enables the customer to browse the firm's range of products and services, view photos or images of the products, along with information about the product specifications, features and prices.
 
@@ -56,7 +60,7 @@ class AboutUs extends Component {
                 <Row md={3}>
 
                     <Col>
-                    <Card style={{ width: '18rem' }} className="overflow">
+                    <Card style={{ width: '18rem' }} className="overflow" >
                     <Card.Img variant="top" src="https://cdn.pixabay.com/photo/2017/07/31/17/09/people-2559042_1280.jpg" />
                     <Card.Body>
                         <Card.Title>Employees</Card.Title>
@@ -96,7 +100,7 @@ class AboutUs extends Component {
                     </Card.Body>
                     </Card>
                     </Col>
-                    <hr/>
+                   
                 </Row>
                 </Container>
                 
