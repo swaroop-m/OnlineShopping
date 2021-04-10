@@ -1,1 +1,10 @@
+.style-nav {
+  font-family: sans-serif;
+  color: white;
+}
 
+.style-nav1 {
+  font-family: sans-serif;
+  color: black;
+  justify-content: end;
+}

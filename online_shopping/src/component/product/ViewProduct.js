@@ -151,10 +151,10 @@ class ViewProduct extends Component {
               <div className="fs-4">Price : &#8377; {price}</div>
               <br />
               <div >
-                <Button
+                <Button className="buttonCart"
                   variant="warning"
-                  onClick={() => this.addToCart(this.state.currentProduct)} style={{fontSize:'20px'}}>
-                  <AiOutlineShoppingCart size="1.5em"/> Add to Cart 
+                  onClick={() => this.addToCart(this.state.currentProduct)} size="lg" >
+                  <AiOutlineShoppingCart size="1.5em"/><a style={{fontSize:'20px',color:'white'}}> Add to Cart</a> 
                 </Button>
               </div>
               <br />

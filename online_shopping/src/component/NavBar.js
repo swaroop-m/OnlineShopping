@@ -8,6 +8,7 @@ import Logo from './Image/Logo.svg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt,faUserPlus,faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
 import { logoutUser } from './Services/auth/authActions';
+import '../index.css'
 
 class NavBar extends Component {
 
@@ -21,7 +22,7 @@ class NavBar extends Component {
       <>
         {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
         <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto font-weight-bold fs-5 navbar-right">
+        <Nav className="mr-auto font-weight-bold fs-5 navbar-right" className="style-nav">
           <Link to={"/Login"} className="nav-link"><FontAwesomeIcon icon={faUserPlus} />Login</Link>
           <Link to={"/Register"} className="nav-link"><FontAwesomeIcon icon={faSignInAlt} />Register</Link>
           <Link to={"/AboutUs"} className="nav-link">AboutUs</Link>
@@ -32,10 +33,11 @@ class NavBar extends Component {
 
     const userLinks=(
       <>
+      
         {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto font-weight-bold fs-5">
-          <Link to={"/Home"} className="nav-link ">
+      <Navbar.Collapse id="responsive-navbar-nav" >
+        <Nav className="mr-auto fs-5 " classNme='style-nav' >
+          <Link to={"/Home"} className="nav-link" >
             Home
           </Link>
           {/* bg-dark text-white */}
@@ -101,7 +103,8 @@ class NavBar extends Component {
             AboutUs
           </Link>
         </Nav>
-        <Nav className="justify-content-end" activeKey="/home">
+        
+        <Nav className="justify-content-end"  classname="style-nav"activeKey="/home">
 
         <NavDropdown
             title="My Account"
@@ -148,14 +151,14 @@ class NavBar extends Component {
   return (
     <Navbar collapseOnSelect expand="lg" bg="warning" variant="light">
       <Link to={"/Home"} className="navbar-link">
-        <Navbar.Brand style={{fontFamily:'Sans'}}>
+        <Navbar.Brand>
           <img
             src={Logo}
             width="50"
             height="60"
             alt="Brand_Logo"
           />
-          ShopAura
+         <a className="style-nav">ShopAura</a> 
         </Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" /> 
