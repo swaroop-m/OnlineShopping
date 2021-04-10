@@ -6,12 +6,12 @@ import Welcome from '../Welcome';
 
 function Home(props) {
   return (
-    <div>
+    <div className="">
       
 
                 <br/>
                 
-                {/* <CarouselOnHome /> */}
+                <CarouselOnHome />
                 <br />
                 <CardsOnHome />
 

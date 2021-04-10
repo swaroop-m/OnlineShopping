@@ -116,7 +116,7 @@ class ProductList extends Component {
         };
 
         return (
-            <div>
+            <div class="container">
                 <div style={{"display":this.state.show ? "block" : "none"}}>
                 <AddProductSuccessToast show = {this.state.show} message = {"Product Deleted Successfully."} type = {"danger"}/>
                 </div>

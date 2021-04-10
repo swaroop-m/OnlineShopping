@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import {Carousel} from "react-bootstrap";
+// import {Carousel} from "react-bootstrap";
 import axios from "axios";
+import Carousel from 'react-bootstrap/Carousel';
+import "./product.css";
 
 class CarouselOnHome extends Component {
     constructor(props) {
         super(props);
         this.state = {
           products: [],
-          product1: {},
-          product2: {},
-          product3: {},
+          // nextIcon: <span className="glyphicon glyphicon-chevron-right"></span>,
+          // prevIcon: <span className="glyphicon glyphicon-glass"></span>,
           //show: false,
         };
         // this.addToCart = this.addToCart.bind(this);
@@ -25,64 +26,35 @@ class CarouselOnHome extends Component {
           .catch((error) => {
             console.error("Error - " + error);
           });
-        const product1 = this.state.products[-1];
-        const product2 = this.state.products[-2];
-        const product3 = this.state.products[-3];
       }
 
   render() {
-    const carouselProducts = this.state.products.slice(-3);
-    const product1 = this.state.products[-1];
-    const product2 = this.state.products[-2];
-    const product3 = this.state.products[-3];
+    const carouselProducts = this.state.products.slice(0,3);
+    // const {nextIcon,prevIcon}=this.state;
     return (
-      <div>
+      // <div>
           <div>
-              {
+             
+        <Carousel nextIcon ={<span className="bg-dark glyphicon-chevron-right"/>} prevIcon={<span className="bg-dark">&#xe080;</span>} className="align-middle text-center">
+        {
                   carouselProducts.map((product) => (
-        <Carousel className="align-middle text-center">
-        
-          <Carousel.Item className="" key={product.productId}>
+          <Carousel.Item className=" bg-light" interval={2500}  key={product.productId}>
             <img
               className="text-center"
-              style={{height:"400px", width:"470px",objectFit:"contain"}}
+              style={{height:"500px", width:"670px",objectFit:"contain"}}
               src={product.pictureUrl}
               //alt="First slide"
             />
-            <Carousel.Caption>
-              <h3>{product.productName}</h3>
-              <p>{product.dimension}<br/>{product.specification}</p>
-            </Carousel.Caption>
+            {/* <Carousel.Caption className="text-dark"> */}
+              {/* <h3>{product.productName}</h3>
+              <p>{product.dimension}<br/>{product.specification}</p> */}
+            {/* </Carousel.Caption> */}
           </Carousel.Item>
-          {/* <Carousel.Item className="" style={{height:"400px", width:"470px",objectFit:"contain"}} key={product2.productId}>
-            <img
-              className="d-block text-center"
-            //   style={{height:"400px", width:"470px",objectFit:"contain"}}
-              src={product2.pictureUrl}
-              //alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>{product2.productName}</h3>
-              <p>{product2.dimension}<br/>{product2.specification}</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item className="" style={{height:"400px", width:"470px",objectFit:"contain"}} key={product3.productId}>
-            <img
-              className="d-block text-center"
-            //   style={{height:"400px", width:"470px",objectFit:"contain"}}
-              src={product3.pictureUrl}
-              //alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>{product3.productName}</h3>
-              <p>{product3.dimension}<br/>{product3.specification}</p>
-            </Carousel.Caption>
-          </Carousel.Item> */}
-        </Carousel>
-                  ))
+            ))
           }
+          </Carousel>
       </div>
-      </div>
+      // {/* </div> */}
     );
   }
 }
