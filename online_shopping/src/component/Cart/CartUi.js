@@ -8,21 +8,20 @@ import AddToCart from './AddToCart'
 import  CartPriceDetails from './CartPriceDetails'
 
 import RemoveAllProducts from './RemoveAllProducts'
-
-
+// import ViewAllProducts from './ViewAllProducts'
 
 //contains-> header , clear cart , display text 'cart is empty'
 function CartUi(props) {
 
-    const cartItems= useSelector(state=>state.cart)
+    const cartItems= useSelector(state=>state.cart.cart)
         
     return (
         <>
         
         <div className="small-container cart-page">
             
-            <h2><AiOutlineShoppingCart size="1.5em"/>My Cart ({cartItems.length})</h2>  
-
+            <h2><AiOutlineShoppingCart size="1.5em"/>My Cart ({cartItems.length})</h2>   
+            
             <RemoveAllProducts/>
 
             <AddToCart/>
@@ -39,7 +38,7 @@ function CartUi(props) {
             <CartPriceDetails/>
      
         </div> 
-        {/* <Viewallproducts/> */}
+        {/* <ViewAllProducts/> */}
         </>
     )
 }

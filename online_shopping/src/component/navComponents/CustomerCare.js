@@ -12,7 +12,7 @@ function CustomerCare() {
     <br/>
     <br/>
     
-    <ViewAllComplaints/>
+    {/* <ViewAllComplaints/> */}
     <br/>
     <br/>
     </div>

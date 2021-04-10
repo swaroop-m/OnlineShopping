@@ -8,7 +8,7 @@ import './cart.css'
 //conatins-> subtotal,delivery(info),total and placeOder button //all working
 function  CartPriceDetails(props) {
     
-    const cartItems= useSelector(state=>state.cart)
+    const cartItems= useSelector(state=>state.cart.cart)
 
     let placeOrderClick= () => {
         console.log("Placed Order", new Date())

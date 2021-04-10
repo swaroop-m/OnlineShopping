@@ -10,8 +10,6 @@ import {VscAdd} from 'react-icons/vsc'
 //contains all products which are added to cart //allworking
 function Addtocart(props) {
 
-    let [addToCart,setAddToCart]=useState({productName:'',quantity:'',price:''})
-
     let [initialValue,setInitialValue] = useState(1)
 
     let addQuantity =() =>{
@@ -22,7 +20,7 @@ function Addtocart(props) {
         setInitialValue(initialValue-1)
     } 
 
-    const cartItems= useSelector(state=>state.cart)
+    const cartItems= useSelector(state=>state.cart.cart)
 
     const dispatch = useDispatch();
 

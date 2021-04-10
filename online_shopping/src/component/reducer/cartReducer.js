@@ -3,13 +3,10 @@ import { createStore } from "redux";
 
 // Common REUSABLE STATE
 const initialState = {
-  
-  totalPrice:0,
-  cart:[{quantity:1}], 
+  cart:[], 
 };
 
-
-function reducer1(state = initialState, action) {
+function cartReducer(state = initialState, action) {
 
   //  LOGIC
   switch (action.type) {
@@ -35,7 +32,7 @@ function reducer1(state = initialState, action) {
       }
 
       //removeProduct
-    //    case "REMOVE_PRODUCTS":
+    //    case "REMOVE_PRODUCT":
          
     //    return state.cart.filter((cartItem) => cartItem.productId !== action.payload.productId);
   
@@ -67,10 +64,18 @@ function reducer1(state = initialState, action) {
       //       return{...state ,cart:[...subQuantity]
       //       }
       // })
+
+      //updatedCart
+      //case "UPDATED_CART":
+
+      //viewAll
+      //case "VIEW_ALL":
     
     default:
       return state;
   }
 }
 
-export const cartStore = createStore(reducer1);
+
+export default cartReducer;
+// const cartStore = createStore(cartReducer);

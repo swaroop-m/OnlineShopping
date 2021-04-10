@@ -30,9 +30,37 @@ class Homepage extends Component {
 
   addToCart = (product) => {
     // const cartItem= {productName:"product2",price:"12",quantity:"34" }
+    // const requestBody={
+      
+    //     "products": [
+    //         {
+    //         "productId":111,
+    //         "productName":"IPhone",
+    //         "price":520.0,
+    //         "quantity":10
+    //         },
+    //         {
+    //         "productId":111,
+    //         "productName":"IPhone",
+    //         "price":520.0,
+    //         "quantity":10
+    //         }
+            
+    //     ],
+    //     "customer":{
+    //         "firstName":"Ramesh"
+            
+    //         }
+    // }
+    // }
+  
 
     this.props.dispatch({ type: "ADD_TO_CART", payload: product });
-  };
+  }
+    
+  
+
+   
 
   render() {
     const products = this.state.products;

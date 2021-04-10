@@ -6,17 +6,21 @@ import './cart.css'
 //contains Clear cart button
 function RemoveAllProducts(props) {
    
-    const cartItems= useSelector((state)=>state.cart)
+    // const cartItems= useSelector((state)=>state.cart)
 
     const dispatch = useDispatch();
 
+    // const clearCart=(product)=>{
+    //     dispatch(apiRemoveAllproducts(product));
+    // }
+   
         
       
-    return (
-       
+    return (  
         <>
             <div className="myButton">
-                <Button variant="outline-dark"  onClick={()=>dispatch({type:"CLEAR_CART"})}>Clear Cart</Button>
+            {/* onClick={()=>clearCart(product)} */}
+                <Button variant="outline-dark"  >Clear Cart</Button>
             </div>
         </>
     )

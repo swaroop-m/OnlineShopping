@@ -35,12 +35,6 @@ public class CustomerCareRestController {
 		return new ResponseEntity<CustomerCare>(addComplaint,HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/deletecomplaints")
-	public ResponseEntity<CustomerCare> deleteAllComplaints(CustomerCare customerCare) {
-		CustomerCare deleteAllComplaint= iCusromerCareService.deleteAllComplaints(customerCare);
-		return new ResponseEntity<CustomerCare>(deleteAllComplaint,HttpStatus.ACCEPTED);
-	}
-	
 	@GetMapping("/viewallcomplaints")
 	public ResponseEntity<List<CustomerCare>> viewAllComplaints() {
 		List<CustomerCare> viewAllComplaints= iCusromerCareService.viewAllComplaints();
