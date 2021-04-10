@@ -122,14 +122,13 @@ class NavBar extends Component {
             <AiOutlineShoppingCart size="1.5em" />
           </Link>
 
+          <Link to={"/CustomerCare"} className="nav-link">
+            <RiCustomerService2Fill />
+          </Link>
+
           <NavDropdown
             title="Customer C"
             id="basic-nav-dropdown" /*className="bg-dark text-white"*/>
-            <NavDropdown.Item className="NavDropdown">
-            <Link to={"/CustomerCare"} className="nav-link">
-            <RiCustomerService2Fill />
-          </Link>
-            </NavDropdown.Item>
             <NavDropdown.Item >
                 <Link to={"/ViewAllComplaints"} classname="nav-link">ViewAllComplaints</Link>
             </NavDropdown.Item>
