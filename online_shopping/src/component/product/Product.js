@@ -179,7 +179,7 @@ class Product extends Component {
           >
             <Card.Body>
               <Form.Row>
-                <Form.Group as={Col} controlId="formGridCoverPhotoURL">
+                <Form.Group as={Col} className="col-md-6 col-sm-12" controlId="formGridCoverPhotoURL">
                   <Form.Label>Product Photo URL</Form.Label>
                   <InputGroup>
                     <Form.Control

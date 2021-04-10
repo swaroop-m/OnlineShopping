@@ -126,13 +126,14 @@ class ViewProduct extends Component {
             <div className="col-xs-12 col-md-6 col-lg-6 ">
               <div className="" style={ptitle}>
                 <h2
+                  // className = "display-6"
                   style={{
                     //fontFamily: "Raleway, sans-serif",
                     // fontWeight: "200",
                     // fontStyle: "normal",
                     marginBottom: "0em",
-                    lineHeight: "1.4",
-                    color: "#333333",
+                    // lineHeight: "1.4",
+                    // color: "#333333",
                   }}
                 >
                   {productName}
