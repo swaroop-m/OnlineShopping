@@ -1,6 +1,6 @@
 import React ,{useEffect,useState} from 'react'
 import axios from 'axios'
-import { Button } from 'react-bootstrap'
+
 
 function ViewAllComplaints(props) {
 
@@ -16,23 +16,10 @@ function ViewAllComplaints(props) {
              .catch((error)=>console.log(error))
     },[])
 
-    // const onDelete=(() =>
-    // {
-    //     axios.get('http://localhost:9000/api/deletecomplaints')
-    //          .then((res)=>{
-    //              console.log(res.data)
-    //              console.log("deleting data")
-    //              setComplaints([])
-    //          })
-    //          .catch((error)=>console.log(error))
-    //         },[])
-
-
     return (
         <div>
             <div  className="d-flex justify-content-start align-items-center h3 text-dark" style={{height:100}}>All Complaints
-            <Button className="btn btn-danger ml-5" >Delete</Button>
-            
+        
             </div>
             <hr/>
             <table className='table table-bordered table-striped'>

@@ -8,8 +8,6 @@ function Addcomplaints() {
 
     let [complaints,setComplaints]=useState({name:' ',phoneNo: ' ',productName:' ',message:' '})
    
-
-
      const submitProduct = (event) => {
         event.preventDefault();
         axios.post('http://localhost:9000/api/addcomplaints',complaints)

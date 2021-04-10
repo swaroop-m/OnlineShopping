@@ -16,8 +16,7 @@ function RemoveAllProducts(props) {
    
         
       
-    return (
-       
+    return (  
         <>
             <div className="myButton">
             {/* onClick={()=>clearCart(product)} */}

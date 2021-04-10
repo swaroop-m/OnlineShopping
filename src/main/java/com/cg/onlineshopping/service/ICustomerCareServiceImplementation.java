@@ -23,17 +23,6 @@ public class ICustomerCareServiceImplementation implements ICustomerCareService 
 	}
 
 	@Override
-	public CustomerCare deleteAllComplaints(CustomerCare customerCare) {
-		if(customerCare != null) {
-			iCustomerCareRepository.deleteAll();
-			return customerCare;		
-		}
-		else {
-			throw new NoComplaintsFoundexception("Good service/products..No complaints Found!!");
-		}
-	}
-
-	@Override
 	public List<CustomerCare> viewAllComplaints() {
 		List<CustomerCare> complaints= iCustomerCareRepository.findAll();
 		if (complaints.isEmpty()) {
