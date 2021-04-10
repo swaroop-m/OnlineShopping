@@ -23,8 +23,7 @@ function cartReducer(state = initialState, action) {
             return cartItem;
           }
       )
-      if(flag==true){
-        
+      if(flag==true){  
         return { ...state, cart:[...uCart]};
       }
       else{
@@ -33,16 +32,19 @@ function cartReducer(state = initialState, action) {
 
       //removeProduct
        case "REMOVE_PRODUCT":
-
-        let itemToRemove= state.cart.find(cartItem => cartItem.productId !== action.payload.productId)
-        let new_items = state.cart.filter(cartItem => cartItem.productId !== action.payload.productId)
         
-        //calculating the total
-        console.log(itemToRemove)
-        return{
-            ...state,
-            cart:[new_items] 
-        }
+        let itemToRemove= state.cart.find(cartItem => cartItem.productId === action.payload.productId)
+        let new_items = state.cart.filter(cartItem=> cartItem.productId !== action.payload.productId)
+        //  new_items = state.cart.filter(cartItem=> cartItem.productId === cartItem.productId)
+
+        return {cart:new_items};
+        
+        
+        // console.log(itemToRemove)
+        // return{
+        //     ...state,
+        //     cart:[new_items] 
+        // }
     
   
     

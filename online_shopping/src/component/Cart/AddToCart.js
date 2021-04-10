@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import './cart.css'
-import RemoveProductFromCart from './RemoveProductFromCart'
 import { Button} from 'react-bootstrap'
 import {GrSubtract} from 'react-icons/gr'
 import {VscAdd} from 'react-icons/vsc'
@@ -24,9 +23,16 @@ function Addtocart(props) {
 
     const dispatch = useDispatch();
 
+
+    const removeFromcart = (product) => {
+        
+        dispatch({type:'REMOVE_PRODUCT', payload: product})
+     }
+
     // const addQuantity = () => {
     //     dispatch({type:'ADD_QUANTITY'})
     //  }
+    console.log(cartItems);
 
     return (
         <>
@@ -39,6 +45,7 @@ function Addtocart(props) {
                 <br/>
 
                 {cartItems.map((data,index)=>
+
                 <tr key={index}>
                     <td className="table-data">
                         <div className="cart-info"> 
@@ -47,7 +54,8 @@ function Addtocart(props) {
                                 <p>Product: {data.productName} </p>
                                 <p>Price: ₹ {data.price}</p>
                                 
-                                <RemoveProductFromCart/>
+                                
+                                <Button className="btn btn-danger"onClick={() => removeFromcart(data)}>Remove</Button>
 
                             </div>
                         </div>

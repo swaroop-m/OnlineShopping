@@ -10,17 +10,16 @@ function RemoveAllProducts(props) {
 
     const dispatch = useDispatch();
 
-    // const clearCart=(product)=>{
-    //     dispatch(apiRemoveAllproducts(product));
-    // }
+    const clearCart=(product)=>{
+        dispatch({ type: "CLEAR_CART"});
+    }
    
-        
-      
+
     return (  
         <>
             <div className="myButton">
             {/* onClick={()=>clearCart(product)} */}
-                <Button variant="outline-dark"  >Clear Cart</Button>
+                <Button variant="outline-dark" onClick={clearCart}  >Clear Cart</Button>
             </div>
         </>
     )
