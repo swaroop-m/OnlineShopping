@@ -4,6 +4,7 @@ import { Image, Button } from "react-bootstrap";
 import HorizontalGallery from "react-dynamic-carousel";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
+import {AiOutlineShoppingCart} from 'react-icons/ai'
 
 
 
@@ -149,19 +150,18 @@ class ViewProduct extends Component {
               <br />
               <div className="fs-4">Price : &#8377; {price}</div>
               <br />
-              <div className="">
+              <div >
                 <Button
-                  variant="primary"
-                  onClick={() => this.addToCart(this.state.currentProduct)}
-                >
-                  Add to Cart
+                  variant="warning"
+                  onClick={() => this.addToCart(this.state.currentProduct)} style={{fontSize:'20px'}}>
+                  <AiOutlineShoppingCart size="1.5em"/> Add to Cart 
                 </Button>
               </div>
               <br />
             </div>
           </div>
         }
-        <br /><br />
+        <br/><br />
         <div className="container-fluid p-5">
           <div className="row">
               <h2>You Might be interested in...</h2>
