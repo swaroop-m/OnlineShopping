@@ -153,7 +153,7 @@ class Product extends Component {
       price,
     } = this.state;
     return (
-      <div>
+      <div className="container">
         <div style={{ display: this.state.show ? "block" : "none" }}>
           <AddProductSuccessToast
             show={this.state.show}
@@ -179,7 +179,7 @@ class Product extends Component {
           >
             <Card.Body>
               <Form.Row>
-                <Form.Group as={Col} className="col-md-6 col-sm-12" controlId="formGridCoverPhotoURL">
+                <Form.Group className="col-md-6 col-sm-12" controlId="formGridCoverPhotoURL">
                   <Form.Label>Product Photo URL</Form.Label>
                   <InputGroup>
                     <Form.Control
@@ -193,7 +193,7 @@ class Product extends Component {
                     />
                   </InputGroup>
                 </Form.Group>
-                <Form.Group as={Col} controlId="formGridName">
+                <Form.Group className="col-md-6 col-sm-12" controlId="formGridName">
                   <Form.Label>Product Name</Form.Label>
                   <Form.Control
                     required
@@ -206,7 +206,7 @@ class Product extends Component {
                   />
                 </Form.Group>
               </Form.Row>
-              <Form.Row><Form.Group as={Col} controlId="formGridCategory">
+              <Form.Row><Form.Group className="col-md-6 col-sm-12" controlId="formGridCategory">
                   <Form.Label>Category</Form.Label>
                   <Form.Control
                     type="test"
@@ -217,7 +217,7 @@ class Product extends Component {
                     placeholder="Enter Product Catgory"
                   />
                 </Form.Group>
-                <Form.Group as={Col} controlId="formGridDimension">
+                <Form.Group className="col-md-6 col-sm-12" controlId="formGridDimension">
                   <Form.Label>Dimension</Form.Label>
                   <Form.Control
                     type="test"
@@ -230,7 +230,7 @@ class Product extends Component {
                 </Form.Group>
               </Form.Row>
               <Form.Row>
-                <Form.Group as={Col} controlId="formGridSpecification">
+                <Form.Group className="col-md-6 col-sm-12" controlId="formGridSpecification">
                   <Form.Label>Specification</Form.Label>
                   <Form.Control
                     type="test"
@@ -241,7 +241,7 @@ class Product extends Component {
                     placeholder="Enter Product specification"
                   />
                 </Form.Group>
-                <Form.Group as={Col} controlId="formGridManufacturer">
+                <Form.Group className="col-md-6 col-sm-12" controlId="formGridManufacturer">
                   <Form.Label>Manufacturer</Form.Label>
                   <Form.Control
                     type="test"
@@ -254,7 +254,7 @@ class Product extends Component {
                 </Form.Group>
               </Form.Row>
               <Form.Row>
-                <Form.Group as={Col} controlId="formGridQuantity">
+                <Form.Group className="col-md-6 col-sm-12" controlId="formGridQuantity">
                   <Form.Label>Quantity</Form.Label>
                   <Form.Control
                     required
@@ -266,7 +266,7 @@ class Product extends Component {
                     placeholder="Enter Product quantity"
                   />
                 </Form.Group>
-                <Form.Group as={Col} controlId="formGridPrice">
+                <Form.Group className="col-md-6 col-sm-12" controlId="formGridPrice">
                   <Form.Label>Price</Form.Label>
                   <Form.Control
                     required

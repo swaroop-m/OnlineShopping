@@ -3,7 +3,7 @@ import { Jumbotron } from 'react-bootstrap'
 import { Card, Carousel,Button } from 'react-bootstrap'
 import CardsOnHome from './product/CardsOnHome'
 
-function Welcome(props) {
+export default function Welcome(props) {
   
   
   return (
@@ -57,4 +57,3 @@ function Welcome(props) {
          
             
         
-export default Welcome

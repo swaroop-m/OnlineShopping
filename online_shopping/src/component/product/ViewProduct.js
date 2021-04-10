@@ -108,7 +108,7 @@ class ViewProduct extends Component {
     };
 
     return (
-      <div className="">
+      <div className="container">
         {
         
           <div className="row d-flex align-items-center bg-light ">

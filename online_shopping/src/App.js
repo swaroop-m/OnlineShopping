@@ -35,7 +35,7 @@ import ViewAllComplaints from './component/CustomerCare/ViewAllComplaints'
 
 
 
-function App() {
+export default function App() {
 
   const marginTop = {
     marginTop: "20px"
@@ -46,7 +46,7 @@ function App() {
   // const footer = "Mark Twain";
 
   return (
-    <>
+    <div>
     <Router>
       {/* <Router>
         <NavBar />
@@ -74,7 +74,7 @@ function App() {
 
       <NavBar/>
       <Welcome/>
-      <Container>
+      <div>
         <Row>
           <Col lg={12} style={marginTop}>
             <Route path="/" exact component={Welcome}/>
@@ -112,11 +112,10 @@ function App() {
             <ProductList /> */}
           </Col>
         </Row>
-      </Container>
+      </div>
       <Footer/>
     </Router>
-    </>
+    </div>
   );
 }
 
-export default App

@@ -1,0 +1,11 @@
+.carousel-indicators li {
+    background-color: black; 
+
+  }
+
+.carousel-control-next-icon{
+    background-image : glyphicon glyphicon-glass;
+}
+.carousel-control-prev-icon{
+  background-image : "glyphicon glyphicon-glass";
+}

@@ -87,10 +87,10 @@ class Homepage extends Component {
             // randomProducts.map((product) => (
             cardProducts.map((product) => (
               <div
-                className="col-xs-12 col-md-6 col-lg-3 "
+                className="col-xs-12 col-md-6 col-lg-3"
                 key={product.productId}
               >
-                <CardGroup style={{ marginTop: "15px", width: "16.5rem" }}>
+                <CardGroup style={{ marginTop: "15px", width: "16.5rem" }} className="ml-sm-3">
                   <Card className="border-0" >
                     <Link to={"/viewproduct/" + product.productId}  className="text-center align-middle">
                       <Card.Img
