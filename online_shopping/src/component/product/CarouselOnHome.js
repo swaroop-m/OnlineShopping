@@ -34,8 +34,8 @@ class CarouselOnHome extends Component {
     return (
       // <div>
           <div>
-             
-        <Carousel nextIcon ={<span className="bg-dark glyphicon-chevron-right"/>} prevIcon={<span className="bg-dark">&#xe080;</span>} className="align-middle text-center">
+             {/* nextIcon ={<span className="bg-dark glyphicon-chevron-right"/>} prevIcon={<span className="bg-dark">&#xe080;</span>}*/ }
+        <Carousel className="align-middle text-center">
         {
                   carouselProducts.map((product) => (
           <Carousel.Item className=" bg-light" interval={2500}  key={product.productId}>

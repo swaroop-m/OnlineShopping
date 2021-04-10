@@ -92,7 +92,7 @@ class Shop extends Component {
         <div>
           <div>
             <h2>Shop By Categories:</h2>
-            <span
+            {/* <span
               style={{
                 position: "absolute",
                 content: "",
@@ -103,7 +103,7 @@ class Shop extends Component {
                 borderTop: "1px dashed #bec5cb",
                 zIndex: "-1",
               }}
-            ></span>
+            ></span> */}
           </div>
 
           <br />
