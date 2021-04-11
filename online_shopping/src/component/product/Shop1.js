@@ -10,73 +10,20 @@ import axios from "axios";
 class Shop1 extends Component {
   constructor(props) {
     super(props);
-    this.findProductInCategory = this.findProductInCategory.bind(this);
     this.state = {
-      products: [],
-      categories: [],
-      productsInCategory: [],
-      homeAndAppliences: [],
-      telivision: [],
-      mobiles: [],
-      p: [],
+      productsInCategory:{},
     };
   }
 
   componentDidMount() {
     axios
-      .get("http://localhost:9000/api/viewcategories")
-      .then((response) => response.data)
-      .then((data) => {
-        this.setState({ categories: data });
-        console.log(this.state.categories);
-        this.state.categories.forEach((category) => {
-            this.state.p = (category) => this.findProductInCategory(category);
-            console.log(this.state.p);
-            this.state.productsInCategory.push([category,this.state.p]);
-          //   this.setState({ productsInCategory: productsInCategory + {products} });
-           })
-           
-           console.log(this.state.productsInCategory);
-      });
-
-      // http://localhost:9000/api/viewproductscategories
-
-    //   words.forEach((word) => {
-    //     console.log(word);
-    //   });
-
-    //   this.state.categories.forEach((category) => {
-        //   var products = this.findProductInCategory(category);
-        //   this.state.productsInCategory.push([category,products]);
-        //   this.setState({ productsInCategory: productsInCategory + {products} });
-        //  })
-         
-         console.log(this.state.productsInCategory);
-    //   this.state.productsInCategory = () => this.findProductInCategory() 
-    //   this.setState({ productsInCategory: data });
-    //   this.findProductInCategory(categories);
-    axios
-      .get("http://localhost:9000/api/viewbycategory/Mobiles")
-      .then((response) => response.data)
-      .then((data) => {
-        this.setState({ mobiles: data });
-      })
-      .catch((error) => {
-        console.error("Error - " + error);
-      });
-  }
-
-  findProductInCategory = categoryName => {
-    axios
-      .get("http://localhost:9000/api/viewbycategory/"+categoryName)
+      .get("http://localhost:9000/api/viewproductscategories")
       .then((response) => response.data)
       .then((data) => {
         this.setState({ productsInCategory: data });
-      })
-      .catch((error) => {
-        console.error("Error - " + error);
+           console.log(this.state.productsInCategory);
       });
-};
+  };
 
   render() {
     var settings = {
@@ -94,12 +41,12 @@ class Shop1 extends Component {
           </div>
           <br /><br />
           {
-          this.state.categories.map((category,index) => (
-              <div key={index}>
+          this.state.productsInCategory.map((category,products) => (
+              <div key={category}>
           <h3 className="text-uppercase font-weight-heavy position-relative">{category}</h3>
           <div className="row">
             <HorizontalGallery
-              tiles={this.state.mobiles.filter(product=> product).map((product) => (
+              tiles={products.filter(product=> product).map((product) => (
                 <div
                   key={product.productId}
                   style={{

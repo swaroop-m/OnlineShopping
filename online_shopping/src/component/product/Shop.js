@@ -55,15 +55,6 @@ class Shop extends Component {
       .catch((error) => {
         console.error("Error - " + error);
       });
-    // axios
-    //   .get("http://localhost:9000/api/viewallproducts")
-    //   .then((response) => response.data)
-    //   .then((data) => {
-    //     this.setState({ products: data });
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error - " + error);
-    //   });
   }
 
   findProductInCategory = categoryName => {

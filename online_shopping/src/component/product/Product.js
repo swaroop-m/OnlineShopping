@@ -35,7 +35,7 @@ class Product extends Component {
       this.state.quantityError = "Quantity cannot be Empty";
     }
 
-    if (!(this.state.pictureUrl.includes("www.") &&
+    if (!(this.state.pictureUrl.includes(".com") &&
          this.state.pictureUrl.includes("/"))) {
       this.state.imageError = "Invalid Image url";
     }
