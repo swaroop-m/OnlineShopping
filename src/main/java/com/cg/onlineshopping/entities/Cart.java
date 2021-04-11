@@ -40,9 +40,6 @@ public class Cart implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cartId; 									// cartId is generated automatically
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "customerId")
-	private Customer customer;                                     //relation with Customer entity (Cart->customer)
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="cartId")

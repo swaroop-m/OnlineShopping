@@ -36,21 +36,7 @@ class OrderList extends Component {
             });
     };
 
-    deleteOrder = (orderId) => {
-        axios.delete("http://localhost:9000/api/deleteorders/" + orderId)
-            .then(response => {
-                if (response.data != null) {
-                    this.setState({ "show": true });
-                    setTimeout(() => this.setState({ "show": false }), 3000);
-
-                    this.setState({
-                        order: this.state.order.filter(order => order.orderId !== orderId)
-                    });
-                } else {
-                    this.setState({ "show": false });
-                }
-            });
-    };
+ ;
 
 
 
@@ -160,7 +146,7 @@ class OrderList extends Component {
 
 
         return (
-            <div >
+            <div class="container" >
 
                 <div style={{ "display": this.state.show ? "block" : "none" }}>
                     <OrderToast show={this.state.show} message={"Order Deleted Successfully."} type={"danger"} />

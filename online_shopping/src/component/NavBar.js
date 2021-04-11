@@ -34,109 +34,125 @@ class NavBar extends Component {
     const userLinks=(
       <>
       
-        {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
-      <Navbar.Collapse id="responsive-navbar-nav" className='style-nav' >
-        <Nav className="mr-auto fs-5 "  >
-          <Link to={"/Home"} className="nav-link"  >
-            Home
-          </Link>
-          {/* bg-dark text-white */}
-          <Link to={"/Shop"} className="nav-link">
-            Shop
-          </Link>
-          <NavDropdown className=""
-            title="Product"
-            id="basic-nav-dropdown" 
-          >
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/addproduct"} className="nav-link">
-                Add Product
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/listproducts"} className="nav-link">
-                Product List
-              </Link>
-            </NavDropdown.Item>
-          </NavDropdown>
-          <NavDropdown
-            title="Customer"
-            id="basic-nav-dropdown-c"
-          >
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/addcustomer"} className="nav-link">
-                Add Customer
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/listcustomers"} className="nav-link">
-                Customer List
-              </Link>
-            </NavDropdown.Item>
-          </NavDropdown>
-    <NavDropdown
-            title="Order"
-            id="basic-nav-dropdown-c"
-          >
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/listorder"} className="nav-link">
-                Order List
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/addorder"} className="nav-link">
-                Add Order
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/ordersummary"} className="nav-link">
-                Order Summary
-              </Link>
-            </NavDropdown.Item>
-          </NavDropdown>
+      {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
+    <Navbar.Collapse id="responsive-navbar-nav" className='style-nav' >
+      <Nav className="mr-auto fs-5 "  >
+        <Link to={"/Home"} className="nav-link"  >
+          Home
+        </Link>
+        {/* bg-dark text-white */}
+        <Link to={"/Shop"} className="nav-link">
+          Shop
+        </Link>
 
-          <Link to={"/AboutUs"} className="nav-link">
-            AboutUs
-          </Link>
-        </Nav>
+      
+        <NavDropdown className=""
+          title="Product"
+          id="basic-nav-dropdown" /*className="bg-dark text-white"*/
+        >
+          <NavDropdown.Item className="NavDropdown bg-warning">
+            <Link to={"/addproduct"} className="nav-link">
+              Add Product
+            </Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item className="NavDropdown bg-warning">
+            <Link to={"/listproducts"} className="nav-link">
+              Product List
+            </Link>
+          </NavDropdown.Item>
+        </NavDropdown>
+
+        {/* <Link to={"addproduct"} className="nav-link">Add Products</Link>
+                  <Link to={"listproducts"} className="nav-link">Product List</Link> */}
         
-        <Nav className="justify-content-end"  classname="style-nav1" activeKey="/home">
 
         <NavDropdown
-            title="My Account"
-            id="basic-nav-dropdown">
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/MyProfile"} className="nav-link">
-                My Profile
-              </Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item >
-              <Button className="btn btn-danger">Log out</Button>
-            </NavDropdown.Item>
-          </NavDropdown>
-          <Link to={"/UserList"} className="nav-link">Users List</Link>
+          title="Customer"
+          id="basic-nav-dropdown-c" /*className="bg-dark text-white"*/
+        >
+          <NavDropdown.Item className="NavDropdown">
+            <Link to={"/addcustomer"} className="nav-link">
+              Add Customer
+            </Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item className="NavDropdown">
+            <Link to={"/listcustomers"} className="nav-link">
+              Customer List
+            </Link>
+          </NavDropdown.Item>
+        </NavDropdown>
 
-          <Link to={"/Cart"} className="nav-link">
-            Cart 
-            <AiOutlineShoppingCart size="1.5em" />
-          </Link>
 
-          <Link to={"/CustomerCare"} className="nav-link">
-            <RiCustomerService2Fill />
-          </Link>
-
-          <NavDropdown
-            title="Customer C"
-            id="basic-nav-dropdown">
-            <NavDropdown.Item >
-                <Link to={"/ViewAllComplaints"} classname="nav-link">ViewAllComplaints</Link>
-            </NavDropdown.Item>
-          </NavDropdown>
+  <NavDropdown
+          title="Order"
+          id="basic-nav-dropdown-c" /*className="bg-dark text-white"*/
+        >
+          <NavDropdown.Item className="NavDropdown">
+            <Link to={"/listorder"} className="nav-link">
+              Order List
+            </Link>
+          </NavDropdown.Item>
           
-          <Link to={"/LogOut"} className="nav-link" onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt} />LogOut</Link>
-        </Nav>
-      </Navbar.Collapse>
-      </>
+          <NavDropdown.Item className="NavDropdown">
+            <Link to={"/ordersummary"} className="nav-link">
+              Order Summary
+            </Link>
+          </NavDropdown.Item>
+        </NavDropdown>
+
+
+        <Link to={"/AboutUs"} className="nav-link">
+          AboutUs
+        </Link>
+      </Nav>
+      
+      <Nav className="justify-content-end"  classname="style-nav1" activeKey="/home">
+
+      <NavDropdown
+          title="My Account"
+          id="basic-nav-dropdown">
+          <NavDropdown.Item className="NavDropdown bg-warning ">
+            <Link to={"/MyProfile"} className="nav-link ">
+              My Profile
+            </Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item className="NavDropdown bg-warning">
+            <Link to={"/CustomerCare"} className="nav-link ">
+              <RiCustomerService2Fill /> Contact Us
+            </Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item classname="NavDropdown bg-warning">
+          <Link to={"/LogOut"} className="nav-link " onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt} />LogOut</Link>
+          </NavDropdown.Item>
+        </NavDropdown>
+
+        
+
+        <Link to={"/UserList"} className="nav-link">Users List</Link>
+
+        <Link to={"/Cart"} className="nav-link">
+          Cart 
+          <AiOutlineShoppingCart size="1.5em" />
+        </Link>
+
+        
+
+        <NavDropdown
+          title="Customer C"
+          id="basic-nav-dropdown" /*className="bg-dark text-white"*/>
+          <NavDropdown.Item >
+              <Link to={"/ViewAllComplaints"} classname="nav-link">ViewAllComplaints</Link>
+          </NavDropdown.Item>
+        </NavDropdown>
+
+
+
+       
+        
+        
+      </Nav>
+    </Navbar.Collapse>
+    </>
     );
     
 

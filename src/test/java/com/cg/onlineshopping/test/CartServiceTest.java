@@ -49,7 +49,7 @@ public class CartServiceTest {
 	void setup() {   //setting up values to run test cases
 		Cart cart=new Cart();
 		List<CartItem> products = new ArrayList<>();
-		cart1= new Cart(1,cust,products);
+		cart1= new Cart(1,products);
 		cartItem1 = new CartItem(1, 1202, "table", 2, 12000, cart);
 		cartItem2  = new CartItem(2, 12024,"chair", 6, 1800, cart);
 		cartItem3 = new CartItem(3, 10102, "Iphone", 1, 75000, cart);
