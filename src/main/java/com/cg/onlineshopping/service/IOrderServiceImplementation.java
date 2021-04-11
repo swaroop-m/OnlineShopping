@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.cg.onlineshopping.exception.NotFoundException;
 import com.cg.onlineshopping.exception.ValidationException;
 import com.cg.onlineshopping.entities.Customer;
-import com.cg.onlineshopping.entities.DeliveryAddress;
+//import com.cg.onlineshopping.entities.DeliveryAddress;
 import com.cg.onlineshopping.entities.Order;
 import com.cg.onlineshopping.repository.ICustomerRepository;
 import com.cg.onlineshopping.repository.IOrderRepository;
@@ -61,33 +61,31 @@ public class IOrderServiceImplementation implements IOrderService{
 		else {
 			Order existingOrder = existing.get();
 
-			if (order.getDeliveryAddress() != null) {
-
-				existingOrder.setDeliveryAddress(order.getDeliveryAddress());
 			}
-			if (order.getCustomer() != null) {
-
-				existingOrder.setCustomer(order.getCustomer());
-			}
-
-			if (order.getOrderDate() != null) {
-
-				existingOrder.setOrderDate(order.getOrderDate());
-			}
-			if (order.getOrderStatus() != null) {
-
-				existingOrder.setOrderStatus(order.getOrderStatus());
-			}
-			if (order.getCartItem() != null) {
-
-				existingOrder.setCartItem(order.getCartItem());
-			}
-
-			// perform update operation to the database table
-			orderRepository.save(existingOrder);
+//			if (order.getCustomer() != null) {
+//
+//				existingOrder.setCustomer(order.getCustomer());
+//			}
+//
+//			if (order.getOrderDate() != null) {
+//
+//				existingOrder.setOrderDate(order.getOrderDate());
+//			}
+//			if (order.getOrderStatus() != null) {
+//
+//				existingOrder.setOrderStatus(order.getOrderStatus());
+//			}
+//			if (order.getCartItem() != null) {
+//
+//				existingOrder.setCartItem(order.getCartItem());
+//			}
+//
+//			// perform update operation to the database table
+//			orderRepository.save(existingOrder);
 			// return the order which is updated
-			return existingOrder;
-		}
+//			return existingOrder;
+		return null;
+//		}
 
 	}
 
