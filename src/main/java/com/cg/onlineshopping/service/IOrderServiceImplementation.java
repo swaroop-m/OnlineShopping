@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.cg.onlineshopping.exception.NotFoundException;
 import com.cg.onlineshopping.exception.ValidationException;
 import com.cg.onlineshopping.entities.Customer;
-//import com.cg.onlineshopping.entities.DeliveryAddress;
 import com.cg.onlineshopping.entities.Order;
 import com.cg.onlineshopping.repository.ICustomerRepository;
 import com.cg.onlineshopping.repository.IOrderRepository;
@@ -34,15 +33,6 @@ public class IOrderServiceImplementation implements IOrderService{
 	//Adds an order
 	@Override
 	public Order addOrder(Order o) throws ValidationException {
-		
-		LocalDate orderDateExisting=o.getOrderDate();
-		Customer cust=o.getCustomer();
-		
-		
-		
-		
-		
-		
 		return orderRepository.save(o);
 	}
 
@@ -61,6 +51,15 @@ public class IOrderServiceImplementation implements IOrderService{
 		else {
 			Order existingOrder = existing.get();
 
+			if (order.getCustomer() != null) {
+
+				existingOrder.setCustomer(order.getCustomer());
+			}
+
+			if (order.getOrderDate() != null) {
+
+				existingOrder.setOrderDate(order.getOrderDate());
+			}
 			}
 //			if (order.getCustomer() != null) {
 //
@@ -84,8 +83,9 @@ public class IOrderServiceImplementation implements IOrderService{
 //			orderRepository.save(existingOrder);
 			// return the order which is updated
 //			return existingOrder;
-		return null;
+//		return null;
 //		}
+		return order;
 
 	}
 
@@ -116,16 +116,7 @@ public class IOrderServiceImplementation implements IOrderService{
 
 	}
 
-	//View orders based on order date
-	@Override
-	public List<Order> viewAllOrdersByDate(LocalDate date) {
-		List<Order> orders = orderRepository.findByOrderDate(date);
-		if(orders.isEmpty()) {
-			throw new NotFoundException("No order found for date : " +date);
-		}
-		return orders;
-	}
-
+	
 	
 	//View orders based on Customer ID
 	@Override
