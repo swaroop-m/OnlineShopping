@@ -93,14 +93,7 @@ public class OrderRestController {
 		return orderRepository.findAll();
 	}
 
-    //To view an order based on order date
-	@GetMapping("/allordersbydate/{date}")
-	public ResponseEntity<List<Order>> viewAllOrdersByDate(@PathVariable("date")
-	@DateTimeFormat(pattern="dd-MM-yyyy") LocalDate date){
-		List<Order> orders = orderService.viewAllOrdersByDate(date);
-		log.info("View All Orders based On date");
-		return new ResponseEntity<>(orders,HttpStatus.ACCEPTED);
-	}
+  
 
     
     //To get the orders based on Customer ID
