@@ -95,11 +95,7 @@ class NavBar extends Component {
                 Order List
               </Link>
             </NavDropdown.Item>
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/addorder"} className="nav-link">
-                Add Order
-              </Link>
-            </NavDropdown.Item>
+            
             <NavDropdown.Item className="NavDropdown">
               <Link to={"/ordersummary"} className="nav-link">
                 Order Summary
