@@ -68,14 +68,7 @@ import axios from 'axios';
                 email:this.state.email,
                 mobileNumber:this.state.mobileNumber
             },
-            deliveryAddress:{
-                streetNo: this.state.streetNo, 
-                buildingName: this.state.buildingName, 
-                city: this.state.city, 
-                state: this.state.state, 
-                country: this.state.country, 
-                pincode: this.state.pincode
-            }
+
         };
 
 
