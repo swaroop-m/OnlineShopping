@@ -22,7 +22,6 @@ import com.cg.onlineshopping.entities.DeliveryAddress;
 import com.cg.onlineshopping.entities.Order;
 import com.cg.onlineshopping.entities.CartItem;
 import com.cg.onlineshopping.repository.ICustomerRepository;
-import com.cg.onlineshopping.repository.IDeliveryAddressRepository;
 import com.cg.onlineshopping.repository.IOrderRepository;
 import com.cg.onlineshopping.service.IOrderServiceImplementation;
 
