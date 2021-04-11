@@ -1,17 +1,20 @@
 import axios from "axios";
 
 //api to add products to cart
-export default function apiAddToCart(product){
+export function apiAddToCart(product,products){
 
-    return async(product) => {
+    return async(dispatch) => {
         console.log(product)
         const url="http://localhost:9000/api/addproducttocart"
         
-        await axios.post(url,product)
+        await axios.post(url,{products:products})
         dispatch({type:"ADD_TO_CART",payload: product})
     }
 
 }
+
+// /http://localhost:9000/api/addproducttocart
+
 
 // //remove product from cart
 // export function apiRemoveproductFromCart(product){

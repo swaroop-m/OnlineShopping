@@ -61,44 +61,6 @@ case "SUB_QUANTITY":
     cartItems1.cartQuantity =cartItems1.cartQuantity-1
     return{...state,cart:[...state.cart]}
   }
-      
-      
-
-     
-      
-      
-        
-  
-
-
-
-        // let cart_Items = state.cart.find(cartItem => cartItem.productId === action.payload.productId) 
-        
-        // if(cart_Items.cartQuantity === 1){
-        //     let new_items = state.cart.filter(cartItem => cartItem.productId === action.payload.productId)
-            
-        //     return{
-        //         ...state,
-        //         cart: new_items
-        //     }
-        // }
-        // else {
-        //   cart_Items.cartQuantity =cart_Items.cartQuantity -1
-        //   return{...state,cart:[...state.cart,{...action.payload}]}
-                
-        //     }
-        
-        
-    
-
-    
-
-
-      //updatedCart
-      //case "UPDATED_CART":
-
-      //viewAll
-      //case "VIEW_ALL":
     
     default:
       return state;
