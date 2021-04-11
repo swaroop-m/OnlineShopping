@@ -24,7 +24,7 @@ function cartReducer(state = initialState, action) {
             return cartItem;
           }
       )
-      if(flag==true){  
+      if(flag===true){  
         return { ...state, cart:[...uCart]};
       }
       else{
