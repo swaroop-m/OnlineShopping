@@ -1,0 +1,14 @@
+.img{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  border-radius: 25px;
+}
+.centertext{
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+    
+  }
