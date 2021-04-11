@@ -13,7 +13,6 @@ import com.cg.onlineshopping.entities.Customer;
 import com.cg.onlineshopping.entities.DeliveryAddress;
 import com.cg.onlineshopping.entities.Order;
 import com.cg.onlineshopping.repository.ICustomerRepository;
-import com.cg.onlineshopping.repository.IDeliveryAddressRepository;
 import com.cg.onlineshopping.repository.IOrderRepository;
 
 //Author:Aishwarya A S
@@ -28,9 +27,7 @@ public class IOrderServiceImplementation implements IOrderService{
 	@Autowired
 	private ICustomerRepository custRepository;
 
-	@Autowired
-	private IDeliveryAddressRepository dAddressRepository;
-
+	
 
 	Optional<Order> orderOptional = null;
 
@@ -131,21 +128,7 @@ public class IOrderServiceImplementation implements IOrderService{
 		return orders;
 	}
 
-	//View order based on address ID
-	@Override
-	public List<Order> viewAllOrdersByAddressId(Integer deliveryAddressId){
-		Optional<DeliveryAddress> dAddress = dAddressRepository.findById(deliveryAddressId);
-		if(dAddress.isEmpty())
-			throw new NotFoundException("Order with address id "+deliveryAddressId+"  Not Found!");
-
-		else {
-			DeliveryAddress dAddr=dAddress.get();
-			List<Order> order=orderRepository.findByDeliveryAddress(dAddr);
-			return order;
-		}
-
-	}
-
+	
 	//View orders based on Customer ID
 	@Override
 	public List<Order> viewAllOrdersCustomer(Integer customerId) throws NotFoundException{
