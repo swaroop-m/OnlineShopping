@@ -15,7 +15,6 @@ public interface IOrderService{
 	public Order updateOrder(Order order);
 	public Order removeOrder(Integer orderId);
 	public Order viewOrder(Integer orderId);
-	public List<Order> viewAllOrdersByDate(LocalDate date);
 	public List<Order> viewAllOrdersCustomer(Integer customerId);
 	
 }
