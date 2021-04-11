@@ -3,8 +3,6 @@ import CardsOnHome from "./CardsOnHome";
 import { Image } from "react-bootstrap";
 import HorizontalGallery from "react-dynamic-carousel";
 import { Link } from "react-router-dom";
-
-// import Slider from "react-slick";
 import axios from "axios";
 
 class Shop extends Component {
@@ -83,7 +81,7 @@ class Shop extends Component {
         <div>
           <div>
             <h2>Shop By Categories:</h2>
-            {/* <span
+            <span
               style={{
                 position: "absolute",
                 content: "",
@@ -94,7 +92,7 @@ class Shop extends Component {
                 borderTop: "1px dashed #bec5cb",
                 zIndex: "-1",
               }}
-            ></span> */}
+            ></span>
           </div>
 
           <br />
@@ -140,7 +138,6 @@ class Shop extends Component {
               ))}
               elementWidth={190}
               fadeDistance={90}
-              //   minPadding={80}
             />
           </div>
           <br />
@@ -207,13 +204,9 @@ class Shop extends Component {
               ))}
               elementWidth={200}
               fadeDistance={90}
-              //   minPadding={80}
             />
           </div>
         </div>
-        {/* <div className="row">
-          
-        </div> */}
       </div>
     );
   }

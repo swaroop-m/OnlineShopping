@@ -44,31 +44,24 @@ class NavBar extends Component {
           <Link to={"/Shop"} className="nav-link">
             Shop
           </Link>
-          <Link to={"/Shop1"} className="nav-link">
-            Shop1
-          </Link>
           <NavDropdown className=""
             title="Product"
-            id="basic-nav-dropdown" /*className="bg-dark text-white"*/
+            id="basic-nav-dropdown" 
           >
-            <NavDropdown.Item className="NavDropdown bg-warning">
+            <NavDropdown.Item className="NavDropdown">
               <Link to={"/addproduct"} className="nav-link">
                 Add Product
               </Link>
             </NavDropdown.Item>
-            <NavDropdown.Item className="NavDropdown bg-warning">
+            <NavDropdown.Item className="NavDropdown">
               <Link to={"/listproducts"} className="nav-link">
                 Product List
               </Link>
             </NavDropdown.Item>
           </NavDropdown>
-
-          {/* <Link to={"addproduct"} className="nav-link">Add Products</Link>
-                    <Link to={"listproducts"} className="nav-link">Product List</Link> */}
-          
           <NavDropdown
             title="Customer"
-            id="basic-nav-dropdown-c" /*className="bg-dark text-white"*/
+            id="basic-nav-dropdown-c"
           >
             <NavDropdown.Item className="NavDropdown">
               <Link to={"/addcustomer"} className="nav-link">
@@ -83,7 +76,7 @@ class NavBar extends Component {
           </NavDropdown>
     <NavDropdown
             title="Order"
-            id="basic-nav-dropdown-c" /*className="bg-dark text-white"*/
+            id="basic-nav-dropdown-c"
           >
             <NavDropdown.Item className="NavDropdown">
               <Link to={"/listorder"} className="nav-link">
@@ -111,7 +104,7 @@ class NavBar extends Component {
 
         <NavDropdown
             title="My Account"
-            id="basic-nav-dropdown" /*className="bg-dark text-white"*/>
+            id="basic-nav-dropdown">
             <NavDropdown.Item className="NavDropdown">
               <Link to={"/MyProfile"} className="nav-link">
                 My Profile
@@ -134,15 +127,11 @@ class NavBar extends Component {
 
           <NavDropdown
             title="Customer C"
-            id="basic-nav-dropdown" /*className="bg-dark text-white"*/>
+            id="basic-nav-dropdown">
             <NavDropdown.Item >
                 <Link to={"/ViewAllComplaints"} classname="nav-link">ViewAllComplaints</Link>
             </NavDropdown.Item>
           </NavDropdown>
-
-
-
-         
           
           <Link to={"/LogOut"} className="nav-link" onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt} />LogOut</Link>
         </Nav>

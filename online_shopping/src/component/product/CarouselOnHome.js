@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import {Carousel} from "react-bootstrap";
 import axios from "axios";
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from "react-router-dom";
@@ -11,10 +10,8 @@ class CarouselOnHome extends Component {
         this.state = {
           products: [],
           // nextIcon: <span className="glyphicon glyphicon-chevron-right"></span>,
-          // prevIcon: <span className="glyphicon glyphicon-glass"></span>,
-          //show: false,
+          // prevIcon: <span className="glyphicon glyphicon-glass"></span>
         };
-        // this.addToCart = this.addToCart.bind(this);
       }
 
       componentDidMount() {
@@ -45,7 +42,6 @@ class CarouselOnHome extends Component {
               className="text-center"
               style={{height:"500px", width:"670px",objectFit:"contain"}}
               src={product.pictureUrl}
-              //alt="First slide"
             />
             </Link>
             {/* <Carousel.Caption className="text-dark"> */}
@@ -57,7 +53,6 @@ class CarouselOnHome extends Component {
           }
           </Carousel>
       </div>
-      // {/* </div> */}
     );
   }
 }

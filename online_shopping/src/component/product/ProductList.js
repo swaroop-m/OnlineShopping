@@ -121,9 +121,9 @@ class ProductList extends Component {
                 <AddProductSuccessToast show = {this.state.show} message = {"Product Deleted Successfully."} type = {"danger"}/>
                 </div>
                 <Card className="border bg-light">
-                    {/* <Card.Header>
+                    <Card.Header>
                         <FontAwesomeIcon icon={faList} /> List of Products
-                    </Card.Header> */}
+                    </Card.Header>
                     <Card.Body>
                         <h3><FontAwesomeIcon icon={faList} /> List of Products</h3>
                         <br />

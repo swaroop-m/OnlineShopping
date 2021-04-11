@@ -13,3 +13,27 @@
   justify-content: end;
   align-items: flex-end;
 } */
+
+/* #nav-dropdown{
+  color: white;
+  font-weight: bold;
+  background-color:yellow;
+} */
+
+/* .dropdown {list-style: none; background: yellow; padding: 10px; display: inline-block;}
+.dropdown .nav-link {color:#fff; text-decoration: none;}
+.dropdown .dropdown-menu a{color: #000; text-decoration: none;}
+.dropdown .btn {background: yellow; color:#fff;}
+.dropdown .btn:hover {background: yellow; color:#000;}
+.dropdown .btn:active {background: yellow; color:#000;}
+.dropdown .btn:focus {background: yellow; color:#000;}
+.dropdown-menu .dropdown-item {display: inline-block; width: 100%;}
+.container .dropdown .dropdown-menu a:hover */
+
+
+/* .NavDropdown.Item */
+/* { */
+  /* color: #fff; */
+  /* background-color: yellow;
+  border-color: yellow;
+} */
