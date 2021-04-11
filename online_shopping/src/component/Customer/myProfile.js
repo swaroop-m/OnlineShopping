@@ -5,7 +5,7 @@ import {Button,Card , ListGroup} from 'react-bootstrap'
 function MyProfile(props) {
     
 
-    return (
+    return ( 
         <>
             <h1>My profile</h1>
             <hr/>

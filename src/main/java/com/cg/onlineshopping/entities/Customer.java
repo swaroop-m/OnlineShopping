@@ -35,7 +35,6 @@ public class Customer implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)  //Primary key generation automatically according to the database
 	private Integer customerId; //primary key
-
 	private String firstName;
 	private String lastName;
 	private String mobileNumber;

@@ -8,7 +8,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.cg.onlineshopping.entities.Customer;
 import com.cg.onlineshopping.entities.User;
 import com.cg.onlineshopping.exception.AlreadyExistsException;
 import com.cg.onlineshopping.exception.NotAUserException;
@@ -16,6 +18,7 @@ import com.cg.onlineshopping.exception.NotFoundException;
 import com.cg.onlineshopping.repository.ILoginRepository;
 
 @Service
+@CrossOrigin(origins = "http://localhost:3000")
 public class ILoginServiceImpl implements ILoginService {
 
 	@Autowired
@@ -85,6 +88,25 @@ public class ILoginServiceImpl implements ILoginService {
 		return allUsers;
 	}
 
+	
+	//deleting user by userId
+		@Override
+		public User deleteUser(Integer id) {
+
+			// Find the User to be deleted
+			Optional<User> user = userRepository.findById(id);
+			// If the user is present in database table then delete and return the user
+			if(user.isPresent()) {
+				User deletedUser = user.get();
+				userRepository.delete(deletedUser);
+				return deletedUser;
+			}
+			else {
+				// If the user is not found in the database then throw an exception
+				throw new NotFoundException("No User found with ID: " + id);
+			}
+
+		}
 	
 	//updating a user
 	@Override

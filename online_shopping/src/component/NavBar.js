@@ -104,6 +104,30 @@ class NavBar extends Component {
           </NavDropdown>
 
 
+          <NavDropdown className=""
+            title="Admin"
+            id="basic-nav-dropdown" /*className="bg-dark text-white"*/
+          >
+            <NavDropdown.Item className="NavDropdown bg-warning">
+              <Link to={"/addproduct"} className="nav-link">
+                Add Product
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item className="NavDropdown">
+              <Link to={"/listorder"} className="nav-link">
+                Order List
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item className="NavDropdown">
+              <Link to={"/listcustomers"} className="nav-link">
+                Customer List
+              </Link>
+            </NavDropdown.Item>
+
+          </NavDropdown>
+
+          
+
           <Link to={"/AboutUs"} className="nav-link">
             AboutUs
           </Link>
@@ -128,10 +152,6 @@ class NavBar extends Component {
             <Link to={"/LogOut"} className="nav-link " onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt} />LogOut</Link>
             </NavDropdown.Item>
           </NavDropdown>
-
-          
-
-          <Link to={"/UserList"} className="nav-link">Users List</Link>
 
           <Link to={"/Cart"} className="nav-link">
             Cart 

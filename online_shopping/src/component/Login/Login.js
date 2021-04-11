@@ -88,8 +88,10 @@ class Login extends Component {
                         </Button>
                     </Card.Footer>
                 </Card>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </Col>
         </Row>
+        
 
       
         );

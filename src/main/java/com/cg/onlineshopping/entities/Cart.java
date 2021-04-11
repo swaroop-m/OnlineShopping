@@ -45,4 +45,7 @@ public class Cart implements Serializable {
 	@JoinColumn(name="cartId")
 	@JsonManagedReference
 	private List<CartItem> products;
+
+	
+	
 }

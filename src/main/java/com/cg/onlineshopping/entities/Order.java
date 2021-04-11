@@ -53,22 +53,13 @@ public class Order implements Serializable {
 	//@JoinColumn(name = "customerId") //Customer ID is the foreign key
 	public Customer customer;
 
-    //Establishing a one to many relationship with the product table
+    
+
+	//Establishing a one to many relationship with the product table
 	@OneToMany(cascade = CascadeType.ALL)
 	
 	private List<CartItem> cartItem;
 
-    
-
-	public Order(LocalDate orderDate, String orderStatus, Customer customer,List<CartItem> cartItem) {
-		super();
-		this.orderDate=orderDate;
-		this.orderStatus=orderStatus;
-		this.customer=customer;
-		this.cartItem=cartItem;
-		
-
-	}
 
 	
 }

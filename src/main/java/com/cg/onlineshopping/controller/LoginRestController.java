@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cg.onlineshopping.entities.Customer;
 import com.cg.onlineshopping.entities.User;
 import com.cg.onlineshopping.service.ILoginService;
 
@@ -31,6 +33,7 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/api")
 @Api(value = "LoginController", tags = { "LoginAPI" })
 @ApiModel(description = "You can find all the Login related APIs here ")
+@CrossOrigin(origins = "http://localhost:3000")
 public class LoginRestController 
 {
 	private static final Logger log =LogManager.getLogger(LoginRestController.class);
@@ -104,5 +107,13 @@ public class LoginRestController
 		User updatedUser = loginService.updateUser(user);
 		return updatedUser;
 	}
+	
+	//Remove Customer	
+		@ApiOperation(value = "Delete a User using customer ID")
+		@DeleteMapping("/deleteUser/{id}") // working
+		public ResponseEntity<User> deleteUser(@PathVariable("id") int id) {
+			User deletedUser = loginService.deleteUser(id);
+			return new ResponseEntity<User>(deletedUser,HttpStatus.OK);
+		}
 
 }

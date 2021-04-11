@@ -31,7 +31,6 @@ import Order from './component/Order/Order'
 
 import Login from './component/Login/Login'
 import Register from './component/Login/Register'
-import UserList from './component/Login/UserList'
 import ViewAllComplaints from './component/CustomerCare/ViewAllComplaints'
 
 
@@ -82,8 +81,6 @@ export default function App() {
 
             <Route path="/Login" exact component={Login}/>
             <Route path="/Register" exact component={Register}/>
-            <Route path="/UserList" exact component={() => 
-              <Provider store={store}><UserList/></Provider>}/>
             <Route path="/Logout" exact component={Login}/>
 
             {/* <CreateProduct />

@@ -17,4 +17,5 @@ public interface ILoginService
 	//Extra functions added
 	public List<User> viewAllUsers();		//method to view all users
 	public User updateUser(User user);		//method to update a user
+	public User deleteUser(Integer id);
 }

@@ -33,7 +33,7 @@ public class Address implements Serializable{
 	private String state;
 	private String country;
 	private String pincode;
-
+	
 	/*
 	 * @Author: Shrestha Chowdhury (JEEFSI_Uni41)
 	 * Code ends here

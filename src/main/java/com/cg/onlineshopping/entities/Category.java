@@ -33,10 +33,6 @@ public class Category implements Serializable {
 	private Integer catId;
 	private String categoryName;
 
-	public Category(String categoryName) {
-		super();
-		this.categoryName = categoryName;
-	}
 }
 
 /**
