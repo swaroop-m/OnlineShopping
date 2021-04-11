@@ -51,19 +51,17 @@ public class OrderModuleTest {
 	@MockBean
 	ICustomerRepository custRepository;
 	
-	@MockBean
-	IDeliveryAddressRepository deliveryAddressRepository;
 	
 	
 	//Method that is executed before each test case
 	@BeforeEach
 	void setUp() {
-		dAddress=new DeliveryAddress(2,"12", null, null, null, null, "560051");
+		
 		customer=new Customer(9, "aishwarya", "shan", null, address, null);
 
-		order1=new Order(1,LocalDate.of(2021, 11, 12), "10", customer,null, dAddress);
-		order2=new Order(4,LocalDate.of(2021, 10, 24), "16", customer, null, dAddress);
-		order3=new Order(6,LocalDate.of(2020, 01, 16), "20", customer, null, dAddress);
+		order1=new Order(1,LocalDate.of(2021, 11, 12), "10", customer,null);
+		order2=new Order(4,LocalDate.of(2021, 10, 24), "16", customer, null);
+		order3=new Order(6,LocalDate.of(2020, 01, 16), "20", customer, null);
 	}
 
 	//Test the addOrder method
@@ -118,18 +116,7 @@ public class OrderModuleTest {
 
 	}
 
-	//Tests viewAllOrdersByAddressId method
-	@Test
-	public void testViewAllOrdersByAddressId() {
-		List<Order> order=new ArrayList<Order>();
-		order.add(order1);
-		Optional<DeliveryAddress> dAddress1=Optional.of(dAddress);
-		when(deliveryAddressRepository.findById(2)).thenReturn(dAddress1);
-		when(orderRepository.findByDeliveryAddress(dAddress)).thenReturn(order);
-		List<Order> o=orderServiceImpl.viewAllOrdersByAddressId(2);
-		Assertions.assertEquals(order,o);
-
-	}
+	
 	
 	//Tests viewAllOrdersCustomer method
 	@Test
