@@ -15,7 +15,7 @@ function  CartPriceDetails(props) {
     }
 
 //working subTotal
-        const getSubTotal = cartItems.reduce((sum,{price,quantity})=> sum + price*quantity ,0)
+        const getSubTotal = cartItems.reduce((sum,{price,cartQuantity})=> sum + price*cartQuantity ,0)
         
 //working delivery charge conditional
         
