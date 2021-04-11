@@ -47,6 +47,8 @@ class NavBar extends Component {
           <Link to={"/Shop1"} className="nav-link">
             Shop1
           </Link>
+
+        
           <NavDropdown className=""
             title="Product"
             id="basic-nav-dropdown" /*className="bg-dark text-white"*/
@@ -66,6 +68,7 @@ class NavBar extends Component {
           {/* <Link to={"addproduct"} className="nav-link">Add Products</Link>
                     <Link to={"listproducts"} className="nav-link">Product List</Link> */}
           
+
           <NavDropdown
             title="Customer"
             id="basic-nav-dropdown-c" /*className="bg-dark text-white"*/
@@ -81,6 +84,8 @@ class NavBar extends Component {
               </Link>
             </NavDropdown.Item>
           </NavDropdown>
+
+
     <NavDropdown
             title="Order"
             id="basic-nav-dropdown-c" /*className="bg-dark text-white"*/
@@ -102,6 +107,7 @@ class NavBar extends Component {
             </NavDropdown.Item>
           </NavDropdown>
 
+
           <Link to={"/AboutUs"} className="nav-link">
             AboutUs
           </Link>
@@ -111,16 +117,24 @@ class NavBar extends Component {
 
         <NavDropdown
             title="My Account"
-            id="basic-nav-dropdown" /*className="bg-dark text-white"*/>
-            <NavDropdown.Item className="NavDropdown">
-              <Link to={"/MyProfile"} className="nav-link">
+            id="basic-nav-dropdown">
+            <NavDropdown.Item className="NavDropdown bg-warning ">
+              <Link to={"/MyProfile"} className="nav-link ">
                 My Profile
               </Link>
             </NavDropdown.Item>
-            <NavDropdown.Item >
-              <Button className="btn btn-danger">Log out</Button>
+            <NavDropdown.Item className="NavDropdown bg-warning">
+              <Link to={"/CustomerCare"} className="nav-link ">
+                <RiCustomerService2Fill /> Contact Us
+              </Link>
+            </NavDropdown.Item>
+            <NavDropdown.Item classname="NavDropdown bg-warning">
+            <Link to={"/LogOut"} className="nav-link " onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt} />LogOut</Link>
             </NavDropdown.Item>
           </NavDropdown>
+
+          
+
           <Link to={"/UserList"} className="nav-link">Users List</Link>
 
           <Link to={"/Cart"} className="nav-link">
@@ -128,9 +142,7 @@ class NavBar extends Component {
             <AiOutlineShoppingCart size="1.5em" />
           </Link>
 
-          <Link to={"/CustomerCare"} className="nav-link">
-            <RiCustomerService2Fill />
-          </Link>
+          
 
           <NavDropdown
             title="Customer C"
@@ -144,7 +156,7 @@ class NavBar extends Component {
 
          
           
-          <Link to={"/LogOut"} className="nav-link" onClick={this.logout}><FontAwesomeIcon icon={faSignOutAlt} />LogOut</Link>
+          
         </Nav>
       </Navbar.Collapse>
       </>
