@@ -18,6 +18,7 @@ class Product extends Component {
     this.state.show = false;
     this.state.saving = 0;
     this.state.method = "post";
+    this.state.isValid = false;
     // this.state.category.categoryName: "",
     this.productChange = this.productChange.bind(this);
     this.submitProduct = this.submitProduct.bind(this);
@@ -40,10 +41,12 @@ class Product extends Component {
   validate = () => {
 
     if (isNaN(this.state.quantity)) {
-      this.state.quantityError = "entered quantity is not a number";
+      // this.state.quantityError = "entered quantity is not a number";
+      this.setState({quantityError: "entered quantity is not a number"});
     }
     if (!(this.state.quantity)) {
       this.state.quantityError = "quantity cannot be empty";
+      this.setState({quantityError: "quantity cannot be empty"});
     }
 
     if (!(this.state.pictureUrl.includes("www.") && this.state.pictureUrl.includes(".com"))) {
@@ -67,10 +70,10 @@ class Product extends Component {
 
   submitProduct = (event) => {
     event.preventDefault();
-    // const isValid = this.validate();
-    const isValid = true;
+    this.state.isValid = this.validate();
+    // const isValid = true;
     console.log(this.state);
-    if (isValid) {
+    if (this.state.isValid) {
       this.setState({ saving: 1 });
       const product = {
         pictureUrl: this.state.pictureUrl,
@@ -102,7 +105,7 @@ class Product extends Component {
             alert(error.response.data.message);
           });
       }, 500);
-      this.setState({ saving: 0 });
+      // this.setState({ saving: 0 });
     }
     else{
       
@@ -147,6 +150,9 @@ class Product extends Component {
   productChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
+      quantityError: "",
+      priceError: "",
+      imageError: "",
     });
   };
 
@@ -216,6 +222,8 @@ class Product extends Component {
             {this.state.productId ? "Update Product" : "Add New Product"}
           </Card.Header>
           <Form
+            noValidate
+            validated={this.state.isValid}
             onReset={this.resetProduct}
             onSubmit={
               this.state.productId ? this.updateProduct : this.submitProduct
@@ -236,7 +244,6 @@ class Product extends Component {
                       name="pictureUrl"
                       value={pictureUrl}
                       onChange={this.productChange}
-                      // className={"bg-dark text-white"}
                       placeholder="Enter Product Cover Photo URL"
                     />
                   </InputGroup>
@@ -304,7 +311,6 @@ class Product extends Component {
                     name="specification"
                     value={specification}
                     onChange={this.productChange}
-                    // className={"bg-dark text-white"}
                     placeholder="Enter Product specification"
                   />
                 </Form.Group>
@@ -318,7 +324,6 @@ class Product extends Component {
                     name="manufacturer"
                     value={manufacturer}
                     onChange={this.productChange}
-                    // className={"bg-dark text-white"}
                     placeholder="Enter Product manufacturer"
                   />
                 </Form.Group>
@@ -334,10 +339,15 @@ class Product extends Component {
                     type="test"
                     name="quantity"
                     value={quantity}
-                    onChange={this.productChange}
-                    // className={"bg-dark text-white"}
+                    onChange={this.productChange.bind}
                     placeholder="Enter Product quantity"
                   />
+                   <Form.Control.Feedback type='invalid'>
+                        error : { this.state.quantityError }
+                    </Form.Control.Feedback>
+                    <div style={{ fontSize: 12, color: "red", zIndex: "3"}}>
+                    {this.state.quantityError}
+                  </div>
                 </Form.Group>
                 <Form.Group
                   className="col-md-6 col-sm-12"
@@ -350,9 +360,11 @@ class Product extends Component {
                     name="price"
                     value={price}
                     onChange={this.productChange}
-                    // className={"bg-dark text-white"}
                     placeholder="Enter Product price"
                   />
+                  <div style={{ fontSize: 12, color: "red", zIndex: "3"}}>
+                    {this.state.priceError}
+                  </div>
                 </Form.Group>
               </Form.Row>
             </Card.Body>
