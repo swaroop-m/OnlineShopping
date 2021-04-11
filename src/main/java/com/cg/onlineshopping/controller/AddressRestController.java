@@ -31,6 +31,7 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/api")
 @Api(value = "Address Controller", tags = { "AddressAPI" })
 @ApiModel(description = "You can find all the address related APIs here ")
+@CrossOrigin
 public class AddressRestController {
 
 	private static final Logger log =LogManager.getLogger(AddressRestController.class);
