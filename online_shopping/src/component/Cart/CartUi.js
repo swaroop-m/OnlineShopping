@@ -1,28 +1,38 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import {AiOutlineShoppingCart } from 'react-icons/ai'
 import {Link} from 'react-router-dom'
+import { Button} from 'react-bootstrap'
+import { useDispatch, useSelector } from "react-redux";
 import './cart.css'
 
 import AddToCart from './AddToCart'
 import  CartPriceDetails from './CartPriceDetails'
 
-import RemoveAllProducts from './RemoveAllProducts'
 // import ViewAllProducts from './ViewAllProducts'
+
+
 
 //contains-> header , clear cart , display text 'cart is empty'
 function CartUi(props) {
 
     const cartItems= useSelector(state=>state.cart.cart)
+    const dispatch = useDispatch();
+
+
+    const clearCart=(product)=>{
+    dispatch({ type: "CLEAR_CART"});
+}
         
     return (
         <>
         
-        <div className="small-container cart-page">
+        <div className="container cart-page">
             
             <h2><AiOutlineShoppingCart size="1.5em"/>My Cart ({cartItems.length})</h2>   
             
-            <RemoveAllProducts/>
+            <div className="my-Button">
+                <Button variant="outline-dark" onClick={clearCart}  >Clear Cart</Button>
+            </div>
 
             <AddToCart/>
 

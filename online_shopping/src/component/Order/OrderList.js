@@ -131,7 +131,7 @@ class OrderList extends Component {
         };
 
         return (
-            <div>
+            <div className="container">
                 <div style={{"display":this.state.show ? "block" : "none"}}>
                 <OrderToast show = {this.state.show} message = {"Order Deleted Successfully."} type = {"danger"}/>
                 </div>

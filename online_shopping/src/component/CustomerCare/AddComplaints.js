@@ -24,7 +24,7 @@ function Addcomplaints() {
 
     return (
 <>
-        <div>
+        <div className="container">
       <h3><RiCustomerService2Fill/> Customer Care</h3>
 
       <Form onSubmit={submitProduct}>
