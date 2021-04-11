@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import { Card, Form, Button, Col, InputGroup, Image } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSave,
-  faPlusSquare,
-  faUndo,
-  faList,
-  faEdit,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSave, faPlusSquare, faUndo, faList, faEdit } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import AddProductSuccessToast from "./AddProductSuccessToast";
 
@@ -19,49 +13,47 @@ class Product extends Component {
     this.state.saving = 0;
     this.state.method = "post";
     this.state.isValid = false;
-    // this.state.category.categoryName: "",
     this.productChange = this.productChange.bind(this);
     this.submitProduct = this.submitProduct.bind(this);
   }
   initialState = {
-    productId: "",
-    pictureUrl: "",
-    productName: "",
-    dimension: "",
-    specification: "",
-    manufacturer: "",
-    quantity: 0,
-    price: 0.0,
-    categoryName: "",
-    quantityError: "",
-    priceError: "",
-    imageError: "",
+    productId: "", pictureUrl: "", productName: "", dimension: "", specification: "", manufacturer: "", quantity: 0, price: 0.0, categoryName: "",
+    quantityError: "", priceError: "", imageError: ""
   };
 
   validate = () => {
-
+    if (!Number.isInteger(parseInt(this.state.quantity))) {
+      this.state.quantityError = "Quantity must be an Integer";
+    }
     if (isNaN(this.state.quantity)) {
-      // this.state.quantityError = "entered quantity is not a number";
-      this.setState({quantityError: "entered quantity is not a number"});
+      this.state.quantityError = "Entered quantity is not a Number";
     }
-    if (!(this.state.quantity)) {
-      this.state.quantityError = "quantity cannot be empty";
-      this.setState({quantityError: "quantity cannot be empty"});
+    if (this.state.quantity < 0) {
+      this.state.quantityError = "Quantity cannot be Negative";
+    }
+    if (!this.state.quantity) {
+      this.state.quantityError = "Quantity cannot be Empty";
     }
 
-    if (!(this.state.pictureUrl.includes("www.") && this.state.pictureUrl.includes(".com"))) {
-      this.state.imageError = "invalid image url";
+    if (!(this.state.pictureUrl.includes("www.") &&
+         this.state.pictureUrl.includes("/"))) {
+      this.state.imageError = "Invalid Image url";
     }
 
     if (!this.state.price) {
-      this.state.priceError = "price cannot be empty";
+      this.state.priceError = "Price cannot be Empty";
     }
-
+    if (this.state.price < 0) {
+      this.state.priceError = "Price cannot be Negative";
+    }
     if (isNaN(this.state.price)) {
-      this.state.priceError = "entered price is not a number";
+      this.state.priceError = "Entered price is not a Number";
     }
 
-    if (this.state.quantityError || this.state.priceError || this.state.imageError || this.state.priceError) {
+    if (this.state.quantityError ||
+        this.state.priceError ||
+        this.state.imageError ||
+        this.state.priceError ) {
       return false;
     }
 
@@ -74,7 +66,7 @@ class Product extends Component {
     // const isValid = true;
     console.log(this.state);
     if (this.state.isValid) {
-      this.setState({ saving: 1 });
+      this.setState({ saving: 1, show: true });
       const product = {
         pictureUrl: this.state.pictureUrl,
         productName: this.state.productName,
@@ -92,7 +84,6 @@ class Product extends Component {
           .post("http://localhost:9000/api/saveproduct", product)
           .then((response) => {
             if (response.data != null) {
-              this.setState({ show: true });
               this.setState({ show: true, saving: 1, method: "post" });
               setTimeout(() => this.setState({ show: false }), 3000);
             } else {
@@ -100,22 +91,18 @@ class Product extends Component {
             }
             this.setState(this.initialState);
           })
-          .catch(error => {
-            console.log(error.response.data.message)
+          .catch((error) => {
+            console.log(error.response.data.message);
             alert(error.response.data.message);
           });
       }, 500);
-      // this.setState({ saving: 0 });
-    }
-    else{
-      
+    } else {
       this.setState({ saving: 0 });
     }
   };
 
   updateProduct = (event) => {
     event.preventDefault();
-
     const product = {
       productId: this.state.productId,
       pictureUrl: this.state.pictureUrl,
@@ -247,10 +234,7 @@ class Product extends Component {
                       placeholder="Enter Product Cover Photo URL"
                     />
                   </InputGroup>
-                    <Form.Control.Feedback type='invalid'>
-                        { this.state.imageError }
-                    </Form.Control.Feedback>
-                  <div style={{ fontSize: 12, color: "red", zIndex: "3"}}>
+                  <div style={{ fontSize: 12, color: "red", zIndex: "3" }}>
                     {this.state.imageError}
                   </div>
                 </Form.Group>
@@ -281,7 +265,6 @@ class Product extends Component {
                     name="categoryName"
                     value={categoryName}
                     onChange={this.productChange}
-                    // className={"bg-dark text-white"}
                     placeholder="Enter Product Catgory"
                   />
                 </Form.Group>
@@ -295,7 +278,6 @@ class Product extends Component {
                     name="dimension"
                     value={dimension}
                     onChange={this.productChange}
-                    // className={"bg-dark text-white"}
                     placeholder="Enter Product Dimension"
                   />
                 </Form.Group>
@@ -339,13 +321,13 @@ class Product extends Component {
                     type="test"
                     name="quantity"
                     value={quantity}
-                    onChange={this.productChange.bind}
+                    onChange={this.productChange}
                     placeholder="Enter Product quantity"
                   />
-                   <Form.Control.Feedback type='invalid'>
-                        error : { this.state.quantityError }
-                    </Form.Control.Feedback>
-                    <div style={{ fontSize: 12, color: "red", zIndex: "3"}}>
+                  <Form.Control.Feedback type="invalid">
+                    error : {this.state.quantityError}
+                  </Form.Control.Feedback>
+                  <div style={{ fontSize: 12, color: "red", zIndex: "3" }}>
                     {this.state.quantityError}
                   </div>
                 </Form.Group>
@@ -362,7 +344,7 @@ class Product extends Component {
                     onChange={this.productChange}
                     placeholder="Enter Product price"
                   />
-                  <div style={{ fontSize: 12, color: "red", zIndex: "3"}}>
+                  <div style={{ fontSize: 12, color: "red", zIndex: "3" }}>
                     {this.state.priceError}
                   </div>
                 </Form.Group>

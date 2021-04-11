@@ -39,6 +39,8 @@ class Shop1 extends Component {
            console.log(this.state.productsInCategory);
       });
 
+      // http://localhost:9000/api/viewproductscategories
+
     //   words.forEach((word) => {
     //     console.log(word);
     //   });

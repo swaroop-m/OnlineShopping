@@ -1,11 +1,14 @@
 package com.cg.onlineshopping.controller;
 
+import java.util.HashMap;
+
 /**
  * @author Swaroop M
  * Code starts here
  */
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -107,6 +110,18 @@ public class ProductRestController {
 	public ResponseEntity<List<String>> viewCategory() {
 		log.info("view all categories");
 		return new ResponseEntity<List<String>>(iProductRepository.findDistinctCategory(),HttpStatus.OK);
+	}
+	
+	@ApiOperation(value = "View products according to Categories")
+	@GetMapping("/viewproductscategories") // working
+	public ResponseEntity<Map<String, List<Product>>> viewProductsAccCategory() {
+		log.info("view all products according to categories");
+		Map<String,List<Product>> productsAccCategory = new HashMap<String,List<Product>>();
+		List<String> categories = iProductRepository.findDistinctCategory();
+		for(String category:categories) {
+			productsAccCategory.put(category,iProductService.viewProductByCategory(category));
+		}
+		return new ResponseEntity<Map<String,List<Product>>>(productsAccCategory,HttpStatus.OK);
 	}
 
 }
