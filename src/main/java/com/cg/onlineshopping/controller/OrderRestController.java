@@ -102,14 +102,7 @@ public class OrderRestController {
 		return new ResponseEntity<>(orders,HttpStatus.ACCEPTED);
 	}
 
-    //To get the orders based on the Address ID
-	@GetMapping("/allordersbylocation/{id}")
-	public ResponseEntity<List<Order>> viewAllOrdersByAddressId(@PathVariable("id")int AddressId){
-		List<Order> order=orderService.viewAllOrdersByAddressId(AddressId);
-		log.info("View All Orders based On Address ID");
-		return new ResponseEntity<>(order,HttpStatus.ACCEPTED);
-	}
-
+    
     //To get the orders based on Customer ID
 	@GetMapping("/allordersbycustomer/{customerId}")
 	public ResponseEntity<List<Order>> viewAllOrdersCustomer(@PathVariable int customerId) throws NotFoundException {
