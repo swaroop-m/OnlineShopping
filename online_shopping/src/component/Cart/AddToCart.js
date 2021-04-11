@@ -11,13 +11,13 @@ function Addtocart(props) {
 
     let [initialValue,setInitialValue] = useState(1)
 
-    let addQuantity =() =>{
-        setInitialValue(initialValue+1)
-    }
+    // let addQuantity =() =>{
+    //     setInitialValue(initialValue+1)
+    // }
 
-    let substractQuantity =() =>{
-        setInitialValue(initialValue-1)
-    } 
+    // let substractQuantity =() =>{
+    //     setInitialValue(initialValue-1)
+    // } 
 
     const cartItems= useSelector(state=>state.cart.cart)
 
@@ -29,10 +29,11 @@ function Addtocart(props) {
         dispatch({type:'REMOVE_PRODUCT', payload: product})
      }
 
-    // const addQuantity = () => {
-    //     dispatch({type:'ADD_QUANTITY'})
-    //  }
+    const addQuantity = () => {
+        dispatch({type:'ADD_QUANTITY'})
+     }
     console.log(cartItems);
+
 
     return (
         <>
@@ -60,8 +61,8 @@ function Addtocart(props) {
                             </div>
                         </div>
                     </td>
-                    {/* onClick={()=>dispatch({type:"ADD_QUANTITY"})} */}
-                    <td> <Button  variant="light" ><VscAdd/></Button> {data.quantity} <Button variant="light" onClick={substractQuantity} ><GrSubtract/></Button></td>
+                    {/*  */}
+                    <td> <Button  variant="light" onClick={addQuantity}><VscAdd/></Button> {data.quantity} <Button variant="light"><GrSubtract/></Button></td>
 
                     <td>₹{data.price}</td>
                 </tr>

@@ -75,7 +75,7 @@ td:last-child {
 
 /* Clear cart button */
 .my-Button {
-  position: absolute; /* or position: absolute; */
+  position: absolute;
   top: 30px;
   right: 160px;
 }

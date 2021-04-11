@@ -17,7 +17,7 @@ function ViewAllComplaints(props) {
     },[])
 
     return (
-        <div>
+        <div className="container">
             <div  className="d-flex justify-content-start align-items-center h3 text-dark" style={{height:100}}>All Complaints
         
             </div>

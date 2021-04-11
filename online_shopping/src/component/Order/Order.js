@@ -230,7 +230,7 @@ export default class Order extends Component{
         //const [value, onChange] = useState(new Date());
 
         return (
-            <div>
+            <div className="container">
 
                 <div style={{"display":this.state.show ? "block" : "none"}}>
                     <OrderToast show={this.state.show} message={this.state.method === "put" ? "Order Updated Successfully." : "Order Saved Successfully."} type={"success"}/>

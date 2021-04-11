@@ -175,7 +175,7 @@ export default class Customer extends Component{
                     <MyToast show={this.state.show} message={this.state.method === "put" ? "Customer Updated Successfully." : "Customer Saved Successfully."} type={"success"}/>
                 </div>
 
-                <Card className={"border border-dark bg-info text-white"}>
+                <Card className={"border border-dark bg-info text-white container"}>
                     <Card.Header>
                         <FontAwesomeIcon icon={this.state.customerId ? faEdit : faPlusSquare} /> {this.state.customerId ? "Update Customer" : "Add Customer"} 
         </Card.Header>

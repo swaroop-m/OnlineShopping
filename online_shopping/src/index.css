@@ -1,10 +1,15 @@
-.style-nav {
+/* .style-nav {
   font-family: sans-serif;
+  font-size-adjust: inherit;
   color: white;
+  justify-content: start;
+  align-items: flex-start;
 }
 
 .style-nav1 {
   font-family: sans-serif;
   color: black;
+  font-size: inherit;
   justify-content: end;
-}
+  align-items: flex-end;
+} */

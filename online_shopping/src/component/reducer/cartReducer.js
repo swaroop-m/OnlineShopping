@@ -1,6 +1,3 @@
-import { createStore } from "redux";
-
-
 // Common REUSABLE STATE
 const initialState = {
   cart:[], 
@@ -12,6 +9,7 @@ function cartReducer(state = initialState, action) {
   switch (action.type) {
     // COMMON LOGIC
 
+//addTocart
     case "ADD_TO_CART":
       let flag=false;
 
@@ -30,36 +28,22 @@ function cartReducer(state = initialState, action) {
       return { ...state, cart:[...state.cart,{...action.payload}]};
       }
 
-      //removeProduct
-       case "REMOVE_PRODUCT":
-        
-        let itemToRemove= state.cart.find(cartItem => cartItem.productId === action.payload.productId)
-        let new_items = state.cart.filter(cartItem=> cartItem.productId !== action.payload.productId)
-        //  new_items = state.cart.filter(cartItem=> cartItem.productId === cartItem.productId)
+//removeProduct
+      case "REMOVE_PRODUCT":
+      let itemToRemove= state.cart.find(cartItem => cartItem.productId === action.payload.productId)
+      let new_items = state.cart.filter(cartItem=> cartItem.productId !== action.payload.productId)
+      return {cart:new_items};
 
-        return {cart:new_items};
-        
-        
-        // console.log(itemToRemove)
-        // return{
-        //     ...state,
-        //     cart:[new_items] 
-        // }
-    
-  
-    
-      //removeAllproducts
+//removeAllproducts
       case 'CLEAR_CART' :
-        return {...state,cart:([])}
-      
+      return {...state,cart:([])}
 
-      // case "ADD_QUANTITY":
-      //     const addQuantity = state.cart.find((cartItem)=>{
-      //       if(cartItem.productId === action.payload.productId)
-      //       cartItem.quantity =cartItem.quantity +1 
-      //       return{...state ,cart:[...addQuantity]
-      //       }
-      // })
+//addQuantity
+      case "ADD_QUANTITY":
+      let cartItem= state.cart.find(cartItem => cartItem.productId === action.payload.productId)
+      cartItem.quantity = cartItem.quantity+ 1 ;
+      return{...state}
+    
 
       // case "SUB_QUANTITY":
       //     const subQuantity = state.cart.find((cartItem)=>{
