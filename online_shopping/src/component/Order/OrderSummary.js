@@ -1,10 +1,12 @@
-import React, { Component, useState } from 'react'
-
-import { Button, Col, Row } from 'react-bootstrap'
+import React, { Component, useState,useEffect } from 'react'
+import { Button, Card, Col, Row ,Form} from 'react-bootstrap'
 import Order from './Order'
 
 function OrderSummary(props) {
          
+     var myCurrentDate = new Date();
+     var date = myCurrentDate.getDate() + '-' + (myCurrentDate.getMonth()+1) + '-' + myCurrentDate.getFullYear();
+    const newCurrentDate = date;
 
         let cancelButton =() =>{
             console.log("Cancel Order")
@@ -14,8 +16,8 @@ function OrderSummary(props) {
             console.log("Order Placed", new Date())
         }
       
-        
-    
+     
+
 
     return (
          <div className="container">
@@ -32,7 +34,7 @@ function OrderSummary(props) {
                                      Aishwarya A S</p>
                                      <p>986628822</p>
                                      <p>No.10,Payappa Garden,Bangalore-560051</p>
-                                     <p><b>Order Date:</b>12.2.2021</p>
+                                     <p><b>Order Date:</b>{newCurrentDate}</p>
                                      <p><b>Order Status:</b> Confirmed</p><br/>
                                     
                                      <div className="top-element-formatting">
@@ -42,9 +44,7 @@ function OrderSummary(props) {
                                 </Col> 
                             </Row>
                             <hr/>
-                            <Col  md={{offset: 8}}>
-                            <Button className="btn btn-danger" onClick={buttonClick}> Cancel Order</Button>
-                        </Col>
+                           
                             <Col md={{ span: 8, offset:8 }}> </Col>
                         </div>
                     </Col>
@@ -69,8 +69,11 @@ function OrderSummary(props) {
                     </Col> 
                     
                 </Row>
+                
             </div>
+
           );
     }
+    
 
 export default OrderSummary;

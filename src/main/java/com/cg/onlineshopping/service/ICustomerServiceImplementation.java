@@ -144,7 +144,7 @@ public class ICustomerServiceImplementation implements ICustomerService{
 	public List<Customer> viewAllCustomers() {
 
 		// Retrieval Operation to get all customer details from database.
-		List<Customer> allCustomers = customerRepository.findAll();
+		List<Customer> allCustomers = customerRepository.findAll(Sort.by(Direction.DESC,"customerId"));
 		// Check if no customer are present in database.
 		if (allCustomers.isEmpty()) {
 			// If customer table is empty, throw an exception.

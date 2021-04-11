@@ -3,19 +3,20 @@ import {BsInfoCircle} from 'react-icons/bs'
 import { Button, Badge} from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import './cart.css'
-
+import { useHistory } from "react-router-dom";
 
 //conatins-> subtotal,delivery(info),total and placeOder button //all working
 function  CartPriceDetails(props) {
     
     const cartItems= useSelector(state=>state.cart.cart)
-
+    let history=useHistory();
     let placeOrderClick= () => {
         console.log("Placed Order", new Date())
+        history.push("thankyou");
     }
 
 //working subTotal
-        const getSubTotal = cartItems.reduce((sum,{price,quantity})=> sum + price*quantity ,0)
+        const getSubTotal = cartItems.reduce((sum,{price,cartQuantity})=> sum + price*cartQuantity ,0)
         
 //working delivery charge conditional
         

@@ -4,18 +4,14 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlusSquare, faSave, faUndo, faList, faEdit} from '@fortawesome/free-solid-svg-icons';
 import OrderToast from './OrderToast';
 import axios from 'axios';
-// import DatePicker from 'react-date-picker'
 
-
-export default class Order extends Component{
-
+ class Order extends Component{
     constructor(props){
         super(props);
         this.state = this.initialState;
         this.state.show = false;
         this.orderChange=this.orderChange.bind(this);
         this.submitOrder=this.submitOrder.bind(this);
-
     }
 
     initialState = {
@@ -33,6 +29,7 @@ export default class Order extends Component{
             this.findOrderByLocation(deliveryAddressId);
         }
     }
+
     findOrderById = (orderId) => {
         axios.get("http://localhost:9000/api/vieworder/"+orderId)
             .then(response => {
@@ -58,56 +55,7 @@ export default class Order extends Component{
 
             });
     }
-    findOrderbyDate = (orderDate) => {
-        axios.get("http://localhost:9000/api/allordersbydate/"+orderDate)
-            .then(response => {
-                if(response.data != null) {
-                    this.setState({
-                        orderId: response.data.orderId,
-                        orderDate:response.data.orderDate,
-                        orderStatus: response.data.orderStatus,
-                        firstName: response.data.firstName,
-                        lastName: response.data.lastName,
-                        mobileNumber: response.data.mobileNumber,
-                        email: response.data.email,    
-                        streetNo: response.data.address?.streetNo,
-                        buildingName: response.data.address?.buildingName,
-                        city: response.data.address?.city,
-                        state: response.data.address?.state,
-                        country: response.data.address?.country,
-                        pincode: response.data.address?.pincode,                                            
-                    });
-                }
-            }).catch((error) => {
-                console.error("Error - "+error);
-
-            });
-    }
-    findOrderByLocation = (deliveryAddressId) => {
-        axios.get("http://localhost:9000/api/allordersbylocation/"+deliveryAddressId)
-            .then(response => {
-                if(response.data != null) {
-                    this.setState({
-                        orderId: response.data.orderId,
-                        orderDate:response.data.orderDate,
-                        orderStatus: response.data.orderStatus,
-                        firstName: response.data.firstName,
-                        lastName: response.data.lastName,
-                        mobileNumber: response.data.mobileNumber,
-                        email: response.data.email,    
-                        streetNo: response.data.address?.streetNo,
-                        buildingName: response.data.address?.buildingName,
-                        city: response.data.address?.city,
-                        state: response.data.address?.state,
-                        country: response.data.address?.country,
-                        pincode: response.data.address?.pincode,                                            
-                    });
-                }
-            }).catch((error) => {
-                console.error("Error - "+error);
-
-            });
-    }
+   
     submitOrder = event => {
         event.preventDefault();
 
@@ -227,7 +175,7 @@ export default class Order extends Component{
 
     render() {
         const {orderDate,orderStatus,firstName, lastName, mobileNumber, email, streetNo, buildingName, city, country, pincode} =this.state;
-        //const [value, onChange] = useState(new Date());
+       
 
         return (
             <div className="container">
@@ -301,5 +249,5 @@ export default class Order extends Component{
         );
     }
 }
-
+export default Order;
 

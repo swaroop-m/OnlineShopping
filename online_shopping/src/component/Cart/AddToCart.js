@@ -9,15 +9,6 @@ import {VscAdd} from 'react-icons/vsc'
 //contains all products which are added to cart //allworking
 function Addtocart(props) {
 
-    let [initialValue,setInitialValue] = useState(1)
-
-    // let addQuantity =() =>{
-    //     setInitialValue(initialValue+1)
-    // }
-
-    // let substractQuantity =() =>{
-    //     setInitialValue(initialValue-1)
-    // } 
 
     const cartItems= useSelector(state=>state.cart.cart)
 
@@ -29,10 +20,16 @@ function Addtocart(props) {
         dispatch({type:'REMOVE_PRODUCT', payload: product})
      }
 
-    const addQuantity = () => {
-        dispatch({type:'ADD_QUANTITY'})
+    const addQuantity = (product) => {
+        dispatch({type:'ADD_QUANTITY',payload:product})
      }
+     
+     const subQuantity = (product) => {
+        dispatch({type:'SUB_QUANTITY',payload:product})
+     }
+     
     console.log(cartItems);
+
 
 
     return (
@@ -62,9 +59,9 @@ function Addtocart(props) {
                         </div>
                     </td>
                     {/*  */}
-                    <td> <Button  variant="light" onClick={addQuantity}><VscAdd/></Button> {data.quantity} <Button variant="light"><GrSubtract/></Button></td>
+                    <td> <Button  variant="light" onClick={()=>(addQuantity(data))}><VscAdd/></Button> {data.cartQuantity} <Button variant="light" onClick={()=>(subQuantity(data))}><GrSubtract/></Button></td>
 
-                    <td>₹{data.price}</td>
+                    <td>₹{data.price * data.cartQuantity}</td>
                 </tr>
                 ) }
             </table>

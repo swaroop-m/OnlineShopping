@@ -38,7 +38,7 @@ public class Order implements Serializable {
      
     //Primary key for the order table
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)//Vaule of primary key is auto generated 
+	@GeneratedValue(strategy=GenerationType.AUTO)//Value of primary key is auto generated 
 	public Integer orderId;
         
      //Specification of the input format for order date
@@ -50,7 +50,7 @@ public class Order implements Serializable {
 
      //Establing a one to one relationship with the customer table
 	@OneToOne(cascade =CascadeType.ALL)
-	@JoinColumn(name = "customerId") //Customer ID is the foreign key
+	//@JoinColumn(name = "customerId") //Customer ID is the foreign key
 	public Customer customer;
 
     //Establishing a one to many relationship with the product table
@@ -58,18 +58,15 @@ public class Order implements Serializable {
 	
 	private List<CartItem> cartItem;
 
-    //Establishing a one to one relationship with the Address table to store the delivery address
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="addressId") //Address ID is the foreign key
-	private DeliveryAddress deliveryAddress;
+    
 
-	public Order(LocalDate orderDate, String orderStatus, Customer customer,DeliveryAddress deliveryAddress,List<CartItem> cartItem) {
+	public Order(LocalDate orderDate, String orderStatus, Customer customer,List<CartItem> cartItem) {
 		super();
 		this.orderDate=orderDate;
 		this.orderStatus=orderStatus;
 		this.customer=customer;
 		this.cartItem=cartItem;
-		this.deliveryAddress=deliveryAddress;
+		
 
 	}
 
