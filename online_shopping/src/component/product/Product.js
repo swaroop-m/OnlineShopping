@@ -31,38 +31,83 @@ class Product extends Component {
     manufacturer: "",
     quantity: 0,
     price: 0.0,
-      categoryName: ""
+    categoryName: "",
+    quantityError: "",
+    priceError: "",
+    imageError: "",
+  };
+
+  validate = () => {
+
+    if (isNaN(this.state.quantity)) {
+      this.state.quantityError = "entered quantity is not a number";
+    }
+    if (!(this.state.quantity)) {
+      this.state.quantityError = "quantity cannot be empty";
+    }
+
+    if (!(this.state.pictureUrl.includes("www.") && this.state.pictureUrl.includes(".com"))) {
+      this.state.imageError = "invalid image url";
+    }
+
+    if (!this.state.price) {
+      this.state.priceError = "price cannot be empty";
+    }
+
+    if (isNaN(this.state.price)) {
+      this.state.priceError = "entered price is not a number";
+    }
+
+    if (this.state.quantityError || this.state.priceError || this.state.imageError || this.state.priceError) {
+      return false;
+    }
+
+    return true;
   };
 
   submitProduct = (event) => {
     event.preventDefault();
-    this.setState({ saving: 1 });
-    const product = {
-      pictureUrl: this.state.pictureUrl,
-      productName: this.state.productName,
-      dimension: this.state.dimension,
-      specification: this.state.specification,
-      manufacturer: this.state.manufacturer,
-      quantity: this.state.quantity,
-      price: this.state.price,
-      category: {
-        categoryName: this.state.categoryName
-      }
-    };
-    setTimeout(() =>{
-    axios
-      .post("http://localhost:9000/api/saveproduct", product)
-      .then((response) => {
-        if (response.data != null) {
-          this.setState({ show: true});
-          this.setState({ show: true, saving: 1, method: "post" });
-          setTimeout(() => this.setState({ show: false }), 3000);
-        } else {
-          this.setState({ show: false });
-        }
-        this.setState(this.initialState);
-      });
-    },500);
+    // const isValid = this.validate();
+    const isValid = true;
+    console.log(this.state);
+    if (isValid) {
+      this.setState({ saving: 1 });
+      const product = {
+        pictureUrl: this.state.pictureUrl,
+        productName: this.state.productName,
+        dimension: this.state.dimension,
+        specification: this.state.specification,
+        manufacturer: this.state.manufacturer,
+        quantity: this.state.quantity,
+        price: this.state.price,
+        category: {
+          categoryName: this.state.categoryName,
+        },
+      };
+      setTimeout(() => {
+        axios
+          .post("http://localhost:9000/api/saveproduct", product)
+          .then((response) => {
+            if (response.data != null) {
+              this.setState({ show: true });
+              this.setState({ show: true, saving: 1, method: "post" });
+              setTimeout(() => this.setState({ show: false }), 3000);
+            } else {
+              this.setState({ show: false });
+            }
+            this.setState(this.initialState);
+          })
+          .catch(error => {
+            console.log(error.response.data.message)
+            alert(error.response.data.message);
+          });
+      }, 500);
+      this.setState({ saving: 0 });
+    }
+    else{
+      
+      this.setState({ saving: 0 });
+    }
   };
 
   updateProduct = (event) => {
@@ -78,8 +123,8 @@ class Product extends Component {
       quantity: this.state.quantity,
       price: this.state.price,
       category: {
-        categoryName: this.state.categoryName
-      }
+        categoryName: this.state.categoryName,
+      },
     };
 
     axios
@@ -122,8 +167,7 @@ class Product extends Component {
       .then((response) => {
         if (response.data != null) {
           this.setState({
-            productId: response.data,
-            productId,
+            productId: response.data.productId,
             pictureUrl: response.data.pictureUrl,
             productName: response.data.productName,
             dimension: response.data.dimension,
@@ -131,8 +175,7 @@ class Product extends Component {
             manufacturer: response.data.manufacturer,
             quantity: response.data.quantity,
             price: response.data.price,
-            categoryName: response.data.category?.categoryName
-            
+            categoryName: response.data.category?.categoryName,
           });
         }
       })
@@ -158,7 +201,9 @@ class Product extends Component {
           <AddProductSuccessToast
             show={this.state.show}
             message={
-              this.state.method === "put" ? "Product Updated Successfully." : "Product Saved Successfully."
+              this.state.method === "put"
+                ? "Product Updated Successfully."
+                : "Product Saved Successfully."
             }
             type={"success"}
           />
@@ -179,7 +224,10 @@ class Product extends Component {
           >
             <Card.Body>
               <Form.Row>
-                <Form.Group className="col-md-6 col-sm-12" controlId="formGridCoverPhotoURL">
+                <Form.Group
+                  className="col-md-6 col-sm-12"
+                  controlId="formGridCoverPhotoURL"
+                >
                   <Form.Label>Product Photo URL</Form.Label>
                   <InputGroup>
                     <Form.Control
@@ -192,8 +240,17 @@ class Product extends Component {
                       placeholder="Enter Product Cover Photo URL"
                     />
                   </InputGroup>
+                    <Form.Control.Feedback type='invalid'>
+                        { this.state.imageError }
+                    </Form.Control.Feedback>
+                  <div style={{ fontSize: 12, color: "red", zIndex: "3"}}>
+                    {this.state.imageError}
+                  </div>
                 </Form.Group>
-                <Form.Group className="col-md-6 col-sm-12" controlId="formGridName">
+                <Form.Group
+                  className="col-md-6 col-sm-12"
+                  controlId="formGridName"
+                >
                   <Form.Label>Product Name</Form.Label>
                   <Form.Control
                     required
@@ -206,7 +263,11 @@ class Product extends Component {
                   />
                 </Form.Group>
               </Form.Row>
-              <Form.Row><Form.Group className="col-md-6 col-sm-12" controlId="formGridCategory">
+              <Form.Row>
+                <Form.Group
+                  className="col-md-6 col-sm-12"
+                  controlId="formGridCategory"
+                >
                   <Form.Label>Category</Form.Label>
                   <Form.Control
                     type="test"
@@ -217,7 +278,10 @@ class Product extends Component {
                     placeholder="Enter Product Catgory"
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 col-sm-12" controlId="formGridDimension">
+                <Form.Group
+                  className="col-md-6 col-sm-12"
+                  controlId="formGridDimension"
+                >
                   <Form.Label>Dimension</Form.Label>
                   <Form.Control
                     type="test"
@@ -230,7 +294,10 @@ class Product extends Component {
                 </Form.Group>
               </Form.Row>
               <Form.Row>
-                <Form.Group className="col-md-6 col-sm-12" controlId="formGridSpecification">
+                <Form.Group
+                  className="col-md-6 col-sm-12"
+                  controlId="formGridSpecification"
+                >
                   <Form.Label>Specification</Form.Label>
                   <Form.Control
                     type="test"
@@ -241,7 +308,10 @@ class Product extends Component {
                     placeholder="Enter Product specification"
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 col-sm-12" controlId="formGridManufacturer">
+                <Form.Group
+                  className="col-md-6 col-sm-12"
+                  controlId="formGridManufacturer"
+                >
                   <Form.Label>Manufacturer</Form.Label>
                   <Form.Control
                     type="test"
@@ -254,7 +324,10 @@ class Product extends Component {
                 </Form.Group>
               </Form.Row>
               <Form.Row>
-                <Form.Group className="col-md-6 col-sm-12" controlId="formGridQuantity">
+                <Form.Group
+                  className="col-md-6 col-sm-12"
+                  controlId="formGridQuantity"
+                >
                   <Form.Label>Quantity</Form.Label>
                   <Form.Control
                     required
@@ -266,7 +339,10 @@ class Product extends Component {
                     placeholder="Enter Product quantity"
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 col-sm-12" controlId="formGridPrice">
+                <Form.Group
+                  className="col-md-6 col-sm-12"
+                  controlId="formGridPrice"
+                >
                   <Form.Label>Price</Form.Label>
                   <Form.Control
                     required

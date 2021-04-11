@@ -42,6 +42,9 @@ class NavBar extends Component {
           <Link to={"/Shop"} className="nav-link">
             Shop
           </Link>
+          <Link to={"/Shop1"} className="nav-link">
+            Shop1
+          </Link>
           <NavDropdown className=""
             title="Product"
             id="basic-nav-dropdown" /*className="bg-dark text-white"*/
