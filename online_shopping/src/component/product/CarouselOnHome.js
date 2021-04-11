@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import {Carousel} from "react-bootstrap";
 import axios from "axios";
 import Carousel from 'react-bootstrap/Carousel';
+import { Link } from "react-router-dom";
 import "./product.css";
 
 class CarouselOnHome extends Component {
@@ -39,12 +40,14 @@ class CarouselOnHome extends Component {
         {
                   carouselProducts.map((product) => (
           <Carousel.Item className=" bg-light" interval={2500}  key={product.productId}>
+            <Link to={"/viewproduct/" + product.productId}>
             <img
               className="text-center"
               style={{height:"500px", width:"670px",objectFit:"contain"}}
               src={product.pictureUrl}
               //alt="First slide"
             />
+            </Link>
             {/* <Carousel.Caption className="text-dark"> */}
               {/* <h3>{product.productName}</h3>
               <p>{product.dimension}<br/>{product.specification}</p> */}
