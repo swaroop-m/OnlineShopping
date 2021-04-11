@@ -17,7 +17,7 @@ public interface IOrderService{
 	public Order viewOrder(Integer orderId);
 	public List<Order> viewAllOrdersByDate(LocalDate date);
 	public List<Order> viewAllOrdersCustomer(Integer customerId);
-	public List<Order> viewAllOrdersByAddressId(Integer addressId);	
+	
 }
 //Code ends here
 //Author:Aishwarya A S
