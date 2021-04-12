@@ -6,7 +6,8 @@ import { faUsers, faList, faEdit, faTrash, faStepBackward, faFastBackward, faSte
 import { connect } from 'react-redux';
 import axios from 'axios';
 import OrderToast from "./OrderToast";
-
+//Author : Aishwarya A S
+//Code Starts here
 class OrderList extends Component {
 
     constructor(props) {
@@ -26,7 +27,7 @@ class OrderList extends Component {
     componentDidMount() {
         this.findAllOrder();
     }
-
+    //To find all orders
     findAllOrder() {
         axios.get("http://localhost:9000/api/viewallorders")
             .then(response => response.data)
@@ -38,8 +39,8 @@ class OrderList extends Component {
 
  ;
 
-
-
+        
+    //Pagination code
     changePage = event => {
         this.setState({
             [event.target.name]: parseInt(event.target.value)
@@ -81,7 +82,7 @@ class OrderList extends Component {
 
 
 
-
+       //Deleting an order based on ID
     deleteOrder = (orderId) => {
         axios.delete("http://localhost:9000/api/deleteorders/" + orderId)
             .then(response => {
@@ -99,7 +100,7 @@ class OrderList extends Component {
 
             });
     };
-
+    //Find an order by ID
     findOrderById = (orderId) => {
         axios.get("http://localhost:9000/api/vieworder/" + orderId)
             .then(response => {
@@ -129,14 +130,13 @@ class OrderList extends Component {
 
 
     render() {
-
+           //Pagination
         const { orders, currentPage, ordersPerPage } = this.state;
         const lastIndex = currentPage * ordersPerPage;
         const firstIndex = lastIndex - ordersPerPage;
-
         const currentOrders = orders.slice(firstIndex, lastIndex);
         const totalPages = Math.ceil(orders.length / ordersPerPage);
-
+        
         const pageNumCss = {
             width: "45px",
             // border: "1px",
@@ -199,9 +199,11 @@ class OrderList extends Component {
 
                                                     <td className="text-center align-middle">
                                                         <ButtonGroup>
+                                                            //Editing an order
                                                             <Link to={"editorder/" + order.orderId} className="btn btn-md btn-outline-primary mr-2 rounded-0">
                                                                 <FontAwesomeIcon icon={faEdit} />
                                                             </Link>{' '}
+                                                            //Deleteing an order
                                                             <Button size="md" variant="outline-danger rounded-0" onClick={this.deleteOrder.bind(this, order.orderId)}>
                                                                 <FontAwesomeIcon icon={faTrash} />
                                                             </Button>
@@ -217,6 +219,7 @@ class OrderList extends Component {
                             </Table>
                         </div>
                     </Card.Body>
+                  //Code for pagination
                     {orders.length > 0 ?
                         <Card.Footer>
                             <div style={{ "float": "left" }}>
@@ -264,3 +267,4 @@ class OrderList extends Component {
 }
 
 export default OrderList;
+//Code ends here
