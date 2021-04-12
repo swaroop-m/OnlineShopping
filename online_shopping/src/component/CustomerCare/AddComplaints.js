@@ -1,9 +1,11 @@
-import React , {useEffect, useState} from 'react'
+//author: Sajan Kamath V
+//code Starts here
+import React , {useState} from 'react'
 import axios from 'axios'
 import {Button,  Form } from 'react-bootstrap'
 import {RiCustomerService2Fill} from 'react-icons/ri'
 
-
+//form to let customers register complaints
 function Addcomplaints() {
 
     let [complaints,setComplaints]=useState({name:' ',phoneNo: ' ',productName:' ',message:' '})
@@ -16,14 +18,13 @@ function Addcomplaints() {
         window.location.reload()
         };
 
-
     function successSubmit(){  
           alert("Complaint registered successfully!!");
         }
             
 
     return (
-<>
+    <>
         <div className="container">
       <h3><RiCustomerService2Fill/> Customer Care</h3>
 
@@ -52,7 +53,7 @@ function Addcomplaints() {
                 <Form.Control as="textarea" placeholder="Issue with the product?" rows={3} onChange={e=>setComplaints({...complaints,message:e.target.value})} value={complaints.message} />
             </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={successSubmit}>
+            <Button variant="warning" type="submit" onClick={successSubmit}>
                 Submit
             </Button>
         </Form>
@@ -65,3 +66,5 @@ function Addcomplaints() {
    
 
 export default Addcomplaints
+
+//code ends here

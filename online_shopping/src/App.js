@@ -56,8 +56,6 @@ export default function App() {
             <Route path="/Home" exact component={Home}/>
             <Route path="/Shop" exact component={Shop}/>
 
-
-
             <Route path="/addproduct" exact component={Product}/>
             <Route path="/editproduct/:productId" exact component={Product}/>
             <Route path="/listproducts" exact component={ProductList}/>
@@ -83,8 +81,7 @@ export default function App() {
               <Provider store={store}><UserList/></Provider>}/>
             <Route path="/Logout" exact component={Login}/>
 
-            {/* <CreateProduct />
-            <ProductList /> */}
+           
           </Col>
         </Row>
       </div>

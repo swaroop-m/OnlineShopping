@@ -1,24 +1,21 @@
+//author: Sajan Kamath V
+//code Starts here
 import React from 'react';
 import Addcomplaints from '../CustomerCare/AddComplaints';
-import ViewAllComplaints from '../CustomerCare/ViewAllComplaints';
 
-
-
+//UI
 function CustomerCare() {
 
   return (
     <div>
     <Addcomplaints/>
     <br/>
-    <br/>
     
-    {/* <ViewAllComplaints/> */}
-    <br/>
-    <br/>
     </div>
     
    );
 }
     
 export default CustomerCare;
+//code ends here
 

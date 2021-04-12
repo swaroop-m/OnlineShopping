@@ -1,22 +1,24 @@
-import React,{useState,useEffect} from 'react'
+//author: Sajan Kamath V
+//code Starts here
+import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import './cart.css'
-import { Button} from 'react-bootstrap'
-import {GrSubtract} from 'react-icons/gr'
-import {VscAdd} from 'react-icons/vsc'
+import { Button} from 'react-bootstrap';
+import {GrSubtract} from 'react-icons/gr';
+import {VscAdd} from 'react-icons/vsc';
+import './cart.css';
 
 
-//contains all products which are added to cart //allworking
+//contains all products which are added to cart 
+//remove button -> remove a product from cart onClick
+//addQuantity -> onclick increment quantity +1
+//deleteQuantity -> onclick decrement quantity -1
 function Addtocart(props) {
-
 
     const cartItems= useSelector(state=>state.cart.cart)
 
     const dispatch = useDispatch();
 
-
     const removeFromcart = (product) => {
-        
         dispatch({type:'REMOVE_PRODUCT', payload: product})
      }
 
@@ -27,10 +29,6 @@ function Addtocart(props) {
      const subQuantity = (product) => {
         dispatch({type:'SUB_QUANTITY',payload:product})
      }
-     
-    console.log(cartItems);
-
-
 
     return (
         <>
@@ -71,3 +69,5 @@ function Addtocart(props) {
 
 
 export default Addtocart
+
+//Code ends here

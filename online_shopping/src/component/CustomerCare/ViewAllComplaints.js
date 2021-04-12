@@ -1,7 +1,9 @@
+//author: Sajan Kamath V
+//code Starts here
 import React ,{useEffect,useState} from 'react'
 import axios from 'axios'
 
-
+//here you can view all the complaints by customer
 function ViewAllComplaints(props) {
 
     let [complaints,setComplaints]=useState([])
@@ -48,5 +50,7 @@ function ViewAllComplaints(props) {
 }
 
 export default ViewAllComplaints
+
+//code ends here
 
 
