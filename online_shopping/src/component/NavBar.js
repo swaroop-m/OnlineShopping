@@ -178,20 +178,21 @@ class NavBar extends Component {
 
         <NavDropdown
           title="Customer"
-          id="basic-nav-dropdown-c" /*className="bg-dark text-white"*/
-        >
-          <NavDropdown.Item className="NavDropdown">
+          id="basic-nav-dropdown-c" /*className="bg-dark text-white"*/>
+          <NavDropdown.Item className="NavDropdown bg-warning">
             <Link to={"/addcustomer"} className="nav-link">
               Add Customer
             </Link>
           </NavDropdown.Item>
-          <NavDropdown.Item className="NavDropdown">
+          <NavDropdown.Item className="NavDropdown bg-warning">
             <Link to={"/listcustomers"} className="nav-link">
               Customer List
             </Link>
           </NavDropdown.Item>
+          <NavDropdown.Item className="NavDropdown bg-warning">
+          <Link to={"/ViewAllComplaints"} classname="nav-link">Complaints</Link>
+          </NavDropdown.Item>
         </NavDropdown>
-
 
   <NavDropdown
           title="Order"
@@ -209,7 +210,6 @@ class NavBar extends Component {
             </Link>
           </NavDropdown.Item>
         </NavDropdown>
-
 
         <Link to={"/AboutUs"} className="nav-link">
           AboutUs
@@ -248,13 +248,9 @@ class NavBar extends Component {
 
         
 
-        <NavDropdown
-          title="Customer C"
-          id="basic-nav-dropdown" /*className="bg-dark text-white"*/>
-          <NavDropdown.Item >
-              <Link to={"/ViewAllComplaints"} classname="nav-link">ViewAllComplaints</Link>
-          </NavDropdown.Item>
-        </NavDropdown>
+        
+              
+          
 
 
 

@@ -1,3 +1,6 @@
+//author: Sajan Kamath V
+//code Starts here
+
 import axios from "axios";
 
 //api to add products to cart
@@ -10,8 +13,8 @@ export function apiAddToCart(product,products){
         await axios.post(url,{products:products})
         dispatch({type:"ADD_TO_CART",payload: product})
     }
-
 }
 
+// api call code ends here
 
 

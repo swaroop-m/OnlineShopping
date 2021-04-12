@@ -1,9 +1,11 @@
-import React from 'react' 
-import {BsInfoCircle} from 'react-icons/bs'
-import { Button, Badge} from 'react-bootstrap'
-import { useSelector } from 'react-redux'
-import './cart.css'
+//author: Sajan Kamath V
+//code Starts here
+import React from 'react'; 
+import {BsInfoCircle} from 'react-icons/bs';
+import { Button, Badge} from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import './cart.css';
 
 //conatins-> subtotal,delivery(info),total and placeOder button //all working
 function  CartPriceDetails(props) {
@@ -22,7 +24,6 @@ function  CartPriceDetails(props) {
         
         const delivery =   getSubTotal > 5000 ? 0 : 50
     
-
 //working totalPrice
         const totalPrice= getSubTotal + delivery
 
@@ -65,3 +66,5 @@ function  CartPriceDetails(props) {
 }
 
 export default CartPriceDetails
+
+//code ends here

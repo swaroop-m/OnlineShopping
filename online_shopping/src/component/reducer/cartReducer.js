@@ -1,4 +1,13 @@
-// Common REUSABLE STATE
+//author: Sajan Kamath V
+//code Starts here
+
+
+//conatins all fucntion Logic
+//1.ADD_TO_CART
+//2.REMOVE_PRODUCT
+//3.CLEAR_CART
+//4.ADD_QUANTITY
+//5.SUB_QUANTITY
 const initialState = {
   cart:[], 
 };
@@ -43,8 +52,6 @@ function cartReducer(state = initialState, action) {
 
 //addQuantity
       case "ADD_QUANTITY":
-        // console.log(action.payload);
-        // console.log(state.cart)
       let cartItems= state.cart.find(cartItem => cartItem.productId === action.payload.productId)
       cartItems.cartQuantity =cartItems.cartQuantity+1
       return{...state,cart:[...state.cart]}
@@ -61,7 +68,6 @@ case "SUB_QUANTITY":
     cartItems1.cartQuantity =cartItems1.cartQuantity-1
     return{...state,cart:[...state.cart]}
   }
-    
     default:
       return state;
   }
@@ -69,4 +75,4 @@ case "SUB_QUANTITY":
 
 
 export default cartReducer;
-// const cartStore = createStore(cartReducer);
+//CODE ENDS HERE

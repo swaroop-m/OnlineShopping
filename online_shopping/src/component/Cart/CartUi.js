@@ -1,23 +1,21 @@
-import React from 'react'
-import {AiOutlineShoppingCart } from 'react-icons/ai'
-import {Link} from 'react-router-dom'
-import { Button} from 'react-bootstrap'
-import { useDispatch, useSelector } from "react-redux";
-import './cart.css'
+//author: Sajan Kamath V
+//code Starts here
+import React from 'react';
+import {AiOutlineShoppingCart } from 'react-icons/ai';
+import {Link} from 'react-router-dom';
+import {Button} from 'react-bootstrap';
+import {useDispatch, useSelector} from "react-redux";
+import AddToCart from './AddToCart';
+import CartPriceDetails from './CartPriceDetails';
+import './cart.css';
 
-import AddToCart from './AddToCart'
-import  CartPriceDetails from './CartPriceDetails'
-
-// import ViewAllProducts from './ViewAllProducts'
-
-
-
-//contains-> header , clear cart , display text 'cart is empty'
+//contains-> header 
+//clear cart button-> onclick removes all product from the cart ,
+//if cart===null -> display text 'cart is empty'
 function CartUi(props) {
 
     const cartItems= useSelector(state=>state.cart.cart)
     const dispatch = useDispatch();
-
 
     const clearCart=(product)=>{
     dispatch({ type: "CLEAR_CART"});
@@ -48,10 +46,11 @@ function CartUi(props) {
             <CartPriceDetails/>
      
         </div> 
-        {/* <ViewAllProducts/> */}
         </>
     )
 }
 
 
 export default CartUi
+
+//code ends here
