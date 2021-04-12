@@ -1,30 +1,37 @@
-import React, {Component} from 'react';
-import {Toast, ToastBody} from 'react-bootstrap';
+//MyToast.js
+
+
+// Author: Shrestha Chowdhury [JEEFSI_Uni41]
+// Code starts here
+import React, { Component } from 'react';
+import { Toast, ToastBody } from 'react-bootstrap';
 
 export default class MyToast extends Component {
-    render(){
+    render() {
 
+        //Defining the toast message box properties
         const toastCss = {
             position: 'fixed',
-            top:'10px',
-            right:'20px',
-            zIndex:'1',
+            top: '10px',
+            right: '20px',
+            zIndex: '1',
             boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
         };
 
-        return(
+        return (
+            // creating the toast message boxes and displaying the right messages
             <div style={this.props.show ? toastCss : null}>
                 <Toast className={`border text-white ${this.props.type === "success" ? "border-success bg-success" : "border-danger bg-danger"} `} show={this.props.show}>
                     <Toast.Header className={`text-white ${this.props.type === "success" ? "bg-success" : "bg-danger"}`} closeButton={false}>
                         <strong className="mr-auto">Success</strong>
                     </Toast.Header>
                     <ToastBody>
-                       {this.props.message} 
+                        {this.props.message}
                     </ToastBody>
                 </Toast>
             </div>
         );
     };
-
-
 }
+// Author: Shrestha Chowdhury [JEEFSI_Uni41]
+// Code ends here
