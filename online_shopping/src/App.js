@@ -39,10 +39,6 @@ export default function App() {
     marginTop: "20px"
   }
 
-  // const heading = "Welcome to Book Store";
-  // const quote = "Good friends, good books, and a sleepy conscience: this is the ideal life.";
-  // const footer = "Mark Twain";
-
   return (
     <div>
     <Router>
