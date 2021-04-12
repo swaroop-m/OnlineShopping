@@ -14,7 +14,7 @@ function  CartPriceDetails(props) {
     let history=useHistory();
     let placeOrderClick= () => {
         console.log("Placed Order", new Date())
-        history.push("thankyou");
+        history.push("ordersummary");
     }
 
 //working subTotal
