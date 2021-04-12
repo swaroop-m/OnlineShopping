@@ -3,8 +3,9 @@ import axios from "axios";
 import { Image, Button } from "react-bootstrap";
 import HorizontalGallery from "react-dynamic-carousel";
 import { Link, useHistory } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import {AiOutlineShoppingCart} from 'react-icons/ai'
+import {apiAddToCart} from '../Cart/action'
 
 
 
@@ -29,6 +30,8 @@ class ViewProduct extends Component {
     price: 0.0,
     categoryName: "",
   };
+
+  
 
   findProductById = (productId) => {
     axios
@@ -81,11 +84,20 @@ class ViewProduct extends Component {
     }
   }
 
-  addToCart = (product) => {
-    // const cartItem= {productName:"product2",price:"12",quantity:"34" }
+  // addToCart = (product) => {
+  //   // const cartItem= {productName:"product2",price:"12",quantity:"34" }
 
-    this.props.dispatch({ type: "ADD_TO_CART", payload: product });
-  };
+  //   this.props.dispatch({ type: "ADD_TO_CART", payload: product });
+  // };
+
+  // dispatch=useDispatch();
+
+  addToCart =(product)=>{
+    console.log(product)
+    this.props.dispatch(apiAddToCart(product,[...this.props.cart.cart,product]));
+  }
+
+  
 
   render() {
     const {
@@ -107,6 +119,7 @@ class ViewProduct extends Component {
       color: "#333333",
       lineHeight: "1.6",
     };
+    
 
     return (
       <div className="container">
@@ -127,14 +140,8 @@ class ViewProduct extends Component {
             <div className="col-xs-12 col-md-6 col-lg-6 ">
               <div className="" style={ptitle}>
                 <h2
-                  // className = "display-6"
                   style={{
-                    //fontFamily: "Raleway, sans-serif",
-                    // fontWeight: "200",
-                    // fontStyle: "normal",
                     marginBottom: "0em",
-                    // lineHeight: "1.4",
-                    // color: "#333333",
                   }}
                 >
                   {productName}

@@ -106,15 +106,15 @@ public class OrderModuleTest {
 	}
 
 	//Tests viewAllOrdersByDate method
-	@Test
-	public void testViewAllOrdersByDate(){
-		List<Order> order=new ArrayList<Order>();
-		order.add(order1);
-		when(orderRepository.findByOrderDate(LocalDate.of(2021, 11, 12))).thenReturn(order);
-		List<Order> o=orderServiceImpl.viewAllOrdersByDate(LocalDate.of(2021, 11, 12));
-		Assertions.assertEquals(order,o);
-
-	}
+//	@Test
+//	public void testViewAllOrdersByDate(){
+//		List<Order> order=new ArrayList<Order>();
+//		order.add(order1);
+//		when(orderRepository.findByOrderDate(LocalDate.of(2021, 11, 12))).thenReturn(order);
+//		List<Order> o=orderServiceImpl.viewAllOrdersByDate(LocalDate.of(2021, 11, 12));
+//		Assertions.assertEquals(order,o);
+//
+//	}
 
 	
 	

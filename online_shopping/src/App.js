@@ -15,7 +15,6 @@ import ViewProduct from './component/product/ViewProduct'
 
 import Customer from './component/Customer/Customer'
 import CustomerList from './component/Customer/CustomerList'
-// import Customer from './component/Customer/Customer'
 
 import Cart from './component/navComponents/Cart'
 import AboutUs from './component/navComponents/AboutUs'
@@ -23,7 +22,6 @@ import Home from './component/navComponents/Home'
 import CustomerCare from './component/navComponents/CustomerCare'
 import MyProfile from './component/Customer/MyProfile'
 import Shop from './component/product/Shop'
-import Shop1 from './component/product/Shop1'
 
 import OrderList from './component/Order/OrderList'
 import OrderSummary from './component/Order/OrderSummary'
@@ -56,7 +54,6 @@ export default function App() {
             <Route path="/" exact component={Welcome}/>
             <Route path="/Home" exact component={Home}/>
             <Route path="/Shop" exact component={Shop}/>
-            <Route path="/Shop1" exact component={Shop1}/>
 
 
 
