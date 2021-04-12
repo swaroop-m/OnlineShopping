@@ -1,8 +1,9 @@
-
 import { Button, Card, Col, Row ,Form} from 'react-bootstrap'
 import './orderStyle.css'
 import React from 'react'
 import { useHistory } from "react-router-dom";
+//Author:Aishwarya A S
+//Code Starts here
  function ThankYou(props){
      
      return(
@@ -15,3 +16,4 @@ import { useHistory } from "react-router-dom";
      )
  }
  export default ThankYou
+//Code ends here
