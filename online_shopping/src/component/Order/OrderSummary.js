@@ -5,7 +5,8 @@ import Order from './Order'
 import ThankYou from './ThankYou'
 import { useHistory } from 'react-router';
 import axios from 'axios';
-
+//Author:Aishwarya A S
+//Code Starts here
 function OrderSummary(props) {
          
      var myCurrentDate = new Date();
@@ -87,3 +88,4 @@ function OrderSummary(props) {
     
 
 export default OrderSummary;
+//Code ends here
