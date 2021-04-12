@@ -130,7 +130,7 @@ class OrderList extends Component {
 
 
     render() {
-           //Pagination
+          
         const { orders, currentPage, ordersPerPage } = this.state;
         const lastIndex = currentPage * ordersPerPage;
         const firstIndex = lastIndex - ordersPerPage;
@@ -219,7 +219,7 @@ class OrderList extends Component {
                             </Table>
                         </div>
                     </Card.Body>
-                  //Code for pagination
+                  
                     {orders.length > 0 ?
                         <Card.Footer>
                             <div style={{ "float": "left" }}>
