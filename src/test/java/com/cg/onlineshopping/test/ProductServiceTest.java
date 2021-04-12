@@ -40,7 +40,7 @@ public class ProductServiceTest {
 
 	@BeforeEach
 	void setup() {
-		category = new Category("category1");
+//		category = new Category("category1");
 		product1 = new Product("product1", "dim", "spec", "manufacture", 2, "url", 10.0, category);
 		product2 = new Product("product2", "dim", "spec", "manufacture", 2, "url", 10.0, category);
 		product3 = new Product("product3", "dim", "spec", "manufacture", 2, "url", 10.0, category);

@@ -21,8 +21,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 @Entity     //creating the table in the database
 @Data		//creating getters, setters, hashcode, toString
-@NoArgsConstructor	//creating a no argument constructor
-@AllArgsConstructor	//creating an all arguments constructor
 @Api(value = "UserEntity", tags = { "User Entity" })
 @Table(name="Users")	//storing the table as "users" in database as "user" is a reserved keyword
 public class User

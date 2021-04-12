@@ -65,7 +65,6 @@ class NavBar extends Component {
         {/* <Link to={"addproduct"} className="nav-link">Add Products</Link>
                   <Link to={"listproducts"} className="nav-link">Product List</Link> */}
         
-<<<<<<< HEAD
           <NavDropdown className=""
             title="Product"
             id="basic-nav-dropdown" /*className="bg-dark text-white"*/
@@ -174,7 +173,6 @@ class NavBar extends Component {
             Cart 
             <AiOutlineShoppingCart size="1.5em" />
           </Link>
-=======
 
         <NavDropdown
           title="Customer"
@@ -239,7 +237,6 @@ class NavBar extends Component {
         
 
         <Link to={"/UserList"} className="nav-link">Users List</Link>
->>>>>>> 88b908c8a087baa7f969dcaeaa1df19b36422175
 
         <Link to={"/Cart"} className="nav-link">
           Cart 
