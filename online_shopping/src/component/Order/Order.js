@@ -4,7 +4,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlusSquare, faSave, faUndo, faList, faEdit} from '@fortawesome/free-solid-svg-icons';
 import OrderToast from './OrderToast';
 import axios from 'axios';
-
+// Author:Aishwarya A S
+// Code Starts here
  class Order extends Component{
     constructor(props){
         super(props);
@@ -13,23 +14,21 @@ import axios from 'axios';
         this.orderChange=this.orderChange.bind(this);
         this.submitOrder=this.submitOrder.bind(this);
     }
-
+    //State of the variables
     initialState = {
-        orderId:'',orderDate:'',orderStatus:'', firstName:'', lastName:'', mobileNumber:'', email:'', deStreetNo:'', deBuildingName:'', deCity:'', deState:'', country:'', pincode:''
+        orderId:'',orderDate:'',orderStatus:'', firstName:'', lastName:'', mobileNumber:'', email:'', streetNo:'', buildingName:'', city:'', state:'', country:'', pincode:''
 
     };
 
+    //called after the component is rendered
     componentDidMount() {
         const orderId = +this.props.match.params.orderId;
-        const orderDate= +this.props.match.params.orderDate;
-        const deliveryAddressId=+this.props.match.params.deliveryAddressId
         if(orderId) {
             this.findOrderById(orderId);
-            this.findOrderbyDate(orderDate);
-            this.findOrderByLocation(deliveryAddressId);
         }
     }
-
+    
+    //Function to find an oder by ID
     findOrderById = (orderId) => {
         axios.get("http://localhost:9000/api/vieworder/"+orderId)
             .then(response => {
@@ -56,6 +55,7 @@ import axios from 'axios';
             });
     }
    
+     //OnClick event
     submitOrder = event => {
         event.preventDefault();
 
@@ -95,7 +95,7 @@ import axios from 'axios';
         
     };
 
-
+    //Updates an order
     updateOrder = event => {
         event.preventDefault();
 
@@ -109,14 +109,7 @@ import axios from 'axios';
                 email:this.state.email,
                 mobileNumber:this.state.mobileNumber
             },
-            deliveryAddress:{
-                streetNo: this.state.streetNo, 
-                buildingName: this.state.buildingName, 
-                city: this.state.city, 
-                state: this.state.state, 
-                country: this.state.country, 
-                pincode: this.state.pincode
-            }
+           
         };
 
 
@@ -159,7 +152,8 @@ import axios from 'axios';
         })
 
     };
-
+    
+    //Declarative routing
     orderList = () => {
         return this.props.history.push("/listorder");
     };
@@ -172,11 +166,11 @@ import axios from 'axios';
 
         return (
             <div className="container">
-
+                //Toast Message
                 <div style={{"display":this.state.show ? "block" : "none"}}>
                     <OrderToast show={this.state.show} message={this.state.method === "put" ? "Order Updated Successfully." : "Order Saved Successfully."} type={"success"}/>
                 </div>
-
+                 
                 <Card className={"border border-dark bg-info text-white"}>
                     <Card.Header>
                         <FontAwesomeIcon icon={this.state.orderId ? faEdit : faPlusSquare} /> {this.state.orderId ? "Update Order" : "Add Order"} 
@@ -189,7 +183,7 @@ import axios from 'axios';
                                     <Form.Control required autoComplete="nope"
                                         type="test" name="orderDate"
                                         value={orderDate} onChange={this.orderChange}
-                                        placeholder="Enter order date" />
+                                        placeholder="Enter order date" disabled/>
                                 </Form.Group>
 
 
@@ -243,4 +237,4 @@ import axios from 'axios';
     }
 }
 export default Order;
-
+//Code ends here
