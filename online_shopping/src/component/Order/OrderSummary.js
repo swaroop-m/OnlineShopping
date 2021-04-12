@@ -48,10 +48,7 @@ function OrderSummary(props) {
                                      <p><b>Order Date:</b>{newCurrentDate}</p>
                                      <p><b>Order Status:</b> Confirmed</p><br/>
                                     
-                                     <div className="top-element-formatting">
-                                     <input type="checkbox"></input>{" "}
-                                            <span className="second-word-formatting"><label><i>Delivery Address is same as Billing Address</i></label></span>
-                                      </div>                                        
+                                                                       
                                 </Col> 
                             </Row>
                             <hr/>
