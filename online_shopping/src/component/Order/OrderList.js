@@ -199,11 +199,11 @@ class OrderList extends Component {
 
                                                     <td className="text-center align-middle">
                                                         <ButtonGroup>
-                                                            //Editing an order
+                                                            {/* //Editing an order */}
                                                             <Link to={"editorder/" + order.orderId} className="btn btn-md btn-outline-primary mr-2 rounded-0">
                                                                 <FontAwesomeIcon icon={faEdit} />
                                                             </Link>{' '}
-                                                            //Deleteing an order
+                                                            {/* //Deleteing an order */}
                                                             <Button size="md" variant="outline-danger rounded-0" onClick={this.deleteOrder.bind(this, order.orderId)}>
                                                                 <FontAwesomeIcon icon={faTrash} />
                                                             </Button>

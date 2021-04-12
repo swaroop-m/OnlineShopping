@@ -9,18 +9,20 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.state = this.initialState;
-    this.state.show = false;
+    this.state.show = false;        // this show vaiable is used for showing the toast, while adding, updating and deleting produts.
     this.state.saving = 0;
     this.state.method = "post";
     this.state.isValid = false;
     this.productChange = this.productChange.bind(this);
     this.submitProduct = this.submitProduct.bind(this);
   }
+  //Setting the initial state to empty string.
   initialState = {
     productId: "", pictureUrl: "", productName: "", dimension: "", specification: "", manufacturer: "", quantity: 0, price: 0.0, categoryName: "",
     quantityError: "", priceError: "", imageError: ""
   };
 
+  // code for validation of the form
   validate = () => {
     if (!Number.isInteger(parseInt(this.state.quantity))) {
       this.state.quantityError = "Quantity must be an Integer";
@@ -60,6 +62,7 @@ class Product extends Component {
     return true;
   };
 
+  // code to handle submit
   submitProduct = (event) => {
     event.preventDefault();
     this.state.isValid = this.validate();
@@ -100,7 +103,7 @@ class Product extends Component {
       this.setState({ saving: 0 });
     }
   };
-
+//code to update a product
   updateProduct = (event) => {
     event.preventDefault();
     const product = {
@@ -143,10 +146,12 @@ class Product extends Component {
     });
   };
 
+  // using history to navigate to list products page
   productList = () => {
     return this.props.history.push("/listproducts");
   };
 
+  // lifecycle method used to fetch details of product as soon as page gets loaded
   componentDidMount() {
     const productId = +this.props.match.params.productId;
     if (productId) {
